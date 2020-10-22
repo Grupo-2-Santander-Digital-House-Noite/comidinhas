@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,18 +15,65 @@
                     <view key="view" contentMode="scaleToFill" id="fcc-dj-FI0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-nh-BB7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="trY-Pq-E9F"/>
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nmb-nh-BB7" firstAttribute="top" secondItem="trY-Pq-E9F" secondAttribute="top" id="0zC-wa-ni5"/>
+                            <constraint firstItem="trY-Pq-E9F" firstAttribute="bottom" secondItem="Nmb-nh-BB7" secondAttribute="bottom" id="BhW-Tl-WjE"/>
+                            <constraint firstItem="Nmb-nh-BB7" firstAttribute="leading" secondItem="trY-Pq-E9F" secondAttribute="leading" id="a0J-qe-yjD"/>
+                            <constraint firstItem="trY-Pq-E9F" firstAttribute="trailing" secondItem="Nmb-nh-BB7" secondAttribute="trailing" id="b17-cp-O26"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipes" id="kNS-2M-b6z">
                         <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="AOQ-fy-hNJ">
                             <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recipesListTableView" destination="Nmb-nh-BB7" id="bO2-r3-qmm"/>
+                        <segue destination="NEe-Th-Sc7" kind="show" identifier="RecipeDetailVC" id="w6N-Ms-yen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8Y-M9-4Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="-464"/>
+            <point key="canvasLocation" x="889.85507246376824" y="-464.0625"/>
+        </scene>
+        <!--Recipe DetailVC-->
+        <scene sceneID="m9G-As-1Sh">
+            <objects>
+                <viewController id="NEe-Th-Sc7" customClass="RecipeDetailVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ti7-ob-gn3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xKU-lg-fV2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vUf-BV-emk"/>
+                        <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xKU-lg-fV2" firstAttribute="leading" secondItem="vUf-BV-emk" secondAttribute="leading" id="0uI-jg-kvi"/>
+                            <constraint firstItem="vUf-BV-emk" firstAttribute="trailing" secondItem="xKU-lg-fV2" secondAttribute="trailing" id="XVM-Zx-AD6"/>
+                            <constraint firstItem="vUf-BV-emk" firstAttribute="bottom" secondItem="xKU-lg-fV2" secondAttribute="bottom" id="ukQ-pE-oCo"/>
+                            <constraint firstItem="xKU-lg-fV2" firstAttribute="top" secondItem="vUf-BV-emk" secondAttribute="top" id="vh3-aS-Jcg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9g6-vw-i4t"/>
+                    <connections>
+                        <outlet property="recipeDetailTableView" destination="xKU-lg-fV2" id="89r-Bn-1bg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4t-6h-Qc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="-464"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="WMk-Bl-FUs">
@@ -56,5 +104,8 @@
     <resources>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
