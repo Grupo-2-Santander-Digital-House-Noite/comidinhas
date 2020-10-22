@@ -28,6 +28,8 @@
 		E53E92BB2540AC170007C559 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92BA2540AC170007C559 /* Recipe.swift */; };
 		E53E92CD2540ACE70007C559 /* RecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92CB2540ACE70007C559 /* RecipesCell.swift */; };
 		E53E92CE2540ACE70007C559 /* RecipesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53E92CC2540ACE70007C559 /* RecipesCell.xib */; };
+		E53E931A25411B3A0007C559 /* ResumoDaReceitaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E931825411B3A0007C559 /* ResumoDaReceitaCell.swift */; };
+		E53E931B25411B3A0007C559 /* ResumoDaReceitaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53E931925411B3A0007C559 /* ResumoDaReceitaCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		E53E92BA2540AC170007C559 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E53E92CB2540ACE70007C559 /* RecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCell.swift; sourceTree = "<group>"; };
 		E53E92CC2540ACE70007C559 /* RecipesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCell.xib; sourceTree = "<group>"; };
+		E53E931825411B3A0007C559 /* ResumoDaReceitaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumoDaReceitaCell.swift; sourceTree = "<group>"; };
+		E53E931925411B3A0007C559 /* ResumoDaReceitaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResumoDaReceitaCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 			children = (
 				E53E92CB2540ACE70007C559 /* RecipesCell.swift */,
 				E53E92CC2540ACE70007C559 /* RecipesCell.xib */,
+				E53E931825411B3A0007C559 /* ResumoDaReceitaCell.swift */,
+				E53E931925411B3A0007C559 /* ResumoDaReceitaCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				BC5E888A253FA64D005345EE /* Assets.xcassets in Resources */,
 				BC5E8888253FA649005345EE /* Main.storyboard in Resources */,
 				E53E92832540A1F10007C559 /* Favorites.storyboard in Resources */,
+				E53E931B25411B3A0007C559 /* ResumoDaReceitaCell.xib in Resources */,
 				E53E928D2540A2030007C559 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +350,7 @@
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
 				E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
+				E53E931A25411B3A0007C559 /* ResumoDaReceitaCell.swift in Sources */,
 				E53E92CD2540ACE70007C559 /* RecipesCell.swift in Sources */,
 				E53E92BB2540AC170007C559 /* Recipe.swift in Sources */,
 			);
