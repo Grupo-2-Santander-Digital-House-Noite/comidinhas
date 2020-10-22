@@ -24,6 +24,9 @@
 		E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92992540A3880007C559 /* FavoritesVC.swift */; };
 		E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E929E2540A3970007C559 /* ShoppingListVC.swift */; };
 		E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92A32540A3A50007C559 /* SettingsVC.swift */; };
+		E563472A25420A14002B77FF /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563472925420A14002B77FF /* Favorites.swift */; };
+		E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563473225420BB4002B77FF /* FavoritesCell.swift */; };
+		E563473525420BB4002B77FF /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E563473325420BB4002B77FF /* FavoritesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		E53E92992540A3880007C559 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		E53E929E2540A3970007C559 /* ShoppingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListVC.swift; sourceTree = "<group>"; };
 		E53E92A32540A3A50007C559 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		E563472925420A14002B77FF /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		E563473225420BB4002B77FF /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		E563473325420BB4002B77FF /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,8 @@
 		BC5E887F253FA649005345EE /* Comidinhas */ = {
 			isa = PBXGroup;
 			children = (
+				E563473125420B96002B77FF /* Cells */,
+				E563472825420A05002B77FF /* Models */,
 				E53E927C2540A1C80007C559 /* Storyboard */,
 				016018972540744900F36A37 /* view */,
 				BC5E8880253FA649005345EE /* AppDelegate.swift */,
@@ -169,6 +177,23 @@
 				E53E928C2540A2030007C559 /* Settings.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E563472825420A05002B77FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E563472925420A14002B77FF /* Favorites.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E563473125420B96002B77FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E563473225420BB4002B77FF /* FavoritesCell.swift */,
+				E563473325420BB4002B77FF /* FavoritesCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +304,7 @@
 				E53E92882540A1FA0007C559 /* ShoppingList.storyboard in Resources */,
 				BC5E888A253FA64D005345EE /* Assets.xcassets in Resources */,
 				BC5E8888253FA649005345EE /* Main.storyboard in Resources */,
+				E563473525420BB4002B77FF /* FavoritesCell.xib in Resources */,
 				E53E92832540A1F10007C559 /* Favorites.storyboard in Resources */,
 				E53E928D2540A2030007C559 /* Settings.storyboard in Resources */,
 			);
@@ -308,9 +334,11 @@
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
 				E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */,
+				E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */,
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
 				01601899254074C400F36A37 /* LoginVC.swift in Sources */,
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
+				E563472A25420A14002B77FF /* Favorites.swift in Sources */,
 				E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
 			);
