@@ -14,7 +14,7 @@ protocol ShoppingListDelegate {
         - Parameter shoppingList: Lista de compras afetada.
         - Parameter ingredient: Ingrediente adicionado.
      */
-    func didAddItem(_ shoppingList: ShoppingList, ingredient: IngredientEntry) -> Void
+    func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) -> Void
     
     /**
         Disparado quando um item é removido da lista de compras.
