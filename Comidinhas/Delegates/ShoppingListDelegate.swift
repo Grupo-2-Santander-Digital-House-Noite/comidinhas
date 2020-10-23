@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ShoppingListDelegate {
+protocol ShoppingListDelegate: AnyObject {
     /**
         Disparado quando um item é adicionado a lista de compras
      

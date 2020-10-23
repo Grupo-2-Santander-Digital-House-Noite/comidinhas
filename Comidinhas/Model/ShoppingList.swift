@@ -82,4 +82,14 @@ class ShoppingList {
         
         return self.shoppingList[name]
     }
+    
+    func subscribe(delegate: ShoppingListDelegate) -> Void {
+        self.delegates.append(delegate)
+    }
+    
+    func unsubscribe(delegate: ShoppingListDelegate) -> Void {
+        if let index = self.delegates.firstIndex(where: {$0 === delegate}) {
+            self.delegates.remove(at: index)
+        }
+    }
 }
