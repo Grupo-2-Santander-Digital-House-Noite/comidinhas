@@ -54,7 +54,7 @@ class ShoppingList {
         self.shoppingList.removeValue(forKey: ingredient.name)
         
         self.delegates.forEach { (delegate) in
-            delegate.didAddItem(self, ingredient: ingredient)
+            delegate.didAdd(self, ingredient: ingredient)
         }
     }
     
