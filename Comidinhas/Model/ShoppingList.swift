@@ -65,12 +65,44 @@ class ShoppingList {
     
     /**
         Remove todos os ingredientes.
+     */
+    func clear() {
+        self.shoppingList = [:]
+    }
     
+    /**
+        Obtem todas as entradas de ingredientes da lista
         - Returns: Array de ingredientes cadastrados na lista.
      */
     func getAll() -> [IngredientEntry] {
         return self.shoppingList.values.map { (ingredientEntry) -> IngredientEntry in
             return ingredientEntry
+        }.sorted { (ingredientA, ingredientB) -> Bool in
+            ingredientA.name < ingredientB.name
+        }
+    }
+    
+    /**
+        Obtem todos os ingredientes ainda marcados como comprados.
+        - Returns: Array de ingredientes marcados
+     */
+    func getMarcados() -> [IngredientEntry] {
+        return self.shoppingList.values.filter { (ingredient) -> Bool in
+            return ingredient.marked == ShoppingListItemStateEnum.MARCADO
+        }.sorted { (ingredientA, ingredientB) -> Bool in
+            ingredientA.name < ingredientB.name
+        }
+    }
+    
+    /**
+        Obtem todos os ingredientes ainda não marcados como comprados.
+        - Returns: Array de ingredientes desmarcados.
+     */
+    func getDesmarcados() -> [IngredientEntry] {
+        return self.shoppingList.values.filter { (ingredient) -> Bool in
+            return ingredient.marked == ShoppingListItemStateEnum.DESMARCADO
+        }.sorted { (ingredientA, ingredientB) -> Bool in
+            ingredientA.name < ingredientB.name
         }
     }
     
