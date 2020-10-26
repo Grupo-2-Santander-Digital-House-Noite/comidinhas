@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol ToggleIngredientMarkedDelegate: AnyObject {
+    func toggled()
+}
+
 class IngredientEntry {
     
     /** Nome do Ingrediente **/
