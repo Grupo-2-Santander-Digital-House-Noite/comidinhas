@@ -11,10 +11,15 @@ class ShoppingList {
     
     private var shoppingList: [String: IngredientEntry]
     private var delegates: [ShoppingListDelegate]
+    private static var instance: ShoppingList?
     
     static var shared: ShoppingList {
-        let shoppingList = ShoppingList()
-        return shoppingList;
+        guard let _instance = self.instance else {
+            self.instance = ShoppingList()
+            return self.instance!
+        }
+        
+        return _instance
     }
     
     private init() {
@@ -59,8 +64,8 @@ class ShoppingList {
     }
     
     /**
-        Obtem todas as entradas de ingredientes da lista
-     
+        Remove todos os ingredientes.
+    
         - Returns: Array de ingredientes cadastrados na lista.
      */
     func getAll() -> [IngredientEntry] {
