@@ -59,7 +59,7 @@
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="gqv-ST-Ihg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="1Ck-JN-rH6"/>
                     <constraint firstAttribute="trailing" secondItem="gqv-ST-Ihg" secondAttribute="trailing" constant="10" id="2Lr-dA-QdC"/>
@@ -90,7 +90,7 @@
                 <outlet property="servingsLabel" destination="CrZ-ZK-LPR" id="fob-ad-LHa"/>
                 <outlet property="timeLabel" destination="3oT-kV-GKO" id="Mic-Ki-crU"/>
             </connections>
-            <point key="canvasLocation" x="-575" y="-4"/>
+            <point key="canvasLocation" x="-377" y="-6"/>
         </tableViewCell>
     </objects>
     <resources>
