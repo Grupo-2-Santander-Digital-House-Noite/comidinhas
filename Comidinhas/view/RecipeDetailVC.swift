@@ -30,7 +30,7 @@ class RecipeDetailVC: UIViewController {
     var receita:Recipe?
     
 
-    // MARK: configTableView
+    // MARK: configTableView e configDetalhes
     
     private func configTableView() {
         self.recipeDetailTableView.delegate = self
@@ -38,9 +38,24 @@ class RecipeDetailVC: UIViewController {
         
         self.recipeDetailTableView.tableFooterView = UIView(frame: .zero)
         
-        self.recipeDetailTableView.register(UINib(nibName: "ResumoDaReceitaCell", bundle: nil), forCellReuseIdentifier: "ResumoDaReceitaCell")
+        // Registro das células
+        self.recipeDetailTableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
+        self.recipeDetailTableView.register(UINib(nibName: "IngredientesTituloCell", bundle: nil), forCellReuseIdentifier: "IngredientesTituloCell")
+        self.recipeDetailTableView.register(UINib(nibName: "IngredientesCell", bundle: nil), forCellReuseIdentifier: "IngredientesCell")
+        self.recipeDetailTableView.register(UINib(nibName: "StepsToPrepareTituloCell", bundle: nil), forCellReuseIdentifier: "StepsToPrepareTituloCell")
+        self.recipeDetailTableView.register(UINib(nibName: "StepsToPrepareCell", bundle: nil), forCellReuseIdentifier: "StepsToPrepareCell")
+        self.recipeDetailTableView.register(UINib(nibName: "AvaliationTituloCell", bundle: nil), forCellReuseIdentifier: "AvaliationTituloCell")
+        self.recipeDetailTableView.register(UINib(nibName: "AvaliationCell", bundle: nil), forCellReuseIdentifier: "AvaliationCell")
+        self.recipeDetailTableView.register(UINib(nibName: "SeeMoreAndAvaliationCell", bundle: nil), forCellReuseIdentifier: "SeeMoreAndAvaliationCell")
     }
     
+    
+    private func configDetalhes() {
+        self.nomeLabel.text = "Chocolate cake"
+        self.categoriaLabel.text = "Desert"
+        self.tempoLabel.text = "40 min"
+        self.servingsLabel.text = "40 servings"
+    }
     
     
     // MARK: viewDidLoad
@@ -48,9 +63,11 @@ class RecipeDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configDetalhes()
         self.configTableView()
         self.detalheReceitaView.backgroundColor = UIColor(red: 1.00, green: 0.73, blue: 0.36, alpha: 1.00)
         
+        //Adicionar Tap Gesture na label de favoritar
         let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
         tapGestureToFavoriteLabel.numberOfTapsRequired = 1
         favoriteLabel.isUserInteractionEnabled = true
@@ -58,7 +75,7 @@ class RecipeDetailVC: UIViewController {
     }
     
     
-    // MARK: @obj func panInFavoriteLabel
+    // MARK: func panInFavoriteLabel
     
     @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
         if self.favoriteLabel.text == "♡" {
@@ -67,9 +84,6 @@ class RecipeDetailVC: UIViewController {
             self.favoriteLabel.text = "♡"
         }
     }
-    
-
-    
 
 }
 
@@ -79,19 +93,47 @@ class RecipeDetailVC: UIViewController {
 
 extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 8
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:ResumoDaReceitaCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "ResumoDaReceitaCell", for: indexPath) as? ResumoDaReceitaCell
-        cell?.nameLabel.text = self.receita?.name
-        cell?.categoryLabel.text = self.receita?.category
-        cell?.timeLabel.text = self.receita?.time
-        cell?.servingsLabel.text = self.receita?.servings
+        
+        switch indexPath.row {
+        case 0:
+            let cell:ImageCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as? ImageCell
+            return cell ?? UITableViewCell()
+        case 1:
+            let cell:IngredientesTituloCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "IngredientesTituloCell", for: indexPath) as? IngredientesTituloCell
+            return cell ?? UITableViewCell()
+        case 2:
+            let cell:IngredientesCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "IngredientesCell", for: indexPath) as? IngredientesCell
+            return cell ?? UITableViewCell()
+        case 3:
+            let cell:StepsToPrepareTituloCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "StepsToPrepareTituloCell", for: indexPath) as? StepsToPrepareTituloCell
+            return cell ?? UITableViewCell()
+        case 4:
+            let cell:StepsToPrepareCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "StepsToPrepareCell", for: indexPath) as? StepsToPrepareCell
+            return cell ?? UITableViewCell()
+        case 5:
+            let cell:AvaliationTituloCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "AvaliationTituloCell", for: indexPath) as? AvaliationTituloCell
+            return cell ?? UITableViewCell()
+        case 6:
+            let cell:AvaliationCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "AvaliationCell", for: indexPath) as? AvaliationCell
+            return cell ?? UITableViewCell()
+        default:
+            let cell:SeeMoreAndAvaliationCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
+            return cell ?? UITableViewCell()
+        }
+        
+//        let cell:IngredientesTituloCell? = self.recipeDetailTableView.dequeueReusableCell(withIdentifier: "IngredientesTituloCell", for: indexPath) as? IngredientesTituloCell
+//        cell?.nameLabel.text = self.receita?.name
+//        cell?.categoryLabel.text = self.receita?.category
+//        cell?.timeLabel.text = self.receita?.time
+//        cell?.servingsLabel.text = self.receita?.servings
 //        cell?.setup(receita: self.arrayreceitas[indexPath.row])
         
-        return cell ?? UITableViewCell()
+//        return cell ?? UITableViewCell()
     }
     
     

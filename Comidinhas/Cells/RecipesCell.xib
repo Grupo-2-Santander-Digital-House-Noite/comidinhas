@@ -91,7 +91,7 @@
                 <outlet property="servingsLabel" destination="jWP-FO-cV6" id="eQG-SP-Wb7"/>
                 <outlet property="timeLabel" destination="0A7-Sr-Wn4" id="Rn4-yL-LKH"/>
             </connections>
-            <point key="canvasLocation" x="-107" y="15"/>
+            <point key="canvasLocation" x="-591" y="13"/>
         </tableViewCell>
     </objects>
     <resources>

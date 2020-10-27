@@ -44,6 +44,8 @@
 		E5614A1525476D83007F9C42 /* AvaliationTituloCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5614A1325476D83007F9C42 /* AvaliationTituloCell.xib */; };
 		E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5614A1C2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift */; };
 		E5614A1F2547803C007F9C42 /* SeeMoreAndAvaliationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5614A1D2547803C007F9C42 /* SeeMoreAndAvaliationCell.xib */; };
+		E59858952548D82700DC64D7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59858932548D82700DC64D7 /* ImageCell.swift */; };
+		E59858962548D82700DC64D7 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59858942548D82700DC64D7 /* ImageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		E5614A1325476D83007F9C42 /* AvaliationTituloCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvaliationTituloCell.xib; sourceTree = "<group>"; };
 		E5614A1C2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreAndAvaliationCell.swift; sourceTree = "<group>"; };
 		E5614A1D2547803C007F9C42 /* SeeMoreAndAvaliationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeMoreAndAvaliationCell.xib; sourceTree = "<group>"; };
+		E59858932548D82700DC64D7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		E59858942548D82700DC64D7 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,8 @@
 				E53E92CC2540ACE70007C559 /* RecipesCell.xib */,
 				E53E931825411B3A0007C559 /* ResumoDaReceitaCell.swift */,
 				E53E931925411B3A0007C559 /* ResumoDaReceitaCell.xib */,
+				E59858932548D82700DC64D7 /* ImageCell.swift */,
+				E59858942548D82700DC64D7 /* ImageCell.xib */,
 				E56149F325476D23007F9C42 /* IngredientesTituloCell.swift */,
 				E56149F425476D23007F9C42 /* IngredientesTituloCell.xib */,
 				E56149DE25476656007F9C42 /* IngredientesCell.swift */,
@@ -350,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59858962548D82700DC64D7 /* ImageCell.xib in Resources */,
 				E56149E125476656007F9C42 /* IngredientesCell.xib in Resources */,
 				E53E927E2540A1E40007C559 /* Recipes.storyboard in Resources */,
 				E56149F625476D23007F9C42 /* IngredientesTituloCell.xib in Resources */,
@@ -399,6 +406,7 @@
 				E56149E725476679007F9C42 /* StepsToPrepareCell.swift in Sources */,
 				01601899254074C400F36A37 /* LoginVC.swift in Sources */,
 				E56149FC25476D46007F9C42 /* StepsToPrepareTituloCell.swift in Sources */,
+				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
 				E56149F525476D23007F9C42 /* IngredientesTituloCell.swift in Sources */,
 				E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */,
