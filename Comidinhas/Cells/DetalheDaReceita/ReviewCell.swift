@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AvaliationCell: UITableViewCell {
+class ReviewCell: UITableViewCell {
     
     @IBOutlet weak var usuarioLabel: UILabel!
     @IBOutlet weak var usuarioEstrelasLabel: UILabel!
@@ -24,6 +24,14 @@ class AvaliationCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func setupReview(review:Reviews) {
+        self.usuarioLabel.text = review.usuario
+        self.usuarioEstrelasLabel.text = review.estrelas
+        self.usuarioDataLabel.text = review.data
+        self.usuarioComentarioLabel.text = review.comentario
     }
     
 }

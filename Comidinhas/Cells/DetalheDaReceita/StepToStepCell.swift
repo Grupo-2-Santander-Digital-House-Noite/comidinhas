@@ -1,17 +1,16 @@
 //
-//  AvaliationTituloCell.swift
+//  StepToStepCell.swift
 //  Comidinhas
 //
-//  Created by Fabio Makihara on 26/10/20.
+//  Created by Fabio Makihara on 29/10/20.
 //
 
 import UIKit
 
-class AvaliationTituloCell: UITableViewCell {
-    
-    @IBOutlet weak var mediaEstrelasLabel: UILabel!
-    @IBOutlet weak var totalAvaliacaoLabel: UILabel!
-    
+class StepToStepCell: UITableViewCell {
+
+    @IBOutlet weak var numLabel:UILabel!
+    @IBOutlet weak var stepLabel:UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +21,12 @@ class AvaliationTituloCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func setupStep(step:Steps) {
+        self.numLabel.text = step.num
+        self.stepLabel.text = step.step
     }
     
 }

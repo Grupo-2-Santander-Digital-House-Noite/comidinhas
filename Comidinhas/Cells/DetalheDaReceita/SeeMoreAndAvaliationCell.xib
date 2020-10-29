@@ -26,6 +26,9 @@
                         <state key="normal" title="See more reviews">
                             <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="tappedMoreReviewButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FZo-qt-eQt"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J2-06-2aP">
                         <rect key="frame" x="15" y="61" width="147" height="21"/>
@@ -34,6 +37,9 @@
                         <state key="normal" title="Write your review" image="square.and.pencil" catalog="system">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="tappedWriteReview:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dhi-7R-VZe"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -46,7 +52,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="-104" y="-23"/>
+            <connections>
+                <outlet property="moreReviewsButton" destination="mp4-do-vUg" id="Iha-ag-917"/>
+                <outlet property="writeReviewButton" destination="7J2-06-2aP" id="s0P-MJ-qww"/>
+            </connections>
+            <point key="canvasLocation" x="181" y="48"/>
         </tableViewCell>
     </objects>
     <resources>

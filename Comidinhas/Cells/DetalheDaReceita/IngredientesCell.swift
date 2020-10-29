@@ -25,4 +25,11 @@ class IngredientesCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func setupIngredientes(ingredientes:Ingredites){
+        self.qtdLabel.text = String(ingredientes.quantidade ?? 0)
+        self.unidadeLabel.text = ingredientes.unidade
+        self.ingredienteLabel.text = ingredientes.ingrediente
+        
+    }
 }

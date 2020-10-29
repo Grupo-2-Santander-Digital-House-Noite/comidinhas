@@ -51,7 +51,7 @@
                 <outlet property="qtdLabel" destination="lBc-68-mV4" id="5IQ-55-nNx"/>
                 <outlet property="unidadeLabel" destination="aNO-lX-W0M" id="ap5-bU-R1I"/>
             </connections>
-            <point key="canvasLocation" x="-277" y="-31"/>
+            <point key="canvasLocation" x="-4" y="11"/>
         </tableViewCell>
     </objects>
 </document>

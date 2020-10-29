@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChocolateCake" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-uA-Mvi">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-uA-Mvi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="180" id="590-Pq-E9n"/>
@@ -33,10 +33,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="52" y="17"/>
+            <connections>
+                <outlet property="recipeImageView" destination="PIt-uA-Mvi" id="BzJ-5t-MyC"/>
+            </connections>
+            <point key="canvasLocation" x="-193" y="7"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ChocolateCake" width="414" height="416"/>
-    </resources>
 </document>
