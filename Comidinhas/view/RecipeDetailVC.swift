@@ -190,10 +190,29 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
         case 6:
             let cell:SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
+            cell?.delegate = self
             return cell ?? UITableViewCell()
         default:
             return UITableViewCell()
         }
         }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+    }
+    
+}
+
+
+
+extension RecipeDetailVC:SeeMoreAndAvaliationCellDelegate {
+    func tappedAllReviews() {
+        self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
+    }
+    
+    
+    func tappedWriteReview() {
+        self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
+    }
 }
