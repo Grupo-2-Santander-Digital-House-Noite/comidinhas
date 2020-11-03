@@ -273,6 +273,9 @@
                                 <state key="normal" title="Post review">
                                     <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedPostReviewButton:" destination="WMs-PJ-rS2" eventType="touchUpInside" id="Nf1-CJ-hcx"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-oG-RaS">
                                 <rect key="frame" x="15" y="364" width="384" height="34"/>

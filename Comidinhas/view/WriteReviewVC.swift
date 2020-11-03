@@ -9,6 +9,9 @@ import UIKit
 
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
+    
+    var review:Reviews?
+    
     // IBOutlet View de Detalhes
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -41,6 +44,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         self.reviewTextField.delegate = self
     }
     
+ 
     
     // MARK: func panInFavoriteLabel
     
@@ -78,6 +82,25 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         }
         print(starsLabel.text ?? "")
     }
+    
+    
+    
+    
+    // MARK: tappedPostReviewButton
+    
+    @IBAction func tappedPostReviewButton(_ sender: UIButton) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        self.review = Reviews(usuario: "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
+        print(review ?? "")
+//        guard let _review = self.review else {
+//            return Reviews(usuario: "", estrelas: "", data: "")
+//        }
+        arrayReviews.insert(review!, at: 0)
+        print(arrayReviews)
+     
+    }
+    
 
 }
 
