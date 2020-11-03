@@ -76,6 +76,7 @@ class RecipeDetailVC: UIViewController {
     }
     
     
+    
     // MARK: func panInFavoriteLabel
     
     @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {

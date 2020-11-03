@@ -94,11 +94,12 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         self.review = Reviews(usuario: "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
         print(review ?? "")
 //        guard let _review = self.review else {
-//            return Reviews(usuario: "", estrelas: "", data: "")
+//            return Reviews(usuario: "", estrelas: "", data: "", comentario: "")
 //        }
         arrayReviews.insert(review!, at: 0)
         print(arrayReviews)
-     
+        
+        dismiss(animated: true, completion: nil)
     }
     
 
