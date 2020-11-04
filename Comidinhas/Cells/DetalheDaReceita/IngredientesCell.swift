@@ -26,7 +26,7 @@ class IngredientesCell: UITableViewCell {
     }
     
     
-    func setupIngredientes(ingredientes:Ingredites){
+    func setupIngredientes(ingredientes:Ingredients){
         self.qtdLabel.text = String(ingredientes.quantidade ?? 0)
         self.unidadeLabel.text = ingredientes.unidade
         self.ingredienteLabel.text = ingredientes.ingrediente
