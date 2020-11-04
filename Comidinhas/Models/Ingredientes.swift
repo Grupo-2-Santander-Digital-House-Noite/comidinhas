@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct Ingredites : Codable {
+struct Ingredients : Codable {
     var quantidade:Double?
     var unidade:String?
     var ingrediente:String
