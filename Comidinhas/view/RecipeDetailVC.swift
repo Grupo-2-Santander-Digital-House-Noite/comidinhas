@@ -15,7 +15,8 @@ class RecipeDetailVC: UIViewController {
 
     let SEGUE_ID_ALL_REVIEWS_VC = "AllReviewsVC"
     let SEGUE_ID_WRITE_REVIEW_VC = "WriteReviewVC"
-
+    
+    // MARK: IBOutlet
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var tempoLabel: UILabel!
     @IBOutlet weak var categoriaLabel: UILabel!
@@ -87,7 +88,10 @@ class RecipeDetailVC: UIViewController {
         }
     }
 
-}
+    // MARK: SEGUE HANDLER
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Esta classe usa dois possíveis segues.
+    }
 
 
 
@@ -292,13 +296,14 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 
 
-extension RecipeDetailVC:SeeMoreAndAvaliationCellDelegate {
+extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate {
+    
     func tappedAllReviews() {
         self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
     }
     
-    
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
     }
+    
 }
