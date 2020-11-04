@@ -25,7 +25,7 @@ class StepToStepCell: UITableViewCell {
     
     
     func setupStep(step:Steps) {
-        self.numLabel.text = step.num
+        self.numLabel.text = "\(step.num)."
         self.stepLabel.text = step.step
     }
     
