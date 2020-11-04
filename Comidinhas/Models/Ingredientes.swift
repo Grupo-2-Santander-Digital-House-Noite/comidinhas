@@ -9,10 +9,16 @@ import Foundation
 
 
 
-struct Ingredites {
+struct Ingredites : Codable {
     var quantidade:Double?
     var unidade:String?
     var ingrediente:String
+    
+    enum CodingKeys: String, CodingKey {
+        case quantidade = "amount"
+        case unidade = "unit"
+        case ingrediente = "name"
+    }
 }
 
 
