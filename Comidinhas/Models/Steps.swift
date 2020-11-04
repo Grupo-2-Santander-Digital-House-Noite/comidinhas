@@ -8,20 +8,24 @@
 import Foundation
 
 
-struct Steps {
-    var num:String
-    var step:String
+struct StepsSection: Codable {
+    
+    var name: String
+    var steps: [Steps]
+    
+    enum CodingKeys: String, CodingKey {
+        case name =  "name"
+        case steps = "steps"
+    }
+    
 }
 
-
-
-var arrayStepsDough:[Steps] = [Steps(num: "1.", step: "Beat eggs and milk"),
-Steps(num: "2.", step: "Add sugar and chocolate powder and beat again"),
-Steps(num: "3.", step: "Place the flour and yeast in a bowl and slowly add to the mixture"),
-Steps(num: "4.", step: "Bear for another 4 minutes"),
-Steps(num: "5.", step: "Pour the dough into a greased baking sheet and place in a medium oven (180 degrees), preheated, for 40 minutes")]
-
-
-var arrayStepsIcing:[Steps] = [Steps(num: "1.", step: "Over medium heat, mix the chocolate powder, butter and milk until boiling"),
-Steps(num: "2.", step: "While it is still hot, pour the mixture over the baked cake")]
-
+struct Steps: Codable {
+    var num:Int
+    var step:String
+    
+    enum CodingKeys: String, CodingKey {
+        case num = "number"
+        case step = "step"
+    }
+}

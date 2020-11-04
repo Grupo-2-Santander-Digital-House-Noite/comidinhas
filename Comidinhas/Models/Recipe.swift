@@ -8,18 +8,53 @@
 import Foundation
 
 
-struct Recipe {
-    var name:String?
-    var time:String?
-    var category:String?
-    var servings:String?
-    var image:String?
+struct RecipeResults: Codable {
+    var results: [Recipe]
 }
 
-
-
-var arrayreceitas:[Recipe] = [Recipe(name: "Chocolate cake", time: "40m", category: "Dessert", servings: "40 servings", image: "ChocolateCake"),
-                         Recipe(name: "Rainbow cake", time: "3h 30m", category: "Dessert", servings: "16 servings", image: "RainbowCake"),
-                         Recipe(name: "Tomato soup", time: "40m", category: "Soup", servings: "4 servings", image: "TomatoSoup"),
-                         Recipe(name: "Chicken strogonoff", time: "1h", category: "Main course", servings: "4 servings", image: "ChickenStrogonoff"),
-                         Recipe(name: "Hamburger", time: "30m", category: "Snack", servings: "2 servings", image: "Hamburger")]
+struct Recipe: Codable {
+    var name:String?
+    var time:Int?
+    var category:[String]?
+    var servings:Int?
+    var image:String?
+    var ingredients: [Ingredients]?
+    var stepsSection: [StepsSection]
+    
+    var categoryString: String {
+        get {
+            
+            if self.category?.count == 1 {
+                return self.category?[0] ?? ""
+            }
+            
+            guard let categorias = self.category else {
+                return "N/A"
+            }
+            
+            var categoriasString = ""
+            var count = 0;
+            for categoria in categorias {
+                if count == 0 {
+                    categoriasString = categoria
+                    count += 1
+                } else {
+                    categoriasString = "\(categoriasString), \(categoria)"
+                }
+                
+            }
+            
+            return categoriasString
+        }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "title"
+        case time = "readyInMinutes"
+        case category = "dishTypes"
+        case servings = "servings"
+        case image = "image"
+        case ingredients = "extendedIngredients"
+        case stepsSection = "analyzedInstructions"
+    }
+}
