@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol WriteReviewVCDelegate: AnyObject {
+    func savedReview(_ review: Reviews) -> Void
+}
+
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     
