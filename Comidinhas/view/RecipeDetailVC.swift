@@ -87,11 +87,24 @@ class RecipeDetailVC: UIViewController {
             self.favoriteLabel.text = "♡"
         }
     }
-
+    
     // MARK: SEGUE HANDLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Esta classe usa dois possíveis segues.
+        switch segue.identifier {
+        case self.SEGUE_ID_ALL_REVIEWS_VC:
+            // passa dados ao Destination do ALL REVIEWS
+            break
+        case self.SEGUE_ID_WRITE_REVIEW_VC:
+            // passa dados ao Destination do WRITE REVIEWS
+            break
+        default:
+            // Faz nada
+            return
+        }
     }
+
+}
 
 
 
