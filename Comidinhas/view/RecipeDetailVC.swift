@@ -13,7 +13,8 @@ import UIKit
 
 class RecipeDetailVC: UIViewController {
 
-    // MARK: IBOutlet
+    let SEGUE_ID_ALL_REVIEWS_VC = "AllReviewsVC"
+    let SEGUE_ID_WRITE_REVIEW_VC = "WriteReviewVC"
 
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var tempoLabel: UILabel!
