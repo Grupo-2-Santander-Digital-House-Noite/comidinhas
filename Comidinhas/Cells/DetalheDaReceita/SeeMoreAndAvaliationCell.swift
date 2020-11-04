@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol SeeMoreAndAvaliationCellDelegate:class {
+    func tappedAllReviews()
+    func tappedWriteReview()
+}
+
+
 class SeeMoreAndAvaliationCell: UITableViewCell {
+    
+    weak var delegate:SeeMoreAndAvaliationCellDelegate?
 
     @IBOutlet weak var moreReviewsButton: UIButton!
     @IBOutlet weak var writeReviewButton: UIButton!
@@ -27,11 +35,13 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
     
     @IBAction func tappedMoreReviewButton(_ sender: UIButton) {
         print("tappedMoreReviewButton=====")
+        self.delegate?.tappedAllReviews()
     }
     
     
     @IBAction func tappedWriteReview(_ sender: UIButton) {
         print("tappedWriteReviewButton=====")
+        self.delegate?.tappedWriteReview()
     }
     
     

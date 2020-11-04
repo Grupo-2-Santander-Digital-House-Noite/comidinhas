@@ -281,9 +281,23 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
     }
     
+      
     private func getModoPreparoIndexFor(_ section: Int) -> Int {
         let modoPreparoSectionMax = (self.receita?.stepsSection.count ?? 0) + 1
         return section - 2
     }
 
+}
+
+
+
+extension RecipeDetailVC:SeeMoreAndAvaliationCellDelegate {
+    func tappedAllReviews() {
+        self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
+    }
+    
+    
+    func tappedWriteReview() {
+        self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
+    }
 }
