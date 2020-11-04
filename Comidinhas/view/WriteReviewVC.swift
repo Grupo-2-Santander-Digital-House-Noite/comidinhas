@@ -13,7 +13,7 @@ protocol WriteReviewVCDelegate: AnyObject {
 
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
-    
+    var delegate: WriteReviewVCDelegate?
     var review:Reviews?
     
     // IBOutlet View de Detalhes
@@ -101,7 +101,11 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
 //            return Reviews(usuario: "", estrelas: "", data: "", comentario: "")
 //        }
         arrayReviews.insert(review!, at: 0)
-        print(arrayReviews)
+        
+        // Invoca comportamento do nosso delegate!
+        if let _review = self.review {
+            self.delegate?.savedReview(_review)
+        }
         
         dismiss(animated: true, completion: nil)
     }
