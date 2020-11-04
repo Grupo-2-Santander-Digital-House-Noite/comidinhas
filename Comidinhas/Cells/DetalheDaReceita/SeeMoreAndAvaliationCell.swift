@@ -44,7 +44,4 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
         self.delegate?.tappedWriteReview()
     }
     
-    
-    
-    
 }
