@@ -308,8 +308,13 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-
-extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate {
+// MARK: extension Delegate for Review Related Stuff
+extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
+    
+    func savedReview(_ review: Reviews) {
+        // Nesse momento só atualizamos a tabela de reviews.
+        self.recipeDetailTableView.reloadData()
+    }
     
     func tappedAllReviews() {
         self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
