@@ -23,7 +23,6 @@ class RecipesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.configTableView()
         // Do any additional setup after loading the view.
     }
@@ -36,7 +35,7 @@ class RecipesVC: UIViewController {
 
 extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayreceitas.count
+        return RecipesWebService.shared.recipes.count
     }
     
     
@@ -44,14 +43,14 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:RecipesCell? = self.recipesListTableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as? RecipesCell
         
-        cell?.setup(receita: arrayreceitas[indexPath.row])
+        cell?.setup(receita: RecipesWebService.shared.recipes[indexPath.row])
         
         return cell ?? UITableViewCell()
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "RecipeDetailVC", sender: "")
+        self.performSegue(withIdentifier: "RecipeDetailVC", sender: RecipesWebService.shared.recipes[indexPath.row])
     }
     
     
