@@ -291,6 +291,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == verMaisAvaliacoesSection {
 
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
+            cell?.delegate = self
             return cell ?? UITableViewCell()
 
         }
