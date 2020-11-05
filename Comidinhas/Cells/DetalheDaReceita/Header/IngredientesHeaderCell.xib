@@ -23,8 +23,8 @@
                             <color key="textColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part of the recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-vN-ENs">
-                            <rect key="frame" x="112" y="9.5" width="141" height="25"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Part of the recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-vN-ENs">
+                            <rect key="frame" x="112" y="9.5" width="193" height="25"/>
                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                             <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -38,6 +38,7 @@
                         <constraint firstItem="3ee-vN-ENs" firstAttribute="centerY" secondItem="K89-xh-VQf" secondAttribute="centerY" id="fZG-QY-kUe"/>
                         <constraint firstItem="3ee-vN-ENs" firstAttribute="leading" secondItem="P4c-ZQ-hCn" secondAttribute="trailing" constant="5" id="qQj-Fq-Sgd"/>
                         <constraint firstItem="P4c-ZQ-hCn" firstAttribute="centerY" secondItem="K89-xh-VQf" secondAttribute="centerY" id="rxx-VF-cnA"/>
+                        <constraint firstAttribute="trailing" secondItem="3ee-vN-ENs" secondAttribute="trailing" constant="15" id="yCk-XU-gCR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -53,7 +54,7 @@
             <connections>
                 <outlet property="partOfTheRecipeLabel" destination="3ee-vN-ENs" id="up5-Gb-oBm"/>
             </connections>
-            <point key="canvasLocation" x="-71" y="31"/>
+            <point key="canvasLocation" x="328" y="21"/>
         </view>
     </objects>
     <resources>

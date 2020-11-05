@@ -8,6 +8,7 @@
 import UIKit
 
 class AllReviewsVC: UIViewController {
+
     
     // IBOutlet da View de Detalhes
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,20 +19,25 @@ class AllReviewsVC: UIViewController {
     // IBOutlet da TableView
     @IBOutlet weak var reviewsTableView: UITableView!
     
-    
+
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
         
+        self.reviewsTableView.tableFooterView = UIView(frame: .zero)
+        
         self.reviewsTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.reviewsTableView.register(UINib(nibName: "ReviewHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "ReviewHeaderCell")
     }
+    
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configTableView()
-
+        
         let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
         tapGestureToFavoriteLabel.numberOfTapsRequired = 1
         self.favoriteLabel.isUserInteractionEnabled = true

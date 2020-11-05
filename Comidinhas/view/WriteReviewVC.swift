@@ -16,6 +16,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     var delegate: WriteReviewVCDelegate?
     var review:Reviews?
     
+    
     // IBOutlet View de Detalhes
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!

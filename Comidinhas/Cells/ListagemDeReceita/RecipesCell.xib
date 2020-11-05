@@ -23,14 +23,14 @@
                             <constraint firstAttribute="height" constant="180" id="zWT-CQ-NVg"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9w-Hx-V0I">
-                        <rect key="frame" x="10" y="185" width="300" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe's name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9w-Hx-V0I">
+                        <rect key="frame" x="10" y="185" width="300" height="24.5"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                         <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gg-uo-llA">
-                        <rect key="frame" x="113.5" y="209" width="41" height="15"/>
+                        <rect key="frame" x="73.5" y="209" width="41" height="15"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="10"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -41,8 +41,8 @@
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWP-FO-cV6">
-                        <rect key="frame" x="220.5" y="209" width="39" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Servings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWP-FO-cV6">
+                        <rect key="frame" x="140.5" y="209" width="39" height="15"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="10"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -52,24 +52,24 @@
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bookmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IHk-SM-IR0">
-                        <rect key="frame" x="97" y="212" width="13" height="13"/>
+                        <rect key="frame" x="57" y="212" width="13" height="13"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mMj-or-QEc">
-                        <rect key="frame" x="204.5" y="210.5" width="13" height="13"/>
+                        <rect key="frame" x="124.5" y="210.5" width="13" height="13"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="RX8-mM-EV0" firstAttribute="top" secondItem="d9w-Hx-V0I" secondAttribute="bottom" constant="1" id="3Ic-Vg-gcv"/>
-                    <constraint firstItem="IHk-SM-IR0" firstAttribute="leading" secondItem="0A7-Sr-Wn4" secondAttribute="trailing" constant="50" id="8f3-Zy-6gz"/>
+                    <constraint firstItem="IHk-SM-IR0" firstAttribute="leading" secondItem="0A7-Sr-Wn4" secondAttribute="trailing" constant="10" id="8f3-Zy-6gz"/>
                     <constraint firstAttribute="trailing" secondItem="51E-In-vdn" secondAttribute="trailing" id="AJu-2R-gbC"/>
                     <constraint firstItem="51E-In-vdn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bjz-uB-tAY"/>
                     <constraint firstItem="1gg-uo-llA" firstAttribute="leading" secondItem="IHk-SM-IR0" secondAttribute="trailing" constant="3" id="Csi-8H-r5M"/>
                     <constraint firstAttribute="bottomMargin" secondItem="mMj-or-QEc" secondAttribute="bottom" constant="14" id="EgJ-m0-tUN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jWP-FO-cV6" secondAttribute="bottom" constant="15" id="Hea-Wa-bbx"/>
-                    <constraint firstItem="mMj-or-QEc" firstAttribute="leading" secondItem="1gg-uo-llA" secondAttribute="trailing" constant="50" id="Hhj-wA-QRt"/>
+                    <constraint firstItem="mMj-or-QEc" firstAttribute="leading" secondItem="1gg-uo-llA" secondAttribute="trailing" constant="10" id="Hhj-wA-QRt"/>
                     <constraint firstItem="d9w-Hx-V0I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="HvF-uG-WK8"/>
                     <constraint firstItem="51E-In-vdn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nyr-VM-LHN"/>
                     <constraint firstItem="d9w-Hx-V0I" firstAttribute="top" secondItem="51E-In-vdn" secondAttribute="bottom" constant="5" id="V7c-T9-Npw"/>
@@ -91,7 +91,7 @@
                 <outlet property="servingsLabel" destination="jWP-FO-cV6" id="eQG-SP-Wb7"/>
                 <outlet property="timeLabel" destination="0A7-Sr-Wn4" id="Rn4-yL-LKH"/>
             </connections>
-            <point key="canvasLocation" x="-591" y="13"/>
+            <point key="canvasLocation" x="-623" y="-77"/>
         </tableViewCell>
     </objects>
     <resources>
