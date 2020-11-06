@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShoppingListVC: UIViewController {
+class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
     @IBOutlet weak var shoppingListTableView: UITableView!
     
@@ -79,6 +79,14 @@ class ShoppingListVC: UIViewController {
         self.shoppingListTableView.reloadData()
     }
     
+    // MARK: REACT WHEN SHOPPING LIST IS UPDATED
+    func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
+        self.updateTableView()
+    }
+    
+    func didRemove(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
+        self.updateTableView()
+    }
 }
 
 extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {

@@ -133,6 +133,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        // Achar uma forma melhor de definir a seção de ingredientes.
         if indexPath.section != 1 {
             return nil
         }
