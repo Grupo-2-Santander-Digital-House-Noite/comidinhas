@@ -18,12 +18,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.setupTableView()
         self.view.backgroundColor = UIColor(red: 1, green: 0.8509803922, blue: 0.5921568627, alpha: 1)
         
-        // Adicionando um ingrediente
-//        var ingrediente: IngredientEntry = IngredientEntry(named: "Flour", withAmount : 500.0, andMeasureUnity: "grams")
-//        ShoppingList.shared.add(ingredient: ingrediente)
-//        
-//        // Removendo um ingrediente
-//        ShoppingList.shared.remove(ingredient: ingrediente)
+        ShoppingList.shared.subscribe(delegate: self)
         
     }
     
