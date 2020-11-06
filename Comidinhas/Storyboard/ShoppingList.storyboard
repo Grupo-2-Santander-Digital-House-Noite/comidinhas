@@ -43,7 +43,7 @@
         <scene sceneID="BWI-G0-0Mz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Egm-uD-CSa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" id="8g4-sx-aKP"/>
+                    <tabBarItem key="tabBarItem" tag="1000" title="Shopping List" image="cart" catalog="system" id="8g4-sx-aKP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARP-e8-B0s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

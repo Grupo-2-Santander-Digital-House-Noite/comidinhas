@@ -2,14 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9h2-nk-blY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="hHs-6b-cH4">
             <objects>
-                <tabBarController id="9h2-nk-blY" sceneMemberID="viewController">
+                <tabBarController id="9h2-nk-blY" customClass="MainTabBarController" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vr-Ze-qUs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -50,7 +51,7 @@
         <scene sceneID="JtZ-X3-bo8">
             <objects>
                 <viewControllerPlaceholder storyboardName="ShoppingList" id="ZUk-rH-3mK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BtP-Wa-Och"/>
+                    <tabBarItem key="tabBarItem" tag="1000" title="Item" id="BtP-Wa-Och"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IF-U2-9tj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
