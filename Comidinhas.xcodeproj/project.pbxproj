@@ -225,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				BCE4C1E42542984E00FDBCF9 /* Delegates */,
-				BCE4C1D625428D3200FDBCF9 /* Model */,
 				BC579452255055AD000612F0 /* DataProviders */,
 				E53E92C22540ACA00007C559 /* Cells */,
 				E53E92B92540AC070007C559 /* Models */,
@@ -258,16 +257,6 @@
 			path = ComidinhasUITests;
 			sourceTree = "<group>";
 		};
-		BCE4C1D625428D3200FDBCF9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */,
-				BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */,
-				BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BCE4C1E42542984E00FDBCF9 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +280,9 @@
 		E53E92B92540AC070007C559 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */,
+				BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */,
+				BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */,
 				E53E92BA2540AC170007C559 /* Recipe.swift */,
 				E554ED90254B03A60050D1CD /* Ingredientes.swift */,
 				E554EDD3254B76E10050D1CD /* Steps.swift */,
