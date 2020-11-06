@@ -133,6 +133,10 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        if indexPath.section != 1 {
+            return nil
+        }
+        
         let index: Int = indexPath.row
         
         let addAction: UIContextualAction = UIContextualAction(style: .normal, title: "Adicionar") { (contextualAction, uiView, completionHandler) in
