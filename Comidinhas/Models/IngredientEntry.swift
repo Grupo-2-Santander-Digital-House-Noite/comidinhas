@@ -31,6 +31,13 @@ class IngredientEntry {
         self.marked = marked
     }
     
+    init(with ingredient: Ingredients?) {
+        self.name = ingredient?.ingrediente ?? "Love"
+        self.quantity = ingredient?.quantidade ?? 1
+        self.measureUnity = ingredient?.unidade ?? "Unit"
+        self.marked = .DESMARCADO
+    }
+    
     func toggle() {
         self.marked = self.marked.toggle()
         self.delegates.forEach({ (delegate) in
