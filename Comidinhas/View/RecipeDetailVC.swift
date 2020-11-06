@@ -130,6 +130,24 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         get { return 1 }
     }
 
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let index: Int = indexPath.row
+        
+        let addAction: UIContextualAction = UIContextualAction(style: .normal, title: "Adicionar") { (contextualAction, uiView, completionHandler) in
+            
+            // TODO: Adicionar comportamento de adicionar a lista de compras.
+            completionHandler(false)
+        }
+        
+        addAction.backgroundColor = .systemGreen
+        addAction.image = UIImage(systemName: "cart.badge.plus")
+        
+        return UISwipeActionsConfiguration(actions: [addAction])
+        
+    }
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
