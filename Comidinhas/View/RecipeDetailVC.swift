@@ -141,6 +141,10 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         let index: Int = indexPath.row
         
         let addAction: UIContextualAction = UIContextualAction(style: .normal, title: "Adicionar") { (contextualAction, uiView, completionHandler) in
+            // Tenta obter ingrediente para passar para frente.
+            if let ingredient: Ingredients = self.receita?.ingredients?[index] {
+                ShoppingList.shared.add(ingredient: IngredientEntry(with: ingredient))
+            }
             
             // TODO: Adicionar comportamento de adicionar a lista de compras.
             completionHandler(false)
