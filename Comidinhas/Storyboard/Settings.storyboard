@@ -14,14 +14,42 @@
                     <view key="view" contentMode="scaleToFill" id="ZIV-QT-IoI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-bU-ldf">
+                                <rect key="frame" x="20" y="285" width="374" height="98"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySe-3N-45q">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIo-1G-YmA">
+                                        <rect key="frame" x="0.0" y="64" width="374" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="J8Z-XB-GPH"/>
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="S3K-bU-ldf" firstAttribute="leading" secondItem="J8Z-XB-GPH" secondAttribute="leading" constant="20" id="9fZ-x6-wsf"/>
+                            <constraint firstItem="S3K-bU-ldf" firstAttribute="top" secondItem="J8Z-XB-GPH" secondAttribute="top" constant="197" id="FnI-1Y-qvA"/>
+                            <constraint firstItem="J8Z-XB-GPH" firstAttribute="trailing" secondItem="S3K-bU-ldf" secondAttribute="trailing" constant="20" id="boT-GT-Lng"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="P3J-cN-9jc">
                         <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="hHB-04-H4w">
                             <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editEmailLogin" destination="ySe-3N-45q" id="mRB-mf-BhX"/>
+                        <outlet property="editPasswordLogin" destination="EIo-1G-YmA" id="uUE-6f-4iz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecC-Wt-eRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,8 +9,19 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    @IBOutlet weak var editEmailLogin: UITextField!
+    @IBOutlet weak var editPasswordLogin: UITextField!
+    
+    
+    fileprivate func configTextField() {
+        self.editEmailLogin.delegate = self
+        self.editPasswordLogin.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.configTextField()
 
         // Do any additional setup after loading the view.
     }
@@ -26,4 +37,17 @@ class SettingsVC: UIViewController {
     }
     */
 
+}
+extension SettingsVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.editEmailLogin:
+            self.editPasswordLogin.becomeFirstResponder()
+        default:
+            self.editPasswordLogin.resignFirstResponder()
+        }
+        return true
+    }
+    
 }
