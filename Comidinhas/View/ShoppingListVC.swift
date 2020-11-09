@@ -64,8 +64,9 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         updateTableView()
     }
     
-    @IBAction func limpa(_ sender: UIButton) {
-        print("Limpa")
+    
+    
+    @IBAction func limpa(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
         updateTableView()
     }

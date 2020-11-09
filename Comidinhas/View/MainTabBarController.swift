@@ -38,6 +38,14 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         updateShoppingListBadge()
     }
     
+    func didCheck(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
+        updateShoppingListBadge()
+    }
+    
+    func didUncheck(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
+        updateShoppingListBadge()
+    }
+    
     private func updateShoppingListBadge() {
         guard let item: UITabBarItem = self.getShoppingListTabBarItem() else {
             return
@@ -46,6 +54,8 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         let quantidadeItens = ShoppingList.shared.getDesmarcados().count
         
         if quantidadeItens == 0 {
+            item.badgeValue = nil
+            item.badgeColor = .none
             return
         }
         

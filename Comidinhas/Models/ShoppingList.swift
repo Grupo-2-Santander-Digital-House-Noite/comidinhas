@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShoppingList {
+class ShoppingList: ToggleIngredientMarkedDelegate {
     
     private var shoppingList: [String: IngredientEntry]
     private var delegates: [ShoppingListDelegate]
@@ -36,6 +36,7 @@ class ShoppingList {
         if(self.shoppingList.keys.contains(ingredient.name)) {
             self.shoppingList[ingredient.name]?.quantity = (self.shoppingList[ingredient.name]?.quantity ?? 0) + ingredient.quantity
         } else {
+            ingredient.subscribe(toggleDelegate: self)
             self.shoppingList[ingredient.name] = ingredient
         }
         
@@ -127,6 +128,19 @@ class ShoppingList {
     func unsubscribe(delegate: ShoppingListDelegate) -> Void {
         if let index = self.delegates.firstIndex(where: {$0 === delegate}) {
             self.delegates.remove(at: index)
+        }
+    }
+    
+    // MARK: ToggleIngredientMarkedDelegate Methods
+    func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {
+        if marked == .DESMARCADO {
+            for delegate in self.delegates {
+                delegate.didUncheck(self, ingredient: ingredientEntry)
+            }
+        } else {
+            for delegate in self.delegates {
+                delegate.didCheck(self, ingredient: ingredientEntry)
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ToggleIngredientMarkedDelegate: AnyObject {
-    func toggled()
+    func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum)
 }
 
 class IngredientEntry {
@@ -41,7 +41,7 @@ class IngredientEntry {
     func toggle() {
         self.marked = self.marked.toggle()
         self.delegates.forEach({ (delegate) in
-            delegate.toggled()
+            delegate.toggled(ingredientEntry: self, marked: self.marked)
         })
     }
     

@@ -9,7 +9,6 @@ import UIKit
 
 class ShoppingListItemTableViewCell: UITableViewCell {
 
-    var estado: ShoppingListItemStateEnum = .DESMARCADO
     var imageNameForState: [ShoppingListItemStateEnum: String] = [
         .MARCADO: "checkmark.square.fill",
         .DESMARCADO : "square"
@@ -42,20 +41,21 @@ class ShoppingListItemTableViewCell: UITableViewCell {
     
     func updateCell() -> Void {
         
-        self.estado = self.ingredientEntry?.marked ?? .DESMARCADO
+        let status: ShoppingListItemStateEnum = self.ingredientEntry?.marked ?? .DESMARCADO
         
-        if let image: UIImage = UIImage(systemName: imageNameForState[self.estado] ?? "") as? UIImage {
+        if let image: UIImage = UIImage(systemName: imageNameForState[ status ] ?? "") as? UIImage {
             self.indicatorImage.image = image
         }
         
-        let color: UIColor = self.estado == .DESMARCADO ? .black : .systemGray
+        let color: UIColor = status == .DESMARCADO ? .black : .systemGray
         self.descriptionLabel.textColor = color
         self.indicatorImage.tintColor = color
     }
 }
 
 extension ShoppingListItemTableViewCell : ToggleIngredientMarkedDelegate {
-    func toggled() {
+    func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {
+        self.ingredientEntry = ingredientEntry
         self.updateCell()
     }
 }
