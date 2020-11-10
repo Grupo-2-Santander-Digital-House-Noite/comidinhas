@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IngredientesHeaderCell" customModule="Comidinhas" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K89-xh-VQf">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-ZQ-hCn">
+                            <rect key="frame" x="15" y="9.5" width="92" height="25"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Part of the recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ee-vN-ENs">
+                            <rect key="frame" x="112" y="9.5" width="193" height="25"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="P4c-ZQ-hCn" firstAttribute="leading" secondItem="K89-xh-VQf" secondAttribute="leading" constant="15" id="0zy-FY-ABN"/>
+                        <constraint firstAttribute="width" constant="320" id="AoN-No-quw"/>
+                        <constraint firstAttribute="height" constant="44" id="CCc-0f-KAv"/>
+                        <constraint firstItem="3ee-vN-ENs" firstAttribute="centerY" secondItem="K89-xh-VQf" secondAttribute="centerY" id="fZG-QY-kUe"/>
+                        <constraint firstItem="3ee-vN-ENs" firstAttribute="leading" secondItem="P4c-ZQ-hCn" secondAttribute="trailing" constant="5" id="qQj-Fq-Sgd"/>
+                        <constraint firstItem="P4c-ZQ-hCn" firstAttribute="centerY" secondItem="K89-xh-VQf" secondAttribute="centerY" id="rxx-VF-cnA"/>
+                        <constraint firstAttribute="trailing" secondItem="3ee-vN-ENs" secondAttribute="trailing" constant="15" id="yCk-XU-gCR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="K89-xh-VQf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7GL-3U-gkU"/>
+                <constraint firstAttribute="trailing" secondItem="K89-xh-VQf" secondAttribute="trailing" id="Vvs-Rk-f8u"/>
+                <constraint firstItem="K89-xh-VQf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZeO-2g-IIg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="K89-xh-VQf" secondAttribute="bottom" id="fUU-uu-r2c"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="partOfTheRecipeLabel" destination="3ee-vN-ENs" id="up5-Gb-oBm"/>
+            </connections>
+            <point key="canvasLocation" x="328" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

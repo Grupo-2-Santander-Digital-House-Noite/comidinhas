@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReviewHeaderCell" customModule="Comidinhas" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46j-yy-cGB">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-3N-AgA">
+                            <rect key="frame" x="15" y="7" width="61" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="NJP-e4-bS2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★★★★☆ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-zN-JTT">
+                            <rect key="frame" x="15" y="30" width="49" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="1YX-ox-2c8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="9"/>
+                            <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total nr of reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-GN-Cmt">
+                            <rect key="frame" x="72" y="28" width="85" height="15"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="10"/>
+                            <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="9Li-Sd-SaA"/>
+                        <constraint firstItem="pAN-zN-JTT" firstAttribute="top" secondItem="46j-yy-cGB" secondAttribute="top" constant="30" id="Eq3-hS-eDT"/>
+                        <constraint firstAttribute="height" constant="56" id="H4i-hn-oPB"/>
+                        <constraint firstItem="ZFC-GN-Cmt" firstAttribute="leading" secondItem="pAN-zN-JTT" secondAttribute="trailing" constant="8" id="ZQF-sj-FV4"/>
+                        <constraint firstItem="5gi-3N-AgA" firstAttribute="top" secondItem="46j-yy-cGB" secondAttribute="top" constant="7" id="aU9-0J-Loj"/>
+                        <constraint firstItem="pAN-zN-JTT" firstAttribute="leading" secondItem="46j-yy-cGB" secondAttribute="leading" constant="15" id="bpE-dQ-j26"/>
+                        <constraint firstAttribute="bottom" secondItem="pAN-zN-JTT" secondAttribute="bottom" constant="13" id="esO-gv-dXI"/>
+                        <constraint firstItem="ZFC-GN-Cmt" firstAttribute="top" secondItem="46j-yy-cGB" secondAttribute="top" constant="28" id="iA2-NC-iGq"/>
+                        <constraint firstItem="5gi-3N-AgA" firstAttribute="leading" secondItem="46j-yy-cGB" secondAttribute="leading" constant="15" id="nXc-yb-Vln"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="46j-yy-cGB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Fff-zv-3V5"/>
+                <constraint firstItem="46j-yy-cGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Y1U-a1-aqX"/>
+                <constraint firstAttribute="bottom" secondItem="46j-yy-cGB" secondAttribute="bottom" id="hSl-JF-1TO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="46j-yy-cGB" secondAttribute="trailing" id="nRa-ar-Jmh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="starLabel" destination="pAN-zN-JTT" id="Puf-Gd-NLD"/>
+                <outlet property="totalReviewsLabel" destination="ZFC-GN-Cmt" id="hpO-3l-kW6"/>
+            </connections>
+            <point key="canvasLocation" x="204" y="44"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
