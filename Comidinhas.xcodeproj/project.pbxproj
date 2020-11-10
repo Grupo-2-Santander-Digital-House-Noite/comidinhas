@@ -61,6 +61,9 @@
 		E59858962548D82700DC64D7 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59858942548D82700DC64D7 /* ImageCell.xib */; };
 		E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D1254CA953001CA268 /* AllReviewsVC.swift */; };
 		E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D6254CA975001CA268 /* WriteReviewVC.swift */; };
+		E563472A25420A14002B77FF /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563472925420A14002B77FF /* Favorites.swift */; };
+		E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563473225420BB4002B77FF /* FavoritesCell.swift */; };
+		E563473525420BB4002B77FF /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E563473325420BB4002B77FF /* FavoritesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +144,9 @@
 		E59858942548D82700DC64D7 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		E59A81D1254CA953001CA268 /* AllReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsVC.swift; sourceTree = "<group>"; };
 		E59A81D6254CA975001CA268 /* WriteReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewVC.swift; sourceTree = "<group>"; };
+		E563472925420A14002B77FF /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		E563473225420BB4002B77FF /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		E563473325420BB4002B77FF /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +239,8 @@
 				BC579452255055AD000612F0 /* DataProviders */,
 				E53E92C22540ACA00007C559 /* Cells */,
 				E53E92B92540AC070007C559 /* Models */,
+				E563473125420B96002B77FF /* Cells */,
+				E563472825420A05002B77FF /* Models */,
 				E53E927C2540A1C80007C559 /* Storyboard */,
 				016018972540744900F36A37 /* View */,
 				BC5E8880253FA649005345EE /* AppDelegate.swift */,
@@ -344,6 +352,23 @@
 				E554ED81254AFDF50050D1CD /* Header */,
 			);
 			path = DetalheDaReceita;
+			sourceTree = "<group>";
+		};
+		E563472825420A05002B77FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E563472925420A14002B77FF /* Favorites.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E563473125420B96002B77FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E563473225420BB4002B77FF /* FavoritesCell.swift */,
+				E563473325420BB4002B77FF /* FavoritesCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +490,7 @@
 				E554ED72254AFBB40050D1CD /* ReviewHeaderCell.xib in Resources */,
 				BC5E888A253FA64D005345EE /* Assets.xcassets in Resources */,
 				BC5E8888253FA649005345EE /* Main.storyboard in Resources */,
+				E563473525420BB4002B77FF /* FavoritesCell.xib in Resources */,
 				E53E92832540A1F10007C559 /* Favorites.storyboard in Resources */,
 				E554EDC9254B75170050D1CD /* StepToStepCell.xib in Resources */,
 				E53E928D2540A2030007C559 /* Settings.storyboard in Resources */,
@@ -506,12 +532,15 @@
 				BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */,
 				BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */,
 				BC46507A2543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift in Sources */,
+				E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */,
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
 				BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */,
 				01601899254074C400F36A37 /* LoginVC.swift in Sources */,
 				E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */,
 				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
+				E563472A25420A14002B77FF /* Favorites.swift in Sources */,
+				E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */,
 				BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */,
 				BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
