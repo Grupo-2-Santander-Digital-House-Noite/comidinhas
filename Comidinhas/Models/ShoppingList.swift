@@ -60,7 +60,7 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         self.shoppingList.removeValue(forKey: ingredient.name)
         
         self.delegates.forEach { (delegate) in
-            delegate.didAdd(self, ingredient: ingredient)
+            delegate.didRemove(self, ingredient: ingredient)
         }
     }
     
