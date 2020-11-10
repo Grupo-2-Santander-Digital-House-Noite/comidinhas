@@ -59,6 +59,23 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
 extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let cell: ShoppingListItemTableViewCell? = tableView.cellForRow(at: indexPath) as? ShoppingListItemTableViewCell
+            if let ingredient = cell?.ingredientEntry {
+                ShoppingList.shared.remove(ingredient: ingredient)
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return ShoppingList.shared.getAll().count > 0 ? 2 : 1
     }
