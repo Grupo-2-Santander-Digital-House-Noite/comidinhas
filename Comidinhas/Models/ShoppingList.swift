@@ -69,6 +69,9 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
      */
     func clear() {
         self.shoppingList = [:]
+        for delegate in self.delegates {
+            delegate.didRemove(self, ingredient: IngredientEntry(named: "All", withAmount: 0, andMeasureUnity: "All"))
+        }
     }
     
     /**

@@ -33,6 +33,9 @@
                             </barButtonItem>
                             <barButtonItem style="plain" systemItem="trash" id="Dhr-an-LM2">
                                 <color key="tintColor" red="0.84825342889999999" green="0.2407897413" blue="0.2185710669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="limpaLista:" destination="u9R-mh-ABO" id="GnN-9O-bAQ"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>

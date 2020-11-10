@@ -36,40 +36,12 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     }
     
     
-    @IBAction func adiciona(_ sender: UIButton) {
-        print("Adiciona")
-        let ingredientData: [String: String] = [
-            "Morango" : "Bandeja(s)",
-            "Uva" : "Bandeja(s)",
-            "Ovos" : "Unidade(s)",
-            "Banana" : "Unidade(s)",
-            "Laranja" : "Unidade(s)",
-            "Farinha" : "Gramas",
-            "Fermento" : "Gramas",
-            "Açucar" : "Gramas",
-            "Suco de limão" : "mls",
-            "Água" : "mls",
-            "Azeite" : "mls"]
-        let ranges : [String: ClosedRange<Int>] = [
-            "Bandeja(s)": 1...3,
-            "Unidade(s)": 1...10,
-            "Gramas": 100...600,
-            "mls": 10...1000
-        ]
-        let randomKey = ingredientData.keys.randomElement();
-        let randomUnity : String = ingredientData[randomKey ?? "Desconhecido"] ?? "N/D"
-        let randomQuantity = Int.random(in: ranges[randomUnity] ?? 1...3)
-        
-        ShoppingList.shared.add(ingredient: IngredientEntry(named: randomKey ?? "Desconhecido", withAmount: Double(randomQuantity), andMeasureUnity: randomUnity))
-        updateTableView()
-    }
-    
-    
-    
-    @IBAction func limpa(_ sender: UIBarButtonItem) {
+    @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
         updateTableView()
     }
+    
+    
     
     private func updateTableView() {
         self.shoppingListTableView.reloadData()
