@@ -10,15 +10,18 @@ import UIKit
 class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
     @IBOutlet weak var shoppingListTableView: UITableView!
+    @IBOutlet weak var shoppingListClearButton: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupTableView()
-        self.view.backgroundColor = UIColor(red: 1, green: 0.8509803922, blue: 0.5921568627, alpha: 1)
+        self.view.backgroundColor = ColorConstants.BACKGROUND_COLOR
         
         ShoppingList.shared.subscribe(delegate: self)
+        updateView()
         
     }
     
@@ -38,22 +41,33 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
-        updateTableView()
+        updateView()
     }
     
     
     
-    private func updateTableView() {
+    private func updateView() {
+        self.updateClearButton()
         self.shoppingListTableView.reloadData()
+    }
+    
+    private func updateClearButton() {
+        if ShoppingList.shared.getAll().count == 0 {
+            self.shoppingListClearButton.isEnabled = false
+            self.shoppingListClearButton.tintColor = .clear
+        } else {
+            self.shoppingListClearButton.isEnabled = true
+            self.shoppingListClearButton.tintColor = ColorConstants.RED_COLOR
+        }
     }
     
     // MARK: REACT WHEN SHOPPING LIST IS UPDATED
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
-        self.updateTableView()
+        self.updateView()
     }
     
     func didRemove(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
-        self.updateTableView()
+        self.updateView()
     }
 }
 

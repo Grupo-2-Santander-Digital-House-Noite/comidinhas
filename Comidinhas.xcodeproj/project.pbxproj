@@ -24,6 +24,8 @@
 		BC5E888D253FA64D005345EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5E888B253FA64D005345EE /* LaunchScreen.storyboard */; };
 		BC5E8898253FA64D005345EE /* ComidinhasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8897253FA64D005345EE /* ComidinhasTests.swift */; };
 		BC5E88A3253FA64D005345EE /* ComidinhasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */; };
+		BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */; };
+		BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC953973255A43C500B6E795 /* ColorConstants.swift */; };
 		BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */; };
 		BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */; };
 		BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */; };
@@ -33,7 +35,6 @@
 		E53E928D2540A2030007C559 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53E928C2540A2030007C559 /* Settings.storyboard */; };
 		E53E92952540A3780007C559 /* RecipesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92942540A3780007C559 /* RecipesVC.swift */; };
 		E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92992540A3880007C559 /* FavoritesVC.swift */; };
-		E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E929E2540A3970007C559 /* ShoppingListVC.swift */; };
 		E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92A32540A3A50007C559 /* SettingsVC.swift */; };
 		E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */; };
 		E53E92BB2540AC170007C559 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92BA2540AC170007C559 /* Recipe.swift */; };
@@ -103,6 +104,8 @@
 		BC5E889E253FA64D005345EE /* ComidinhasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComidinhasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComidinhasUITests.swift; sourceTree = "<group>"; };
 		BC5E88A4253FA64D005345EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/view/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
+		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/view/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEntry.swift; sourceTree = "<group>"; };
 		BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		E53E928C2540A2030007C559 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		E53E92942540A3780007C559 /* RecipesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesVC.swift; sourceTree = "<group>"; };
 		E53E92992540A3880007C559 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
-		E53E929E2540A3970007C559 /* ShoppingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListVC.swift; sourceTree = "<group>"; };
 		E53E92A32540A3A50007C559 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVC.swift; sourceTree = "<group>"; };
 		E53E92BA2540AC170007C559 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -176,10 +178,10 @@
 				E59A81D1254CA953001CA268 /* AllReviewsVC.swift */,
 				E59A81D6254CA975001CA268 /* WriteReviewVC.swift */,
 				E53E92992540A3880007C559 /* FavoritesVC.swift */,
-				E53E929E2540A3970007C559 /* ShoppingListVC.swift */,
 				E53E92A32540A3A50007C559 /* SettingsVC.swift */,
 				01601898254074C400F36A37 /* LoginVC.swift */,
 				BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */,
+				BC953973255A43C500B6E795 /* ColorConstants.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +277,7 @@
 				E53E927D2540A1E40007C559 /* Recipes.storyboard */,
 				E53E92822540A1F10007C559 /* Favorites.storyboard */,
 				E53E92872540A1FA0007C559 /* ShoppingList.storyboard */,
+				BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */,
 				E53E928C2540A2030007C559 /* Settings.storyboard */,
 			);
 			path = Storyboard;
@@ -501,14 +504,15 @@
 				E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */,
 				BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */,
 				BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */,
+				BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */,
 				BC46507A2543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift in Sources */,
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
+				BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */,
 				01601899254074C400F36A37 /* LoginVC.swift in Sources */,
 				E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */,
 				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
 				BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */,
-				E53E929F2540A3970007C559 /* ShoppingListVC.swift in Sources */,
 				BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
 				BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */,
