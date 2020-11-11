@@ -15,7 +15,14 @@ class SettingsVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        newViewController.modalPresentationStyle = .overFullScreen
+        newViewController.delegate = self
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -26,4 +33,10 @@ class SettingsVC: UIViewController {
     }
     */
 
+}
+
+extension SettingsVC: SearchVCDelegate {
+    func returnTabBar() {
+        self.tabBarController?.selectedIndex = 0
+    }
 }

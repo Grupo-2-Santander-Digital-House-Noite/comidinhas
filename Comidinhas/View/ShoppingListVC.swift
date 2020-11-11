@@ -11,7 +11,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
     @IBOutlet weak var shoppingListTableView: UITableView!
     @IBOutlet weak var shoppingListClearButton: UIBarButtonItem!
-    
+    @IBOutlet weak var searchBarButtonClick: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,13 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.shoppingListTableView.separatorStyle = .none
     }
     
+    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        newViewController.modalPresentationStyle = .overFullScreen
+        newViewController.delegate = self
+        self.present(newViewController, animated: true, completion: nil)
+    }
     
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
@@ -120,5 +127,11 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             tableView.reloadData()
         }
+    }
+}
+
+extension ShoppingListVC: SearchVCDelegate {
+    func returnTabBar() {
+        self.tabBarController?.selectedIndex = 0
     }
 }

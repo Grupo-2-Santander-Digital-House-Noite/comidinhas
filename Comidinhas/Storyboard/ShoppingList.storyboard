@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,6 +30,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="magnifyingglass" catalog="system" id="qOS-em-6YR">
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="searchBarButtonClick:" destination="u9R-mh-ABO" id="xBs-e4-N6K"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem style="plain" systemItem="trash" id="Dhr-an-LM2">
                                 <color key="tintColor" red="0.86411565540000002" green="0.24482959509999999" blue="0.20371296999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,6 +43,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBarButtonClick" destination="qOS-em-6YR" id="Wwi-7F-eiY"/>
                         <outlet property="shoppingListClearButton" destination="Dhr-an-LM2" id="agh-sh-5qy"/>
                         <outlet property="shoppingListTableView" destination="Khh-rx-Szb" id="s17-wE-PIO"/>
                     </connections>

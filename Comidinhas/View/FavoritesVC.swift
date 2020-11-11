@@ -9,10 +9,18 @@ import UIKit
 
 class FavoritesVC: UIViewController {
 
+    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        newViewController.modalPresentationStyle = .overFullScreen
+        newViewController.delegate = self
+        self.present(newViewController, animated: true, completion: nil)
     }
     
 
@@ -26,4 +34,10 @@ class FavoritesVC: UIViewController {
     }
     */
 
+}
+
+extension FavoritesVC: SearchVCDelegate {
+    func returnTabBar() {
+        self.tabBarController?.selectedIndex = 0
+    }
 }

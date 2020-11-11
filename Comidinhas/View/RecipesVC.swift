@@ -10,6 +10,7 @@ import UIKit
 class RecipesVC: UIViewController {
 
     @IBOutlet weak var recipesListTableView: UITableView!
+    @IBOutlet weak var serachBarButton: UIBarButtonItem!
     
     private func configTableView() {
         recipesListTableView.dataSource = self
@@ -25,6 +26,12 @@ class RecipesVC: UIViewController {
         super.viewDidLoad()
         self.configTableView()
         // Do any additional setup after loading the view.
+    }
+    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        newViewController.modalPresentationStyle = .overFullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     
 
