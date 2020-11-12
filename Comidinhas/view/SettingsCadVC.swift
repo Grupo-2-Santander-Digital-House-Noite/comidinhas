@@ -53,7 +53,7 @@ class SettingsCadVC: UIViewController {
         if self.editFullName.text?.isEmpty == true {
             self.editFullName.layer.borderColor = UIColor.red.cgColor
             self.editFullName.layer.borderWidth = 1.0
-            self.editFullName.attributedPlaceholder = NSAttributedString(string: "Campo Obrigatório", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.editFullName.attributedPlaceholder = NSAttributedString(string: "Full name - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editFullName.text?.isEmpty == false {
             self.editFullName.layer.borderWidth = 0
         }
@@ -62,7 +62,7 @@ class SettingsCadVC: UIViewController {
         if self.editEmail.text?.isEmpty == true {
             self.editEmail.layer.borderColor = UIColor.red.cgColor
             self.editEmail.layer.borderWidth = 1.0
-            self.editEmail.attributedPlaceholder = NSAttributedString(string: "Campo Obrigatório", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.editEmail.attributedPlaceholder = NSAttributedString(string: "E-mail - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editEmail.text?.isEmpty == false {
             self.editEmail.layer.borderWidth = 0
         }
@@ -71,10 +71,21 @@ class SettingsCadVC: UIViewController {
         if self.editPassword.text?.isEmpty == true {
             self.editPassword.layer.borderColor = UIColor.red.cgColor
             self.editPassword.layer.borderWidth = 1.0
-            self.editPassword.attributedPlaceholder = NSAttributedString(string: "Campo Obrigatório", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.editPassword.attributedPlaceholder = NSAttributedString(string: "Password - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editPassword.text?.isEmpty == false {
             self.editPassword.layer.borderWidth = 0
         }
+        
+        
+        if self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
+            let alert = UIAlertController(title: "Success", message: "Your account was created", preferredStyle: .alert)
+            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
+                self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
+            }
+            alert.addAction(buttonOK)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
 }

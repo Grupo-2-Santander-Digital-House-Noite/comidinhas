@@ -46,7 +46,7 @@
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
-                                    <segue destination="gM2-oZ-aKR" kind="show" id="U3r-nO-IBY"/>
+                                    <action selector="tappedSignUpButton:" destination="bSQ-uD-WUB" eventType="touchUpInside" id="b9I-fq-ggL"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-45-QFS">
@@ -62,7 +62,6 @@
                                         <state key="normal" title="Sign in"/>
                                         <connections>
                                             <action selector="bntActSigin:" destination="bSQ-uD-WUB" eventType="touchUpInside" id="2PZ-IN-HRE"/>
-                                            <segue destination="Ngj-0E-93j" kind="show" id="wQL-oJ-zcN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlQ-gt-N8z">
@@ -108,6 +107,8 @@
                         <outlet property="bntSignup" destination="PRx-nJ-mXe" id="wjr-h3-nCl"/>
                         <outlet property="editEmailLogin" destination="ySe-3N-45q" id="mRB-mf-BhX"/>
                         <outlet property="editPasswordLogin" destination="EIo-1G-YmA" id="uUE-6f-4iz"/>
+                        <segue destination="gM2-oZ-aKR" kind="show" identifier="SettingsCadVC" id="a7b-86-FVj"/>
+                        <segue destination="Ngj-0E-93j" kind="show" identifier="SettingsUpdVC" id="N3F-Hz-Q7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecC-Wt-eRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,7 +153,6 @@
                                 <state key="normal" title="Create your account"/>
                                 <connections>
                                     <action selector="bntCreateAcc:" destination="gM2-oZ-aKR" eventType="touchUpInside" id="2hZ-gQ-42T"/>
-                                    <segue destination="Yq7-VX-9AF" kind="show" id="ZKJ-3s-nQo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -173,11 +173,12 @@
                         <outlet property="editEmail" destination="4BW-AO-rST" id="2gO-B7-xZj"/>
                         <outlet property="editFullName" destination="GCC-XJ-dlS" id="eUw-LI-mqr"/>
                         <outlet property="editPassword" destination="gxa-yk-P1x" id="wHo-CW-rmj"/>
+                        <segue destination="Ngj-0E-93j" kind="show" identifier="SettingsUpdVC" id="UNO-Ty-Sm7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMe-wU-Bbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.8115942028987" y="1980.8035714285713"/>
+            <point key="canvasLocation" x="1729" y="1981"/>
         </scene>
         <!--Settings AuthVC-->
         <scene sceneID="P2c-9r-tDH">
@@ -188,16 +189,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="rT6-rL-Zk9">
-                                <rect key="frame" x="40" y="338" width="354" height="64"/>
+                                <rect key="frame" x="40" y="294" width="354" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Rodrigo Ventura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtN-nx-wul">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Rodrigo Ventura" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtN-nx-wul">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
                                         <color key="tintColor" red="0.8338498473" green="0.24902856349999999" blue="0.19811889529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="1" green="0.14011625429999999" blue="0.1013373711" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your account was created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbD-KA-L98">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your account was created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbD-KA-L98">
                                         <rect key="frame" x="0.0" y="43.5" width="354" height="20.5"/>
                                         <color key="tintColor" red="0.8338498473" green="0.24902856349999999" blue="0.19811889529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -214,7 +215,6 @@
                                 <connections>
                                     <action selector="bntConfirmarAC:" destination="Yq7-VX-9AF" eventType="touchUpInside" id="hdE-Su-m8w"/>
                                     <action selector="bntCreateAcc:" destination="gM2-oZ-aKR" eventType="touchUpInside" id="gDX-M4-7gV"/>
-                                    <segue destination="Ngj-0E-93j" kind="show" identifier="SettingsUpdVC" id="IxU-md-gkC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD5-O1-6FP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2942.0289855072465" y="1980.8035714285713"/>
+            <point key="canvasLocation" x="2533" y="2413"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DmI-Xz-FYT">
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRm-TM-T6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3589.8550724637685" y="1309.8214285714284"/>
+            <point key="canvasLocation" x="4203" y="1550"/>
         </scene>
         <!--Settings-->
         <scene sceneID="l1k-Yr-3B1">
@@ -382,7 +382,6 @@
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="bntUpdate:" destination="Ngj-0E-93j" eventType="touchUpInside" id="W9b-Ay-lDz"/>
-                                    <segue destination="lc2-g7-zCK" kind="show" id="WVK-xp-rQe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="________________________________________" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qS-nK-LCF">
@@ -437,11 +436,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z68-ey-HoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2407.2463768115945" y="1295.7589285714284"/>
+            <point key="canvasLocation" x="2587" y="1550"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IxU-md-gkC"/>
+        <segue reference="N3F-Hz-Q7W"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>

@@ -45,15 +45,6 @@ class SettingsVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func bntActSigin(_ sender: UIButton) {
         
@@ -61,7 +52,7 @@ class SettingsVC: UIViewController {
         if self.editEmailLogin.text?.isEmpty == true {
             self.editEmailLogin.layer.borderColor = UIColor.red.cgColor
             self.editEmailLogin.layer.borderWidth = 1.0
-            self.editEmailLogin.attributedPlaceholder = NSAttributedString(string: "Campo Obrigatório", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.editEmailLogin.attributedPlaceholder = NSAttributedString(string: "E-mail - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editEmailLogin.text?.isEmpty == false {
             self.editEmailLogin.layer.borderWidth = 0
         }
@@ -70,12 +61,27 @@ class SettingsVC: UIViewController {
         if self.editPasswordLogin.text?.isEmpty == true {
             self.editPasswordLogin.layer.borderColor = UIColor.red.cgColor
             self.editPasswordLogin.layer.borderWidth = 1.0
-            self.editPasswordLogin.attributedPlaceholder = NSAttributedString(string: "Campo Obrigatório", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            self.editPasswordLogin.attributedPlaceholder = NSAttributedString(string: "Password - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editPasswordLogin.text?.isEmpty == false {
             self.editPasswordLogin.layer.borderWidth = 0
         }
+        
+        
+        if self.editEmailLogin.text?.isEmpty == false && self.editPasswordLogin.text?.isEmpty == false {
+            self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
+        }
     }
+    
+    
+    @IBAction func tappedSignUpButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SettingsCadVC", sender: nil)
+    }
+    
 }
+
+
+
+
 
 extension SettingsVC: UITextFieldDelegate {
     

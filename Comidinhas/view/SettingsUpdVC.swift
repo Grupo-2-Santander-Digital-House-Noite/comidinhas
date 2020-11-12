@@ -43,23 +43,20 @@ class SettingsUpdVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
     
     @IBAction func bntUpdate(_ sender: UIButton) {
-        
-        
-        
+        if self.editFullName.text?.isEmpty == false || self.editEmail.text?.isEmpty == false || self.editPassword.text?.isEmpty == false || self.editRepeatPassword.text?.isEmpty == false {
+            let alert = UIAlertController(title: "Success", message: "Successfully changed data", preferredStyle: .alert)
+            let buttonOK = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(buttonOK)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
 }
+
+
+
 extension SettingsUpdVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
