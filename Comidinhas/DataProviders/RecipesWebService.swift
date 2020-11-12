@@ -22,6 +22,12 @@ class RecipesWebService {
         
     }
     
+    func with(ids: [Int]) -> [Recipe] {
+        return self.recipes.filter { (recipe) -> Bool in
+            return ids.contains(recipe.id ?? 0)
+        }
+    }
+    
     func loadRecipes() -> Void {
         
         do {
