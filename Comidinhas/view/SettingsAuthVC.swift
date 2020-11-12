@@ -9,9 +9,18 @@ import UIKit
 
 class SettingsAuthVC: UIViewController {
 
+    @IBOutlet weak var bntConfirma: UIButton!
+    
+    
+    fileprivate func configBntConfirmar() {
+        self.bntConfirma.layer.cornerRadius = 5
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.configBntConfirmar()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +35,12 @@ class SettingsAuthVC: UIViewController {
     }
     */
 
+    @IBAction func bntConfirmarAC(_ sender: UIButton) {
+        performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
+    }
 }
