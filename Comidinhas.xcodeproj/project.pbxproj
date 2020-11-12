@@ -15,6 +15,7 @@
 		BC46507B2543DC1C00047FAE /* EmptyShoppingListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4650792543DC1C00047FAE /* EmptyShoppingListTableViewCell.xib */; };
 		BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */; };
 		BC4F01BC255CF18E00BABCFA /* RecipeDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4F01BB255CF18E00BABCFA /* RecipeDetailVC.storyboard */; };
+		BC4F01C7255CF4F100BABCFA /* FavoritosWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */; };
 		BC579454255055D0000612F0 /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = BC579453255055D0000612F0 /* recipes.json */; };
 		BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC57945B25505632000612F0 /* RecipesWebService.swift */; };
 		BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8880253FA649005345EE /* AppDelegate.swift */; };
@@ -93,6 +94,7 @@
 		BC4650792543DC1C00047FAE /* EmptyShoppingListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyShoppingListTableViewCell.xib; sourceTree = "<group>"; };
 		BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemStateEnum.swift; sourceTree = "<group>"; };
 		BC4F01BB255CF18E00BABCFA /* RecipeDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeDetailVC.storyboard; sourceTree = "<group>"; };
+		BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosWebService.swift; sourceTree = "<group>"; };
 		BC579453255055D0000612F0 /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		BC57945B25505632000612F0 /* RecipesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWebService.swift; sourceTree = "<group>"; };
 		BC5E887D253FA649005345EE /* Comidinhas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comidinhas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +212,7 @@
 			children = (
 				BC579453255055D0000612F0 /* recipes.json */,
 				BC57945B25505632000612F0 /* RecipesWebService.swift */,
+				BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC4F01C7255CF4F100BABCFA /* FavoritosWebService.swift in Sources */,
 				E554EDC8254B75170050D1CD /* StepToStepCell.swift in Sources */,
 				E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
