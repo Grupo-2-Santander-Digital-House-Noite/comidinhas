@@ -9,7 +9,7 @@ import Foundation
 
 class FavoritosWebService {
     
-    private var idsFavoritos: [Int] = [644733, 661886, 715392, 716437, 715447]
+    private var idsFavoritos: [Int] = [644733, 1096055, 782601, 715392, 716437, 715447]
     
     var favoriteIds: [Int] {
         return self.idsFavoritos

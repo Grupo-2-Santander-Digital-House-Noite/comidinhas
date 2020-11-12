@@ -16,6 +16,7 @@
 		BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */; };
 		BC4F01BC255CF18E00BABCFA /* RecipeDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4F01BB255CF18E00BABCFA /* RecipeDetailVC.storyboard */; };
 		BC4F01C7255CF4F100BABCFA /* FavoritosWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */; };
+		BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */; };
 		BC579454255055D0000612F0 /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = BC579453255055D0000612F0 /* recipes.json */; };
 		BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC57945B25505632000612F0 /* RecipesWebService.swift */; };
 		BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8880253FA649005345EE /* AppDelegate.swift */; };
@@ -95,6 +96,7 @@
 		BC46507F2543E11E00047FAE /* ShoppingListItemStateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemStateEnum.swift; sourceTree = "<group>"; };
 		BC4F01BB255CF18E00BABCFA /* RecipeDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeDetailVC.storyboard; sourceTree = "<group>"; };
 		BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosWebService.swift; sourceTree = "<group>"; };
+		BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		BC579453255055D0000612F0 /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		BC57945B25505632000612F0 /* RecipesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWebService.swift; sourceTree = "<group>"; };
 		BC5E887D253FA649005345EE /* Comidinhas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comidinhas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,14 @@
 			path = ShoppingList;
 			sourceTree = "<group>";
 		};
+		BC4F01CB255CF7D500BABCFA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		BC579452255055AD000612F0 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 		BC5E887F253FA649005345EE /* Comidinhas */ = {
 			isa = PBXGroup;
 			children = (
+				BC4F01CB255CF7D500BABCFA /* Controllers */,
 				BCE4C1E42542984E00FDBCF9 /* Delegates */,
 				BC579452255055AD000612F0 /* DataProviders */,
 				E53E92C22540ACA00007C559 /* Cells */,
@@ -534,6 +545,7 @@
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
 				E56149E025476656007F9C42 /* IngredientesCell.swift in Sources */,
 				E554ED77254AFBC70050D1CD /* ReviewHeaderCell.swift in Sources */,
+				BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */,
 				BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */,
 				E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */,
 				BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */,

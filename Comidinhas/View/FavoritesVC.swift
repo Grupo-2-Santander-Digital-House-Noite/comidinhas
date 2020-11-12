@@ -9,9 +9,10 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
+    // MARK: Controller
+    var controller: FavoritesController = FavoritesController()
     
     // MARK: IBoutlet
-    
     @IBOutlet weak var favoritesTableView: UITableView!
     
     var arrayFavorites:[Favorites] = [Favorites(nomeReceita: "Chocolate Cake", imagemReceita: "ChocolateCake"),
@@ -41,6 +42,7 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
 
         self.configTableView()
+        self.controller.load()
         // Do any additional setup after loading the view.
     }
 
@@ -51,7 +53,7 @@ class FavoritesVC: UIViewController {
 
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayFavorites.count
+        return self.controller.numberOfRows
     }
     
     
@@ -59,7 +61,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
         
-        cell?.setup(favorites: self.arrayFavorites[indexPath.row])
+        cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
         
         return cell ?? UITableViewCell()
     }
