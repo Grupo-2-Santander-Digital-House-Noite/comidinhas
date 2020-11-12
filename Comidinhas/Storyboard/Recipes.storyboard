@@ -2,12 +2,23 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qvk-pg-15L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--RecipeDetailVC-->
+        <scene sceneID="vdh-Lu-oU7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RecipeDetailVC" id="fY9-3f-9hI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QMU-Mw-CG3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WLM-46-1w7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="-936"/>
+        </scene>
         <!--Recipes-->
         <scene sceneID="ZQF-fX-3lS">
             <objects>
@@ -37,7 +48,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="recipesListTableView" destination="Nmb-nh-BB7" id="bO2-r3-qmm"/>
-                        <segue destination="NEe-Th-Sc7" kind="show" identifier="RecipeDetailVC" id="w6N-Ms-yen"/>
+                        <segue destination="NEe-Th-Sc7" kind="show" identifier="OLDRecipeDetailVC" id="w6N-Ms-yen"/>
+                        <segue destination="fY9-3f-9hI" kind="show" identifier="RecipeDetailVC" id="ICW-4t-O3W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8Y-M9-4Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
