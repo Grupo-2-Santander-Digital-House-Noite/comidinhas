@@ -75,6 +75,7 @@ class RecipeDetailVC: UIViewController {
         tapGestureToFavoriteLabel.numberOfTapsRequired = 1
         favoriteLabel.isUserInteractionEnabled = true
         favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
+        updateFavoriteLabel()
     }
 
 
@@ -82,6 +83,29 @@ class RecipeDetailVC: UIViewController {
 
     @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
         if self.favoriteLabel.text == "♡" {
+            self.favoriteLabel.text = "♥︎"
+            FavoritosWebService.shared.addFavorite(recipe: self.receita)
+        } else {
+            self.favoriteLabel.text = "♡"
+            FavoritosWebService.shared.removeFavorite(recipe: self.receita)
+        }
+    }
+    
+    private func toggleFavorite() {
+        if let _receita: Recipe = self.receita {
+            if FavoritosWebService.shared.isFavorite(recipe: _receita) {
+                FavoritosWebService.shared.removeFavorite(recipe: _receita)
+            } else {
+                FavoritosWebService.shared.addFavorite(recipe: _receita)
+            }
+            self.updateFavoriteLabel()
+        }
+    }
+    
+    private func updateFavoriteLabel() {
+        guard let _receita: Recipe = self.receita else { return }
+        let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _receita)
+        if isFavorite {
             self.favoriteLabel.text = "♥︎"
         } else {
             self.favoriteLabel.text = "♡"

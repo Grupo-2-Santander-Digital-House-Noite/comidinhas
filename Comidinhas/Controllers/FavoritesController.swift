@@ -7,7 +7,11 @@
 
 import Foundation
 
-class FavoritesController {
+protocol FavoriteControllerUpdate: AnyObject {
+    func didUpdate()
+}
+
+class FavoritesController: FavoritesUpdateDelegate {
     
     // MARK: State
     private var favoritos: [Recipe] = []
@@ -17,9 +21,11 @@ class FavoritesController {
         return self.favoritos.count
     }
     
+    weak var delegate: FavoriteControllerUpdate?
+    
     // MARK: Public Methods
     init() {
-        
+        FavoritosWebService.shared.delegate = self
     }
     
     func load() {
@@ -27,12 +33,21 @@ class FavoritesController {
     }
     
     func favoriteRecipeAt(index: Int) -> Recipe? {
-        if index > 0 && index < self.favoritos.count {
+        if index > -1 && index < self.favoritos.count {
             return self.favoritos[index]
         }
         return nil
     }
     
+    func removeFavoriteAt(index: Int) {
+        FavoritosWebService.shared.removeFavorite(recipe: self.favoritos[index])
+        self.load()
+    }
+    
+    func didUpdateFavorites() {
+        self.load()
+        self.delegate?.didUpdate()
+    }
     // MARK: Internal Behavior
     
     

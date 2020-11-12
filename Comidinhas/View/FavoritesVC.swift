@@ -7,21 +7,14 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController {
+class FavoritesVC: UIViewController, FavoriteControllerUpdate {
+    
     
     // MARK: Controller
     var controller: FavoritesController = FavoritesController()
     
     // MARK: IBoutlet
     @IBOutlet weak var favoritesTableView: UITableView!
-    
-    var arrayFavorites:[Favorites] = [Favorites(nomeReceita: "Chocolate Cake", imagemReceita: "ChocolateCake"),
-                                      Favorites(nomeReceita: "Hamburger", imagemReceita: "Hamburger"),
-                                      Favorites(nomeReceita: "Tomato Soup", imagemReceita: "TomatoSoup"),
-                                      Favorites(nomeReceita: "Meat Pastel", imagemReceita: "MeatPastel"),
-                                      Favorites(nomeReceita: "Rainbow Cake", imagemReceita: "RainbowCake"),
-                                      Favorites(nomeReceita: "Grilled Fish", imagemReceita: "GrilledFish"),
-                                      Favorites(nomeReceita: "Chicken Strogonoff", imagemReceita: "ChickenStrogonoff")]
 
     
     // MARK: configuação TableView
@@ -37,13 +30,26 @@ class FavoritesVC: UIViewController {
     
     
     // MARK: viewdidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configTableView()
+        self.controller.delegate = self
         self.controller.load()
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: PrepareForSegue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RecipeDetailVC", let _recipe: Recipe = sender as? Recipe {
+            let vc: RecipeDetailVC? = segue.destination as? RecipeDetailVC
+            vc?.receita = _recipe
+        }
+    }
+    
+    // MARK: Delegate Methods
+    func didUpdate() {
+        self.favoritesTableView.reloadData()
     }
 
 }
@@ -56,13 +62,9 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         return self.controller.numberOfRows
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
-        
         cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
-        
         return cell ?? UITableViewCell()
     }
     
@@ -71,11 +73,14 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        self.arrayFavorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
+        self.controller.removeFavoriteAt(index: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let _recipe: Recipe = self.controller.favoriteRecipeAt(index: indexPath.row) {
+            self.performSegue(withIdentifier: "RecipeDetailVC", sender: _recipe)
+        }
+    }
     
 }
