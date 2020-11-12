@@ -30,4 +30,9 @@ class FavoritesCell: UITableViewCell {
         self.nameLabel.text = favorites.nomeReceita
     }
     
+    func setup(recipe: Recipe?) {
+        self.recipeImage.image = UIImage(named: recipe?.image ?? "")
+        self.nameLabel.text = recipe?.name ?? "N/A"
+    }
+    
 }
