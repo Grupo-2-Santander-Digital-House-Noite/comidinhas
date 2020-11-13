@@ -30,20 +30,10 @@
                             <constraint firstItem="YAz-gL-FPs" firstAttribute="trailing" secondItem="t31-q7-0nX" secondAttribute="trailing" id="oNr-Wo-oNv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="svL-KG-Lt6">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="fqI-y1-H7D">
-                            <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="searchBarButtonClick:" destination="Z7a-R1-Urv" id="WnA-8j-w9q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Favorites" id="svL-KG-Lt6"/>
                     <connections>
                         <outlet property="favoritesTableView" destination="t31-q7-0nX" id="ZVd-ZX-cxk"/>
                         <segue destination="59U-JG-jRF" kind="show" identifier="RecipeDetailVC" id="XXj-TZ-ljj"/>
-                    </connections>
-                    <connections>
-                        <outlet property="searchBarButton" destination="fqI-y1-H7D" id="23J-U5-Ghc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jq8-LH-H6s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -88,6 +78,5 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>
 </document>

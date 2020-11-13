@@ -29,10 +29,10 @@ class SearchTableViewCell: UITableViewCell {
         self.categoryPickerView.delegate = self
         self.categoryPickerView.dataSource = self
         
-        mealTypes = ["Main Course", "Side Dish", "Dessert", "Apptizer", "Salad", "Bread", "Breakfast", "Soup", "Beverage", "Sauce", "Marinade", "Fingerfood", "Snack", "Drink"]
+        mealTypes = ["All", "Main Course", "Side Dish", "Dessert", "Apptizer", "Salad", "Bread", "Breakfast", "Soup", "Beverage", "Sauce", "Marinade", "Fingerfood", "Snack", "Drink"]
 
         ingredientsTextView.delegate = self
-        ingredientsTextView.text = "sugar, flour, lettuce"
+        ingredientsTextView.text = "Enter the ingredients separated by comma"
         ingredientsTextView.textColor = UIColor.lightGray
         ingredientsTextView.layer.cornerRadius = 4
         categoryPickerView.layer.cornerRadius = 4

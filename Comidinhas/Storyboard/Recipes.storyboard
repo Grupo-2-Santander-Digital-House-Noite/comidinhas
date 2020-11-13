@@ -42,18 +42,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipes" id="kNS-2M-b6z">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="AOQ-fy-hNJ">
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="DUj-nX-iSP">
                             <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="searchBarButtonClick:" destination="5Wa-Vc-Jay" id="wZm-7C-ptY"/>
+                                <action selector="searchBarButtonClick:" destination="5Wa-Vc-Jay" id="xvy-83-e0v"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="recipesListTableView" destination="Nmb-nh-BB7" id="bO2-r3-qmm"/>
+                        <outlet property="serachBarButton" destination="DUj-nX-iSP" id="q5C-8L-kGo"/>
                         <segue destination="fY9-3f-9hI" kind="show" identifier="RecipeDetailVC" id="ICW-4t-O3W"/>
-                        <outlet property="serachBarButton" destination="AOQ-fy-hNJ" id="g2T-d8-8Gv"/>
-                        <segue destination="NEe-Th-Sc7" kind="show" identifier="RecipeDetailVC" id="w6N-Ms-yen"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8Y-M9-4Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

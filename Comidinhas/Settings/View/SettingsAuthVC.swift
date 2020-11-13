@@ -31,7 +31,7 @@ class SettingsAuthVC: UIViewController {
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
+    }
 }

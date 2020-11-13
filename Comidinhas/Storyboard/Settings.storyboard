@@ -22,28 +22,29 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySe-3N-45q">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIo-1G-YmA">
                                         <rect key="frame" x="0.0" y="64" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my frist time?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATn-kF-dzo">
-                                <rect key="frame" x="20" y="727.5" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="702.5" width="374" height="24.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="xmw-Sw-Vwi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRx-nJ-mXe">
-                                <rect key="frame" x="170" y="760" width="75" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRx-nJ-mXe">
+                                <rect key="frame" x="178.5" y="739" width="57" height="37"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
@@ -51,14 +52,15 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="o0A-45-QFS">
-                                <rect key="frame" x="57" y="427" width="300" height="30"/>
+                                <rect key="frame" x="57" y="427" width="300" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqs-ce-YLY">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="37"/>
                                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="32b-GH-CwO"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Sign in"/>
                                         <connections>
@@ -66,7 +68,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlQ-gt-N8z">
-                                        <rect key="frame" x="200" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="200" y="0.0" width="100" height="37"/>
                                         <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="LBF-dA-xst"/>
@@ -85,11 +87,11 @@
                         <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="S3K-bU-ldf" firstAttribute="leading" secondItem="J8Z-XB-GPH" secondAttribute="leading" constant="20" id="9fZ-x6-wsf"/>
+                            <constraint firstItem="J8Z-XB-GPH" firstAttribute="bottom" secondItem="PRx-nJ-mXe" secondAttribute="bottom" constant="86" id="FOl-AS-vpO"/>
                             <constraint firstItem="S3K-bU-ldf" firstAttribute="top" secondItem="J8Z-XB-GPH" secondAttribute="top" constant="197" id="FnI-1Y-qvA"/>
                             <constraint firstItem="PRx-nJ-mXe" firstAttribute="top" secondItem="ATn-kF-dzo" secondAttribute="bottom" constant="12" id="RwG-T7-jrd"/>
                             <constraint firstItem="PRx-nJ-mXe" firstAttribute="centerX" secondItem="J8Z-XB-GPH" secondAttribute="centerX" id="TrM-6Z-JJV"/>
                             <constraint firstItem="ATn-kF-dzo" firstAttribute="leading" secondItem="J8Z-XB-GPH" secondAttribute="leading" constant="20" id="VXB-dC-uCy"/>
-                            <constraint firstItem="J8Z-XB-GPH" firstAttribute="bottom" secondItem="PRx-nJ-mXe" secondAttribute="bottom" constant="72" id="XQj-qi-ye9"/>
                             <constraint firstItem="J8Z-XB-GPH" firstAttribute="trailing" secondItem="S3K-bU-ldf" secondAttribute="trailing" constant="20" id="boT-GT-Lng"/>
                             <constraint firstItem="J8Z-XB-GPH" firstAttribute="trailing" secondItem="ATn-kF-dzo" secondAttribute="trailing" constant="20" id="f4N-bu-iPF"/>
                             <constraint firstItem="J8Z-XB-GPH" firstAttribute="trailing" secondItem="o0A-45-QFS" secondAttribute="trailing" constant="57" id="mW2-Ee-828"/>
@@ -97,14 +99,7 @@
                             <constraint firstItem="o0A-45-QFS" firstAttribute="leading" secondItem="J8Z-XB-GPH" secondAttribute="leading" constant="57" id="ynH-fF-aUK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="P3J-cN-9jc">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="hHB-04-H4w">
-                            <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="searchBarButtonClick:" destination="bSQ-uD-WUB" id="SI5-wT-keS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="P3J-cN-9jc"/>
                     <connections>
                         <outlet property="bntCancel" destination="OlQ-gt-N8z" id="zYs-nb-5O4"/>
                         <outlet property="bntLogin" destination="Vqs-ce-YLY" id="nBb-4r-hlZ"/>
@@ -133,26 +128,27 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCC-XJ-dlS">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4BW-AO-rST">
                                         <rect key="frame" x="0.0" y="59" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-yk-P1x">
                                         <rect key="frame" x="0.0" y="118" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSB-1R-aqd">
-                                <rect key="frame" x="100" y="442" width="214" height="30"/>
+                                <rect key="frame" x="100" y="442" width="214" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create your account"/>
                                 <connections>
@@ -287,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRm-TM-T6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4203" y="1550"/>
+            <point key="canvasLocation" x="3381" y="1550"/>
         </scene>
         <!--Settings-->
         <scene sceneID="l1k-Yr-3B1">
@@ -323,83 +319,85 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Rodrigo Ventura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJA-nd-lRQ">
-                                <rect key="frame" x="20" y="125" width="374" height="31.5"/>
+                                <rect key="frame" x="20" y="125" width="374" height="37"/>
                                 <color key="tintColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="26"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="0.14011625429999999" blue="0.1013373711" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt8-GV-HYu">
-                                <rect key="frame" x="20" y="171" width="98" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="______________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt8-GV-HYu">
+                                <rect key="frame" x="20" y="176.5" width="124.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zn-G9-eEU">
-                                <rect key="frame" x="296" y="171" width="98" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="______________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zn-G9-eEU">
+                                <rect key="frame" x="269.5" y="176.5" width="124.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change datas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y47-H0-yOn">
-                                <rect key="frame" x="154.5" y="176" width="105.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="156" y="181.5" width="102" height="24.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Ux-kq-FMg">
-                                <rect key="frame" x="20" y="229.5" width="374" height="196"/>
+                                <rect key="frame" x="20" y="239" width="374" height="196"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bls-Fw-ix1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-84-pUi">
                                         <rect key="frame" x="0.0" y="54" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Jd-No-1XL">
                                         <rect key="frame" x="0.0" y="108" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat the password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Igj-w1-ckl">
                                         <rect key="frame" x="0.0" y="162" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXB-Wt-WaQ">
-                                <rect key="frame" x="132" y="460" width="150" height="30"/>
+                                <rect key="frame" x="132" y="469.5" width="150" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="UwY-dU-qWE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="bntUpdate:" destination="Ngj-0E-93j" eventType="touchUpInside" id="W9b-Ay-lDz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="________________________________________" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qS-nK-LCF">
-                                <rect key="frame" x="20" y="499" width="374" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="________________________________________" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qS-nK-LCF">
+                                <rect key="frame" x="20" y="523" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htO-4p-v0M">
-                                <rect key="frame" x="157" y="576" width="100" height="30"/>
+                                <rect key="frame" x="157" y="592.5" width="100" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="MdY-Kw-uNR"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Logout"/>
                             </button>
@@ -415,17 +413,18 @@
                             <constraint firstItem="wt8-GV-HYu" firstAttribute="top" secondItem="XJA-nd-lRQ" secondAttribute="bottom" constant="14.5" id="Clr-95-hrp"/>
                             <constraint firstItem="XJA-nd-lRQ" firstAttribute="leading" secondItem="al4-8S-IZF" secondAttribute="leading" constant="20" id="HlR-sH-kc0"/>
                             <constraint firstItem="8Ux-kq-FMg" firstAttribute="top" secondItem="Y47-H0-yOn" secondAttribute="bottom" constant="33" id="LFc-L2-h1k"/>
-                            <constraint firstItem="htO-4p-v0M" firstAttribute="top" secondItem="7qS-nK-LCF" secondAttribute="bottom" constant="56.5" id="Qbo-TK-Kpc"/>
                             <constraint firstItem="wt8-GV-HYu" firstAttribute="leading" secondItem="al4-8S-IZF" secondAttribute="leading" constant="20" id="QiF-ry-aqy"/>
                             <constraint firstItem="al4-8S-IZF" firstAttribute="trailing" secondItem="XJA-nd-lRQ" secondAttribute="trailing" constant="20" id="VHf-rb-9vl"/>
                             <constraint firstItem="PXB-Wt-WaQ" firstAttribute="centerX" secondItem="al4-8S-IZF" secondAttribute="centerX" id="VpN-RY-exz"/>
+                            <constraint firstItem="7qS-nK-LCF" firstAttribute="leading" secondItem="al4-8S-IZF" secondAttribute="leading" constant="20" id="Ye3-gy-6Kx"/>
                             <constraint firstItem="htO-4p-v0M" firstAttribute="leading" secondItem="al4-8S-IZF" secondAttribute="leading" constant="157" id="a8n-tZ-qQZ"/>
                             <constraint firstItem="al4-8S-IZF" firstAttribute="trailing" secondItem="4Zn-G9-eEU" secondAttribute="trailing" constant="20" id="aqA-U9-XbM"/>
+                            <constraint firstItem="htO-4p-v0M" firstAttribute="top" secondItem="7qS-nK-LCF" secondAttribute="bottom" constant="49" id="e5j-I9-en5"/>
                             <constraint firstItem="8Ux-kq-FMg" firstAttribute="leading" secondItem="al4-8S-IZF" secondAttribute="leading" constant="20" id="iUe-Er-O28"/>
-                            <constraint firstItem="7qS-nK-LCF" firstAttribute="centerX" secondItem="al4-8S-IZF" secondAttribute="centerX" id="jBT-To-8Ug"/>
                             <constraint firstItem="al4-8S-IZF" firstAttribute="trailing" secondItem="8Ux-kq-FMg" secondAttribute="trailing" constant="20" id="nNB-dI-ZLX"/>
-                            <constraint firstItem="7qS-nK-LCF" firstAttribute="top" secondItem="PXB-Wt-WaQ" secondAttribute="bottom" constant="9" id="wFg-XG-UeG"/>
+                            <constraint firstItem="7qS-nK-LCF" firstAttribute="top" secondItem="PXB-Wt-WaQ" secondAttribute="bottom" constant="16.5" id="pRO-st-xpD"/>
                             <constraint firstItem="4Zn-G9-eEU" firstAttribute="top" secondItem="XJA-nd-lRQ" secondAttribute="bottom" constant="14.5" id="xNo-O4-Y2S"/>
+                            <constraint firstItem="al4-8S-IZF" firstAttribute="trailing" secondItem="7qS-nK-LCF" secondAttribute="trailing" constant="20" id="xh8-wo-Jdi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PTN-lz-UEB"/>
@@ -440,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z68-ey-HoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2587" y="1550"/>
+            <point key="canvasLocation" x="2586.9565217391305" y="1549.5535714285713"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -448,6 +447,5 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>
 </document>

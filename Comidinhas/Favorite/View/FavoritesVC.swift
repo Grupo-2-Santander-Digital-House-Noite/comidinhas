@@ -15,8 +15,8 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
     
     // MARK: IBoutlet
     @IBOutlet weak var favoritesTableView: UITableView!
-
-    @IBOutlet weak var searchBarButton: UIBarButtonItem!
+//
+//    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
     // MARK: configuação TableView
     
@@ -39,13 +39,15 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         self.controller.load()
         // Do any additional setup after loading the view.
     }
-    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
-        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-        newViewController.modalPresentationStyle = .overFullScreen
-        newViewController.delegate = self
-        self.present(newViewController, animated: true, completion: nil)
-    }
+    
+    
+//    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+//        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+//        newViewController.modalPresentationStyle = .overFullScreen
+//        newViewController.delegate = self
+//        self.present(newViewController, animated: true, completion: nil)
+//    }
     
     // MARK: PrepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
