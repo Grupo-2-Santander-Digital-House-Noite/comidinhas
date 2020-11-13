@@ -62,7 +62,6 @@ class RecipeDetailVC: UIViewController {
 
 
     // MARK: viewDidLoad
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,7 +75,14 @@ class RecipeDetailVC: UIViewController {
         favoriteLabel.isUserInteractionEnabled = true
         favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
         updateFavoriteLabel()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RecipeDetailVC.updateFavoriteLabel), name: FavoritosWebService.UPDATE_NOTIFICATION_NAME, object: nil)
     }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 
 
     // MARK: func panInFavoriteLabel
@@ -102,7 +108,7 @@ class RecipeDetailVC: UIViewController {
         }
     }
     
-    private func updateFavoriteLabel() {
+    @objc private func updateFavoriteLabel() {
         guard let _receita: Recipe = self.receita else { return }
         let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _receita)
         if isFavorite {
@@ -361,6 +367,13 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+
+// MARK: extension Delegate for Favorite Related Stuff
+extension RecipeDetailVC: FavoritesUpdateDelegate {
+    func didUpdateFavorites() {
+        self.updateFavoriteLabel()
+    }
+}
 
 // MARK: extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {

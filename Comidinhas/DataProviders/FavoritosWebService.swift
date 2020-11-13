@@ -9,8 +9,9 @@ import Foundation
 
 class FavoritosWebService {
     
+    static let UPDATE_NOTIFICATION_NAME: NSNotification.Name = NSNotification.Name(rawValue: "FavoritosWebService.Updated")
+    
     private var idsFavoritos: [Int] = [644733, 1096055, 782601, 715392, 716437, 715447]
-    weak var delegate: FavoritesUpdateDelegate?
     
     var favoriteIds: [Int] {
         return self.idsFavoritos
@@ -37,7 +38,7 @@ class FavoritosWebService {
         if !self.idsFavoritos.contains(id) {
             self.idsFavoritos.append(id)
         }
-        self.delegate?.didUpdateFavorites()
+        notifyObservers()
     }
     
     func removeFavorite(id: Int) {
@@ -45,7 +46,7 @@ class FavoritosWebService {
             self.idsFavoritos = self.idsFavoritos.filter({ (_id) -> Bool in
                 return _id != id
             })
-            self.delegate?.didUpdateFavorites()
+            notifyObservers()
         }
     }
     
@@ -57,4 +58,9 @@ class FavoritosWebService {
         self.removeFavorite(id: recipe?.id ?? 0)
     }
     
+    
+    //MARK: Notification Related Stuff
+    func notifyObservers() {
+        NotificationCenter.default.post(name: FavoritosWebService.UPDATE_NOTIFICATION_NAME, object: nil)
+    }
 }

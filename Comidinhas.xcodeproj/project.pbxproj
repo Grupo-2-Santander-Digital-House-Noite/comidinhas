@@ -115,7 +115,7 @@
 		BC5E889E253FA64D005345EE /* ComidinhasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComidinhasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComidinhasUITests.swift; sourceTree = "<group>"; };
 		BC5E88A4253FA64D005345EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/view/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
+		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/View/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/view/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEntry.swift; sourceTree = "<group>"; };
@@ -188,6 +188,7 @@
 				BC46506D2543D9EF00047FAE /* ShoppingList */,
 				BC5E8884253FA649005345EE /* ViewController.swift */,
 				E53E92942540A3780007C559 /* RecipesVC.swift */,
+				BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */,
 				E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */,
 				E59A81D1254CA953001CA268 /* AllReviewsVC.swift */,
 				E59A81D6254CA975001CA268 /* WriteReviewVC.swift */,
@@ -217,6 +218,15 @@
 				BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC4F01DC255E06C600BABCFA /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E563473225420BB4002B77FF /* FavoritesCell.swift */,
+				E563473325420BB4002B77FF /* FavoritesCell.xib */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		BC579452255055AD000612F0 /* DataProviders */ = {
@@ -257,8 +267,6 @@
 				BC579452255055AD000612F0 /* DataProviders */,
 				E53E92C22540ACA00007C559 /* Cells */,
 				E53E92B92540AC070007C559 /* Models */,
-				E563473125420B96002B77FF /* Cells */,
-				E563472825420A05002B77FF /* Models */,
 				E53E927C2540A1C80007C559 /* Storyboard */,
 				016018972540744900F36A37 /* View */,
 				BC5E8880253FA649005345EE /* AppDelegate.swift */,
@@ -304,7 +312,6 @@
 				E53E927D2540A1E40007C559 /* Recipes.storyboard */,
 				E53E92822540A1F10007C559 /* Favorites.storyboard */,
 				E53E92872540A1FA0007C559 /* ShoppingList.storyboard */,
-				BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */,
 				E53E928C2540A2030007C559 /* Settings.storyboard */,
 				BC4F01BB255CF18E00BABCFA /* RecipeDetailVC.storyboard */,
 			);
@@ -320,6 +327,7 @@
 				E53E92BA2540AC170007C559 /* Recipe.swift */,
 				E554ED90254B03A60050D1CD /* Ingredientes.swift */,
 				E554EDD3254B76E10050D1CD /* Steps.swift */,
+				E563472925420A14002B77FF /* Favorites.swift */,
 				E554ED9A254B03BB0050D1CD /* Reviews.swift */,
 			);
 			path = Models;
@@ -328,6 +336,7 @@
 		E53E92C22540ACA00007C559 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BC4F01DC255E06C600BABCFA /* Favorites */,
 				E554ED8C254AFEB80050D1CD /* DetalheDaReceita */,
 				E554ED8B254AFE9C0050D1CD /* ListagemDeReceita */,
 			);
@@ -372,23 +381,6 @@
 				E554ED81254AFDF50050D1CD /* Header */,
 			);
 			path = DetalheDaReceita;
-			sourceTree = "<group>";
-		};
-		E563472825420A05002B77FF /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E563472925420A14002B77FF /* Favorites.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E563473125420B96002B77FF /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				E563473225420BB4002B77FF /* FavoritesCell.swift */,
-				E563473325420BB4002B77FF /* FavoritesCell.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

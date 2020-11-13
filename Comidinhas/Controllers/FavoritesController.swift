@@ -23,10 +23,16 @@ class FavoritesController: FavoritesUpdateDelegate {
     
     weak var delegate: FavoriteControllerUpdate?
     
-    // MARK: Public Methods
+    // MARK: Initializer/Deinitializer
     init() {
-        FavoritosWebService.shared.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(FavoritesController.didUpdateFavorites), name: FavoritosWebService.UPDATE_NOTIFICATION_NAME, object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: Public Methods
     
     func load() {
         self.favoritos = RecipesWebService.shared.with(ids: FavoritosWebService.shared.favoriteIds)
@@ -44,7 +50,7 @@ class FavoritesController: FavoritesUpdateDelegate {
         self.load()
     }
     
-    func didUpdateFavorites() {
+    @objc func didUpdateFavorites() {
         self.load()
         self.delegate?.didUpdate()
     }
