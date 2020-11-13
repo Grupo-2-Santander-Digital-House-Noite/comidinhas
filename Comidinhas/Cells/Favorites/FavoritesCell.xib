@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesCell" id="KGk-i7-Jjw" customClass="FavoritesCell" customModule="Comidinhas" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wVa-bz-vBD">
+                        <rect key="frame" x="5" y="5" width="52" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="5hR-RP-d5m"/>
+                            <constraint firstAttribute="width" constant="52" id="Wr1-Pw-5oM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIZ-hy-zq0">
+                        <rect key="frame" x="67" y="17.5" width="248" height="25"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                        <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="wVa-bz-vBD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2nN-Of-a1f"/>
+                    <constraint firstItem="wVa-bz-vBD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="D9e-1Z-rOZ"/>
+                    <constraint firstItem="SIZ-hy-zq0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fbj-Gq-rhc"/>
+                    <constraint firstAttribute="trailing" secondItem="SIZ-hy-zq0" secondAttribute="trailing" constant="5" id="LvX-PB-Okl"/>
+                    <constraint firstItem="SIZ-hy-zq0" firstAttribute="leading" secondItem="wVa-bz-vBD" secondAttribute="trailing" constant="10" id="RQN-6n-x7D"/>
+                    <constraint firstAttribute="bottom" secondItem="wVa-bz-vBD" secondAttribute="bottom" constant="5" id="hsO-YS-nw4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameLabel" destination="SIZ-hy-zq0" id="YDF-rX-oSb"/>
+                <outlet property="recipeImage" destination="wVa-bz-vBD" id="cRx-Tb-P35"/>
+            </connections>
+            <point key="canvasLocation" x="-535" y="-85"/>
+        </tableViewCell>
+    </objects>
+</document>

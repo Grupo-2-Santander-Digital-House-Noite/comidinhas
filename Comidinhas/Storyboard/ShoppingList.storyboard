@@ -83,7 +83,6 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

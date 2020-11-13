@@ -22,6 +22,12 @@ class RecipesWebService {
         
     }
     
+    func with(ids: [Int]) -> [Recipe] {
+        return self.recipes.filter { (recipe) -> Bool in
+            return ids.contains(recipe.id ?? 0)
+        }
+    }
+    
     func loadRecipes() -> Void {
         
         do {
@@ -30,8 +36,16 @@ class RecipesWebService {
             let data: Data = try Data(contentsOf: url)
             let recipes: RecipeResults = try JSONDecoder().decode(RecipeResults.self, from: data)
             
+            var ids: [Int] = [];
             self.recipes = recipes.results.filter({ (recipe) -> Bool in
                 return recipe.stepsSection.count > 0
+            }).filter({ (recipe) -> Bool in
+                guard let _id = recipe.id else { return false }
+                if ids.contains(_id) {
+                    return false
+                }
+                ids.append(_id)
+                return true
             })
             
         } catch {
