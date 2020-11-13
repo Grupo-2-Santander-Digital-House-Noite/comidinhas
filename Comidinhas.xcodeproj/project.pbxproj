@@ -18,6 +18,9 @@
 		BC4F01C7255CF4F100BABCFA /* FavoritosWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */; };
 		BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */; };
 		BC4F01D5255CFFC100BABCFA /* FavoritesUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4F01D4255CFFC100BABCFA /* FavoritesUpdateDelegate.swift */; };
+		0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F71F2559806B00D59D18 /* SettingsCadVC.swift */; };
+		0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */; };
+		0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */; };
 		BC579454255055D0000612F0 /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = BC579453255055D0000612F0 /* recipes.json */; };
 		BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC57945B25505632000612F0 /* RecipesWebService.swift */; };
 		BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8880253FA649005345EE /* AppDelegate.swift */; };
@@ -99,6 +102,9 @@
 		BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosWebService.swift; sourceTree = "<group>"; };
 		BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		BC4F01D4255CFFC100BABCFA /* FavoritesUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesUpdateDelegate.swift; sourceTree = "<group>"; };
+		0178F71F2559806B00D59D18 /* SettingsCadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCadVC.swift; sourceTree = "<group>"; };
+		0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVC.swift; sourceTree = "<group>"; };
+		0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUpdVC.swift; sourceTree = "<group>"; };
 		BC579453255055D0000612F0 /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		BC57945B25505632000612F0 /* RecipesWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWebService.swift; sourceTree = "<group>"; };
 		BC5E887D253FA649005345EE /* Comidinhas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comidinhas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +203,9 @@
 				01601898254074C400F36A37 /* LoginVC.swift */,
 				BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */,
 				BC953973255A43C500B6E795 /* ColorConstants.swift */,
+				0178F71F2559806B00D59D18 /* SettingsCadVC.swift */,
+				0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */,
+				0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,6 +549,7 @@
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
 				BC4F01D5255CFFC100BABCFA /* FavoritesUpdateDelegate.swift in Sources */,
 				E56149E025476656007F9C42 /* IngredientesCell.swift in Sources */,
+				0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */,
 				E554ED77254AFBC70050D1CD /* ReviewHeaderCell.swift in Sources */,
 				BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */,
 				BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */,
@@ -567,8 +577,10 @@
 				E554ED65254AFA9E0050D1CD /* StepsHeaderCell.swift in Sources */,
 				E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */,
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
+				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
 				E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */,
 				E53E92BB2540AC170007C559 /* Recipe.swift in Sources */,
+				0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
