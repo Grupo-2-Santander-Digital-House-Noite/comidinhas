@@ -52,7 +52,7 @@ class SettingsVC: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
     }
     
-    /*
+    
     // MARK: - Navigation
 
 
