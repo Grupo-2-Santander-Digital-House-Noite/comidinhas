@@ -74,6 +74,7 @@
 		E53E92BB2540AC170007C559 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92BA2540AC170007C559 /* Recipe.swift */; };
 		E53E92CD2540ACE70007C559 /* RecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92CB2540ACE70007C559 /* RecipesCell.swift */; };
 		E53E92CE2540ACE70007C559 /* RecipesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53E92CC2540ACE70007C559 /* RecipesCell.xib */; };
+		E5519A05256439EA0080E39C /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5519A04256439EA0080E39C /* DesignableView.swift */; };
 		E554ED52254AF8500050D1CD /* IngredientesHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E554ED51254AF8500050D1CD /* IngredientesHeaderCell.xib */; };
 		E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554ED56254AF8AB0050D1CD /* IngredientesHeaderCell.swift */; };
 		E554ED65254AFA9E0050D1CD /* StepsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554ED64254AFA9E0050D1CD /* StepsHeaderCell.swift */; };
@@ -192,6 +193,7 @@
 		E53E92BA2540AC170007C559 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E53E92CB2540ACE70007C559 /* RecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCell.swift; sourceTree = "<group>"; };
 		E53E92CC2540ACE70007C559 /* RecipesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCell.xib; sourceTree = "<group>"; };
+		E5519A04256439EA0080E39C /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		E554ED51254AF8500050D1CD /* IngredientesHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientesHeaderCell.xib; sourceTree = "<group>"; };
 		E554ED56254AF8AB0050D1CD /* IngredientesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientesHeaderCell.swift; sourceTree = "<group>"; };
 		E554ED64254AFA9E0050D1CD /* StepsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsHeaderCell.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				BC579452255055AD000612F0 /* DataProviders */,
 				E53E927C2540A1C80007C559 /* Storyboard */,
 				BC953973255A43C500B6E795 /* ColorConstants.swift */,
+				E5519A04256439EA0080E39C /* DesignableView.swift */,
 				BC5E8880253FA649005345EE /* AppDelegate.swift */,
 				BC5E8882253FA649005345EE /* SceneDelegate.swift */,
 				BC5E8889253FA64D005345EE /* Assets.xcassets */,
@@ -831,6 +834,7 @@
 				BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
 				BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */,
+				E5519A05256439EA0080E39C /* DesignableView.swift in Sources */,
 				1D8B2061255B74B90068854F /* IQKeyboardManager+OrientationNotification.swift in Sources */,
 				E554ED9B254B03BB0050D1CD /* Reviews.swift in Sources */,
 				1D8B205E255B74B90068854F /* IQKeyboardReturnKeyHandler.swift in Sources */,

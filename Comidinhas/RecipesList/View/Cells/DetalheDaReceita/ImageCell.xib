@@ -2,8 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,20 +18,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-uA-Mvi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJv-Eh-wm4" customClass="DesignableView" customModule="Comidinhas" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="310" height="170"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-uA-Mvi">
+                                <rect key="frame" x="0.0" y="0.0" width="310" height="170"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="180" id="590-Pq-E9n"/>
-                            <constraint firstAttribute="width" constant="320" id="HdQ-it-iOB"/>
+                            <constraint firstAttribute="width" constant="310" id="8Lp-sT-QnY"/>
+                            <constraint firstItem="PIt-uA-Mvi" firstAttribute="leading" secondItem="kJv-Eh-wm4" secondAttribute="leading" id="TYY-EZ-Q7u"/>
+                            <constraint firstAttribute="height" constant="170" id="UPE-gI-hPs"/>
+                            <constraint firstAttribute="trailing" secondItem="PIt-uA-Mvi" secondAttribute="trailing" id="bnc-Ar-CLM"/>
+                            <constraint firstItem="PIt-uA-Mvi" firstAttribute="top" secondItem="kJv-Eh-wm4" secondAttribute="top" id="eBR-hh-UaZ"/>
+                            <constraint firstAttribute="bottom" secondItem="PIt-uA-Mvi" secondAttribute="bottom" id="tUS-9N-Af0"/>
                         </constraints>
-                    </imageView>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                <real key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="viewCorner">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="PIt-uA-Mvi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UjA-jy-LFI"/>
-                    <constraint firstAttribute="bottom" secondItem="PIt-uA-Mvi" secondAttribute="bottom" id="lb6-GL-ph8"/>
-                    <constraint firstItem="PIt-uA-Mvi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nrT-Ut-vKZ"/>
-                    <constraint firstAttribute="trailing" secondItem="PIt-uA-Mvi" secondAttribute="trailing" id="to5-n8-PMJ"/>
+                    <constraint firstAttribute="trailing" secondItem="kJv-Eh-wm4" secondAttribute="trailing" constant="5" id="00o-HI-7t4"/>
+                    <constraint firstAttribute="bottom" secondItem="kJv-Eh-wm4" secondAttribute="bottom" constant="5" id="FW1-sv-SQ9"/>
+                    <constraint firstItem="kJv-Eh-wm4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="gSX-pH-Spp"/>
+                    <constraint firstItem="kJv-Eh-wm4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tOm-QS-1Ak"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -39,4 +68,9 @@
             <point key="canvasLocation" x="-193" y="7"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
