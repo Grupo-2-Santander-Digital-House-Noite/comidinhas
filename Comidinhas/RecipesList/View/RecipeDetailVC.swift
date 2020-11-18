@@ -17,15 +17,9 @@ class RecipeDetailVC: UIViewController {
     let SEGUE_ID_WRITE_REVIEW_VC = "WriteReviewVC"
     
     // MARK: IBOutlet
-    @IBOutlet weak var nomeLabel: UILabel!
-    @IBOutlet weak var tempoLabel: UILabel!
-    @IBOutlet weak var categoriaLabel: UILabel!
-    @IBOutlet weak var servingsLabel: UILabel!
-    @IBOutlet weak var favoriteLabel: UILabel!
-
     @IBOutlet weak var detalheReceitaView: UIView!
 
-
+    @IBOutlet weak var recipeMetaView: RecipeMetadataView!
     @IBOutlet weak var recipeDetailTableView: UITableView!
 
 
@@ -54,10 +48,7 @@ class RecipeDetailVC: UIViewController {
 
 
     private func configDetalhes(_ receita: Recipe?) {
-        self.nomeLabel.text = receita?.name ?? "Chocolate cake"
-        self.categoriaLabel.text = receita?.categoryString ?? "Desert"
-        self.tempoLabel.text = "\(receita?.time ?? 40) min"
-        self.servingsLabel.text = "\(receita?.servings ?? 40) servings"
+        self.recipeMetaView.configureViewWith(recipe: receita)
     }
 
 
@@ -67,16 +58,6 @@ class RecipeDetailVC: UIViewController {
 
         self.configDetalhes(self.receita)
         self.configTableView()
-        self.detalheReceitaView.backgroundColor = UIColor(red: 1.00, green: 0.73, blue: 0.36, alpha: 1.00)
-
-        //Adicionar Tap Gesture na label de favoritar
-        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-        favoriteLabel.isUserInteractionEnabled = true
-        favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
-        updateFavoriteLabel()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(RecipeDetailVC.updateFavoriteLabel), name: FavoritosWebService.UPDATE_NOTIFICATION_NAME, object: nil)
     }
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
@@ -87,36 +68,6 @@ class RecipeDetailVC: UIViewController {
 
     // MARK: func panInFavoriteLabel
 
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-        if self.favoriteLabel.text == "♡" {
-            self.favoriteLabel.text = "♥︎"
-            FavoritosWebService.shared.addFavorite(recipe: self.receita)
-        } else {
-            self.favoriteLabel.text = "♡"
-            FavoritosWebService.shared.removeFavorite(recipe: self.receita)
-        }
-    }
-    
-    private func toggleFavorite() {
-        if let _receita: Recipe = self.receita {
-            if FavoritosWebService.shared.isFavorite(recipe: _receita) {
-                FavoritosWebService.shared.removeFavorite(recipe: _receita)
-            } else {
-                FavoritosWebService.shared.addFavorite(recipe: _receita)
-            }
-            self.updateFavoriteLabel()
-        }
-    }
-    
-    @objc private func updateFavoriteLabel() {
-        guard let _receita: Recipe = self.receita else { return }
-        let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _receita)
-        if isFavorite {
-            self.favoriteLabel.text = "♥︎"
-        } else {
-            self.favoriteLabel.text = "♡"
-        }
-    }
     
     // MARK: SEGUE HANDLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,11 +75,14 @@ class RecipeDetailVC: UIViewController {
         switch segue.identifier {
         case self.SEGUE_ID_ALL_REVIEWS_VC:
             // passa dados ao Destination do ALL REVIEWS
+            let vc: AllReviewsVC? = segue.destination as? AllReviewsVC
+            vc?.configureWith(recipe: self.receita)
             break
         case self.SEGUE_ID_WRITE_REVIEW_VC:
             // passa dados ao Destination do WRITE REVIEWS
             let vc: WriteReviewVC? = segue.destination as? WriteReviewVC
             vc?.delegate = self
+            vc?.configureWith(recipe: self.receita)
             break
         default:
             // Faz nada
@@ -367,13 +321,6 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-
-// MARK: extension Delegate for Favorite Related Stuff
-extension RecipeDetailVC: FavoritesUpdateDelegate {
-    func didUpdateFavorites() {
-        self.updateFavoriteLabel()
-    }
-}
 
 // MARK: extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
