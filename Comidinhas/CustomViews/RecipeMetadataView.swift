@@ -89,6 +89,7 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
         self.recipeCategories?.text = recipe?.categoryString ?? "none"
         self.timeLabel?.text = "\(recipe?.time ?? 0) min"
         self.servingsLabel?.text = "\(recipe?.servings ?? 0) servings"
+        self.updateFavoriteIndicator()
     }
     
     // Este método é chamado pelo interface builder.
