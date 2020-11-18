@@ -12,6 +12,9 @@ class RecipesVC: UIViewController {
     @IBOutlet weak var recipesListTableView: UITableView!
     @IBOutlet weak var serachBarButton: UIBarButtonItem!
     
+    
+    // MARK: configTableView
+    
     private func configTableView() {
         recipesListTableView.dataSource = self
         recipesListTableView.delegate = self
@@ -22,23 +25,27 @@ class RecipesVC: UIViewController {
     }
     
     
+    // MARK: viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTableView()
         // Do any additional setup after loading the view.
     }
+    
+    
+    // MARK: IBAction serachBarButtonClick
+    
     @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
         let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         newViewController.modalPresentationStyle = .overFullScreen
         self.present(newViewController, animated: true, completion: nil)
     }
-    
-
-
 }
 
 
+// MARK: extension TableView
 
 extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +74,5 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
         let vc = segue.destination as? RecipeDetailVC
         
         vc?.receita = receita
-        
     }
-    
 }

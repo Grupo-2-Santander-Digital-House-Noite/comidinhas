@@ -20,6 +20,8 @@ class AllReviewsVC: UIViewController {
     @IBOutlet weak var reviewsTableView: UITableView!
     
 
+    // MARK: configTableView
+    
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
@@ -31,13 +33,14 @@ class AllReviewsVC: UIViewController {
     }
     
     
-
+    // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configTableView()
         
+        // captura o toque na tela para favoritar a receita
         let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
         tapGestureToFavoriteLabel.numberOfTapsRequired = 1
         self.favoriteLabel.isUserInteractionEnabled = true
@@ -58,13 +61,12 @@ class AllReviewsVC: UIViewController {
 }
 
 
-
+// MARK: extension TableView
 
 extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -74,6 +76,7 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
         return header ?? nil
     }
     
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 56
     }
@@ -82,7 +85,6 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayReviews.count
     }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

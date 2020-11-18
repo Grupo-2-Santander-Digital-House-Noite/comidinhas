@@ -25,9 +25,7 @@ class RecipeDetailVC: UIViewController {
 
     @IBOutlet weak var detalheReceitaView: UIView!
 
-
     @IBOutlet weak var recipeDetailTableView: UITableView!
-
 
     var receita: Recipe?
 
@@ -46,6 +44,7 @@ class RecipeDetailVC: UIViewController {
         self.recipeDetailTableView.register(UINib(nibName: "StepToStepCell", bundle: nil), forCellReuseIdentifier: "StepToStepCell")
         self.recipeDetailTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.recipeDetailTableView.register(UINib(nibName: "SeeMoreAndAvaliationCell", bundle: nil), forCellReuseIdentifier: "SeeMoreAndAvaliationCell")
+        
         // Registro das Headers
         self.recipeDetailTableView.register(UINib(nibName: "IngredientesHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "IngredientesHeaderCell")
         self.recipeDetailTableView.register(UINib(nibName: "StepsHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "StepsHeaderCell")
@@ -69,7 +68,7 @@ class RecipeDetailVC: UIViewController {
         self.configTableView()
         self.detalheReceitaView.backgroundColor = UIColor(red: 1.00, green: 0.73, blue: 0.36, alpha: 1.00)
 
-        //Adicionar Tap Gesture na label de favoritar
+        // captura o toque na tela para favoritar a receita
         let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
         tapGestureToFavoriteLabel.numberOfTapsRequired = 1
         favoriteLabel.isUserInteractionEnabled = true
@@ -97,6 +96,7 @@ class RecipeDetailVC: UIViewController {
         }
     }
     
+    
     private func toggleFavorite() {
         if let _receita: Recipe = self.receita {
             if FavoritosWebService.shared.isFavorite(recipe: _receita) {
@@ -118,6 +118,7 @@ class RecipeDetailVC: UIViewController {
         }
     }
     
+    
     // MARK: SEGUE HANDLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Esta classe usa dois possíveis segues.
@@ -135,7 +136,6 @@ class RecipeDetailVC: UIViewController {
             return
         }
     }
-
 }
 
 
@@ -161,6 +161,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     
+    // MARK: leadingSwipeActionsConfigurationForRowAt indexPath
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // Achar uma forma melhor de definir a seção de ingredientes.
@@ -184,10 +185,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         addAction.image = UIImage(systemName: "cart.badge.plus")
         
         return UISwipeActionsConfiguration(actions: [addAction])
-        
     }
     
 
+    // MARK: Number Of Sections
+    // Define quantas seções tem a table view
     func numberOfSections(in tableView: UITableView) -> Int {
 
         /**
@@ -199,12 +201,12 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
          5. Ver mais avaliações.
          */
 
-
         return self.numSectionCabecalho + self.numSectionIngredientes + self.numSectionsModosPreparo + self.numSectionReviews + self.numSectionsViewMoreReviews // 2 partes para os ingredientes + 2 partes para o passo a passo
     }
 
 
-
+    // MARK: View For Header In Section
+    // define as headers de cada section
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let cabecalhoSection = 0
@@ -237,9 +239,9 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
 
-
+    // MARK: Height For Header In Section
+    // define a altura de cada header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
 
         // Section 0 - Cabeçalho
         // Section 1 - Ingredientes
@@ -264,11 +266,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         }
 
         return 44
-
     }
 
 
-
+    // MARK: Number Of Rows In Section
+    // define quantas células terá em cada section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         // Section 0 - Cabeçalho
@@ -296,7 +298,9 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
 
-
+    
+    // MARK: Cell for Row At IndexPath
+    // constrói cada célula dependendo da section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Section 0 - Cabeçalho
@@ -336,10 +340,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
                 let cell: StepToStepCell? = tableView.dequeueReusableCell(withIdentifier: "StepToStepCell", for: indexPath) as? StepToStepCell
                 cell?.setupStep(step: _modoPreparo[ self.getModoPreparoIndexFor(section) ].steps[indexPath.row])
                 return cell ?? UITableViewCell()
-
             }
-
-
 
         } else if section == avaliacoesSection {
 
@@ -352,14 +353,13 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
             cell?.delegate = self
             return cell ?? UITableViewCell()
-
         }
 
         return UITableViewCell()
-
     }
     
-      
+     
+    // MARK: get modo de preparo index for
     private func getModoPreparoIndexFor(_ section: Int) -> Int {
         let modoPreparoSectionMax = (self.receita?.stepsSection.count ?? 0) + 1
         return section - 2
@@ -375,20 +375,21 @@ extension RecipeDetailVC: FavoritesUpdateDelegate {
     }
 }
 
+
 // MARK: extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
-    
     func savedReview(_ review: Reviews) {
         // Nesse momento só atualizamos a tabela de reviews.
         self.recipeDetailTableView.reloadData()
     }
     
+    
     func tappedAllReviews() {
         self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
     }
     
+    
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
     }
-    
 }
