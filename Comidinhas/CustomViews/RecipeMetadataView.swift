@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol RecipeFavoriteToggleDelegate {
-    func toggled()
-}
-
 // @IBDesignable é o que faz com que a view seja renderizada
 // quando está no interface builder.
 @IBDesignable
