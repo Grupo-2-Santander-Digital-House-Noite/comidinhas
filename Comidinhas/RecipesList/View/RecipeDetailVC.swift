@@ -124,11 +124,14 @@ class RecipeDetailVC: UIViewController {
         switch segue.identifier {
         case self.SEGUE_ID_ALL_REVIEWS_VC:
             // passa dados ao Destination do ALL REVIEWS
+            let vc: AllReviewsVC? = segue.destination as? AllReviewsVC
+            vc?.configureWith(recipe: self.receita)
             break
         case self.SEGUE_ID_WRITE_REVIEW_VC:
             // passa dados ao Destination do WRITE REVIEWS
             let vc: WriteReviewVC? = segue.destination as? WriteReviewVC
             vc?.delegate = self
+            vc?.configureWith(recipe: self.receita)
             break
         default:
             // Faz nada
