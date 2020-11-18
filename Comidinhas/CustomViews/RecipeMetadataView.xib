@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeMetadataView" customModule="Comidinhas" customModuleProvider="target">
             <connections>
+                <outlet property="favoriteButton" destination="1sn-GE-Tk5" id="ETP-of-mAz"/>
                 <outlet property="recipeCategories" destination="PlX-ea-QE4" id="iRA-ao-1nD"/>
                 <outlet property="recipeTitle" destination="QdG-PQ-Z5u" id="EcV-dT-Er5"/>
                 <outlet property="servingsLabel" destination="U1B-y7-8S1" id="3XR-gK-ZXc"/>
@@ -25,16 +27,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCL-iR-3Zm">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1y-ov-KG2">
-                            <rect key="frame" x="374" y="34" width="32" height="33"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="32" id="5ef-Wq-ZnB"/>
-                                <constraint firstAttribute="height" constant="33" id="qsp-Ja-cIZ"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="kWs-eP-4ct">
                             <rect key="frame" x="16" y="37" width="20" height="64"/>
                             <subviews>
@@ -66,7 +58,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rei-fq-Mj9">
-                            <rect key="frame" x="44" y="39" width="310" height="60"/>
+                            <rect key="frame" x="44" y="39" width="305" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to prepare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7Z-sf-Ysi">
                                     <rect key="frame" x="0.0" y="0.0" width="96" height="16"/>
@@ -91,12 +83,27 @@
                                 <constraint firstAttribute="height" constant="60" id="cYE-B0-4uI"/>
                             </constraints>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sn-GE-Tk5">
+                            <rect key="frame" x="365" y="47" width="33" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="33" id="2qy-zI-FST"/>
+                                <constraint firstAttribute="height" constant="33" id="Du4-yi-dRI"/>
+                            </constraints>
+                            <color key="tintColor" red="0.333293438" green="0.33335629109999998" blue="0.33328947419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal">
+                                <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                            </state>
+                            <connections>
+                                <action selector="toggle" destination="-1" eventType="touchUpInside" id="0qF-3s-oPz"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.79181128739999995" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="kWs-eP-4ct" secondAttribute="bottom" constant="19" id="1ob-dp-8wL"/>
-                        <constraint firstItem="g1y-ov-KG2" firstAttribute="top" secondItem="QdG-PQ-Z5u" secondAttribute="bottom" constant="3" id="6z9-V1-sUd"/>
+                        <constraint firstItem="1sn-GE-Tk5" firstAttribute="leading" secondItem="rei-fq-Mj9" secondAttribute="trailing" constant="16" id="5z0-P6-iS4"/>
                         <constraint firstItem="kWs-eP-4ct" firstAttribute="leading" secondItem="zCL-iR-3Zm" secondAttribute="leading" constant="16" id="G6g-sc-Zyx"/>
+                        <constraint firstAttribute="trailing" secondItem="1sn-GE-Tk5" secondAttribute="trailing" constant="16" id="Kc5-Qn-VAG"/>
                         <constraint firstItem="rei-fq-Mj9" firstAttribute="top" secondItem="QdG-PQ-Z5u" secondAttribute="bottom" constant="8" symbolic="YES" id="MlT-3E-oAk"/>
                         <constraint firstItem="kWs-eP-4ct" firstAttribute="top" secondItem="QdG-PQ-Z5u" secondAttribute="bottom" constant="6" id="Rv1-1D-aR6"/>
                         <constraint firstItem="QdG-PQ-Z5u" firstAttribute="top" secondItem="zCL-iR-3Zm" secondAttribute="top" constant="6" id="V6S-Ku-Sr8"/>
@@ -104,8 +111,7 @@
                         <constraint firstAttribute="bottom" secondItem="rei-fq-Mj9" secondAttribute="bottom" constant="21" id="a6u-O9-klj"/>
                         <constraint firstItem="rei-fq-Mj9" firstAttribute="leading" secondItem="kWs-eP-4ct" secondAttribute="trailing" constant="8" symbolic="YES" id="iWD-LG-Gfc"/>
                         <constraint firstItem="QdG-PQ-Z5u" firstAttribute="leading" secondItem="zCL-iR-3Zm" secondAttribute="leading" constant="16" id="pZO-RU-nfr"/>
-                        <constraint firstAttribute="trailing" secondItem="g1y-ov-KG2" secondAttribute="trailing" constant="8" id="tdE-S8-OMl"/>
-                        <constraint firstItem="g1y-ov-KG2" firstAttribute="leading" secondItem="rei-fq-Mj9" secondAttribute="trailing" constant="20" id="uB8-NV-YTu"/>
+                        <constraint firstItem="1sn-GE-Tk5" firstAttribute="top" secondItem="QdG-PQ-Z5u" secondAttribute="bottom" constant="16" id="yrJ-6h-rGc"/>
                     </constraints>
                 </view>
             </subviews>
@@ -126,6 +132,7 @@
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
