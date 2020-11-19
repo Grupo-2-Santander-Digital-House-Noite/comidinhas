@@ -9,13 +9,11 @@ import UIKit
 
 class AllReviewsVC: UIViewController {
 
+    // Propriedades internas.
+    private var recipe: Recipe?
     
     // IBOutlet da View de Detalhes
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var servingLabel: UILabel!
-    @IBOutlet weak var favoriteLabel: UILabel!
+    @IBOutlet private weak var recipeMeta: RecipeMetadataView!
     // IBOutlet da TableView
     @IBOutlet weak var reviewsTableView: UITableView!
     
@@ -38,24 +36,34 @@ class AllReviewsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configTableView()
+        self.setup()
         
-        // captura o toque na tela para favoritar a receita
-        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-        self.favoriteLabel.isUserInteractionEnabled = true
-        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
+//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
+//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
+//        self.favoriteLabel.isUserInteractionEnabled = true
+//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
     }
     
     
     // MARK: func panInFavoriteLabel
     
     @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-        if self.favoriteLabel.text == "♡" {
-            self.favoriteLabel.text = "♥︎"
-        } else {
-            self.favoriteLabel.text = "♡"
-        }
+//        if self.favoriteLabel.text == "♡" {
+//            self.favoriteLabel.text = "♥︎"
+//        } else {
+//            self.favoriteLabel.text = "♡"
+//        }
+    }
+    
+    // Método de configuração do view controller.
+    func configureWith(recipe: Recipe?) {
+        self.recipe = recipe
+    }
+    
+    // Método de configuração das views, interno.
+    private func setup() {
+        self.recipeMeta.configureViewWith(recipe: self.recipe)
+        self.configTableView()
     }
 
 }

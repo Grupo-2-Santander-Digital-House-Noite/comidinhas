@@ -15,15 +15,12 @@ protocol WriteReviewVCDelegate: AnyObject {
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     var delegate: WriteReviewVCDelegate?
-    var review:Reviews?
+    var review: Reviews?
+    private var recipe: Recipe?
     
     
     // IBOutlet View de Detalhes
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var servingLabel: UILabel!
-    @IBOutlet weak var favoriteLabel: UILabel!
+    @IBOutlet private weak var recipeMeta: RecipeMetadataView!
     // IBOutlet View de Avaliação
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var reviewTextField: UITextField!
@@ -35,11 +32,12 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // captura o toque na tela para favoritar a receita
-        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-        self.favoriteLabel.isUserInteractionEnabled = true
-        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
+        self.setup()
+        // seta o coração de favoritar
+//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
+//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
+//        self.favoriteLabel.isUserInteractionEnabled = true
+//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
         
         // captura o toque na tela para avaliar a quantidade de estrelas
         let tapGestureToStarLabel = UITapGestureRecognizer(target: self, action: #selector(panInStarsLabel(sender:)))
@@ -57,11 +55,11 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     // MARK: func panInFavoriteLabel
     
     @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-        if self.favoriteLabel.text == "♡" {
-            self.favoriteLabel.text = "♥︎"
-        } else {
-            self.favoriteLabel.text = "♡"
-        }
+//        if self.favoriteLabel.text == "♡" {
+//            self.favoriteLabel.text = "♥︎"
+//        } else {
+//            self.favoriteLabel.text = "♡"
+//        }
     }
     
 
@@ -109,6 +107,17 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: Setup Method
+    func configureWith(recipe: Recipe?) {
+        self.recipe = recipe
+    }
+    
+    private func setup() {
+        self.recipeMeta.configureViewWith(recipe: self.recipe)
+    }
+    
+
 }
 
 
