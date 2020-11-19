@@ -37,23 +37,8 @@ class AllReviewsVC: UIViewController {
         super.viewDidLoad()
         
         self.setup()
-        
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
     }
     
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
-    }
     
     // Método de configuração do view controller.
     func configureWith(recipe: Recipe?) {
@@ -65,7 +50,6 @@ class AllReviewsVC: UIViewController {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
         self.configTableView()
     }
-
 }
 
 

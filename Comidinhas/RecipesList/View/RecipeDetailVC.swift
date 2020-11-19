@@ -64,10 +64,6 @@ class RecipeDetailVC: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-
-
-    // MARK: func panInFavoriteLabel
-
     
     // MARK: SEGUE HANDLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

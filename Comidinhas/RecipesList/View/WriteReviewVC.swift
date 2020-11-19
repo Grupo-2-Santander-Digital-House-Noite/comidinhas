@@ -33,11 +33,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.setup()
-        // seta o coração de favoritar
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
         
         // captura o toque na tela para avaliar a quantidade de estrelas
         let tapGestureToStarLabel = UITapGestureRecognizer(target: self, action: #selector(panInStarsLabel(sender:)))
@@ -45,24 +40,11 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         self.starsLabel.isUserInteractionEnabled = true
         self.starsLabel.addGestureRecognizer(tapGestureToStarLabel)
         
-        
         // configuração da textField
         self.reviewTextField.delegate = self
     }
-    
- 
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
-    }
-    
 
+    
     // MARK: func panInStarsLabel
     
     @objc func panInStarsLabel(sender: UIGestureRecognizer) {
@@ -116,8 +98,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
     }
-    
-
 }
 
 
