@@ -12,8 +12,6 @@ class SettingsCadVC: UIViewController {
     @IBOutlet weak var editFullName: UITextField!
     @IBOutlet weak var editEmail: UITextField!
     @IBOutlet weak var editPassword: UITextField!
-    
-    
     @IBOutlet weak var bntCreateAcc: UIButton!
     
     fileprivate func configButton() {
@@ -37,10 +35,23 @@ class SettingsCadVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: VALIDACAO DO CAMPO EMAIL
+    
+    func isValidEmail(email: String) -> Bool{
 
-    @IBAction func bntCreateAcc(_ sender: UIButton) {
+        let emailRegex = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"+"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"+"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"+"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"+"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"+"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"+"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
         
-        // VALIDACAO DO CAMPO EMAIL
+        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegex)
+        
+        return emailTest.evaluate(with: email)
+       
+
+    }
+    
+    func validField(){
+        
+        let emailConf = self.isValidEmail(email: self.editEmail.text!)
+        
         if self.editFullName.text?.isEmpty == true {
             self.editFullName.layer.borderColor = UIColor.red.cgColor
             self.editFullName.layer.borderWidth = 1.0
@@ -48,17 +59,13 @@ class SettingsCadVC: UIViewController {
         } else if self.editFullName.text?.isEmpty == false {
             self.editFullName.layer.borderWidth = 0
         }
-        
-        // VALIDACAO DO CAMPO SENHA
-        if self.editEmail.text?.isEmpty == true {
+        if emailConf == false || self.editEmail.text?.isEmpty == true {
             self.editEmail.layer.borderColor = UIColor.red.cgColor
             self.editEmail.layer.borderWidth = 1.0
             self.editEmail.attributedPlaceholder = NSAttributedString(string: "E-mail - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editEmail.text?.isEmpty == false {
             self.editEmail.layer.borderWidth = 0
         }
-        
-        
         if self.editPassword.text?.isEmpty == true {
             self.editPassword.layer.borderColor = UIColor.red.cgColor
             self.editPassword.layer.borderWidth = 1.0
@@ -67,16 +74,30 @@ class SettingsCadVC: UIViewController {
             self.editPassword.layer.borderWidth = 0
         }
         
-        
-        if self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
+        if emailConf == true && self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
             let alert = UIAlertController(title: "Success", message: "Your account was created", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
                 self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
             }
             alert.addAction(buttonOK)
             self.present(alert, animated: true, completion: nil)
+            
+        }else if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
+            let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
+            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
+                
+            }
+            alert.addAction(buttonOK)
+            self.present(alert, animated: true, completion: nil)
         }
         
+    }
+
+    @IBAction func bntCreateAcc(_ sender: UIButton) {
+        self.validField()
+        
+        // VALIDACAO DO CAMPO SENHA
+   
     }
     
 }
