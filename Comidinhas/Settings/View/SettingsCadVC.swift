@@ -9,15 +9,31 @@ import UIKit
 
 class SettingsCadVC: UIViewController {
 
-    @IBOutlet weak var editFullName: UITextField!
-    @IBOutlet weak var editEmail: UITextField!
-    @IBOutlet weak var editPassword: UITextField!
+    @IBOutlet weak var editFullName: UITextField!{
+        didSet{
+            editFullName.tintColor = UIColor.lightGray
+            editFullName.setIcon(#imageLiteral(resourceName: "user"))
+        }
+    }
+    @IBOutlet weak var editEmail: UITextField!{
+        didSet{
+            editEmail.tintColor = UIColor.lightGray
+            editEmail.setIcon(#imageLiteral(resourceName: "email"))
+        }
+    }
+    @IBOutlet weak var editPassword: UITextField!{
+        didSet {
+              editPassword.tintColor = UIColor.lightGray
+              editPassword.setIcon(#imageLiteral(resourceName: "password"))
+           }
+    }
     @IBOutlet weak var bntCreateAcc: UIButton!
+  
     
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
+       
     }
-    
     fileprivate func configTextField() {
         self.editFullName.delegate = self
         self.editEmail.delegate = self
@@ -30,10 +46,9 @@ class SettingsCadVC: UIViewController {
 
         self.configTextField()
         self.configButton()
-        
-        
-        // Do any additional setup after loading the view.
+     
     }
+
     
     // MARK: VALIDACAO DO CAMPO EMAIL
     
@@ -115,4 +130,16 @@ extension SettingsCadVC: UITextFieldDelegate {
         return true
     }
     
+}
+extension UITextField{
+    func setIcon(_ image: UIImage) {
+       let iconView = UIImageView(frame:
+                      CGRect(x: 10, y: 5, width: 20, height: 20))
+       iconView.image = image
+       let iconContainerView: UIView = UIView(frame:
+                      CGRect(x: 20, y: 0, width: 30, height: 30))
+       iconContainerView.addSubview(iconView)
+       leftView = iconContainerView
+       leftViewMode = .always
+    }
 }
