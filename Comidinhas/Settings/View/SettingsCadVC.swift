@@ -19,6 +19,7 @@ class SettingsCadVC: UIViewController {
         didSet{
             editEmail.tintColor = UIColor.lightGray
             editEmail.setIcon(#imageLiteral(resourceName: "email"))
+            
         }
     }
     @IBOutlet weak var editPassword: UITextField!{
@@ -43,10 +44,9 @@ class SettingsCadVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.configTextField()
         self.configButton()
-     
+        
     }
 
     
