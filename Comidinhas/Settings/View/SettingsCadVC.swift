@@ -7,19 +7,34 @@
 
 import UIKit
 
+
 class SettingsCadVC: UIViewController {
 
-    @IBOutlet weak var editFullName: UITextField!
-    @IBOutlet weak var editEmail: UITextField!
-    @IBOutlet weak var editPassword: UITextField!
-    
-    
+    @IBOutlet weak var editFullName: UITextField!{
+        didSet{
+            editFullName.tintColor = UIColor.lightGray
+            editFullName.setIcon(#imageLiteral(resourceName: "user"))
+        }
+    }
+    @IBOutlet weak var editEmail: UITextField!{
+        didSet{
+            editEmail.tintColor = UIColor.lightGray
+            editEmail.setIcon(#imageLiteral(resourceName: "email"))
+        }
+    }
+    @IBOutlet weak var editPassword: UITextField!{
+        didSet {
+              editPassword.tintColor = UIColor.lightGray
+              editPassword.setIcon(#imageLiteral(resourceName: "password"))
+           }
+    }
     @IBOutlet weak var bntCreateAcc: UIButton!
+    let controller = Settings()
     
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
+       
     }
-    
     fileprivate func configTextField() {
         self.editFullName.delegate = self
         self.editEmail.delegate = self
@@ -29,18 +44,13 @@ class SettingsCadVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.configTextField()
         self.configButton()
         
-        
-        // Do any additional setup after loading the view.
     }
-    
 
-    @IBAction func bntCreateAcc(_ sender: UIButton) {
-        
-        // VALIDACAO DO CAMPO EMAIL
+    func validField(){
+        let emailConf = controller.isValidEmail(email: self.editEmail.text!)
         if self.editFullName.text?.isEmpty == true {
             self.editFullName.layer.borderColor = UIColor.red.cgColor
             self.editFullName.layer.borderWidth = 1.0
@@ -48,17 +58,13 @@ class SettingsCadVC: UIViewController {
         } else if self.editFullName.text?.isEmpty == false {
             self.editFullName.layer.borderWidth = 0
         }
-        
-        // VALIDACAO DO CAMPO SENHA
-        if self.editEmail.text?.isEmpty == true {
+        if emailConf == false || self.editEmail.text?.isEmpty == true {
             self.editEmail.layer.borderColor = UIColor.red.cgColor
             self.editEmail.layer.borderWidth = 1.0
             self.editEmail.attributedPlaceholder = NSAttributedString(string: "E-mail - mandatory", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else if self.editEmail.text?.isEmpty == false {
             self.editEmail.layer.borderWidth = 0
         }
-        
-        
         if self.editPassword.text?.isEmpty == true {
             self.editPassword.layer.borderColor = UIColor.red.cgColor
             self.editPassword.layer.borderWidth = 1.0
@@ -67,21 +73,29 @@ class SettingsCadVC: UIViewController {
             self.editPassword.layer.borderWidth = 0
         }
         
-        
-        if self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
+        if emailConf == true && self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
             let alert = UIAlertController(title: "Success", message: "Your account was created", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
                 self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
             }
             alert.addAction(buttonOK)
             self.present(alert, animated: true, completion: nil)
+            
+        }else if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
+            let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
+            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
+                
+            }
+            alert.addAction(buttonOK)
+            self.present(alert, animated: true, completion: nil)
         }
-        
     }
-    
+
+    @IBAction func bntCreateAcc(_ sender: UIButton) {
+        self.validField()
+    }
 }
 extension SettingsCadVC: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.editFullName:
@@ -93,5 +107,17 @@ extension SettingsCadVC: UITextFieldDelegate {
         }
         return true
     }
-    
+}
+
+extension UITextField {
+    func setIcon(_ image: UIImage) {
+       let iconView = UIImageView(frame:
+                      CGRect(x: 10, y: 5, width: 20, height: 20))
+       iconView.image = image
+       let iconContainerView: UIView = UIView(frame:
+                      CGRect(x: 20, y: 0, width: 30, height: 30))
+       iconContainerView.addSubview(iconView)
+       leftView = iconContainerView
+       leftViewMode = .always
+    }
 }
