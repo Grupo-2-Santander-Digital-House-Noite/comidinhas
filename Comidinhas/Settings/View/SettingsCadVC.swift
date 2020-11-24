@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SettingsCadVC: UIViewController {
 
     @IBOutlet weak var editFullName: UITextField!{
@@ -19,7 +20,6 @@ class SettingsCadVC: UIViewController {
         didSet{
             editEmail.tintColor = UIColor.lightGray
             editEmail.setIcon(#imageLiteral(resourceName: "email"))
-            
         }
     }
     @IBOutlet weak var editPassword: UITextField!{
@@ -29,7 +29,7 @@ class SettingsCadVC: UIViewController {
            }
     }
     @IBOutlet weak var bntCreateAcc: UIButton!
-  
+    let controller = Settings()
     
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
@@ -49,24 +49,8 @@ class SettingsCadVC: UIViewController {
         
     }
 
-    
-    // MARK: VALIDACAO DO CAMPO EMAIL
-    
-    func isValidEmail(email: String) -> Bool{
-
-        let emailRegex = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"+"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"+"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"+"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"+"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"+"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"+"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegex)
-        
-        return emailTest.evaluate(with: email)
-       
-
-    }
-    
     func validField(){
-        
-        let emailConf = self.isValidEmail(email: self.editEmail.text!)
-        
+        let emailConf = controller.isValidEmail(email: self.editEmail.text!)
         if self.editFullName.text?.isEmpty == true {
             self.editFullName.layer.borderColor = UIColor.red.cgColor
             self.editFullName.layer.borderWidth = 1.0
@@ -105,19 +89,13 @@ class SettingsCadVC: UIViewController {
             alert.addAction(buttonOK)
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
 
     @IBAction func bntCreateAcc(_ sender: UIButton) {
         self.validField()
-        
-        // VALIDACAO DO CAMPO SENHA
-   
     }
-    
 }
 extension SettingsCadVC: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.editFullName:
@@ -129,9 +107,9 @@ extension SettingsCadVC: UITextFieldDelegate {
         }
         return true
     }
-    
 }
-extension UITextField{
+
+extension UITextField {
     func setIcon(_ image: UIImage) {
        let iconView = UIImageView(frame:
                       CGRect(x: 10, y: 5, width: 20, height: 20))

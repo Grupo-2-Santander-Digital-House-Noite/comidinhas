@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-fy-qT4">
-                                <rect key="frame" x="20" y="246" width="374" height="152"/>
+                                <rect key="frame" x="20" y="207" width="374" height="152"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCC-XJ-dlS">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -135,18 +135,18 @@
                                         <rect key="frame" x="0.0" y="59" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-yk-P1x">
                                         <rect key="frame" x="0.0" y="118" width="374" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="one-time-code"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="one-time-code"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSB-1R-aqd">
-                                <rect key="frame" x="100" y="442" width="214" height="37"/>
+                                <rect key="frame" x="100" y="389" width="214" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,9 +161,9 @@
                         <constraints>
                             <constraint firstItem="CSB-1R-aqd" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="100" id="AIG-z0-rzL"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="7Kd-fy-qT4" secondAttribute="trailing" constant="20" id="PIj-ZK-7P3"/>
-                            <constraint firstItem="CSB-1R-aqd" firstAttribute="top" secondItem="7Kd-fy-qT4" secondAttribute="bottom" constant="44" id="UVY-6Y-2cG"/>
+                            <constraint firstItem="CSB-1R-aqd" firstAttribute="top" secondItem="7Kd-fy-qT4" secondAttribute="bottom" constant="30" id="UVY-6Y-2cG"/>
                             <constraint firstItem="7Kd-fy-qT4" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="ePe-4u-v0O"/>
-                            <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="158" id="jBJ-gK-nvR"/>
+                            <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="119" id="jBJ-gK-nvR"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="CSB-1R-aqd" secondAttribute="trailing" constant="100" id="lxO-Gy-DGG"/>
                         </constraints>
                     </view>
@@ -443,7 +443,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UNO-Ty-Sm7"/>
+        <segue reference="N3F-Hz-Q7W"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
