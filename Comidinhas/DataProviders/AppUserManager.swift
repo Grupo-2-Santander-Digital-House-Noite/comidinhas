@@ -129,4 +129,27 @@ class AppUserManager {
         // por falha na comunicação com o firebase) este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
     }
+    
+    /**
+     Tenta criar um novo usuário
+     - Parameters:
+       - user: Modelo do usuário a ser criado.
+       - andPassword: Senha do usuário.
+       - completion: Closure invocada quando criação ocorrer.
+       - failure: Closure invocada em caso de erro da criação.
+       - reason: Razão do erro passada para a closure de falha.
+     */
+    public func create(user: User, withPassword password: String, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )) {
+        // Tenta atualizar criar um usuário persistindo os dados no firebase,
+        // podendo usar para isso usa um objeto que faz a comunicação com o firebase.
+        
+        // Em caso de sucesso (onde sucesso é o firebase confirmar a criação)
+        // este método deve:
+        // - Atualizar o modelo do usuário logado (self.currentLoggedUser).
+        // - Invocar o closure completion.
+        
+        // Em caso de falha (devido a falha de comunicação ou o usuário já existir)
+        // este método deve:
+        // - Invocar o método failure, passando um Error como razão da falha.
+    }
 }
