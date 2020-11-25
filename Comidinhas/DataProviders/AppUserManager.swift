@@ -13,7 +13,6 @@ import Foundation
 class AppUserManager {
     
     private var currentLoggedUser: User?
-    private static var instance: AppUserManager?
     
     // MARK: Singleton Methods
     static var shared: AppUserManager {
