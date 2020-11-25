@@ -42,6 +42,7 @@
 		BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */; };
 		BC09E0C82564C81800796104 /* RecipeMetadataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC09E0C72564C81800796104 /* RecipeMetadataView.xib */; };
 		BC09E0CD2564C8E200796104 /* CustomViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */; };
+		BC09E145256DEB9900796104 /* AppUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E144256DEB9900796104 /* AppUserManager.swift */; };
 		BC09E14E256DEC1E00796104 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E14D256DEC1E00796104 /* User.swift */; };
 		BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */; };
 		BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */; };
@@ -159,6 +160,7 @@
 		BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMetadataView.swift; sourceTree = "<group>"; };
 		BC09E0C72564C81800796104 /* RecipeMetadataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeMetadataView.xib; sourceTree = "<group>"; };
 		BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewExtension.swift; sourceTree = "<group>"; };
+		BC09E144256DEB9900796104 /* AppUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserManager.swift; sourceTree = "<group>"; };
 		BC09E14D256DEC1E00796104 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Comidinhas/DataProviders/User.swift; sourceTree = SOURCE_ROOT; };
 		BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Comidinhas/ShoppingList/Controller/MainTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemTableViewCell.swift; sourceTree = "<group>"; };
