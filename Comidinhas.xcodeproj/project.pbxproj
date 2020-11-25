@@ -328,12 +328,21 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		BC09E14C256DEC0C00796104 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC09E14D256DEC1E00796104 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BC579452255055AD000612F0 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
 				BC579453255055D0000612F0 /* recipes.json */,
 				BC57945B25505632000612F0 /* RecipesWebService.swift */,
 				BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */,
+				BC09E144256DEB9900796104 /* AppUserManager.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -496,7 +505,7 @@
 		E55A10FE255EE7AC00E9FAD7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				E55A1115255EEB1900E9FAD7 /* Model */,
+				BC09E14C256DEC0C00796104 /* Model */,
 				E55A1114255EEB1300E9FAD7 /* Controller */,
 				E55A1113255EEB0E00E9FAD7 /* View */,
 			);
@@ -650,13 +659,6 @@
 				54E106C4256C8C780084A1E9 /* Settings.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E55A1115255EEB1900E9FAD7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -831,6 +833,7 @@
 				BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */,
 				BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */,
 				E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */,
+				BC09E14E256DEC1E00796104 /* User.swift in Sources */,
 				1D8B205B255B74B90068854F /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */,
 				1D8B2067255B74B90068854F /* IQNSArray+Sort.swift in Sources */,
@@ -868,6 +871,7 @@
 				E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */,
 				1D8B205F255B74B90068854F /* IQKeyboardManager.swift in Sources */,
 				1D8B206F255B74D70068854F /* SearchTableViewCell.swift in Sources */,
+				BC09E145256DEB9900796104 /* AppUserManager.swift in Sources */,
 				1D8B2054255B74B90068854F /* IQPreviousNextView.swift in Sources */,
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
 				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
