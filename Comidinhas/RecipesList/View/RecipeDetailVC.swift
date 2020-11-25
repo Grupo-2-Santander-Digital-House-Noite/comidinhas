@@ -180,7 +180,23 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             return header ?? UITableViewHeaderFooterView()
         } else if section == avaliacoesSection {
             let header: ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
-            header?.starLabel.text = "★★★★☆"
+            var average: String = ""
+            var media = starAverage()
+            if media == 1 {
+                average = "★☆☆☆☆"
+            } else if media == 2 {
+                average = "★★☆☆☆"
+            } else if media == 3 {
+                average = "★★★☆☆"
+            } else if media == 4 {
+                average = "★★★★☆"
+            } else {
+                average = "★★★★★"
+            }
+            header?.starLabel.text = average
+
+//            header?.starLabel.text = "★★★★☆"
+//            header?.starLabel.text = starAverage()
             header?.totalReviewsLabel.text = String(arrayReviews.count) + " reviews"
             return header ?? nil
         }
