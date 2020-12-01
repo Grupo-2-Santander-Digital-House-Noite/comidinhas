@@ -7,6 +7,8 @@
 
 import Foundation
 
+var userLoggedIn = false  // Criei essa variável para dizer se o usuario está logado ou não
+
 /**
  AppUserManager é responsável por gerenciar os usuários dentro do aplicativo.
  */

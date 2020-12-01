@@ -76,6 +76,17 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     func didRemove(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
         self.updateView()
     }
+    
+    
+    /*
+     ========TESTE LOGIN========
+     */
+    
+    @IBAction func tappedSettingsTestButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "EntrarVC", sender: nil)
+    }
+    
+    
 }
 
 extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {

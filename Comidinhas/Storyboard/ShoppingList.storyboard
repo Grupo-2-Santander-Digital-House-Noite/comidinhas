@@ -17,14 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-rx-Szb">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-rx-Szb">
+                                <rect key="frame" x="0.0" y="44" width="375" height="590"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="590" id="sd2-5E-IY7"/>
+                                </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhT-nb-mRi">
+                                <rect key="frame" x="100" y="636" width="175" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Settings Test">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedSettingsTestButton:" destination="u9R-mh-ABO" eventType="touchUpInside" id="EiT-Fo-yqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sir-aa-G8v"/>
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Khh-rx-Szb" firstAttribute="top" secondItem="Sir-aa-G8v" secondAttribute="top" id="Cdj-2g-fNE"/>
+                            <constraint firstItem="Sir-aa-G8v" firstAttribute="trailing" secondItem="lhT-nb-mRi" secondAttribute="trailing" constant="100" id="GfS-gB-MwQ"/>
+                            <constraint firstItem="lhT-nb-mRi" firstAttribute="top" secondItem="Khh-rx-Szb" secondAttribute="bottom" constant="2" id="RgD-vP-7Ut"/>
+                            <constraint firstItem="Sir-aa-G8v" firstAttribute="bottom" secondItem="lhT-nb-mRi" secondAttribute="bottom" constant="1" id="SjX-w8-haB"/>
+                            <constraint firstItem="Khh-rx-Szb" firstAttribute="trailing" secondItem="Sir-aa-G8v" secondAttribute="trailing" id="e8z-1U-hV2"/>
+                            <constraint firstItem="lhT-nb-mRi" firstAttribute="leading" secondItem="Sir-aa-G8v" secondAttribute="leading" constant="100" id="iCD-4h-OHe"/>
+                            <constraint firstItem="Khh-rx-Szb" firstAttribute="leading" secondItem="Sir-aa-G8v" secondAttribute="leading" id="uSQ-fx-u2I"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping List" id="JIt-Bh-sBz">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="Dhr-an-LM2">
@@ -37,11 +58,320 @@
                     <connections>
                         <outlet property="shoppingListClearButton" destination="Dhr-an-LM2" id="agh-sh-5qy"/>
                         <outlet property="shoppingListTableView" destination="Khh-rx-Szb" id="s17-wE-PIO"/>
+                        <segue destination="gq0-Jt-ynw" kind="show" identifier="EntrarVC" id="SZd-OY-sLC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ql-b8-iJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="875.71214392803608"/>
+        </scene>
+        <!--EntrarVC-->
+        <scene sceneID="QYC-JC-o6h">
+            <objects>
+                <viewController id="gq0-Jt-ynw" customClass="EntrarVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gig-1P-eTO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8z-i6-Si9">
+                                <rect key="frame" x="0.0" y="554" width="375" height="113"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8r-UY-8Xc">
+                                        <rect key="frame" x="84" y="5" width="207" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="dt4-qg-gAF"/>
+                                            <constraint firstAttribute="height" constant="44" id="zi6-FW-aHo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedLoginButton:" destination="gq0-Jt-ynw" eventType="touchUpInside" id="C81-IM-TVt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-SP-hP1">
+                                        <rect key="frame" x="84" y="59" width="207" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="HMe-Om-Fmy"/>
+                                            <constraint firstAttribute="width" constant="207" id="tco-RY-cyz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedSignUpButton:" destination="gq0-Jt-ynw" eventType="touchUpInside" id="KV4-AP-Oow"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="q8r-UY-8Xc" firstAttribute="top" secondItem="Y8z-i6-Si9" secondAttribute="top" constant="5" id="1Zi-Jp-kOX"/>
+                                    <constraint firstItem="3lw-SP-hP1" firstAttribute="top" secondItem="q8r-UY-8Xc" secondAttribute="bottom" constant="10" id="Vdn-Xy-zPA"/>
+                                    <constraint firstItem="3lw-SP-hP1" firstAttribute="centerX" secondItem="Y8z-i6-Si9" secondAttribute="centerX" id="VuA-qW-KbL"/>
+                                    <constraint firstAttribute="height" constant="113" id="jh0-wm-goz"/>
+                                    <constraint firstItem="q8r-UY-8Xc" firstAttribute="centerX" secondItem="Y8z-i6-Si9" secondAttribute="centerX" id="qgd-qu-MCS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWR-gb-XKu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6X-ZX-Nc8">
+                                        <rect key="frame" x="120" y="15" width="135" height="32"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                        <color key="textColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change fullname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoq-bL-6p0">
+                                        <rect key="frame" x="20" y="77" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eE-bl-vUw">
+                                        <rect key="frame" x="20" y="121" width="335" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
+                                        <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJF-7a-hbF">
+                                        <rect key="frame" x="84" y="169.5" width="207" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="gcM-fq-TQi"/>
+                                            <constraint firstAttribute="height" constant="44" id="khH-OV-Sdr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Change">
+                                            <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedChangeButton:" destination="gq0-Jt-ynw" eventType="touchUpInside" id="rFY-Pi-scF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRf-FZ-qwG">
+                                        <rect key="frame" x="84" y="233.5" width="207" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="JUP-vi-6XG"/>
+                                            <constraint firstAttribute="height" constant="44" id="rCS-jQ-APs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedLogoutButton:" destination="gq0-Jt-ynw" eventType="touchUpInside" id="i0W-10-m07"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uJF-7a-hbF" firstAttribute="top" secondItem="8eE-bl-vUw" secondAttribute="bottom" constant="30" id="2wA-sl-E69"/>
+                                    <constraint firstAttribute="trailing" secondItem="s6X-ZX-Nc8" secondAttribute="trailing" constant="120" id="7l8-cQ-JZZ"/>
+                                    <constraint firstItem="QRf-FZ-qwG" firstAttribute="centerX" secondItem="IWR-gb-XKu" secondAttribute="centerX" id="BT0-4d-7Uy"/>
+                                    <constraint firstItem="qoq-bL-6p0" firstAttribute="leading" secondItem="IWR-gb-XKu" secondAttribute="leading" constant="20" id="CN3-zm-y0H"/>
+                                    <constraint firstItem="s6X-ZX-Nc8" firstAttribute="top" secondItem="IWR-gb-XKu" secondAttribute="top" constant="15" id="fyq-QV-Hgg"/>
+                                    <constraint firstItem="8eE-bl-vUw" firstAttribute="top" secondItem="qoq-bL-6p0" secondAttribute="bottom" constant="10" id="hjs-66-vSg"/>
+                                    <constraint firstAttribute="trailing" secondItem="8eE-bl-vUw" secondAttribute="trailing" constant="20" id="jvw-x3-oja"/>
+                                    <constraint firstItem="8eE-bl-vUw" firstAttribute="leading" secondItem="IWR-gb-XKu" secondAttribute="leading" constant="20" id="jyE-C3-zTP"/>
+                                    <constraint firstItem="uJF-7a-hbF" firstAttribute="centerX" secondItem="IWR-gb-XKu" secondAttribute="centerX" id="l9J-0Q-qh3"/>
+                                    <constraint firstAttribute="trailing" secondItem="qoq-bL-6p0" secondAttribute="trailing" constant="20" id="mOG-Yx-o34"/>
+                                    <constraint firstItem="QRf-FZ-qwG" firstAttribute="top" secondItem="uJF-7a-hbF" secondAttribute="bottom" constant="20" id="ncD-es-QSo"/>
+                                    <constraint firstItem="qoq-bL-6p0" firstAttribute="top" secondItem="s6X-ZX-Nc8" secondAttribute="bottom" constant="30" id="vHG-Xn-5vS"/>
+                                    <constraint firstItem="s6X-ZX-Nc8" firstAttribute="leading" secondItem="IWR-gb-XKu" secondAttribute="leading" constant="120" id="zcH-O5-iaF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1nG-nl-QI9"/>
+                        <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IWR-gb-XKu" firstAttribute="top" secondItem="1nG-nl-QI9" secondAttribute="top" id="Ift-lR-yPo"/>
+                            <constraint firstItem="Y8z-i6-Si9" firstAttribute="bottom" secondItem="1nG-nl-QI9" secondAttribute="bottom" id="SsZ-ch-ITx"/>
+                            <constraint firstItem="Y8z-i6-Si9" firstAttribute="top" secondItem="IWR-gb-XKu" secondAttribute="bottom" id="cgK-sh-UZK"/>
+                            <constraint firstItem="Y8z-i6-Si9" firstAttribute="trailing" secondItem="1nG-nl-QI9" secondAttribute="trailing" id="fLN-vM-Y5M"/>
+                            <constraint firstItem="IWR-gb-XKu" firstAttribute="leading" secondItem="1nG-nl-QI9" secondAttribute="leading" id="gLP-ES-w0Q"/>
+                            <constraint firstItem="Y8z-i6-Si9" firstAttribute="leading" secondItem="1nG-nl-QI9" secondAttribute="leading" id="kSd-Mq-1NI"/>
+                            <constraint firstItem="IWR-gb-XKu" firstAttribute="trailing" secondItem="1nG-nl-QI9" secondAttribute="trailing" id="wkH-hn-ZAC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ydo-EL-bM2"/>
+                    <connections>
+                        <outlet property="changeButton" destination="uJF-7a-hbF" id="cye-hb-4zL"/>
+                        <outlet property="changeNameTextField" destination="qoq-bL-6p0" id="fUN-kX-Ppa"/>
+                        <outlet property="errorLabel" destination="8eE-bl-vUw" id="l5C-Ft-L9x"/>
+                        <outlet property="loggedView" destination="IWR-gb-XKu" id="XyR-k2-w3r"/>
+                        <outlet property="loginButton" destination="q8r-UY-8Xc" id="asr-Ii-XXp"/>
+                        <outlet property="logoutButton" destination="QRf-FZ-qwG" id="2KG-8v-fta"/>
+                        <outlet property="notLoggedView" destination="Y8z-i6-Si9" id="jMT-BQ-xqg"/>
+                        <outlet property="signUpButton" destination="3lw-SP-hP1" id="39f-YR-2St"/>
+                        <segue destination="dCb-9c-lBA" kind="show" identifier="SignUpVC" id="zKL-Vl-ufY"/>
+                        <segue destination="D04-2v-XHj" kind="show" identifier="LoginVC" id="N1s-gm-g4F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6Z-p3-0Og" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1632.8" y="875.71214392803608"/>
+        </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="C04-Ob-Nef">
+            <objects>
+                <viewController id="dCb-9c-lBA" customClass="SignUpVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C5A-rV-4dF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ce7-Pg-Vyf">
+                                <rect key="frame" x="20" y="79" width="335" height="132"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Fullname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRT-Bt-2KD">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="335" id="Avt-uQ-zLR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4G-cj-mCi">
+                                        <rect key="frame" x="0.0" y="49" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pdu-hU-rTj">
+                                        <rect key="frame" x="0.0" y="98" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPi-CL-sBc">
+                                <rect key="frame" x="84" y="269.5" width="207" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="07B-kj-zID"/>
+                                    <constraint firstAttribute="height" constant="44" id="gFR-yV-ykm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Sing Up">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedSignUpButton:" destination="dCb-9c-lBA" eventType="touchUpInside" id="Rde-cV-CHq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-zI-zwy">
+                                <rect key="frame" x="20" y="221" width="335" height="18.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fah-aF-o50"/>
+                        <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="F8T-zI-zwy" firstAttribute="leading" secondItem="fah-aF-o50" secondAttribute="leading" constant="20" id="2Bd-Wm-yF4"/>
+                            <constraint firstItem="cPi-CL-sBc" firstAttribute="top" secondItem="F8T-zI-zwy" secondAttribute="bottom" constant="30" id="LOQ-8w-Chj"/>
+                            <constraint firstItem="fah-aF-o50" firstAttribute="trailing" secondItem="F8T-zI-zwy" secondAttribute="trailing" constant="20" id="Mnd-li-WTP"/>
+                            <constraint firstItem="F8T-zI-zwy" firstAttribute="top" secondItem="Ce7-Pg-Vyf" secondAttribute="bottom" constant="10" id="VD4-Of-lNB"/>
+                            <constraint firstItem="fah-aF-o50" firstAttribute="trailing" secondItem="Ce7-Pg-Vyf" secondAttribute="trailing" constant="20" id="WP4-PD-V80"/>
+                            <constraint firstItem="Ce7-Pg-Vyf" firstAttribute="leading" secondItem="fah-aF-o50" secondAttribute="leading" constant="20" id="ezK-JL-D9i"/>
+                            <constraint firstItem="Ce7-Pg-Vyf" firstAttribute="top" secondItem="fah-aF-o50" secondAttribute="top" constant="35" id="h7t-7x-PhR"/>
+                            <constraint firstItem="cPi-CL-sBc" firstAttribute="centerX" secondItem="C5A-rV-4dF" secondAttribute="centerX" id="jfF-5n-E1Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QZi-HL-Mk5"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="s4G-cj-mCi" id="DEL-BN-5fo"/>
+                        <outlet property="errorLabel" destination="F8T-zI-zwy" id="CfE-FB-kbu"/>
+                        <outlet property="nameTextField" destination="xRT-Bt-2KD" id="6Po-6D-WZi"/>
+                        <outlet property="passwordTextField" destination="Pdu-hU-rTj" id="ksQ-gc-co9"/>
+                        <outlet property="signUpButton" destination="cPi-CL-sBc" id="PL4-W9-GxB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sX-pn-YiI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445.5999999999999" y="572.56371814092961"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="w8G-sC-ry0">
+            <objects>
+                <viewController id="D04-2v-XHj" customClass="LoginVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q6d-dR-Cis">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-Ej-5me">
+                                <rect key="frame" x="20" y="79" width="335" height="89"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNt-eD-k5N">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="335" id="EAO-Wf-gGh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-P3-Jhs">
+                                        <rect key="frame" x="0.0" y="55" width="335" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMa-AU-zEC">
+                                <rect key="frame" x="85" y="226.5" width="205" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Wcq-xz-LvR"/>
+                                    <constraint firstAttribute="width" constant="205" id="qCs-Gr-hqO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedLoginButton:" destination="D04-2v-XHj" eventType="touchUpInside" id="iMD-ZE-egl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jV-ny-5Wk">
+                                <rect key="frame" x="20" y="178" width="335" height="18.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fel-hS-fHW"/>
+                        <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xMa-AU-zEC" firstAttribute="centerX" secondItem="q6d-dR-Cis" secondAttribute="centerX" id="3at-gE-pB5"/>
+                            <constraint firstItem="5jV-ny-5Wk" firstAttribute="top" secondItem="5C3-Ej-5me" secondAttribute="bottom" constant="10" id="Hec-aT-6nJ"/>
+                            <constraint firstItem="fel-hS-fHW" firstAttribute="trailing" secondItem="5C3-Ej-5me" secondAttribute="trailing" constant="20" id="IAP-lk-Zwn"/>
+                            <constraint firstItem="fel-hS-fHW" firstAttribute="trailing" secondItem="5jV-ny-5Wk" secondAttribute="trailing" constant="20" id="IZI-Ay-aDJ"/>
+                            <constraint firstItem="5C3-Ej-5me" firstAttribute="top" secondItem="fel-hS-fHW" secondAttribute="top" constant="35" id="Ky1-LS-eBU"/>
+                            <constraint firstItem="xMa-AU-zEC" firstAttribute="top" secondItem="5jV-ny-5Wk" secondAttribute="bottom" constant="30" id="Xde-30-nyc"/>
+                            <constraint firstItem="5C3-Ej-5me" firstAttribute="leading" secondItem="fel-hS-fHW" secondAttribute="leading" constant="20" id="cUV-bp-LnL"/>
+                            <constraint firstItem="5jV-ny-5Wk" firstAttribute="leading" secondItem="fel-hS-fHW" secondAttribute="leading" constant="20" id="nX5-dK-VEZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zcO-X0-6zq"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="NNt-eD-k5N" id="p2a-xm-e3z"/>
+                        <outlet property="errorLabel" destination="5jV-ny-5Wk" id="dau-eF-O1s"/>
+                        <outlet property="loginButton" destination="xMa-AU-zEC" id="9ld-7t-eO2"/>
+                        <outlet property="passwordTextField" destination="yUh-P3-Jhs" id="lgK-7D-Kvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NgV-QL-S21" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2446" y="1255"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="BWI-G0-0Mz">
