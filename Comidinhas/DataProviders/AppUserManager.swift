@@ -43,8 +43,9 @@ class AppUserManager {
      */
     public var loggedUser: User? {
         get {
-            if let _user = self.auth.currentUser {
-                return User(name: _user.displayName ?? "No Name!", email: _user.email)
+            if let _user = self.auth.currentUser,
+               let _email = _user.email{
+                return User(name: _user.displayName ?? "No Name!", email: _email)
             }
             return nil
         }
