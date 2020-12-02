@@ -124,88 +124,68 @@ class AppUserManager {
     }
     
     /**
-     Tenta atualizar o usuário logado usando um modelo de usuário e a senha atual do usuário
-     - Parameters:
-       - user: Modelo do usuário com novas informações (nome e e-mail).
-       - completion: Closure invocada quando a atualização ocorrer.
-       - failure: Closure invocada em caso de erro da atualização.
-       - reason: Razão do erro passada para a closure de falha.
+     Atualiza o email e senha do usuário logado.
      */
-    public func attemptUpdateLoggedUserWith(user: User, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )?) {
-        // Tenta atualizar usuário logado persistindo dados no firebase,
-        // para isso usa um objeto que faz a comunicação com o firebase.
+    func updateLoggedUserEmailAndPassword(user: User, password: String, completion: (() -> Void)?, failure: ((Error) -> Void)? ) {
         
-        // Em caso de sucesso (onde sucesso é a senha bater e o firebase persistir
-        // as novas informações) este método deve:
-        // - Atualizar o modelo do usuário logado (self.currentLoggedUser).
-        // - Invocar o closure completion.
-        
-        // Em caso de falha (seja porque a senha do usuário não bateu, ou
-        // por falha na comunicação com o firebase) este método deve:
-        // - Invocar o método failure, passando um Error como razão da falha.
-        
-        // Verifica se há um usuário logado antes de autenticar.
-        guard let currentUser = self.auth.currentUser else {
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
             if let _failure = failure {
-                _failure(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!"))
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
             }
-            return
         }
         
-        // Caso tenha inicia uma nova solicitação de atualização.
-        let request: UserProfileChangeRequest = currentUser.createProfileChangeRequest();
-        // Tenta atualizar o displayname
-        request.displayName = user.name ?? "No Name"
-        request.commitChanges { (error) in
+        // Verifica se há um usuário logado para atualizar e-mail.
+        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
+        
+        
+        currentUser.updatePassword(to: password) { (error) in
             if let _error = error {
-                if let _failure = failure {
-                    _failure(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
-                }
+                reportError(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
                 return
             }
             
-            if let _email = user.email,
-               currentUser.email != _email {
-                currentUser.updateEmail(to: _email) { (error) in
-                    if let _error = error {
-                        if let _failure = failure {
-                            _failure(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
-                            return
-                        }
-                    }
-                    
-                    self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
-                }
-                
-            } else {
-                self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
+            if currentUser.email != user.email {
+                self.updateLoggedUserEmail(user: user, completion: completion, failure: failure)
+                return
+            }
+               
+            if let _completion = completion {
+                _completion()
             }
         }
         
     }
     
     /**
-     Tenta atualizar o usuário mudando a senha do usuário.
-     - Parameters:
-       - user: Modelo do usuário com novas informações (nome e e-mail).
-       - andPassword: Senha atual do usuário, necessária para confirmar a atualização, caso esteja incorreta a atualização não deve ser feita.
-       - settingNewPassWordTo: nova senha do usuário
-       - completion: Closure invocada quando a atualização ocorrer.
-       - failure: Closure invocada em caso de erro da atualização.
-       - reason: Razão do erro passada para a closure de falha.
+     Atualiza o e-mail do usuário logado.
      */
-    public func attemptUpdateLoggedUserWith(user: User, andPassword password: String, settingNewPassWordTo newPassword: String, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
-        // Tenta atualizar usuário logado persistindo dados no firebase,
-        // para isso usa um objeto que faz a comunicação com o firebase.
+    func updateLoggedUserEmail(user: User, completion: (() -> Void)?, failure: ((Error) -> Void)? ) {
         
-        // Em caso de sucesso (onde sucesso é a senha bater e o firebase persistir
-        // as novas informações) este método deve:
-        // - Atualizar o modelo do usuário logado (self.currentLoggedUser).
-        // - Invocar o closure completion.
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
         
-        // Em caso de falha (seja porque a senha do usuário não bateu, ou
-        // por falha na comunicação com o firebase) este método deve:
-        // - Invocar o método failure, passando um Error como razão da falha.
+        // Verifica se há um usuário logado para atualizar e-mail.
+        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
+        
+        // Verifica se o usuário passado tem um e-mail
+        guard let email = user.email else { reportError(AuthError.userUpdateError(localizedMessage: "Não foi informado um e-mail para atualizar!")); return }
+        
+        // tenta atualizar o e-mail
+        currentUser.updateEmail(to: email) { (error) in
+            if let _error = error {
+                reportError(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
+                return
+            }
+            
+            if let _completion = completion {
+                _completion()
+            }
+        }
         
     }
     
@@ -218,7 +198,7 @@ class AppUserManager {
        - failure: Closure invocada em caso de erro da criação.
        - reason: Razão do erro passada para a closure de falha.
      */
-    public func create(user: User, withPassword password: String, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
+    public func create(user: User, withPassword password: String, completion: ( () -> Void )?, failure: ( ((_ reason: Error) -> Void)? )) {
         // Tenta atualizar criar um usuário persistindo os dados no firebase,
         // podendo usar para isso usa um objeto que faz a comunicação com o firebase.
         
@@ -231,32 +211,43 @@ class AppUserManager {
         // este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
         
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
         // Tenta criar um usuário no Firebase
         self.auth.createUser(withEmail: user.email ?? "", password: password) { (result, error) in
             // Caso tenha ocorrido um erro, invoca o failure passando a mensagem de erro.
             if let _error = error {
-                failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                reportError(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
                 return
             }
             
             // Tenta desempacotar o usuário logado para atualizar o nome de exibição.
             // Caso não consiga dispara um erro de usuário não autenticado.
             guard let currentUser = self.auth.currentUser else {
-                failure(AuthError.userCreationError(localizedMessage: "Usuário não autenticado!"))
+                reportError(AuthError.userCreationError(localizedMessage: "Usuário não autenticado!"))
                 return
             }
             
             
             // Inicia a atualização do nome do usuário.
-            var request = currentUser.createProfileChangeRequest()
+            let request = currentUser.createProfileChangeRequest()
             request.displayName = user.name
             request.commitChanges { (error) in
-                failure(AuthError.userCreationError(localizedMessage: "Não conseguiu atualizar o nome de exibição!"))
+                if let _error = error {
+                    reportError(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                    return
+                }
+                
+                // Tenta armazenar os dados do usuário
+                // Passa adiante os handlers de completion e failure.
+                self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
             }
             
-            // Tenta armazenar os dados do usuário
-            // Passa adiante os handlers de completion e failure.
-            self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
 
         }
         
@@ -267,7 +258,7 @@ class AppUserManager {
      Este método armazena informações do usuário no FireStore.
      Pode ser usado tanto na criação quanto na atualização.
      */
-    private func storeUseInFireStore(user: Firebase.User, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )?) {
+    private func storeUseInFireStore(user: Firebase.User, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void )?) {
         
         self.db
             .collection("users")
