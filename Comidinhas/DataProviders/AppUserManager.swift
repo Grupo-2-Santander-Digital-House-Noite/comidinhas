@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 var userLoggedIn = false  // Criei essa variável para dizer se o usuario está logado ou não
 
@@ -15,6 +18,8 @@ var userLoggedIn = false  // Criei essa variável para dizer se o usuario está 
 class AppUserManager {
     
     private var currentLoggedUser: User?
+    private var auth: Auth
+    private var db: Firestore
     
     // MARK: Singleton Methods
     static var shared: AppUserManager {
@@ -24,6 +29,8 @@ class AppUserManager {
     
     private init() {
         self.currentLoggedUser = nil
+        self.auth = Auth.auth()
+        self.db = Firestore.firestore()
     }
     
     // MARK: UserManagement Methods and Properties
