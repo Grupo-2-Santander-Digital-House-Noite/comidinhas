@@ -143,6 +143,45 @@ class AppUserManager {
         // Em caso de falha (seja porque a senha do usuário não bateu, ou
         // por falha na comunicação com o firebase) este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
+        
+        // Verifica se há um usuário logado antes de autenticar.
+        guard let currentUser = self.auth.currentUser else {
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!"))
+            }
+            return
+        }
+        
+        // Caso tenha inicia uma nova solicitação de atualização.
+        let request: UserProfileChangeRequest = currentUser.createProfileChangeRequest();
+        // Tenta atualizar o displayname
+        request.displayName = user.name ?? "No Name"
+        request.commitChanges { (error) in
+            if let _error = error {
+                if let _failure = failure {
+                    _failure(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
+                }
+                return
+            }
+            
+            if let _email = user.email,
+               currentUser.email != _email {
+                currentUser.updateEmail(to: _email) { (error) in
+                    if let _error = error {
+                        if let _failure = failure {
+                            _failure(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
+                            return
+                        }
+                    }
+                    
+                    self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
+                }
+                
+            } else {
+                self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
+            }
+        }
+        
     }
     
     /**

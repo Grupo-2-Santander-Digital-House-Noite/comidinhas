@@ -10,4 +10,5 @@ import Foundation
 enum AuthError: Error {
     case userCreationError(localizedMessage: String)
     case userAuthenticationError(localizedMessage: String)
+    case userUpdateError(localizedMessage: String)
 }
