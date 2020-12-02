@@ -128,7 +128,7 @@ class AppUserManager {
        - failure: Closure invocada em caso de erro da atualização.
        - reason: Razão do erro passada para a closure de falha.
      */
-    public func attemptUpdateLoggedUserWith(user: User, andPassword password: String, settingNewPassWordTo newPassword: String, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )) {
+    public func attemptUpdateLoggedUserWith(user: User, andPassword password: String, settingNewPassWordTo newPassword: String, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
         // Tenta atualizar usuário logado persistindo dados no firebase,
         // para isso usa um objeto que faz a comunicação com o firebase.
         
@@ -140,6 +140,23 @@ class AppUserManager {
         // Em caso de falha (seja porque a senha do usuário não bateu, ou
         // por falha na comunicação com o firebase) este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
+        
+        
+        // Tenta autenticar o usuário usando um e-mail e senha
+        self.auth.signIn(withEmail: user.email ?? "", password: password) { (result, error) in
+            
+            // Em caso de erro chama o closure de erro.
+            if let _error = error {
+                failure(AuthError.userAuthenticationError(localizedMessage: _error.localizedDescription))
+                return
+            }
+            
+            // Em caso de sucesso chama o closure de sucesso.
+            if let _ = result,
+               let _completion = completion{
+                _completion()
+            }
+        }
     }
     
     /**
