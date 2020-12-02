@@ -66,6 +66,10 @@
 		BC5E8898253FA64D005345EE /* ComidinhasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8897253FA64D005345EE /* ComidinhasTests.swift */; };
 		BC5E88A3253FA64D005345EE /* ComidinhasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */; };
 		BC6AE91A25770ED500788855 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE91925770ED500788855 /* AuthError.swift */; };
+		BC6AE926257735FC00788855 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE925257735FC00788855 /* FirebaseViewController.swift */; };
+		BC6AE92E2577361700788855 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE92D2577361700788855 /* SignInViewController.swift */; };
+		BC6AE9332577362400788855 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE9322577362400788855 /* SignUpViewController.swift */; };
+		BC6AE9382577363900788855 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE9372577363900788855 /* ProfileViewController.swift */; };
 		BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */; };
 		BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC953973255A43C500B6E795 /* ColorConstants.swift */; };
 		BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */; };
@@ -202,6 +206,10 @@
 		BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComidinhasUITests.swift; sourceTree = "<group>"; };
 		BC5E88A4253FA64D005345EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC6AE91925770ED500788855 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		BC6AE925257735FC00788855 /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
+		BC6AE92D2577361700788855 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		BC6AE9322577362400788855 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BC6AE9372577363900788855 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/ShoppingList/View/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
@@ -436,6 +444,17 @@
 			path = ComidinhasUITests;
 			sourceTree = "<group>";
 		};
+		BC6AE924257735D500788855 /* FirebaseVIewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC6AE925257735FC00788855 /* FirebaseViewController.swift */,
+				BC6AE92D2577361700788855 /* SignInViewController.swift */,
+				BC6AE9322577362400788855 /* SignUpViewController.swift */,
+				BC6AE9372577363900788855 /* ProfileViewController.swift */,
+			);
+			path = FirebaseVIewControllers;
+			sourceTree = "<group>";
+		};
 		BCE4C1E42542984E00FDBCF9 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +504,7 @@
 		E55141F92576C14000CD09EA /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
+				BC6AE924257735D500788855 /* FirebaseVIewControllers */,
 				E55141FF2576C1C000CD09EA /* EntrarVC.swift */,
 				E55141FA2576C1AA00CD09EA /* SignUpVC.swift */,
 				01601898254074C400F36A37 /* LoginVC.swift */,
@@ -1003,18 +1023,21 @@
 				BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */,
 				BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */,
 				BC57945C25505632000612F0 /* RecipesWebService.swift in Sources */,
+				BC6AE9332577362400788855 /* SignUpViewController.swift in Sources */,
 				E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */,
 				BC09E14E256DEC1E00796104 /* User.swift in Sources */,
 				1D8B205B255B74B90068854F /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */,
 				1D8B2067255B74B90068854F /* IQNSArray+Sort.swift in Sources */,
 				1D8B2065255B74B90068854F /* IQUITextFieldView+Additions.swift in Sources */,
+				BC6AE92E2577361700788855 /* SignInViewController.swift in Sources */,
 				1D8B205C255B74B90068854F /* IQKeyboardManagerConstants.swift in Sources */,
 				1D8B2057255B74B90068854F /* IQToolbar.swift in Sources */,
 				BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */,
 				1D8B2053255B74B90068854F /* IQKeyboardManager+Internal.swift in Sources */,
 				BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */,
 				1D8B2066255B74B90068854F /* IQUIView+Hierarchy.swift in Sources */,
+				BC6AE9382577363900788855 /* ProfileViewController.swift in Sources */,
 				BC46507A2543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift in Sources */,
 				E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */,
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
@@ -1047,6 +1070,7 @@
 				1D8B2054255B74B90068854F /* IQPreviousNextView.swift in Sources */,
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
 				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
+				BC6AE926257735FC00788855 /* FirebaseViewController.swift in Sources */,
 				E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */,
 				1D8B205A255B74B90068854F /* IQKeyboardManager+UIKeyboardNotification.swift in Sources */,
 				1D8B205D255B74B90068854F /* IQKeyboardManager+Position.swift in Sources */,
