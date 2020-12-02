@@ -93,6 +93,23 @@ class AppUserManager {
         //   visto que se alguém tentar força bruta (sim eu sei, é um
         //   telefone) e a gente diferenciar o hacker poderia saber quais
         //   usuários existem e focar os esforços neste usuário.
+        
+        // Tenta autenticar o usuário usando um e-mail e senha
+        self.auth.signIn(withEmail: email, password: password) { (result, error) in
+            
+            // Em caso de erro chama o closure de erro.
+            if let _error = error,
+               let _failure = failure {
+                _failure(AuthError.userAuthenticationError(localizedMessage: _error.localizedDescription))
+                return
+            }
+            
+            // Em caso de sucesso chama o closure de sucesso.
+            if let _ = result,
+               let _completion = completion{
+                _completion()
+            }
+        }
     }
     
     /**
@@ -141,22 +158,6 @@ class AppUserManager {
         // por falha na comunicação com o firebase) este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
         
-        
-        // Tenta autenticar o usuário usando um e-mail e senha
-        self.auth.signIn(withEmail: user.email ?? "", password: password) { (result, error) in
-            
-            // Em caso de erro chama o closure de erro.
-            if let _error = error {
-                failure(AuthError.userAuthenticationError(localizedMessage: _error.localizedDescription))
-                return
-            }
-            
-            // Em caso de sucesso chama o closure de sucesso.
-            if let _ = result,
-               let _completion = completion{
-                _completion()
-            }
-        }
     }
     
     /**
