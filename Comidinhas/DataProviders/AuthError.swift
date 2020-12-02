@@ -12,3 +12,16 @@ enum AuthError: Error {
     case userAuthenticationError(localizedMessage: String)
     case userUpdateError(localizedMessage: String)
 }
+
+extension AuthError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .userAuthenticationError(localizedMessage: let message):
+            return message
+        case .userCreationError(localizedMessage: let message) :
+            return message
+        case .userUpdateError(localizedMessage: let message) :
+            return message
+        }
+    }
+}
