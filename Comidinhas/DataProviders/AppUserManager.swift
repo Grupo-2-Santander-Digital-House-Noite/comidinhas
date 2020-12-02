@@ -43,7 +43,10 @@ class AppUserManager {
      */
     public var loggedUser: User? {
         get {
-            return self.currentLoggedUser
+            if let _user = self.auth.currentUser {
+                return User(name: _user.displayName ?? "No Name!", email: _user.email)
+            }
+            return nil
         }
     }
     
@@ -53,7 +56,7 @@ class AppUserManager {
      - Returns: true se tiver, false caso contrário
      */
     public func hasLoggedUser() -> Bool {
-        return self.currentLoggedUser != nil
+        return self.auth.currentUser != nil
     }
     
     /**
