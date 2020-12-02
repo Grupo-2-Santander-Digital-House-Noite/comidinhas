@@ -63,8 +63,18 @@ class AppUserManager {
     /**
      Desloga usuário logado na aplicação.
      */
-    public func logout() -> Void {
-        self.currentLoggedUser = nil
+    public func logout(completion: (() -> Void)?, failure: ((Error) -> Void)?) -> Void {
+        do {
+            try self.auth.signOut()
+            if let _completion = completion {
+                _completion()
+            }
+        } catch {
+            if let _failure = failure {
+                _failure(AuthError.userAuthenticationError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
     }
     
     /**
