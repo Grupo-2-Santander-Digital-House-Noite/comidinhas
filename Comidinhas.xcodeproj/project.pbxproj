@@ -65,6 +65,7 @@
 		BC5E888D253FA64D005345EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5E888B253FA64D005345EE /* LaunchScreen.storyboard */; };
 		BC5E8898253FA64D005345EE /* ComidinhasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E8897253FA64D005345EE /* ComidinhasTests.swift */; };
 		BC5E88A3253FA64D005345EE /* ComidinhasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */; };
+		BC6AE91A25770ED500788855 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE91925770ED500788855 /* AuthError.swift */; };
 		BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */; };
 		BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC953973255A43C500B6E795 /* ColorConstants.swift */; };
 		BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */; };
@@ -200,6 +201,7 @@
 		BC5E889E253FA64D005345EE /* ComidinhasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComidinhasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5E88A2253FA64D005345EE /* ComidinhasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComidinhasUITests.swift; sourceTree = "<group>"; };
 		BC5E88A4253FA64D005345EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC6AE91925770ED500788855 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/ShoppingList/View/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				BC57945B25505632000612F0 /* RecipesWebService.swift */,
 				BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */,
 				BC09E144256DEB9900796104 /* AppUserManager.swift */,
+				BC6AE91925770ED500788855 /* AuthError.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
 				BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */,
 				1D8B2064255B74B90068854F /* IQUIViewController+Additions.swift in Sources */,
+				BC6AE91A25770ED500788855 /* AuthError.swift in Sources */,
 				E554ED91254B03A60050D1CD /* Ingredientes.swift in Sources */,
 				1D8B2068255B74B90068854F /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */,
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
