@@ -151,7 +151,7 @@ class AppUserManager {
        - failure: Closure invocada em caso de erro da criação.
        - reason: Razão do erro passada para a closure de falha.
      */
-    public func create(user: User, withPassword password: String, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )) {
+    public func create(user: User, withPassword password: String, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
         // Tenta atualizar criar um usuário persistindo os dados no firebase,
         // podendo usar para isso usa um objeto que faz a comunicação com o firebase.
         
@@ -163,5 +163,59 @@ class AppUserManager {
         // Em caso de falha (devido a falha de comunicação ou o usuário já existir)
         // este método deve:
         // - Invocar o método failure, passando um Error como razão da falha.
+        
+        // Tenta criar um usuário no Firebase
+        self.auth.createUser(withEmail: user.email ?? "", password: password) { (result, error) in
+            // Caso tenha ocorrido um erro, invoca o failure passando a mensagem de erro.
+            if let _error = error {
+                failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                return
+            }
+            
+            // Tenta desempacotar o usuário logado para atualizar o nome de exibição.
+            // Caso não consiga dispara um erro de usuário não autenticado.
+            guard let currentUser = self.auth.currentUser else {
+                failure(AuthError.userCreationError(localizedMessage: "Usuário não autenticado!"))
+                return
+            }
+            
+            
+            // Inicia a atualização do nome do usuário.
+            var request = currentUser.createProfileChangeRequest()
+            request.displayName = user.name
+            request.commitChanges { (error) in
+                failure(AuthError.userCreationError(localizedMessage: "Não conseguiu atualizar o nome de exibição!"))
+            }
+            
+            // Tenta armazenar os dados do usuário
+            // Passa adiante os handlers de completion e failure.
+            self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
+
+        }
+        
+    }
+    
+    
+    /**
+     Este método armazena informações do usuário no FireStore.
+     Pode ser usado tanto na criação quanto na atualização.
+     */
+    private func storeUseInFireStore(user: Firebase.User, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
+        
+        self.db
+            .collection("users")
+            .document(user.uid).setData([
+                "fullname" : user.displayName ?? "No Name!",
+                "uid" : user.uid
+            ]) { (error) in
+                if let _error = error {
+                    failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                    return
+                }
+                
+                if let _completion = completion {
+                    _completion()
+                }
+            }
     }
 }
