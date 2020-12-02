@@ -127,12 +127,11 @@ class AppUserManager {
      Tenta atualizar o usuário logado usando um modelo de usuário e a senha atual do usuário
      - Parameters:
        - user: Modelo do usuário com novas informações (nome e e-mail).
-       - andPassword: Senha atual do usuário, necessária para confirmar a atualização, caso esteja incorreta a atualização não deve ser feita.
        - completion: Closure invocada quando a atualização ocorrer.
        - failure: Closure invocada em caso de erro da atualização.
        - reason: Razão do erro passada para a closure de falha.
      */
-    public func attemptUpdateLoggedUserWith(user: User, andPassword password: String, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )) {
+    public func attemptUpdateLoggedUserWith(user: User, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )?) {
         // Tenta atualizar usuário logado persistindo dados no firebase,
         // para isso usa um objeto que faz a comunicação com o firebase.
         
