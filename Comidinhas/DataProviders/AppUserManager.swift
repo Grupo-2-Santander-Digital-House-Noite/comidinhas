@@ -229,7 +229,7 @@ class AppUserManager {
      Este método armazena informações do usuário no FireStore.
      Pode ser usado tanto na criação quanto na atualização.
      */
-    private func storeUseInFireStore(user: Firebase.User, completion: ( () -> Void )?, failure: @escaping ( (_ reason: Error) -> Void? )) {
+    private func storeUseInFireStore(user: Firebase.User, completion: ( () -> Void )?, failure: ( (_ reason: Error) -> Void? )?) {
         
         self.db
             .collection("users")
@@ -238,7 +238,9 @@ class AppUserManager {
                 "uid" : user.uid
             ]) { (error) in
                 if let _error = error {
-                    failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                    if let _failure = failure {
+                        _failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
+                    }
                     return
                 }
                 
