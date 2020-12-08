@@ -34,7 +34,6 @@ class SignInViewController: UIViewController {
             } failure: { (error) in
                 self.displayError(message: error.localizedDescription)
             }
-
         }
     }
     

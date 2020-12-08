@@ -16,6 +16,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signOutButton: UIButton!
     
+    @IBOutlet weak var changeNameButton: UIButton!
+    @IBOutlet weak var changeNameTextField: UITextField!
+    
+    @IBOutlet weak var changeEmailTextField: UITextField!
+    @IBOutlet weak var passwordForEmailChangeTextField: UITextField!
+    @IBOutlet weak var changeEmailButton: UIButton!
+    
+    
+    @IBOutlet weak var currentPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var repeatNewPasswordTextField: UITextField!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,5 +83,43 @@ class ProfileViewController: UIViewController {
         
     }
     
+    
+    @IBAction func changeNameTapped(_ sender: UIButton) {
+        AppUserManager.shared.updateLoggedUserFullname(name: self.changeNameTextField.text ?? "") { () -> Void in
+            self.nomeLabel.text = self.changeNameTextField.text
+            self.changeNameTextField.text = ""
+                    } failure: { (error) in
+            self.displayError(message: error.localizedDescription)
+        }
+    }
+    
+    
+    @IBAction func changeEmailTapped(_ sender: UIButton) {
+        AppUserManager.shared.updateUserLoggedEmailByKaren(email: self.changeEmailTextField.text ?? "", password: self.passwordForEmailChangeTextField.text ?? "") {
+            self.emailLabel.text = self.changeEmailTextField.text
+            self.changeEmailTextField.text = ""
+            self.passwordForEmailChangeTextField.text = ""
+            print("Changed")
+        } failure: { (error) in
+            self.displayError(message: error.localizedDescription)
+        }
 
+    }
+    
+    
+    
+    @IBAction func changePasswordTapped(_ sender: UIButton) {
+        if self.newPasswordTextField.text != self.repeatNewPasswordTextField.text {
+            print("Differents passwords")
+            return
+        }
+        AppUserManager.shared.updateUserLoggedPassword(currentPassword: self.currentPasswordTextField.text ?? "", newPassword: self.newPasswordTextField.text ?? "", repeatPassword: self.repeatNewPasswordTextField.text ?? "") {
+            self.currentPasswordTextField.text = ""
+            self.newPasswordTextField.text = ""
+            self.repeatNewPasswordTextField.text = ""
+            print("Changed")
+        } failure: { (error) in
+            self.displayError(message: error.localizedDescription)
+        }
+    }
 }

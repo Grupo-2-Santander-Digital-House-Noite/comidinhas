@@ -123,6 +123,116 @@ class AppUserManager {
         }
     }
     
+    
+    /**
+     Atualiza fullname do usuário logado.
+     */
+    func updateLoggedUserFullname(name:String, completion:(() -> Void)?, failure: ((Error) -> Void)?){
+        // Faz um alias para o failure
+        let reportError = {(error:Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
+        // Verifica se há um usuário logado para atualizar e-mail.
+        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
+        
+        // Verifica se o usuário passado tem um e-mail
+//        guard let email = user.email else { reportError(AuthError.userUpdateError(localizedMessage: "Não foi informado um e-mail para atualizar!")); return }
+        
+        // Tenta atualizar o nome do usuário
+        if let _user = self.auth.currentUser?.createProfileChangeRequest() {
+            _user.displayName = name
+            _user.commitChanges { (error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
+            }
+        }
+//        db.collection("users").document(Auth.auth().currentUser?.uid ?? "").setData(["fullname":name, "uid":Auth.auth().currentUser?.uid ?? ""])
+        db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""])
+        if let _completion = completion {
+            _completion()
+        }
+
+    }
+    
+    
+    /**
+     Atualiza o email do usuário logado
+     */
+    func updateUserLoggedEmailByKaren(email:String, password:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
+//        // Verifica se há um usuário logado para atualizar e-mail.
+//        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
+        
+        var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: self.auth.currentUser?.email ?? "", password: password ?? "")
+        self.auth.currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
+            if error != nil {
+                print(error.debugDescription)
+            }
+            self.auth.currentUser?.updateEmail(to: email, completion: { (error) in
+                if error != nil {
+                    print("Couldn't update email")
+                    return
+                }
+                self.auth.currentUser?.reload(completion: { (error) in
+                    if error != nil {
+                        print("Couldn't reload user")
+                        return
+                    }
+                })
+                if let _completion = completion {
+                    _completion()
+                }
+            })
+        })
+    }
+    
+    /**
+     Atuliza o password do usuário logado
+     */
+    func updateUserLoggedPassword(currentPassword:String, newPassword:String, repeatPassword:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
+        var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: auth.currentUser?.email ?? "", password: currentPassword)
+        self.auth.currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
+            if error != nil {
+                print("Wrong password")
+                return
+            }
+            self.auth.currentUser?.updatePassword(to: newPassword, completion: { (error) in
+                if error != nil {
+                    print("Couldn't update password")
+                    return
+                }
+                self.auth.currentUser?.reload(completion: { (error) in
+                    if error != nil {
+                        print("Couldn't reload user")
+                        return
+                    }
+                })
+                if let _completion = completion {
+                    _completion()
+                }
+            })
+            
+        })
+    }
+    
+    
     /**
      Atualiza o email e senha do usuário logado.
      */
