@@ -100,13 +100,29 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
     // Actions para o botão do coração
     @IBAction func toggle() {
         guard let _recipe: Recipe = self.recipe else { return }
-        let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _recipe)
-        if isFavorite {
-            FavoritosWebService.shared.removeFavorite(recipe: _recipe)
-        } else {
-            FavoritosWebService.shared.addFavorite(recipe: _recipe)
+        if AppUserManager.shared.hasLoggedUser() {  // eu
+            let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _recipe)
+            if isFavorite {
+                FavoritosWebService.shared.removeFavorite(recipe: _recipe)
+            } else {
+                FavoritosWebService.shared.addFavorite(recipe: _recipe)
+            }
+            updateFavoriteIndicator()
+        } else { // daqui pra baixo, eu
+            print("=====USUARIO NÃO LOGADO=====")
+            let tabbar: UITabBarController = UITabBarController()
+            let alert = UIAlertController(title: "Alert", message: "You need to be logged in to favorit the recipe", preferredStyle: .alert)
+            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
+                print("====Ok - DEU CERTO====")
+//                tabbar.tabBarController?.selectedIndex = 2
+            }
+            let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel) { (success) in
+                print("====Cancelar - DEU CERTO=====")
+            }
+            alert.addAction(buttonOK)
+            alert.addAction(buttonCancel)
+            tabbar.present(alert, animated: true, completion: nil)
         }
-        updateFavoriteIndicator()
     }
     
     @objc private func updateFavoriteIndicator() {
