@@ -199,7 +199,7 @@ class AppUserManager {
     /**
      Atuliza o password do usuário logado
      */
-    func updateUserLoggedPassword(currentPassword:String, newPassword:String, repeatPassword:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+    func updateUserLoggedPassword(currentPassword:String, newPassword:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
         // Faz um alias para o failure
         let reportError = { (error: Error) -> Void in
             if let _failure = failure {
@@ -230,6 +230,35 @@ class AppUserManager {
             })
             
         })
+    }
+
+    
+    /**
+     Manda email para o usuário logado redefinir senha
+     */
+    func resetPassword(email:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+        // Faz um alias para o failure
+        let reportError = { (error: Error) -> Void in
+            if let _failure = failure {
+                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
+            }
+        }
+        
+        self.auth.fetchSignInMethods(forEmail: email) { (arrayEmail, error) in
+            if error != nil {
+                print("Invalid email")
+            } else {
+                self.auth.sendPasswordReset(withEmail: email) { (error) in
+                    if error != nil {
+                        print("Counld't send email to reset password -> \(error?.localizedDescription)")
+                        return
+                    }
+                    if let _complition = completion {
+                        _complition()
+                    }
+                }
+            }
+        }
     }
     
     

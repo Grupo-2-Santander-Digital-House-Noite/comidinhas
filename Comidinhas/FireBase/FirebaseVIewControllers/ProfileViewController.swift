@@ -113,7 +113,7 @@ class ProfileViewController: UIViewController {
             print("Differents passwords")
             return
         }
-        AppUserManager.shared.updateUserLoggedPassword(currentPassword: self.currentPasswordTextField.text ?? "", newPassword: self.newPasswordTextField.text ?? "", repeatPassword: self.repeatNewPasswordTextField.text ?? "") {
+        AppUserManager.shared.updateUserLoggedPassword(currentPassword: self.currentPasswordTextField.text ?? "", newPassword: self.newPasswordTextField.text ?? "") {
             self.currentPasswordTextField.text = ""
             self.newPasswordTextField.text = ""
             self.repeatNewPasswordTextField.text = ""

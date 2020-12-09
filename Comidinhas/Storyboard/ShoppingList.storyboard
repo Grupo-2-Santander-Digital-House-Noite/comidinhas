@@ -130,6 +130,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="46B-aj-9Hh"/>
                                                 </constraints>
                                                 <state key="normal" title="Forgot Password"/>
+                                                <connections>
+                                                    <action selector="forgotPasswordTapped:" destination="vfN-qb-gyx" eventType="touchUpInside" id="UJq-Ju-MvO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -160,10 +163,82 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Firebase" id="90C-1K-3Mt"/>
+                    <connections>
+                        <segue destination="xK2-nt-Gyu" kind="show" identifier="ResetPasswordViewController" id="coR-B0-hxm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCu-2q-1rg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1893.5999999999999" y="1724.8875562218891"/>
+        </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="e4v-Mp-cGd">
+            <objects>
+                <viewController id="xK2-nt-Gyu" customClass="ResetPasswordViewController" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKr-71-cc2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para redefinir a sua senha, insira o seu email de cadastro e clique em &quot;Enviar&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-Bf-PJi">
+                                <rect key="frame" x="20" y="94" width="335" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você receberá um email com o passo a passo para redefir a senha" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJb-fM-uBM">
+                                <rect key="frame" x="20" y="140" width="335" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-lz-z2n">
+                                <rect key="frame" x="20" y="231" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bjy-aH-oiK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PX-BE-4Ag">
+                                <rect key="frame" x="87.5" y="301" width="200" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Pgm-2z-9E8"/>
+                                    <constraint firstAttribute="height" constant="50" id="g3w-rY-JUi"/>
+                                </constraints>
+                                <state key="normal" title="Enviar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="enviarButtonTapped:" destination="xK2-nt-Gyu" eventType="touchUpInside" id="CZN-v7-kXk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Afh-mk-BqM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YhX-Bf-PJi" firstAttribute="leading" secondItem="Afh-mk-BqM" secondAttribute="leading" constant="20" id="99L-uB-Tyh"/>
+                            <constraint firstItem="7Qg-lz-z2n" firstAttribute="leading" secondItem="Afh-mk-BqM" secondAttribute="leading" constant="20" id="DZr-ji-lgN"/>
+                            <constraint firstItem="8PX-BE-4Ag" firstAttribute="top" secondItem="7Qg-lz-z2n" secondAttribute="bottom" constant="20" id="K3i-uq-i41"/>
+                            <constraint firstItem="qJb-fM-uBM" firstAttribute="top" secondItem="YhX-Bf-PJi" secondAttribute="bottom" constant="5" id="Nd0-zh-I1u"/>
+                            <constraint firstItem="7Qg-lz-z2n" firstAttribute="top" secondItem="qJb-fM-uBM" secondAttribute="bottom" constant="50" id="WJQ-bJ-htv"/>
+                            <constraint firstItem="Afh-mk-BqM" firstAttribute="trailing" secondItem="YhX-Bf-PJi" secondAttribute="trailing" constant="20" id="XWc-af-Dox"/>
+                            <constraint firstItem="qJb-fM-uBM" firstAttribute="leading" secondItem="Afh-mk-BqM" secondAttribute="leading" constant="20" id="d8d-ti-HCA"/>
+                            <constraint firstItem="Afh-mk-BqM" firstAttribute="trailing" secondItem="7Qg-lz-z2n" secondAttribute="trailing" constant="20" id="dkF-tA-Elu"/>
+                            <constraint firstItem="8PX-BE-4Ag" firstAttribute="centerX" secondItem="OKr-71-cc2" secondAttribute="centerX" id="iym-Ej-QhI"/>
+                            <constraint firstItem="Afh-mk-BqM" firstAttribute="trailing" secondItem="qJb-fM-uBM" secondAttribute="trailing" constant="20" id="pJJ-dW-aFO"/>
+                            <constraint firstItem="YhX-Bf-PJi" firstAttribute="top" secondItem="Afh-mk-BqM" secondAttribute="top" constant="50" id="y0U-eI-76b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="i0h-Ou-3bf"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="7Qg-lz-z2n" id="jXm-3k-c6Q"/>
+                        <outlet property="enviarButton" destination="8PX-BE-4Ag" id="4fe-Pl-p5C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qn-nd-l9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1893.5999999999999" y="2468.8155922038982"/>
         </scene>
         <!--SignInViewController-->
         <scene sceneID="S2Q-Bc-jsX">

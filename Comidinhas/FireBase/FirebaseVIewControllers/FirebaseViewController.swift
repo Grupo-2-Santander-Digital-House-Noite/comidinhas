@@ -29,4 +29,9 @@ class FirebaseViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func forgotPasswordTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "ResetPasswordViewController", sender: nil)
+    }
+    
 }
