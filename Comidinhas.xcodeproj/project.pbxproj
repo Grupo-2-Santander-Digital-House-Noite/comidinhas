@@ -46,7 +46,7 @@
 		BC09E145256DEB9900796104 /* AppUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E144256DEB9900796104 /* AppUserManager.swift */; };
 		BC09E14E256DEC1E00796104 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E14D256DEC1E00796104 /* User.swift */; };
 		BC0C00D12581984E001CDFBF /* UIViewControllerAlertsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C00D02581984E001CDFBF /* UIViewControllerAlertsExtension.swift */; };
-		BC0C00D925819D49001CDFBF /* RecipeMetadataNeedsLoggedUserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C00D825819D49001CDFBF /* RecipeMetadataNeedsLoggedUserDelegate.swift */; };
+		BC0C00D925819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C00D825819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift */; };
 		BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */; };
 		BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */; };
 		BC4650712543DA2400047FAE /* ShoppingListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC46506F2543DA2400047FAE /* ShoppingListItemTableViewCell.xib */; };
@@ -183,7 +183,7 @@
 		BC09E144256DEB9900796104 /* AppUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserManager.swift; sourceTree = "<group>"; };
 		BC09E14D256DEC1E00796104 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Comidinhas/DataProviders/User.swift; sourceTree = SOURCE_ROOT; };
 		BC0C00D02581984E001CDFBF /* UIViewControllerAlertsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerAlertsExtension.swift; sourceTree = "<group>"; };
-		BC0C00D825819D49001CDFBF /* RecipeMetadataNeedsLoggedUserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMetadataNeedsLoggedUserDelegate.swift; sourceTree = "<group>"; };
+		BC0C00D825819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNeedsLoggedUserDelegate.swift; sourceTree = "<group>"; };
 		BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Comidinhas/ShoppingList/Controller/MainTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItemTableViewCell.swift; sourceTree = "<group>"; };
 		BC46506F2543DA2400047FAE /* ShoppingListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 				BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */,
 				BC09E0C72564C81800796104 /* RecipeMetadataView.xib */,
 				BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */,
-				BC0C00D825819D49001CDFBF /* RecipeMetadataNeedsLoggedUserDelegate.swift */,
+				BC0C00D825819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1051,7 +1051,7 @@
 				1D8B205C255B74B90068854F /* IQKeyboardManagerConstants.swift in Sources */,
 				1D8B2057255B74B90068854F /* IQToolbar.swift in Sources */,
 				BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */,
-				BC0C00D925819D49001CDFBF /* RecipeMetadataNeedsLoggedUserDelegate.swift in Sources */,
+				BC0C00D925819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift in Sources */,
 				1D8B2053255B74B90068854F /* IQKeyboardManager+Internal.swift in Sources */,
 				BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */,
 				1D8B2066255B74B90068854F /* IQUIView+Hierarchy.swift in Sources */,
