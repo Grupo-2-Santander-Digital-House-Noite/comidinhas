@@ -120,12 +120,18 @@ extension WriteReviewVC: ViewNeedsLoggedUserDelegate {
         self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
             
             if let tabbarcontroller = self.tabBarController {
-                tabbarcontroller.selectedIndex = 3
+                
+                let originIndex: Int = tabbarcontroller.selectedIndex
+                
+                if let destination: UINavigationController = tabbarcontroller.viewControllers?[2] as? UINavigationController,
+                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
+                    settingsVC.referrer = originIndex
+                }
+                
+                tabbarcontroller.selectedIndex = 2
             } else {
                 print("No tabbar detected!")
             }
-            
         };
     }
-    
 }

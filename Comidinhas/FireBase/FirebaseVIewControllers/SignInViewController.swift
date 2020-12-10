@@ -15,6 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+    var referrer: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +27,19 @@ class SignInViewController: UIViewController {
         if !self.validate() {
             return
         }
-        
         if let _email = self.emailTextField.text,
            let _password = self.passwordTextField.text {
             AppUserManager.shared.attemptLoginWith(email: _email, usingPassword: _password) {
+                if let referrer = self.referrer {
+                    self.tabBarController?.selectedIndex = referrer
+                }
                 self.dismissSelf()
             } failure: { (error) in
                 self.displayError(message: error.localizedDescription)
             }
         }
     }
+  
     
     func dismissSelf() {
         if let nav = self.navigationController {
