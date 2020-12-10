@@ -11,7 +11,7 @@ import UIKit
 // quando está no interface builder.
 @IBDesignable
 class RecipeMetadataView: UIView, ComidinhasCustomView {
-
+    
     // MARK: Strings que não queremos repetir hahahah
     private static let NIB_NAME: String = "RecipeMetadataView"
     
@@ -29,6 +29,7 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
     @IBOutlet private weak var servingsLabel: UILabel?
     @IBOutlet private weak var favoriteButton: UIButton?
     private var recipe: Recipe?
+    weak var loggedUserNeedDelegate: RecipeMetadataNeedsLoggedUserDelegate?
     
     // MARK: Propriedades para o Interface Builder.
     @IBInspectable var name: String {
@@ -108,20 +109,8 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
                 FavoritosWebService.shared.addFavorite(recipe: _recipe)
             }
             updateFavoriteIndicator()
-        } else { // daqui pra baixo, eu
-            print("=====USUARIO NÃO LOGADO=====")
-            let tabbar: UITabBarController = UITabBarController()
-            let alert = UIAlertController(title: "Alert", message: "You need to be logged in to favorit the recipe", preferredStyle: .alert)
-            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-                print("====Ok - DEU CERTO====")
-//                tabbar.tabBarController?.selectedIndex = 2
-            }
-            let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel) { (success) in
-                print("====Cancelar - DEU CERTO=====")
-            }
-            alert.addAction(buttonOK)
-            alert.addAction(buttonCancel)
-            tabbar.present(alert, animated: true, completion: nil)
+        } else { 
+            self.loggedUserNeedDelegate?.didNeedALoggedUserTo(reason: "You need to be logged in to favorite a recipe.")
         }
     }
     
