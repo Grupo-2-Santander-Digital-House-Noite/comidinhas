@@ -180,12 +180,12 @@ class AppUserManager {
             }
             self.auth.currentUser?.updateEmail(to: email, completion: { (error) in
                 if error != nil {
-                    print("Couldn't update email")
+                    reportError(AuthError.userUpdateError(localizedMessage: "Couldn't update email"))
                     return
                 }
                 self.auth.currentUser?.reload(completion: { (error) in
                     if error != nil {
-                        print("Couldn't reload user")
+                        reportError(AuthError.userUpdateError(localizedMessage: "Couldn't reload user"))
                         return
                     }
                 })
