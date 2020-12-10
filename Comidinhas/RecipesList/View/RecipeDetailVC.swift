@@ -306,6 +306,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
             cell?.delegate = self
+            cell?.viewNeedLoggedUserDelegate = self
             return cell ?? UITableViewCell()
 
         }
@@ -341,12 +342,20 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     
 }
 
-extension RecipeDetailVC: RecipeMetadataNeedsLoggedUserDelegate {
+extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
         self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
             
             if let tabbarcontroller = self.tabBarController {
+                
+                let originIndex: Int = tabbarcontroller.selectedIndex
+                
+                if let destination: UINavigationController = tabbarcontroller.viewControllers?[3] as? UINavigationController,
+                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
+                    settingsVC.referrer = originIndex
+                }
+                
                 tabbarcontroller.selectedIndex = 3
             } else {
                 print("No tabbar detected!")

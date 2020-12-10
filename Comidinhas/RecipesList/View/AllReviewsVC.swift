@@ -80,13 +80,15 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension AllReviewsVC : RecipeMetadataNeedsLoggedUserDelegate {
+extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
         self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
             
             if let tabbarcontroller = self.tabBarController {
+                
                 tabbarcontroller.selectedIndex = 3
+                
             } else {
                 print("No tabbar detected!")
             }

@@ -114,7 +114,7 @@ extension WriteReviewVC: UITextViewDelegate {
     }
 }
 
-extension WriteReviewVC: RecipeMetadataNeedsLoggedUserDelegate {
+extension WriteReviewVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
         self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in

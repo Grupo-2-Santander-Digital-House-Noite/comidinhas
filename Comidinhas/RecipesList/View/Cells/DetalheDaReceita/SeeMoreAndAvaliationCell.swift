@@ -20,6 +20,8 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
     @IBOutlet weak var moreReviewsButton: UIButton!
     @IBOutlet weak var writeReviewButton: UIButton!
     
+    weak var viewNeedLoggedUserDelegate: ViewNeedsLoggedUserDelegate?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,18 +45,8 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
         print("tappedWriteReviewButton=====")
         if AppUserManager.shared.hasLoggedUser() { // eu
             self.delegate?.tappedWriteReview()
-        } else { // daqui pra baixo eu
-            print("=====VOCE PRECISA ESTAR LOGADO=====")
-            let alert = UIAlertController(title: "Alert", message: "You need to be logged in to write a review", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "OK", style: .default) { (success) in
-                print("=====Ok - DEU CERTO=====")
-            }
-            let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel) { (success) in
-                print("======Cancel - DEU CERTO======")
-            }
-            alert.addAction(buttonOk)
-            alert.addAction(buttonCancel)
-//            self.present(alert, animated: true, completion: nil)
+        } else { 
+            self.viewNeedLoggedUserDelegate?.didNeedALoggedUserTo( reason: "You need to be logged in to write a review")
         }
     }
 }

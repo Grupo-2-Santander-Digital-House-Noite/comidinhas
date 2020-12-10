@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RecipeMetadataNeedsLoggedUserDelegate: AnyObject {
+protocol ViewNeedsLoggedUserDelegate: AnyObject {
     func didNeedALoggedUserTo(reason: String)
 }

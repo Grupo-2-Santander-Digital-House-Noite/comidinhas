@@ -29,7 +29,7 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
     @IBOutlet private weak var servingsLabel: UILabel?
     @IBOutlet private weak var favoriteButton: UIButton?
     private var recipe: Recipe?
-    weak var loggedUserNeedDelegate: RecipeMetadataNeedsLoggedUserDelegate?
+    weak var loggedUserNeedDelegate: ViewNeedsLoggedUserDelegate?
     
     // MARK: Propriedades para o Interface Builder.
     @IBInspectable var name: String {
