@@ -88,7 +88,8 @@ class ProfileViewController: UIViewController {
         AppUserManager.shared.updateLoggedUserFullname(name: self.changeNameTextField.text ?? "") { () -> Void in
             self.nomeLabel.text = self.changeNameTextField.text
             self.changeNameTextField.text = ""
-                    } failure: { (error) in
+            self.resetError()
+        } failure: { (error) in
             self.displayError(message: error.localizedDescription)
         }
     }
@@ -99,24 +100,25 @@ class ProfileViewController: UIViewController {
             self.emailLabel.text = self.changeEmailTextField.text
             self.changeEmailTextField.text = ""
             self.passwordForEmailChangeTextField.text = ""
+            self.resetError()
             print("Changed")
         } failure: { (error) in
             self.displayError(message: error.localizedDescription)
         }
-
     }
     
     
     
     @IBAction func changePasswordTapped(_ sender: UIButton) {
         if self.newPasswordTextField.text != self.repeatNewPasswordTextField.text {
-            print("Differents passwords")
+            self.displayError(message: "Diffents passwords")
             return
         }
         AppUserManager.shared.updateUserLoggedPassword(currentPassword: self.currentPasswordTextField.text ?? "", newPassword: self.newPasswordTextField.text ?? "") {
             self.currentPasswordTextField.text = ""
             self.newPasswordTextField.text = ""
             self.repeatNewPasswordTextField.text = ""
+            self.resetError()
             print("Changed")
         } failure: { (error) in
             self.displayError(message: error.localizedDescription)

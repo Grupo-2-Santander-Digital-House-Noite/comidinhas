@@ -51,6 +51,9 @@ class AppUserManager {
         }
     }
     
+    // MARK: MÉTODOS
+    
+    // MARK: hasLoggedUser
     /**
      Verifica se há um usuário logado.
      
@@ -60,6 +63,8 @@ class AppUserManager {
         return self.auth.currentUser != nil
     }
     
+    
+    // MARK: logout
     /**
      Desloga usuário logado na aplicação.
      */
@@ -77,6 +82,8 @@ class AppUserManager {
         
     }
     
+    
+    // MARK: attemptLoginWith
     /**
      Tenta logar o usuário, caso consiga invoca o completion handler, caso não consiga invoca o failure handler.
      - Parameters:
@@ -124,6 +131,7 @@ class AppUserManager {
     }
     
     
+    // MARK: updateLoggedUserFullname
     /**
      Atualiza fullname do usuário logado.
      */
@@ -137,10 +145,7 @@ class AppUserManager {
         
         // Verifica se há um usuário logado para atualizar e-mail.
         guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-        
-        // Verifica se o usuário passado tem um e-mail
-//        guard let email = user.email else { reportError(AuthError.userUpdateError(localizedMessage: "Não foi informado um e-mail para atualizar!")); return }
-        
+   
         // Tenta atualizar o nome do usuário
         if let _user = self.auth.currentUser?.createProfileChangeRequest() {
             _user.displayName = name
@@ -150,15 +155,14 @@ class AppUserManager {
                 }
             }
         }
-//        db.collection("users").document(Auth.auth().currentUser?.uid ?? "").setData(["fullname":name, "uid":Auth.auth().currentUser?.uid ?? ""])
         db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""])
         if let _completion = completion {
             _completion()
         }
-
     }
     
     
+    // MARK: updateUserLoggedEmailByKaren
     /**
      Atualiza o email do usuário logado
      */
@@ -169,21 +173,18 @@ class AppUserManager {
                 _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
             }
         }
-        
-//        // Verifica se há um usuário logado para atualizar e-mail.
-//        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-        
-        var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: self.auth.currentUser?.email ?? "", password: password ?? "")
-        self.auth.currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
+            
+        var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: Auth.auth().currentUser?.email ?? "", password: password ?? "")
+        Auth.auth().currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
             if error != nil {
                 print(error.debugDescription)
             }
-            self.auth.currentUser?.updateEmail(to: email, completion: { (error) in
+            Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
                 if error != nil {
                     reportError(AuthError.userUpdateError(localizedMessage: "Couldn't update email"))
                     return
                 }
-                self.auth.currentUser?.reload(completion: { (error) in
+                Auth.auth().currentUser?.reload(completion: { (error) in
                     if error != nil {
                         reportError(AuthError.userUpdateError(localizedMessage: "Couldn't reload user"))
                         return
@@ -196,6 +197,8 @@ class AppUserManager {
         })
     }
     
+    
+    // MARK: updateUserLoggedPassword
     /**
      Atuliza o password do usuário logado
      */
@@ -210,17 +213,17 @@ class AppUserManager {
         var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: auth.currentUser?.email ?? "", password: currentPassword)
         self.auth.currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
             if error != nil {
-                print("Wrong password")
+                reportError(AuthError.userUpdateError(localizedMessage: "Wrong password"))
                 return
             }
             self.auth.currentUser?.updatePassword(to: newPassword, completion: { (error) in
                 if error != nil {
-                    print("Couldn't update password")
+                    reportError(AuthError.userUpdateError(localizedMessage: "Couldn't update password"))
                     return
                 }
                 self.auth.currentUser?.reload(completion: { (error) in
                     if error != nil {
-                        print("Couldn't reload user")
+                        reportError(AuthError.userUpdateError(localizedMessage: "Couldnt'reload user"))
                         return
                     }
                 })
@@ -233,6 +236,7 @@ class AppUserManager {
     }
 
     
+    // MARK: resetPassword
     /**
      Manda email para o usuário logado redefinir senha
      */
@@ -246,11 +250,11 @@ class AppUserManager {
         
         self.auth.fetchSignInMethods(forEmail: email) { (arrayEmail, error) in
             if error != nil {
-                print("Invalid email")
+                reportError(AuthError.userUpdateError(localizedMessage: "Invalid email"))
             } else {
                 self.auth.sendPasswordReset(withEmail: email) { (error) in
                     if error != nil {
-                        print("Counld't send email to reset password -> \(error?.localizedDescription)")
+                        reportError(AuthError.userUpdateError(localizedMessage: "Counld't send email to reset password"))
                         return
                     }
                     if let _complition = completion {
@@ -262,6 +266,7 @@ class AppUserManager {
     }
     
     
+    // MARK: updateLoggedUserEmailAndPassword
     /**
      Atualiza o email e senha do usuário logado.
      */
@@ -296,6 +301,8 @@ class AppUserManager {
         
     }
     
+    
+    // MARK: updateLoggedUserEmail
     /**
      Atualiza o e-mail do usuário logado.
      */
@@ -328,6 +335,8 @@ class AppUserManager {
         
     }
     
+    
+    // MARK: create
     /**
      Tenta criar um novo usuário
      - Parameters:
@@ -386,13 +395,11 @@ class AppUserManager {
                 // Passa adiante os handlers de completion e failure.
                 self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
             }
-            
-
         }
-        
     }
     
     
+    // MARK: storeUseInFireStore
     /**
      Este método armazena informações do usuário no FireStore.
      Pode ser usado tanto na criação quanto na atualização.
