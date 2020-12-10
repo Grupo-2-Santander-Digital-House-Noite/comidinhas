@@ -29,28 +29,10 @@ class AllReviewsVC: UIViewController {
     }
     
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
-        
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
-    }
-    
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
     }
     
     // Método de configuração do view controller.
@@ -61,6 +43,7 @@ class AllReviewsVC: UIViewController {
     // Método de configuração das views, interno.
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
+        self.recipeMeta.loggedUserNeedDelegate = self
         self.configTableView()
     }
 
@@ -73,8 +56,6 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
@@ -92,11 +73,25 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
         return arrayReviews.count
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ReviewCell? = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewCell
         cell?.setupReview(review: arrayReviews[indexPath.row])
         return cell ?? UITableViewCell()
     }
+}
+
+extension AllReviewsVC : RecipeMetadataNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                tabbarcontroller.selectedIndex = 3
+            } else {
+                print("No tabbar detected!")
+            }
+            
+        };
+    }
+    
 }

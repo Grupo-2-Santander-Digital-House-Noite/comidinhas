@@ -30,11 +30,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.setup()
-        // seta o coração de favoritar
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
         
         // seta as estrelas da avaliação
         let tapGestureToStarLabel = UITapGestureRecognizer(target: self, action: #selector(panInStarsLabel(sender:)))
@@ -45,18 +40,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         
         // configuração da textField
         self.reviewTextField.delegate = self
-    }
-    
- 
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
     }
     
 
@@ -116,6 +99,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
+        self.recipeMeta.loggedUserNeedDelegate = self
     }
     
 
@@ -128,4 +112,20 @@ extension WriteReviewVC: UITextViewDelegate {
         self.reviewTextField.resignFirstResponder()
         return true
     }
+}
+
+extension WriteReviewVC: RecipeMetadataNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                tabbarcontroller.selectedIndex = 3
+            } else {
+                print("No tabbar detected!")
+            }
+            
+        };
+    }
+    
 }

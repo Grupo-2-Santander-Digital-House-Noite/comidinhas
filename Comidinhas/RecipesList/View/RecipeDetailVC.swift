@@ -49,6 +49,7 @@ class RecipeDetailVC: UIViewController {
 
     private func configDetalhes(_ receita: Recipe?) {
         self.recipeMetaView.configureViewWith(recipe: receita)
+        self.recipeMetaView.loggedUserNeedDelegate = self
     }
 
 
@@ -336,6 +337,22 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
+    }
+    
+}
+
+extension RecipeDetailVC: RecipeMetadataNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                tabbarcontroller.selectedIndex = 3
+            } else {
+                print("No tabbar detected!")
+            }
+            
+        };
     }
     
 }
