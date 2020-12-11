@@ -117,15 +117,7 @@ class SettingsCadVC: UIViewController {
         
         
 
-        if emailConf == true && self.editFullName.text?.isEmpty == false && self.editEmail.text?.isEmpty == false && self.editPassword.text?.isEmpty == false {
-            let alert = UIAlertController(title: "Success", message: "Your account was created", preferredStyle: .alert)
-            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-                self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
-            }
-            alert.addAction(buttonOK)
-            self.present(alert, animated: true, completion: nil)
-        }
-         else if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
+        if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
             let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
 
@@ -137,6 +129,34 @@ class SettingsCadVC: UIViewController {
 
     @IBAction func bntCreateAcc(_ sender: UIButton) {
         self.validField()
+        
+        guard let name = self.editFullName.text else {
+            self.displayErrorAlertWith(title: "Error", message: "Oops, we are unable to see your name, are you sure it is there?", completion: nil)
+            return
+        }
+        
+        guard let email = self.editEmail.text else {
+            self.displayErrorAlertWith(title: "Error", message: "Well, we need an e-mail address to register you, can you help us help you?", completion: nil)
+            return
+        }
+        
+        guard let password = self.editPassword.text else {
+            self.displayErrorAlertWith(title: "Error", message: "Are you sure you do not need a password, we believe you do!", completion: nil)
+            return
+        }
+        
+        let userToBeCreated: User = User(name: name, email: email)
+        
+        AppUserManager.shared.create(user: userToBeCreated, withPassword: password) {
+            self.displayErrorAlertWith(title: "Well done", message: "your account was created, now you can mark recipes as favorites and write reviews.", dismissTitle: "Let's go",completion: nil, dismissAction: { _ in 
+                self.didLoginDelegate?.handleDidLogin()
+                self.dismiss(animated: true, completion: nil)
+            })
+        } failure: { (error) in
+            self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)
+        }
+
+        
     }
     
     @IBAction func bntPasswordShow(_ sender: Any) {
