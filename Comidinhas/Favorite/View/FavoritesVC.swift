@@ -95,8 +95,8 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension FavoritesVC: SearchVCDelegate {
-    func returnTabBar() {
-        self.tabBarController?.selectedIndex = 0
-    }
-}
+//extension FavoritesVC: SearchVCDelegate {
+//    func returnTabBar() {
+//        self.tabBarController?.selectedIndex = 0
+//    }
+//}

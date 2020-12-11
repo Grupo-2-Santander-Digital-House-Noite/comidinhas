@@ -18,6 +18,8 @@ class AllReviewsVC: UIViewController {
     @IBOutlet weak var reviewsTableView: UITableView!
     
 
+    // MARK: configTableView
+    
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
@@ -28,13 +30,13 @@ class AllReviewsVC: UIViewController {
         self.reviewsTableView.register(UINib(nibName: "ReviewHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "ReviewHeaderCell")
     }
     
-    
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
     }
-    
+  
     // Método de configuração do view controller.
     func configureWith(recipe: Recipe?) {
         self.recipe = recipe
@@ -46,11 +48,10 @@ class AllReviewsVC: UIViewController {
         self.recipeMeta.loggedUserNeedDelegate = self
         self.configTableView()
     }
-
 }
 
 
-
+// MARK: extension TableView
 
 extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,10 +60,26 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
-        header?.starLabel.text = "★★★★☆"
+        var average: String = ""
+        var media = starAverage()
+        if media == 1 {
+            average = "★☆☆☆☆"
+        } else if media == 2 {
+            average = "★★☆☆☆"
+        } else if media == 3 {
+            average = "★★★☆☆"
+        } else if media == 4 {
+            average = "★★★★☆"
+        } else {
+            average = "★★★★★"
+        }
+        header?.starLabel.text = average
+//        header?.starLabel.text = "★★★★☆"
+//        header?.starLabel.text = starAverage()
         header?.totalReviewsLabel.text = String(arrayReviews.count) + " reviews"
         return header ?? nil
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 56

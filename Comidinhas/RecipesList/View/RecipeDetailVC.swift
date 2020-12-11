@@ -22,7 +22,6 @@ class RecipeDetailVC: UIViewController {
     @IBOutlet weak var recipeMetaView: RecipeMetadataView!
     @IBOutlet weak var recipeDetailTableView: UITableView!
 
-
     var receita: Recipe?
 
 
@@ -40,6 +39,7 @@ class RecipeDetailVC: UIViewController {
         self.recipeDetailTableView.register(UINib(nibName: "StepToStepCell", bundle: nil), forCellReuseIdentifier: "StepToStepCell")
         self.recipeDetailTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.recipeDetailTableView.register(UINib(nibName: "SeeMoreAndAvaliationCell", bundle: nil), forCellReuseIdentifier: "SeeMoreAndAvaliationCell")
+        
         // Registro das Headers
         self.recipeDetailTableView.register(UINib(nibName: "IngredientesHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "IngredientesHeaderCell")
         self.recipeDetailTableView.register(UINib(nibName: "StepsHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "StepsHeaderCell")
@@ -65,10 +65,6 @@ class RecipeDetailVC: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-
-
-    // MARK: func panInFavoriteLabel
-
     
     // MARK: SEGUE HANDLER
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,7 +86,6 @@ class RecipeDetailVC: UIViewController {
             return
         }
     }
-
 }
 
 
@@ -116,6 +111,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     
+    // MARK: leadingSwipeActionsConfigurationForRowAt indexPath
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // Achar uma forma melhor de definir a seção de ingredientes.
@@ -139,10 +135,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         addAction.image = UIImage(systemName: "cart.badge.plus")
         
         return UISwipeActionsConfiguration(actions: [addAction])
-        
     }
     
 
+    // MARK: Number Of Sections
+    // Define quantas seções tem a table view
     func numberOfSections(in tableView: UITableView) -> Int {
 
         /**
@@ -154,12 +151,12 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
          5. Ver mais avaliações.
          */
 
-
         return self.numSectionCabecalho + self.numSectionIngredientes + self.numSectionsModosPreparo + self.numSectionReviews + self.numSectionsViewMoreReviews // 2 partes para os ingredientes + 2 partes para o passo a passo
     }
 
 
-
+    // MARK: View For Header In Section
+    // define as headers de cada section
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let cabecalhoSection = 0
@@ -181,7 +178,23 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             return header ?? UITableViewHeaderFooterView()
         } else if section == avaliacoesSection {
             let header: ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
-            header?.starLabel.text = "★★★★☆"
+            var average: String = ""
+            var media = starAverage()
+            if media == 1 {
+                average = "★☆☆☆☆"
+            } else if media == 2 {
+                average = "★★☆☆☆"
+            } else if media == 3 {
+                average = "★★★☆☆"
+            } else if media == 4 {
+                average = "★★★★☆"
+            } else {
+                average = "★★★★★"
+            }
+            header?.starLabel.text = average
+
+//            header?.starLabel.text = "★★★★☆"
+//            header?.starLabel.text = starAverage()
             header?.totalReviewsLabel.text = String(arrayReviews.count) + " reviews"
             return header ?? nil
         }
@@ -192,9 +205,9 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
 
-
+    // MARK: Height For Header In Section
+    // define a altura de cada header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
 
         // Section 0 - Cabeçalho
         // Section 1 - Ingredientes
@@ -219,11 +232,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         }
 
         return 44
-
     }
 
 
-
+    // MARK: Number Of Rows In Section
+    // define quantas células terá em cada section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         // Section 0 - Cabeçalho
@@ -251,7 +264,9 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
 
-
+    
+    // MARK: Cell for Row At IndexPath
+    // constrói cada célula dependendo da section
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Section 0 - Cabeçalho
@@ -271,7 +286,20 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         if section == cabecalhoSection {
 
             let cell: ImageCell? = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as? ImageCell
-            cell?.recipeImageView.image = UIImage(named: self.receita?.image ?? "ChocolateCake")
+            //cell?.recipeImageView.image = UIImage(named: self.receita?.image ?? "ChocolateCake")
+            if let url = URL(string: self.receita?.image ?? ""){
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard
+                        let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                        let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                        let data = data, error == nil,
+                        let image = UIImage(data: data)
+                        else { return }
+                    DispatchQueue.main.async() { [weak self] in
+                        cell?.recipeImageView.image = image
+                    }
+                }.resume()
+            }
             return cell ?? UITableViewCell()
 
         } else if section == ingredientesSection {
@@ -291,10 +319,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
                 let cell: StepToStepCell? = tableView.dequeueReusableCell(withIdentifier: "StepToStepCell", for: indexPath) as? StepToStepCell
                 cell?.setupStep(step: _modoPreparo[ self.getModoPreparoIndexFor(section) ].steps[indexPath.row])
                 return cell ?? UITableViewCell()
-
             }
-
-
 
         } else if section == avaliacoesSection {
 
@@ -308,14 +333,13 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell?.delegate = self
             cell?.viewNeedLoggedUserDelegate = self
             return cell ?? UITableViewCell()
-
         }
 
         return UITableViewCell()
-
     }
     
-      
+     
+    // MARK: get modo de preparo index for
     private func getModoPreparoIndexFor(_ section: Int) -> Int {
         let modoPreparoSectionMax = (self.receita?.stepsSection.count ?? 0) + 1
         return section - 2
@@ -326,20 +350,20 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
-    
     func savedReview(_ review: Reviews) {
         // Nesse momento só atualizamos a tabela de reviews.
         self.recipeDetailTableView.reloadData()
     }
     
+    
     func tappedAllReviews() {
         self.performSegue(withIdentifier: "AllReviewsVC", sender: "")
     }
     
+    
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
     }
-    
 }
 
 extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {

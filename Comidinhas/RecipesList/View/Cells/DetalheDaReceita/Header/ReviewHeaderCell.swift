@@ -11,6 +11,5 @@ class ReviewHeaderCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var totalReviewsLabel: UILabel!
-    
 
 }
