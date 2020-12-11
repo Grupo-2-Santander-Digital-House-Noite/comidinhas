@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,16 +30,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can search for the recipe by name, by ingredients, by category or by preparation time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krh-57-ifC">
-                                <rect key="frame" x="60" y="20" width="327" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="fhG-N9-Fea"/>
-                                </constraints>
+                                <rect key="frame" x="60" y="20" width="327" height="42.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTO-gS-Pu3">
-                                <rect key="frame" x="20" y="84" width="43.5" height="24"/>
+                                <rect key="frame" x="20" y="72.5" width="43.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="kDj-aA-4Tt"/>
                                 </constraints>
@@ -48,14 +45,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2m-6U-R3E" userLabel="linhaName">
-                                <rect key="frame" x="68.5" y="96" width="318.5" height="3"/>
+                                <rect key="frame" x="68.5" y="84.5" width="318.5" height="3"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="pyo-Hf-AhV"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wrQ-cB-HnO">
-                                <rect key="frame" x="20" y="118" width="367" height="34"/>
+                                <rect key="frame" x="20" y="106.5" width="367" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DtQ-SJ-hSf"/>
@@ -65,7 +62,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYD-dh-u2F">
-                                <rect key="frame" x="20" y="162" width="93.5" height="24"/>
+                                <rect key="frame" x="20" y="150.5" width="93.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="li6-sN-Jo2"/>
                                 </constraints>
@@ -74,20 +71,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qv2-cN-ADJ" userLabel="linhaIngredients">
-                                <rect key="frame" x="118.5" y="174" width="268.5" height="3"/>
+                                <rect key="frame" x="118.5" y="162.5" width="268.5" height="3"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="C4i-CV-8d7"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what can you do with the ingredients you have at home?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWI-mf-pAm">
-                                <rect key="frame" x="20" y="196" width="367" height="20"/>
+                                <rect key="frame" x="20" y="184.5" width="367" height="20"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YH9-TB-9CQ">
-                                <rect key="frame" x="20" y="226" width="367" height="90"/>
+                                <rect key="frame" x="20" y="214.5" width="367" height="90"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="gvG-8G-Yy5"/>
@@ -97,7 +94,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-Wg-nTF">
-                                <rect key="frame" x="20" y="326" width="72" height="24"/>
+                                <rect key="frame" x="20" y="314.5" width="72" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="4gc-yY-SYR"/>
                                 </constraints>
@@ -106,14 +103,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN0-zN-Z1y" userLabel="linhaCategory">
-                                <rect key="frame" x="97" y="338" width="290" height="3"/>
+                                <rect key="frame" x="97" y="326.5" width="290" height="3"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="4Qk-Dt-boz"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparation Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUl-dV-pBy">
-                                <rect key="frame" x="20" y="404" width="134.5" height="24"/>
+                                <rect key="frame" x="20" y="392.5" width="134.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="DFC-Jx-kIP"/>
                                 </constraints>
@@ -122,14 +119,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcN-io-N8B" userLabel="linhaPreparationTime">
-                                <rect key="frame" x="159.5" y="416" width="227.5" height="3"/>
+                                <rect key="frame" x="159.5" y="404.5" width="227.5" height="3"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="1vi-gr-Xvv"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preparation Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sxa-p0-Dzm">
-                                <rect key="frame" x="20" y="438" width="367" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Preparation Time (minutes)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sxa-p0-Dzm">
+                                <rect key="frame" x="20" y="426.5" width="367" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cDD-yK-TlI"/>
@@ -139,11 +136,11 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAf-pc-FZn">
-                                <rect key="frame" x="163.5" y="507" width="80" height="34"/>
+                                <rect key="frame" x="78.5" y="495.5" width="250" height="34"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1hH-UZ-IJC"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="jwq-3V-a8U"/>
+                                    <constraint firstAttribute="width" constant="250" id="ZBm-7o-KqU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <state key="normal" title="Find">
@@ -154,7 +151,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-SH-Z3a">
-                                <rect key="frame" x="20" y="360" width="367" height="34"/>
+                                <rect key="frame" x="20" y="348.5" width="367" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
