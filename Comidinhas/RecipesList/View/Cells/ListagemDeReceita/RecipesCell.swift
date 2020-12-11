@@ -30,7 +30,7 @@ class RecipesCell: UITableViewCell {
 
 
     func setup(receita: Recipe) {
-        
+        self.recipeImage.stopLoadingAnimation()
         self.recipeImage.layer.cornerRadius = 10
         self.recipeImage.downloaded(from: receita.image ?? "", contentMode: .scaleAspectFill)
         self.nameLabel.text = receita.name
@@ -38,12 +38,21 @@ class RecipesCell: UITableViewCell {
         self.categoryLabel.text = receita.categoryString
         self.servingsLabel.text = "\(receita.servings ?? 0) servings"
     }
+    
+    override func prepareForReuse() {
+        self.recipeImage.startLoadingAnimation()
+    }
+    
+    
+    
+    
 
 }
 
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode
+        self.startLoadingAnimation()
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -52,6 +61,7 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() { [weak self] in
+                self?.stopLoadingAnimation()
                 self?.image = image
             }
         }.resume()
@@ -59,5 +69,22 @@ extension UIImageView {
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
+    }
+    
+    func startLoadingAnimation() {
+        self.image = nil
+        self.animationImages = []
+        for var index in 1..<9 {
+            if let image = UIImage(named: "loading-\(index)") {
+                self.animationImages?.append(image)
+            }
+        }
+        self.animationDuration = 0.4
+        self.startAnimating()
+    }
+    
+    func stopLoadingAnimation() {
+        self.stopAnimating()
+        self.animationImages = nil
     }
 }
