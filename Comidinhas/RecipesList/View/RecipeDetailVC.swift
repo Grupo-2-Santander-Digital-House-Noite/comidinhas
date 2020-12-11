@@ -263,7 +263,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if 0 < (self.receita?.stepsSection.count ?? 0) && (section >= 2 && section <= modoPreparoSectionMax) {
             return self.receita?.stepsSection[ self.getModoPreparoIndexFor(section) ].steps.count ?? 0
         } else if section == avaliacoesSection {
-            return arrayReviews.count
+            if arrayReviews.count == 0 {
+                return 1
+            } else {
+                return arrayReviews.count
+            }
         }
 
         return 0
@@ -329,7 +333,11 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == avaliacoesSection {
 
             let cell: ReviewCell? = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewCell
-            cell?.setupReview(review: arrayReviews[indexPath.row])
+            if arrayReviews.count == 0 {
+                cell?.setupNoReview()
+            } else {
+                cell?.setupReview(review: arrayReviews[indexPath.row])
+            }
             return cell ?? UITableViewCell()
 
         } else if section == verMaisAvaliacoesSection {

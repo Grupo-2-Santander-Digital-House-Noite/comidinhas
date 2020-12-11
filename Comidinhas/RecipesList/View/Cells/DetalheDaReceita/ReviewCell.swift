@@ -34,4 +34,11 @@ class ReviewCell: UITableViewCell {
         self.usuarioComentarioLabel.text = review.comentario
     }
     
+    func setupNoReview() {
+        self.usuarioLabel.text = ""
+        self.usuarioEstrelasLabel.text = ""
+        self.usuarioDataLabel.text = ""
+        self.usuarioComentarioLabel.text = "No review"
+    }
+    
 }
