@@ -180,17 +180,22 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             let header: ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
             var average: String = ""
             var media = starAverage()
-            if media == 1 {
+
+            switch media {
+            case 1:
                 average = "★☆☆☆☆"
-            } else if media == 2 {
+            case 2:
                 average = "★★☆☆☆"
-            } else if media == 3 {
+            case 3:
                 average = "★★★☆☆"
-            } else if media == 4 {
+            case 4:
                 average = "★★★★☆"
-            } else {
+            case 5:
                 average = "★★★★★"
+            default:
+                average = "☆☆☆☆☆"
             }
+            
             header?.starLabel.text = average
 
 //            header?.starLabel.text = "★★★★☆"
@@ -258,7 +263,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if 0 < (self.receita?.stepsSection.count ?? 0) && (section >= 2 && section <= modoPreparoSectionMax) {
             return self.receita?.stepsSection[ self.getModoPreparoIndexFor(section) ].steps.count ?? 0
         } else if section == avaliacoesSection {
-            return 3
+            return arrayReviews.count
         }
 
         return 0

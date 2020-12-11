@@ -31,6 +31,10 @@ func starAverage() -> Int {
     for i in arrayReviews {
         arrayStar.append(i.estrelas)
     }
+    
+    if arrayStar.count == 0 {
+        return 0
+    }
 
     var somaNota:Int = 0
     var nota:Int = 0

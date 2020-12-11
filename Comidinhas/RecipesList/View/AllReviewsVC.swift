@@ -62,16 +62,19 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
         var average: String = ""
         var media = starAverage()
-        if media == 1 {
+        switch media {
+        case 1:
             average = "★☆☆☆☆"
-        } else if media == 2 {
+        case 2:
             average = "★★☆☆☆"
-        } else if media == 3 {
+        case 3:
             average = "★★★☆☆"
-        } else if media == 4 {
+        case 4:
             average = "★★★★☆"
-        } else {
+        case 5:
             average = "★★★★★"
+        default:
+            average = "☆☆☆☆☆"
         }
         header?.starLabel.text = average
 //        header?.starLabel.text = "★★★★☆"
