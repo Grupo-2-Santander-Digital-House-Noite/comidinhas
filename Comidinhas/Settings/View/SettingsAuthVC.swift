@@ -125,6 +125,25 @@ class SettingsAuthVC: UIViewController {
     
     @IBAction func bntLoginAC(_ sender: UIButton) {
         self.validField()
+        
+        guard let email = self.textFieldEmail.text else {
+            self.displayErrorAlertWith(title: "Error", message: "Whoah, can't get your e-mail, check it again!", completion: nil)
+            return
+        }
+        
+        guard let password = self.textFieldSenha.text else {
+            self.displayErrorAlertWith(title: "Error", message: "Whoah, can't get your password, check it again!", completion: nil)
+            return
+        }
+        
+        AppUserManager.shared.attemptLoginWith(email: email, usingPassword: password) {
+            self.didLoginDelegate?.handleDidLogin()
+            self.dismiss(animated: true, completion: nil)
+        } failure: { (error) in
+            self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
+        }
+
+        
     }
     
     
