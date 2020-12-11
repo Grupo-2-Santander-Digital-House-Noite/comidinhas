@@ -49,6 +49,7 @@ class RecipeDetailVC: UIViewController {
 
     private func configDetalhes(_ receita: Recipe?) {
         self.recipeMetaView.configureViewWith(recipe: receita)
+        self.recipeMetaView.loggedUserNeedDelegate = self
     }
 
 
@@ -330,6 +331,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
             cell?.delegate = self
+            cell?.viewNeedLoggedUserDelegate = self
             return cell ?? UITableViewCell()
         }
 
@@ -362,4 +364,28 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
     }
+}
+
+extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                
+                let originIndex: Int = tabbarcontroller.selectedIndex
+                
+                if let destination: UINavigationController = tabbarcontroller.viewControllers?[2] as? UINavigationController,
+                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
+                    settingsVC.referrer = originIndex
+                }
+                
+                tabbarcontroller.selectedIndex = 2
+            } else {
+                print("No tabbar detected!")
+            }
+            
+        };
+    }
+    
 }

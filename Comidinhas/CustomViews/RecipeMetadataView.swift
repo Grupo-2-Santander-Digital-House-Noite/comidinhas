@@ -11,7 +11,7 @@ import UIKit
 // quando está no interface builder.
 @IBDesignable
 class RecipeMetadataView: UIView, ComidinhasCustomView {
-
+    
     // MARK: Strings que não queremos repetir hahahah
     private static let NIB_NAME: String = "RecipeMetadataView"
     
@@ -29,6 +29,7 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
     @IBOutlet private weak var servingsLabel: UILabel?
     @IBOutlet private weak var favoriteButton: UIButton?
     private var recipe: Recipe?
+    weak var loggedUserNeedDelegate: ViewNeedsLoggedUserDelegate?
     
     // MARK: Propriedades para o Interface Builder.
     @IBInspectable var name: String {
@@ -100,13 +101,17 @@ class RecipeMetadataView: UIView, ComidinhasCustomView {
     // Actions para o botão do coração
     @IBAction func toggle() {
         guard let _recipe: Recipe = self.recipe else { return }
-        let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _recipe)
-        if isFavorite {
-            FavoritosWebService.shared.removeFavorite(recipe: _recipe)
-        } else {
-            FavoritosWebService.shared.addFavorite(recipe: _recipe)
+        if AppUserManager.shared.hasLoggedUser() {  // eu
+            let isFavorite = FavoritosWebService.shared.isFavorite(recipe: _recipe)
+            if isFavorite {
+                FavoritosWebService.shared.removeFavorite(recipe: _recipe)
+            } else {
+                FavoritosWebService.shared.addFavorite(recipe: _recipe)
+            }
+            updateFavoriteIndicator()
+        } else { 
+            self.loggedUserNeedDelegate?.didNeedALoggedUserTo(reason: "You need to be logged in to favorite a recipe.")
         }
-        updateFavoriteIndicator()
     }
     
     @objc private func updateFavoriteIndicator() {

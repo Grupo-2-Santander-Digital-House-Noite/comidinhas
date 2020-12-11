@@ -20,6 +20,8 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
     @IBOutlet weak var moreReviewsButton: UIButton!
     @IBOutlet weak var writeReviewButton: UIButton!
     
+    weak var viewNeedLoggedUserDelegate: ViewNeedsLoggedUserDelegate?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +43,10 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
     
     @IBAction func tappedWriteReview(_ sender: UIButton) {
         print("tappedWriteReviewButton=====")
-        self.delegate?.tappedWriteReview()
+        if AppUserManager.shared.hasLoggedUser() { // eu
+            self.delegate?.tappedWriteReview()
+        } else { 
+            self.viewNeedLoggedUserDelegate?.didNeedALoggedUserTo( reason: "You need to be logged in to write a review")
+        }
     }
-    
 }

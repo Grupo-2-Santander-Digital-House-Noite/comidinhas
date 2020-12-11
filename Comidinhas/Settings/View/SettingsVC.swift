@@ -26,6 +26,19 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var viewYourData: UIView!
     @IBOutlet weak var viewlogin: UIView!
     
+    var referrer: Int?
+    
+    @IBAction func retorna(_ sender: UIButton) {
+        print("Entrou")
+        if let referrer = self.referrer {
+            self.tabBarController?.selectedIndex = referrer
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.referrer = nil
+    }
+    
     // MARK: CONFIGURACAO GERAL DOS TEXTFIELDS
     fileprivate func configTextField() {
         self.editEmailLogin.delegate = self

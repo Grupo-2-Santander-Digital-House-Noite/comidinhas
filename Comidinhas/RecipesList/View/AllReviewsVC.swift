@@ -30,16 +30,13 @@ class AllReviewsVC: UIViewController {
         self.reviewsTableView.register(UINib(nibName: "ReviewHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "ReviewHeaderCell")
     }
     
-    
     // MARK: viewDidLoad
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
     }
-    
-    
+  
     // Método de configuração do view controller.
     func configureWith(recipe: Recipe?) {
         self.recipe = recipe
@@ -48,6 +45,7 @@ class AllReviewsVC: UIViewController {
     // Método de configuração das views, interno.
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
+        self.recipeMeta.loggedUserNeedDelegate = self
         self.configTableView()
     }
 }
@@ -59,7 +57,6 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
@@ -93,10 +90,33 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
         return arrayReviews.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ReviewCell? = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewCell
         cell?.setupReview(review: arrayReviews[indexPath.row])
         return cell ?? UITableViewCell()
     }
 }
+
+extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                
+                let originIndex: Int = tabbarcontroller.selectedIndex
+                
+                if let destination: UINavigationController = tabbarcontroller.viewControllers?[2] as? UINavigationController,
+                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
+                    settingsVC.referrer = originIndex
+                }
+                
+                tabbarcontroller.selectedIndex = 2
+            } else {
+                print("No tabbar detected!")
+            }
+        };
+    }
+}
+
+

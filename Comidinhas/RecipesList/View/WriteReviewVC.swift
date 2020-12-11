@@ -97,6 +97,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
+        self.recipeMeta.loggedUserNeedDelegate = self
     }
 }
 
@@ -108,5 +109,27 @@ extension WriteReviewVC: UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.reviewTextField.resignFirstResponder()
         return true
+    }
+}
+
+extension WriteReviewVC: ViewNeedsLoggedUserDelegate {
+    
+    func didNeedALoggedUserTo(reason: String) {
+        self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
+            
+            if let tabbarcontroller = self.tabBarController {
+                
+                let originIndex: Int = tabbarcontroller.selectedIndex
+                
+                if let destination: UINavigationController = tabbarcontroller.viewControllers?[2] as? UINavigationController,
+                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
+                    settingsVC.referrer = originIndex
+                }
+                
+                tabbarcontroller.selectedIndex = 2
+            } else {
+                print("No tabbar detected!")
+            }
+        };
     }
 }
