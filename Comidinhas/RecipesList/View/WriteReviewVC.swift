@@ -11,6 +11,7 @@ protocol WriteReviewVCDelegate: AnyObject {
     func savedReview(_ review: Reviews) -> Void
 }
 
+
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     var delegate: WriteReviewVCDelegate?
@@ -26,41 +27,26 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var postReviewButton: UIButton!
     
 
+    // MARK: viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
-        // seta o coração de favoritar
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
         
-        // seta as estrelas da avaliação
+        // captura o toque na tela para avaliar a quantidade de estrelas
         let tapGestureToStarLabel = UITapGestureRecognizer(target: self, action: #selector(panInStarsLabel(sender:)))
         tapGestureToStarLabel.numberOfTapsRequired = 1
         self.starsLabel.isUserInteractionEnabled = true
         self.starsLabel.addGestureRecognizer(tapGestureToStarLabel)
         
-        
         // configuração da textField
         self.reviewTextField.delegate = self
     }
-    
- 
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
-    }
-    
 
+    
     // MARK: func panInStarsLabel
+    
     @objc func panInStarsLabel(sender: UIGestureRecognizer) {
         let locationView = sender.location(in: self.view)  // my finger position
         let newStarLabelFrame = self.view.convert(self.starsLabel.frame, from: self.starsLabel.superview)
@@ -87,8 +73,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    
-    
     // MARK: tappedPostReviewButton
     
     @IBAction func tappedPostReviewButton(_ sender: UIButton) {
@@ -96,9 +80,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         self.review = Reviews(usuario: "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
         print(review ?? "")
-//        guard let _review = self.review else {
-//            return Reviews(usuario: "", estrelas: "", data: "", comentario: "")
-//        }
         arrayReviews.insert(review!, at: 0)
         
         // Invoca comportamento do nosso delegate!
@@ -117,10 +98,10 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
     }
-    
-
 }
 
+
+// MARK: extension UITextField
 
 extension WriteReviewVC: UITextViewDelegate {
     // faz baixar o teclado depois que clica em retornar

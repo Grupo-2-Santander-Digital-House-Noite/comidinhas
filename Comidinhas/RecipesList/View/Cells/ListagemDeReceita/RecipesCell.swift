@@ -31,8 +31,7 @@ class RecipesCell: UITableViewCell {
 
     func setup(receita: Recipe) {
         
-
-        //self.recipeImage.image = UIImage(named: receita.image ?? "")
+        self.recipeImage.layer.cornerRadius = 10
         self.recipeImage.downloaded(from: receita.image ?? "", contentMode: .scaleAspectFill)
         self.nameLabel.text = receita.name
         self.timeLabel.text = "\(receita.time ?? 0) minutes"

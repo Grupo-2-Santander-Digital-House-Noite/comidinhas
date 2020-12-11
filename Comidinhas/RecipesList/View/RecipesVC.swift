@@ -12,6 +12,7 @@ class RecipesVC: UIViewController {
     @IBOutlet weak var recipesListTableView: UITableView!
     @IBOutlet weak var serachBarButton: UIBarButtonItem!
     
+    // MARK: configTableView
     weak var delegate: SearchVCDelegate?
     private var controller = RecipesWebService.shared
     
@@ -24,6 +25,8 @@ class RecipesVC: UIViewController {
         self.recipesListTableView.register(UINib(nibName: "RecipesCell", bundle: nil), forCellReuseIdentifier: "RecipesCell")
     }
     
+    
+    // MARK: viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,7 @@ class RecipesVC: UIViewController {
     }
     
     
+    // MARK: IBAction serachBarButtonClick
     @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
         let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
@@ -63,10 +67,10 @@ class RecipesVC: UIViewController {
         newViewController.delegate = self
         self.present(newViewController, animated: true, completion: nil)
     }
-    
 }
 
 
+// MARK: extension TableView
 
 extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,9 +99,7 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
         let vc = segue.destination as? RecipeDetailVC
         
         vc?.receita = receita
-        
     }
-    
 }
 
 extension RecipesVC: SearchVCDelegate {
