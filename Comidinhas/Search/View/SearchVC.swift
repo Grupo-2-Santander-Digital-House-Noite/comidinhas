@@ -10,7 +10,8 @@ import UIKit
 
 protocol SearchVCDelegate: AnyObject {
     
-    func returnTabBar()
+    //func returnTabBar()
+    func returnTabBar(filter: [RecipeFilter])
     
 }
 
@@ -58,11 +59,15 @@ extension SearchVC: UITableViewDataSource {
 }
 
 extension SearchVC:  SearchTableViewCellDelegate {
-    func findClick() {
-       self.dismiss(animated: true)
-       //{
-//            self.tabBarController?.selectedIndex = 1
-//        }
-        delegate?.returnTabBar()
+//    func findClick() {
+//       self.dismiss(animated: true)
+//       //{
+////            self.tabBarController?.selectedIndex = 1
+////        }
+//        delegate?.returnTabBar()
+//    }
+    func findClick(filter: [RecipeFilter]) {
+        self.dismiss(animated: true)
+        delegate?.returnTabBar(filter: filter)
     }
 }

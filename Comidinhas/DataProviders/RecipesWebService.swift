@@ -9,17 +9,18 @@ import Foundation
 
 class RecipesWebService {
     
+    private var worker: RecipesWorker?
     public var recipes: [Recipe] = []
     
     static var shared: RecipesWebService = { () -> RecipesWebService in
         let instance = RecipesWebService()
-        instance.loadRecipes()
+        //instance.loadRecipes()
         
         return instance
     }()
     
     private init() {
-        
+        worker = RecipesWorker()
     }
     
     func with(ids: [Int]) -> [Recipe] {
@@ -52,6 +53,21 @@ class RecipesWebService {
             print(error)
         }
         
+    }
+    
+    func loadRecipesListWithUrl(url: String, completionHandler: @escaping (_ result: Bool, _ error: String?) -> Void) {
+    
+        self.worker?.getRecipesWithUrl(urlTeste: url) { (recipes, error) in
+            
+            if let _recipes = recipes {
+                
+                self.recipes = _recipes.results
+                completionHandler(true, nil)
+            }else{
+                
+                completionHandler(false, error)
+            }
+        }
     }
     
 }

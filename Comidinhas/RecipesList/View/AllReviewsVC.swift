@@ -18,6 +18,8 @@ class AllReviewsVC: UIViewController {
     @IBOutlet weak var reviewsTableView: UITableView!
     
 
+    // MARK: configTableView
+    
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
@@ -29,29 +31,14 @@ class AllReviewsVC: UIViewController {
     }
     
     
-
+    // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
-        
-//        let tapGestureToFavoriteLabel = UITapGestureRecognizer(target: self, action: #selector(panInFavoriteLabel(sender:)))
-//        tapGestureToFavoriteLabel.numberOfTapsRequired = 1
-//        self.favoriteLabel.isUserInteractionEnabled = true
-//        self.favoriteLabel.addGestureRecognizer(tapGestureToFavoriteLabel)
     }
     
-    
-    // MARK: func panInFavoriteLabel
-    
-    @objc func panInFavoriteLabel(sender: UIGestureRecognizer) {
-//        if self.favoriteLabel.text == "♡" {
-//            self.favoriteLabel.text = "♥︎"
-//        } else {
-//            self.favoriteLabel.text = "♡"
-//        }
-    }
     
     // Método de configuração do view controller.
     func configureWith(recipe: Recipe?) {
@@ -63,11 +50,10 @@ class AllReviewsVC: UIViewController {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
         self.configTableView()
     }
-
 }
 
 
-
+// MARK: extension TableView
 
 extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,13 +61,28 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
-        header?.starLabel.text = "★★★★☆"
+        var average: String = ""
+        var media = starAverage()
+        if media == 1 {
+            average = "★☆☆☆☆"
+        } else if media == 2 {
+            average = "★★☆☆☆"
+        } else if media == 3 {
+            average = "★★★☆☆"
+        } else if media == 4 {
+            average = "★★★★☆"
+        } else {
+            average = "★★★★★"
+        }
+        header?.starLabel.text = average
+//        header?.starLabel.text = "★★★★☆"
+//        header?.starLabel.text = starAverage()
         header?.totalReviewsLabel.text = String(arrayReviews.count) + " reviews"
         return header ?? nil
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 56
@@ -91,7 +92,6 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayReviews.count
     }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
