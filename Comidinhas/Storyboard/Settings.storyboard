@@ -412,7 +412,6 @@
                         <outlet property="editFullName" destination="GCC-XJ-dlS" id="eUw-LI-mqr"/>
                         <outlet property="editPassword" destination="gxa-yk-P1x" id="wHo-CW-rmj"/>
                         <outlet property="lbErroMsg" destination="Rc6-7S-EvK" id="rej-ws-Zvj"/>
-                        <segue destination="Ngj-0E-93j" kind="show" identifier="SettingsUpdVC" id="UNO-Ty-Sm7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMe-wU-Bbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -606,14 +605,14 @@
             <objects>
                 <viewController id="Ngj-0E-93j" customClass="SettingsUpdVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uAf-6q-frv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUA-C8-cdr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-u1-qtZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Rodrigo Ventura" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJA-nd-lRQ">
                                                 <rect key="frame" x="20" y="40" width="374" height="40"/>
