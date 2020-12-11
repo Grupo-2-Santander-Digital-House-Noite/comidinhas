@@ -26,18 +26,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var viewYourData: UIView!
     @IBOutlet weak var viewlogin: UIView!
     
-    var referrer: Int?
     
-    @IBAction func retorna(_ sender: UIButton) {
-        print("Entrou")
-        if let referrer = self.referrer {
-            self.tabBarController?.selectedIndex = referrer
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.referrer = nil
-    }
     
     // MARK: CONFIGURACAO GERAL DOS TEXTFIELDS
     fileprivate func configTextField() {
@@ -69,6 +58,14 @@ class SettingsVC: UIViewController {
     @IBAction func btnLogin(_ sender: Any) {
     }
     @IBAction func btnLogout(_ sender: Any) {
+        
+        AppUserManager.shared.logout {
+            self.displayErrorAlertWith(title: "Sad to see you go!", message: "Hope to hear back soon", completion: nil)
+        } failure: { (error) in
+            self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
+        }
+
+        
     }
     @IBAction func btnCancel(_ sender: Any) {
     }
@@ -97,6 +94,12 @@ class SettingsVC: UIViewController {
 
 
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingsAuthVC",
+           let settingsAuthVC = segue.destination as? SettingsAuthVC {
+            settingsAuthVC.didLoginDelegate = self
+        }
+    }
 
 
 //    @IBAction func bntActSigin(_ sender: UIButton) {
@@ -164,8 +167,12 @@ extension SettingsVC: UITextFieldDelegate {
 
 }
 
-//extension SettingsVC: SearchVCDelegate {
-//    func returnTabBar() {
-//        self.tabBarController?.selectedIndex = 0
-//    }
-//}
+extension SettingsVC: DidLoginDelegate {
+    
+    func handleDidLogin() {
+        if let tabBarController = self.tabBarController as? MainTabBarController {
+            tabBarController.transitionBackToReferrer()
+        }
+    }
+    
+}
