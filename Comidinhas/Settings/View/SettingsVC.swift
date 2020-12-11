@@ -98,7 +98,11 @@ class SettingsVC: UIViewController {
         if segue.identifier == "SettingsAuthVC",
            let settingsAuthVC = segue.destination as? SettingsAuthVC {
             settingsAuthVC.didLoginDelegate = self
+        } else if segue.identifier == "SettingsCadVC",
+                  let settingsCadVC = segue.destination as? SettingsCadVC {
+            settingsCadVC.didLoginDelegate = self
         }
+        
     }
 
 

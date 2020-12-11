@@ -36,6 +36,7 @@ class SettingsCadVC: UIViewController {
     @IBOutlet weak var bntCreateAcc: UIButton!
 
     let controller = Settings()
+    weak var didLoginDelegate: DidLoginDelegate?
     
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
