@@ -125,6 +125,8 @@
 		E59858962548D82700DC64D7 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59858942548D82700DC64D7 /* ImageCell.xib */; };
 		E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D1254CA953001CA268 /* AllReviewsVC.swift */; };
 		E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D6254CA975001CA268 /* WriteReviewVC.swift */; };
+		E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE162F25840B7400090104 /* NoRecipeCell.swift */; };
+		E5CE163225840B7400090104 /* NoRecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CE163025840B7400090104 /* NoRecipeCell.xib */; };
 		EE35ED38F98F6D685365022B /* Pods_Comidinhas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3D4D3941949A64E4565057 /* Pods_Comidinhas.framework */; };
 		FD15F7089407E87C45475EB6 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5272CBA80007E5BDE3BEBB /* Pods_Comidinhas_ComidinhasUITests.framework */; };
 /* End PBXBuildFile section */
@@ -280,6 +282,8 @@
 		E59858942548D82700DC64D7 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		E59A81D1254CA953001CA268 /* AllReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsVC.swift; sourceTree = "<group>"; };
 		E59A81D6254CA975001CA268 /* WriteReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewVC.swift; sourceTree = "<group>"; };
+		E5CE162F25840B7400090104 /* NoRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecipeCell.swift; sourceTree = "<group>"; };
+		E5CE163025840B7400090104 /* NoRecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecipeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +577,8 @@
 			children = (
 				E53E92CB2540ACE70007C559 /* RecipesCell.swift */,
 				E53E92CC2540ACE70007C559 /* RecipesCell.xib */,
+				E5CE162F25840B7400090104 /* NoRecipeCell.swift */,
+				E5CE163025840B7400090104 /* NoRecipeCell.xib */,
 			);
 			path = ListagemDeReceita;
 			sourceTree = "<group>";
@@ -895,6 +901,7 @@
 			files = (
 				BC4650712543DA2400047FAE /* ShoppingListItemTableViewCell.xib in Resources */,
 				E59858962548D82700DC64D7 /* ImageCell.xib in Resources */,
+				E5CE163225840B7400090104 /* NoRecipeCell.xib in Resources */,
 				E55141F52576BB6900CD09EA /* GoogleService-Info.plist in Resources */,
 				E56149E125476656007F9C42 /* IngredientesCell.xib in Resources */,
 				BC09E0C82564C81800796104 /* RecipeMetadataView.xib in Resources */,
@@ -1052,6 +1059,7 @@
 				E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */,
 				1D53E4E82582CF7A00D49313 /* MealTypeFilter.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
+				E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
 				BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */,
 				1D8B2064255B74B90068854F /* IQUIViewController+Additions.swift in Sources */,
