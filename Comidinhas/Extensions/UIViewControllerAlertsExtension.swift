@@ -26,4 +26,11 @@ extension UIViewController {
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func displaySuccessAlert(title: String, message:String, successHandler: ((UIAlertAction) -> Void)?) {
+        let alertController:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction:UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: successHandler)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

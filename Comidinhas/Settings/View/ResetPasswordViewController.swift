@@ -16,6 +16,7 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.enviarButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
@@ -24,12 +25,14 @@ class ResetPasswordViewController: UIViewController {
         AppUserManager.shared.resetPassword(email: self.emailTextField.text ?? "") {
             let alert = UIAlertController(title: "Success", message: "Please, check your email to reset your password", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-                self.navigationController?.popToRootViewController(animated: true)
-                self.tabBarController?.selectedIndex = 0
+                self.dismiss(animated: true) {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             }
             alert.addAction(buttonOK)
             self.present(alert, animated: true, completion: nil)
         } failure: { (error) in
+            self.displayErrorAlertWith(title: "OPS!", message: "There is something wrong. Please enter a valid email", completion: nil)
             print(error.localizedDescription)
         }
     }
