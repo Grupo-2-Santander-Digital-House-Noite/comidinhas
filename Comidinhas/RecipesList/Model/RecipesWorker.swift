@@ -19,7 +19,7 @@ class RecipesWorker: GenericWorker {
     //var delegate: RecipeManagerDelegate?
     
     func fetchRecipeByName(name: String) -> String {
-        let urlString = "\(recipeURL)\(searchByName)\(name)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)"
+        let urlString = "\(recipeURL)\(searchByName)\(name)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true"
         return urlString
     }
     
@@ -31,11 +31,11 @@ class RecipesWorker: GenericWorker {
         
         if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
         {
-            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)"
+            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true"
         }
         else
         {
-            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)"
+            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true"
         }
         let url: URL? = URL(string: teste)
         
