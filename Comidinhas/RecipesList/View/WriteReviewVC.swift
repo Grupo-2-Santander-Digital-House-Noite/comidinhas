@@ -116,19 +116,10 @@ extension WriteReviewVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
         self.displayConfirmationAlert(title: "Hey", message: reason) { (action) in
-            
-            if let tabbarcontroller = self.tabBarController {
-                
-                let originIndex: Int = tabbarcontroller.selectedIndex
-                
-                if let destination: UINavigationController = tabbarcontroller.viewControllers?[2] as? UINavigationController,
-                   let settingsVC = destination.viewControllers[0] as? SettingsVC {
-                    settingsVC.referrer = originIndex
-                }
-                
-                tabbarcontroller.selectedIndex = 2
+            if let tabbarcontroller = self.tabBarController as? MainTabBarController {
+                tabbarcontroller.transitionTo(destinationTab: .Settings)
             } else {
-                print("No tabbar detected!")
+                self.displayErrorAlertWith(title: "Error", message: "Can't login right now, please try again by tapping the settings icon.", completion: nil)
             }
         };
     }
