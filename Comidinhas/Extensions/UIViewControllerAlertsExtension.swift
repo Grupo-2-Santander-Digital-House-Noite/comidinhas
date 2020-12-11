@@ -10,10 +10,10 @@ import UIKit
 
 extension UIViewController {
     
-    func displayErrorAlertWith(title: String, message: String, dismissTitle: String? = "OK", completion: (() -> ())?) -> Void {
+    func displayErrorAlertWith(title: String, message: String, dismissTitle: String? = "OK", completion: (() -> ())?, dismissAction: ((UIAlertAction) -> Void)? = nil) -> Void {
         
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let dismissAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: dismissAction ?? nil)
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: completion)
     }
