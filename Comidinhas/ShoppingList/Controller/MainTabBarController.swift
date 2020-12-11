@@ -9,6 +9,28 @@ import UIKit
 
 class MainTabBarController: UITabBarController, ShoppingListDelegate {
 
+    
+    var loginReferrerIndex: Int?
+    
+    enum TabsIndex: Int {
+        case Recipes = 0
+        case Favorites = 1
+        case ShoppingList = 2
+        case Settings = 3
+    }
+    
+    func transitionTo(destinationTab: TabsIndex) {
+        self.loginReferrerIndex = self.selectedIndex
+        self.selectedIndex = destinationTab.rawValue
+    }
+    
+    func transitionBackToReferrer() {
+        if let index = self.loginReferrerIndex {
+            self.selectedIndex = index
+        }
+        self.loginReferrerIndex = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,16 +84,5 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         item.badgeColor = .systemRed
         item.badgeValue = "\(quantidadeItens < 10 ? "\(quantidadeItens)" : "9+")"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
