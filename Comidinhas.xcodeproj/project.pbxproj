@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01601899254074C400F36A37 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01601898254074C400F36A37 /* LoginVC.swift */; };
 		0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F71F2559806B00D59D18 /* SettingsCadVC.swift */; };
 		0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */; };
 		0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */; };
@@ -82,6 +81,7 @@
 		BC6AE9382577363900788855 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AE9372577363900788855 /* ProfileViewController.swift */; };
 		BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */; };
 		BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC953973255A43C500B6E795 /* ColorConstants.swift */; };
+		BCA5A9EC25830D820093A8A7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5A9EB25830D820093A8A7 /* LoginVC.swift */; };
 		BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */; };
 		BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */; };
 		BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */; };
@@ -147,7 +147,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01601898254074C400F36A37 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0178F71F2559806B00D59D18 /* SettingsCadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCadVC.swift; sourceTree = "<group>"; };
 		0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVC.swift; sourceTree = "<group>"; };
 		0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUpdVC.swift; sourceTree = "<group>"; };
@@ -234,6 +233,7 @@
 		BC6AE9372577363900788855 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/ShoppingList/View/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
+		BCA5A9EB25830D820093A8A7 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEntry.swift; sourceTree = "<group>"; };
 		BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDelegate.swift; sourceTree = "<group>"; };
@@ -464,7 +464,6 @@
 				BC5E888E253FA64D005345EE /* Info.plist */,
 				E55141F42576BB6900CD09EA /* GoogleService-Info.plist */,
 				BC5E8884253FA649005345EE /* ViewController.swift */,
-				01601898254074C400F36A37 /* LoginVC.swift */,
 				1D53E4CE2582CE9400D49313 /* GenericWorker.swift */,
 			);
 			path = Comidinhas;
@@ -551,8 +550,8 @@
 			children = (
 				BC6AE924257735D500788855 /* FirebaseVIewControllers */,
 				E55141FF2576C1C000CD09EA /* EntrarVC.swift */,
+				BCA5A9EB25830D820093A8A7 /* LoginVC.swift */,
 				E55141FA2576C1AA00CD09EA /* SignUpVC.swift */,
-				01601898254074C400F36A37 /* LoginVC.swift */,
 			);
 			path = FireBase;
 			sourceTree = "<group>";
@@ -773,7 +772,6 @@
 				0178F71F2559806B00D59D18 /* SettingsCadVC.swift */,
 				0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */,
 				0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */,
-				01601898254074C400F36A37 /* LoginVC.swift */,
 				5490B466257DC363009AE84C /* ConfirmVC.swift */,
 			);
 			path = View;
@@ -1061,6 +1059,7 @@
 				E554ED91254B03A60050D1CD /* Ingredientes.swift in Sources */,
 				1D8B2068255B74B90068854F /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */,
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
+				BCA5A9EC25830D820093A8A7 /* LoginVC.swift in Sources */,
 				BC4F01D5255CFFC100BABCFA /* FavoritesUpdateDelegate.swift in Sources */,
 				1D8B2079255B76B00068854F /* SearchVC.swift in Sources */,
 				1D8B2063255B74B90068854F /* IQUIScrollView+Additions.swift in Sources */,
@@ -1091,7 +1090,6 @@
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
 				BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */,
 				5490B467257DC363009AE84C /* ConfirmVC.swift in Sources */,
-				01601899254074C400F36A37 /* LoginVC.swift in Sources */,
 				E55142002576C1C000CD09EA /* EntrarVC.swift in Sources */,
 				E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */,
 				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
