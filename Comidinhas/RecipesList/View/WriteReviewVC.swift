@@ -78,7 +78,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     @IBAction func tappedPostReviewButton(_ sender: UIButton) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        self.review = Reviews(usuario: "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
+        self.review = Reviews(usuario: AppUserManager.shared.loggedUser?.name ?? "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
         print(review ?? "")
         arrayReviews.insert(review!, at: 0)
         
