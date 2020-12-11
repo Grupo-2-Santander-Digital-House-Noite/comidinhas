@@ -269,7 +269,20 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         if section == cabecalhoSection {
 
             let cell: ImageCell? = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as? ImageCell
-            cell?.recipeImageView.image = UIImage(named: self.receita?.image ?? "ChocolateCake")
+            //cell?.recipeImageView.image = UIImage(named: self.receita?.image ?? "ChocolateCake")
+            if let url = URL(string: self.receita?.image ?? ""){
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard
+                        let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                        let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                        let data = data, error == nil,
+                        let image = UIImage(data: data)
+                        else { return }
+                    DispatchQueue.main.async() { [weak self] in
+                        cell?.recipeImageView.image = image
+                    }
+                }.resume()
+            }
             return cell ?? UITableViewCell()
 
         } else if section == ingredientesSection {

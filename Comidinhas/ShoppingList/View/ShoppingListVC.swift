@@ -130,8 +130,8 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ShoppingListVC: SearchVCDelegate {
-    func returnTabBar() {
-        self.tabBarController?.selectedIndex = 0
-    }
-}
+//extension ShoppingListVC: SearchVCDelegate {
+//    func returnTabBar() {
+//        self.tabBarController?.selectedIndex = 0
+//    }
+//}
