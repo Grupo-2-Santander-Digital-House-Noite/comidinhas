@@ -32,6 +32,7 @@ class SettingsAuthVC: UIViewController {
     @IBOutlet weak var bntForgotPass: UIButton!
     
     let controller = Settings()
+    weak var didLoginDelegate: DidLoginDelegate?
     
     
     
