@@ -11,14 +11,12 @@ class SettingsVC: UIViewController {
 
     @IBOutlet weak var editEmailLogin: UITextField!
     @IBOutlet weak var editPasswordLogin: UITextField!
-    
     @IBOutlet weak var bntLogin: UIButton!
     @IBOutlet weak var bntCancel: UIButton!
-    
     @IBOutlet weak var bntSignup: UIButton!
     
     
-    // CONFIGURACAO GERAL DOS TEXTFIELDS
+    // MARK: CONFIGURACAO GERAL DOS TEXTFIELDS
     fileprivate func configTextField() {
         self.editEmailLogin.delegate = self
         self.editPasswordLogin.delegate = self
@@ -26,7 +24,7 @@ class SettingsVC: UIViewController {
         
     }
     
-    // CONFIGURACAO GERAL DOS BOTOES
+    // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configButton() {
         self.bntLogin.layer.cornerRadius = 5
         self.bntCancel.layer.cornerRadius = 5
@@ -58,7 +56,7 @@ class SettingsVC: UIViewController {
 
     @IBAction func bntActSigin(_ sender: UIButton) {
         
-        // VALIDACAO DO CAMPO EMAIL
+        // MARK: VALIDACAO DO CAMPO EMAIL
         if self.editEmailLogin.text?.isEmpty == true {
             self.editEmailLogin.layer.borderColor = UIColor.red.cgColor
             self.editEmailLogin.layer.borderWidth = 1.0
@@ -67,7 +65,7 @@ class SettingsVC: UIViewController {
             self.editEmailLogin.layer.borderWidth = 0
         }
         
-        // VALIDACAO DO CAMPO SENHA
+        // MARK: VALIDACAO DO CAMPO SENHA
         if self.editPasswordLogin.text?.isEmpty == true {
             self.editPasswordLogin.layer.borderColor = UIColor.red.cgColor
             self.editPasswordLogin.layer.borderWidth = 1.0
