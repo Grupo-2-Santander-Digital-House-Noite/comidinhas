@@ -11,6 +11,13 @@
 		0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F71F2559806B00D59D18 /* SettingsCadVC.swift */; };
 		0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */; };
 		0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */; };
+		1D53E4CF2582CE9400D49313 /* GenericWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4CE2582CE9400D49313 /* GenericWorker.swift */; };
+		1D53E4D42582CEEB00D49313 /* RecipesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4D32582CEEB00D49313 /* RecipesWorker.swift */; };
+		1D53E4D92582CF0900D49313 /* RecipeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4D82582CF0900D49313 /* RecipeFilter.swift */; };
+		1D53E4DE2582CF2700D49313 /* SimpleTermFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4DD2582CF2700D49313 /* SimpleTermFilter.swift */; };
+		1D53E4E32582CF6200D49313 /* IngredientsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4E22582CF6200D49313 /* IngredientsFilter.swift */; };
+		1D53E4E82582CF7A00D49313 /* MealTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4E72582CF7A00D49313 /* MealTypeFilter.swift */; };
+		1D53E4ED2582CF9B00D49313 /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4EC2582CF9B00D49313 /* MealType.swift */; };
 		1D8B2052255B74B90068854F /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2037255B74B90068854F /* IQTextView.swift */; };
 		1D8B2053255B74B90068854F /* IQKeyboardManager+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2038255B74B90068854F /* IQKeyboardManager+Internal.swift */; };
 		1D8B2054255B74B90068854F /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B203A255B74B90068854F /* IQPreviousNextView.swift */; };
@@ -125,6 +132,13 @@
 		0178F71F2559806B00D59D18 /* SettingsCadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCadVC.swift; sourceTree = "<group>"; };
 		0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVC.swift; sourceTree = "<group>"; };
 		0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUpdVC.swift; sourceTree = "<group>"; };
+		1D53E4CE2582CE9400D49313 /* GenericWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericWorker.swift; sourceTree = "<group>"; };
+		1D53E4D32582CEEB00D49313 /* RecipesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWorker.swift; sourceTree = "<group>"; };
+		1D53E4D82582CF0900D49313 /* RecipeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilter.swift; sourceTree = "<group>"; };
+		1D53E4DD2582CF2700D49313 /* SimpleTermFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTermFilter.swift; sourceTree = "<group>"; };
+		1D53E4E22582CF6200D49313 /* IngredientsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsFilter.swift; sourceTree = "<group>"; };
+		1D53E4E72582CF7A00D49313 /* MealTypeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeFilter.swift; sourceTree = "<group>"; };
+		1D53E4EC2582CF9B00D49313 /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
 		1D8B2037255B74B90068854F /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		1D8B2038255B74B90068854F /* IQKeyboardManager+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+Internal.swift"; sourceTree = "<group>"; };
 		1D8B203A255B74B90068854F /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
@@ -372,6 +386,7 @@
 				BC5E888E253FA64D005345EE /* Info.plist */,
 				BC5E8884253FA649005345EE /* ViewController.swift */,
 				01601898254074C400F36A37 /* LoginVC.swift */,
+				1D53E4CE2582CE9400D49313 /* GenericWorker.swift */,
 			);
 			path = Comidinhas;
 			sourceTree = "<group>";
@@ -534,6 +549,12 @@
 				E554ED90254B03A60050D1CD /* Ingredientes.swift */,
 				E554EDD3254B76E10050D1CD /* Steps.swift */,
 				E554ED9A254B03BB0050D1CD /* Reviews.swift */,
+				1D53E4D32582CEEB00D49313 /* RecipesWorker.swift */,
+				1D53E4D82582CF0900D49313 /* RecipeFilter.swift */,
+				1D53E4DD2582CF2700D49313 /* SimpleTermFilter.swift */,
+				1D53E4E22582CF6200D49313 /* IngredientsFilter.swift */,
+				1D53E4E72582CF7A00D49313 /* MealTypeFilter.swift */,
+				1D53E4EC2582CF9B00D49313 /* MealType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -807,6 +828,7 @@
 				1D8B2060255B74B90068854F /* IQKeyboardManager+Debug.swift in Sources */,
 				E554EDC8254B75170050D1CD /* StepToStepCell.swift in Sources */,
 				E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */,
+				1D53E4E82582CF7A00D49313 /* MealTypeFilter.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
 				BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */,
@@ -844,13 +866,16 @@
 				1D8B2052255B74B90068854F /* IQTextView.swift in Sources */,
 				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
 				E563472A25420A14002B77FF /* Favorites.swift in Sources */,
+				1D53E4E32582CF6200D49313 /* IngredientsFilter.swift in Sources */,
 				1D8B2056255B74B90068854F /* IQBarButtonItem.swift in Sources */,
 				BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */,
 				1D8B2059255B74B90068854F /* IQInvocation.swift in Sources */,
 				BC4650802543E11E00047FAE /* ShoppingListItemStateEnum.swift in Sources */,
+				1D53E4CF2582CE9400D49313 /* GenericWorker.swift in Sources */,
 				BC5E8883253FA649005345EE /* SceneDelegate.swift in Sources */,
 				BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */,
 				1D8B2061255B74B90068854F /* IQKeyboardManager+OrientationNotification.swift in Sources */,
+				1D53E4DE2582CF2700D49313 /* SimpleTermFilter.swift in Sources */,
 				E554ED9B254B03BB0050D1CD /* Reviews.swift in Sources */,
 				1D8B205E255B74B90068854F /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				E56149EE2547668D007F9C42 /* ReviewCell.swift in Sources */,
@@ -860,9 +885,12 @@
 				E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */,
 				1D8B205F255B74B90068854F /* IQKeyboardManager.swift in Sources */,
 				1D8B206F255B74D70068854F /* SearchTableViewCell.swift in Sources */,
+				1D53E4D92582CF0900D49313 /* RecipeFilter.swift in Sources */,
 				1D8B2054255B74B90068854F /* IQPreviousNextView.swift in Sources */,
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
+				1D53E4ED2582CF9B00D49313 /* MealType.swift in Sources */,
 				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
+				1D53E4D42582CEEB00D49313 /* RecipesWorker.swift in Sources */,
 				E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */,
 				1D8B205A255B74B90068854F /* IQKeyboardManager+UIKeyboardNotification.swift in Sources */,
 				1D8B205D255B74B90068854F /* IQKeyboardManager+Position.swift in Sources */,

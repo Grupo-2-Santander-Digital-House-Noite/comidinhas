@@ -9,12 +9,13 @@ import UIKit
 
 protocol SearchTableViewCellDelegate: AnyObject {
     
-    func findClick()
-    
+    //func findClick()
+    func findClick(filter: [RecipeFilter])
 }
 
 class SearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var recipeNameTextField: UITextField!
     @IBOutlet weak var ingredientsTextView: UITextView!
 //    @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var findButton: UIButton!
@@ -84,8 +85,62 @@ class SearchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+//    @IBAction func finButtonClick(_ sender: UIButton) {
+//        delegate?.findClick()
+//    }
+    
     @IBAction func finButtonClick(_ sender: UIButton) {
-        delegate?.findClick()
+        var filters: [RecipeFilter] = []
+        if let _filter: RecipeFilter = self.getIngredientsFilter(){
+            filters.append(_filter)
+        }
+        
+        if let _filter: RecipeFilter = self.getTermFilter(){
+            filters.append(_filter)
+        }
+        
+        if let _filter: RecipeFilter = self.getTypeFilter(){
+            filters.append(_filter)
+        }
+        delegate?.findClick(filter : filters)
+    }
+    
+    func getIngredientsFilter() -> RecipeFilter? {
+        
+        if self.ingredientsTextView.hasText{
+            if ingredientsTextView.text != "Enter the ingredients separated by comma"
+            {
+                if let _text = self.ingredientsTextView.text {
+                    let ingredients = _text.split(separator: ",").map{ (ingredient) -> String in
+                        return ingredient.trimmingCharacters(in: .whitespaces)
+                    }
+                    return IngredientsFilter(withIngredients: ingredients)
+                }
+            }
+        }
+        return nil
+    }
+    
+    func getTermFilter() -> RecipeFilter? {
+        if self.recipeNameTextField.hasText{
+            if let _text = self.recipeNameTextField.text {
+                return SimpleTermFilter(withValues: _text.trimmingCharacters(in: .whitespaces))
+            }
+        }
+        return nil
+    }
+    
+    func getTypeFilter() -> RecipeFilter? {
+        let pickerOption:Int = self.catPickerView.selectedRow(inComponent: 0)
+        if(pickerOption == 0)
+        {
+            return nil
+        }
+        if MealType.allCases.count > pickerOption,
+           let _mealType = MealType.allCases[pickerOption] as? MealType {
+            return MealTypeFilter(withType: _mealType)
+        }
+        return nil
     }
     
 }

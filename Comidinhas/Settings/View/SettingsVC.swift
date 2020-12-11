@@ -107,8 +107,8 @@ extension SettingsVC: UITextFieldDelegate {
     
 }
 
-extension SettingsVC: SearchVCDelegate {
-    func returnTabBar() {
-        self.tabBarController?.selectedIndex = 0
-    }
-}
+//extension SettingsVC: SearchVCDelegate {
+//    func returnTabBar() {
+//        self.tabBarController?.selectedIndex = 0
+//    }
+//}

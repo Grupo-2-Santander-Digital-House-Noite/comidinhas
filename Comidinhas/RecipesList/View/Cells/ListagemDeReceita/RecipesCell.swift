@@ -32,11 +32,33 @@ class RecipesCell: UITableViewCell {
     func setup(receita: Recipe) {
         
 
-        self.recipeImage.image = UIImage(named: receita.image ?? "")
+        //self.recipeImage.image = UIImage(named: receita.image ?? "")
+        self.recipeImage.downloaded(from: receita.image ?? "", contentMode: .scaleAspectFill)
         self.nameLabel.text = receita.name
         self.timeLabel.text = "\(receita.time ?? 0) minutes"
         self.categoryLabel.text = receita.categoryString
         self.servingsLabel.text = "\(receita.servings ?? 0) servings"
     }
 
+}
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
 }
