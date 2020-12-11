@@ -23,6 +23,7 @@ class RecipesVC: UIViewController {
         self.recipesListTableView.tableFooterView = UIView(frame: .zero)
         
         self.recipesListTableView.register(UINib(nibName: "RecipesCell", bundle: nil), forCellReuseIdentifier: "RecipesCell")
+        self.recipesListTableView.register(UINib(nibName: "NoRecipeCell", bundle: nil), forCellReuseIdentifier: "NoRecipeCell")
     }
     
     
@@ -74,17 +75,24 @@ class RecipesVC: UIViewController {
 
 extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RecipesWebService.shared.recipes.count
+        if RecipesWebService.shared.recipes.count != 0 {
+            return RecipesWebService.shared.recipes.count
+        } else {
+            return 1
+        }
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:RecipesCell? = self.recipesListTableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as? RecipesCell
-        
-        cell?.setup(receita: RecipesWebService.shared.recipes[indexPath.row])
-        
-        return cell ?? UITableViewCell()
+        if RecipesWebService.shared.recipes.count != 0 {
+            let cell:RecipesCell? = self.recipesListTableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as? RecipesCell
+            cell?.setup(receita: RecipesWebService.shared.recipes[indexPath.row])
+            return cell ?? UITableViewCell()
+        } else {
+            let cell:NoRecipeCell? = self.recipesListTableView.dequeueReusableCell(withIdentifier: "NoRecipeCell", for: indexPath) as? NoRecipeCell
+            return cell ?? UITableViewCell()
+        }
     }
     
     

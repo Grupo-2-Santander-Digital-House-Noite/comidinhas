@@ -7,14 +7,15 @@
 
 import UIKit
 
+protocol SettingsCadVCDelegate: class {
+    func hideViewFromSignUp()
+}
 
 
 class SettingsCadVC: UIViewController {
     
-  
     @IBOutlet weak var lbErroMsg: UILabel!
     
-
     @IBOutlet weak var editFullName: UITextField!{
         didSet{
             editFullName.tintColor = UIColor.lightGray
@@ -37,11 +38,14 @@ class SettingsCadVC: UIViewController {
 
     let controller = Settings()
     weak var didLoginDelegate: DidLoginDelegate?
+    weak var delegate:SettingsCadVCDelegate?
+    
     
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
        
     }
+    
     fileprivate func configTextField() {
         self.editFullName.delegate = self
         self.editEmail.delegate = self
@@ -150,7 +154,8 @@ class SettingsCadVC: UIViewController {
         AppUserManager.shared.create(user: userToBeCreated, withPassword: password) {
             self.displayErrorAlertWith(title: "Well done", message: "your account was created, now you can mark recipes as favorites and write reviews.", dismissTitle: "Let's go",completion: nil, dismissAction: { _ in 
                 self.didLoginDelegate?.handleDidLogin()
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popToRootViewController(animated: true)
+                self.delegate?.hideViewFromSignUp()
             })
         } failure: { (error) in
             self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)

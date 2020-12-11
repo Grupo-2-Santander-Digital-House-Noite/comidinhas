@@ -43,9 +43,9 @@ class SearchTableViewCell: UITableViewCell {
         ingredientsTextView.delegate = self
         ingredientsTextView.text = "Enter the ingredients separated by comma"
         ingredientsTextView.textColor = UIColor.lightGray
-        ingredientsTextView.layer.cornerRadius = 4
+        ingredientsTextView.layer.cornerRadius = 5
 //        categoryPickerView.layer.cornerRadius = 4
-        findButton.layer.cornerRadius = findButton.frame.height/2
+        findButton.layer.cornerRadius = 5
         // Initialization code
     }
 
