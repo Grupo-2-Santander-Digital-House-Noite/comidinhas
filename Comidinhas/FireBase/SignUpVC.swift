@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 protocol SignUpVCDelegate: class {
     func hideViewSignUp() 
