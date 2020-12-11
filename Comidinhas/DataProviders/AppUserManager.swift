@@ -175,10 +175,14 @@ class AppUserManager {
         }
             
         var credentials: AuthCredential = EmailAuthProvider.credential(withEmail: Auth.auth().currentUser?.email ?? "", password: password ?? "")
+        
         Auth.auth().currentUser?.reauthenticate(with: credentials, completion: { (result, error) in
-            if error != nil {
-                print(error.debugDescription)
+            
+            if let error = error {
+                reportError(error)
+                return
             }
+            
             Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
                 if error != nil {
                     reportError(AuthError.userUpdateError(localizedMessage: "Couldn't update email"))
