@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DidLoginDelegate: AnyObject {
+    func handleDidLogin()
+}
+
 class SettingsAuthVC: UIViewController {
 
     @IBOutlet weak var textFieldEmail: UITextField! {
