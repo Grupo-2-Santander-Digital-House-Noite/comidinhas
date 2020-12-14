@@ -110,7 +110,8 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func getTimeFilter() -> RecipeFilter? {
-        if let time = self.timeToBeReadyTextField.text {
+        if self.timeToBeReadyTextField.hasText,
+           let time = self.timeToBeReadyTextField.text {
             return PrepareTimeFilter(withTime: time)
         }
         return nil;
