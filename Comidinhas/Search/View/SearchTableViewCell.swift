@@ -9,7 +9,6 @@ import UIKit
 
 protocol SearchTableViewCellDelegate: AnyObject {
     
-    //func findClick()
     func findClick(filter: [RecipeFilter])
 }
 
@@ -17,6 +16,7 @@ class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeNameTextField: UITextField!
     @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var timeToBeReadyTextField: UITextField!
 //    @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var findButton: UIButton!
     
@@ -102,7 +102,18 @@ class SearchTableViewCell: UITableViewCell {
         if let _filter: RecipeFilter = self.getTypeFilter(){
             filters.append(_filter)
         }
+        
+        if let _filter: RecipeFilter = self.getTimeFilter() {
+            filters.append(_filter)
+        }
         delegate?.findClick(filter : filters)
+    }
+    
+    func getTimeFilter() -> RecipeFilter? {
+        if let time = self.timeToBeReadyTextField.text {
+            return PrepareTimeFilter(withTime: time)
+        }
+        return nil;
     }
     
     func getIngredientsFilter() -> RecipeFilter? {
