@@ -31,11 +31,11 @@ class RecipesWorker: GenericWorker {
         
         if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
         {
-            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=20&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         else
         {
-            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=20&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         let url: URL? = URL(string: teste)
         
