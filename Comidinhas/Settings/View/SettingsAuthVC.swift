@@ -156,27 +156,6 @@ class SettingsAuthVC: UIViewController {
     
     @IBAction func bntForgotPass(_ sender: UIButton) {
         performSegue(withIdentifier: "ResetPasswordViewController", sender: nil)
-//        let alert = UIAlertController(title: "Recovery E-mail", message: "Please enter your registered e-mail", preferredStyle: .alert)
-//        alert.addTextField { textField in
-//            textField.placeholder = "Password"
-//            textField.isSecureTextEntry = true
-//        }
-//
-//        let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-//            AppUserManager.shared.resetPassword(email: textField ?? "") {
-//                let alert = UIAlertController(title: "Success", message: "Please, check your email to reset your password", preferredStyle: .alert)
-//                let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-//                    self.navigationController?.popToRootViewController(animated: true)
-//                    self.tabBarController?.selectedIndex = 0
-//                }
-//                alert.addAction(buttonOK)
-//                self.present(alert, animated: true, completion: nil)
-//            } failure: { (error) in
-//                print(error.localizedDescription)
-//            }
-//        }
-//        alert.addAction(buttonOK)
-//        self.present(alert, animated: true, completion: nil)
     }
     
     

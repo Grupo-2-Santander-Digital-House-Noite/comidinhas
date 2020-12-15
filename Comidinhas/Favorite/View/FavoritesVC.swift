@@ -41,14 +41,6 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
     }
     
     
-//    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
-//        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-//        newViewController.modalPresentationStyle = .overFullScreen
-//        newViewController.delegate = self
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
-    
     // MARK: PrepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RecipeDetailVC", let _recipe: Recipe = sender as? Recipe {
