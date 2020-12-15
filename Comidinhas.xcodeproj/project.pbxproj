@@ -126,6 +126,7 @@
 		E59858962548D82700DC64D7 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59858942548D82700DC64D7 /* ImageCell.xib */; };
 		E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D1254CA953001CA268 /* AllReviewsVC.swift */; };
 		E59A81D7254CA975001CA268 /* WriteReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D6254CA975001CA268 /* WriteReviewVC.swift */; };
+		E5A0444625893E2C00438B42 /* AppFavoritos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A0444525893E2C00438B42 /* AppFavoritos.swift */; };
 		E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE162F25840B7400090104 /* NoRecipeCell.swift */; };
 		E5CE163225840B7400090104 /* NoRecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CE163025840B7400090104 /* NoRecipeCell.xib */; };
 		EE35ED38F98F6D685365022B /* Pods_Comidinhas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3D4D3941949A64E4565057 /* Pods_Comidinhas.framework */; };
@@ -284,6 +285,7 @@
 		E59858942548D82700DC64D7 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		E59A81D1254CA953001CA268 /* AllReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsVC.swift; sourceTree = "<group>"; };
 		E59A81D6254CA975001CA268 /* WriteReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewVC.swift; sourceTree = "<group>"; };
+		E5A0444525893E2C00438B42 /* AppFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFavoritos.swift; sourceTree = "<group>"; };
 		E5CE162F25840B7400090104 /* NoRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecipeCell.swift; sourceTree = "<group>"; };
 		E5CE163025840B7400090104 /* NoRecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecipeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -421,6 +423,7 @@
 				BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */,
 				BC09E144256DEB9900796104 /* AppUserManager.swift */,
 				BC6AE91925770ED500788855 /* AuthError.swift */,
+				E5A0444525893E2C00438B42 /* AppFavoritos.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -1137,6 +1140,7 @@
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
 				1D53E4ED2582CF9B00D49313 /* MealType.swift in Sources */,
 				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
+				E5A0444625893E2C00438B42 /* AppFavoritos.swift in Sources */,
 				BC6AE926257735FC00788855 /* FirebaseViewController.swift in Sources */,
 				1D53E4D42582CEEB00D49313 /* RecipesWorker.swift in Sources */,
 				E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */,

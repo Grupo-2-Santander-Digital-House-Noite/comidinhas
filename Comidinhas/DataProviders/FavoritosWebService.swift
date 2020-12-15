@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class FavoritosWebService {
+    
+    private var db = Firestore.firestore()
+    private var user = Auth.auth()
     
     static let UPDATE_NOTIFICATION_NAME: NSNotification.Name = NSNotification.Name(rawValue: "FavoritosWebService.Updated")
     
@@ -39,6 +45,11 @@ class FavoritosWebService {
             self.idsFavoritos.append(id)
         }
         notifyObservers()
+        AppFavoritos.shared.AddFavoriteRecipeToFirestore(RecipeID: id) {
+            self.idsFavoritos.append(id)
+        } failure: { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     func removeFavorite(id: Int) {
@@ -47,6 +58,14 @@ class FavoritosWebService {
                 return _id != id
             })
             notifyObservers()
+            AppFavoritos.shared.RemoveFavoriteRecipeFromFirestore(RecipeID: id) {
+                if let index = self.idsFavoritos.firstIndex(of: id) {
+                    self.idsFavoritos.remove(at: index)
+                }
+            } failure: { (error) in
+                print(error.localizedDescription)
+            }
+
         }
     }
     
