@@ -15,6 +15,10 @@ import FirebaseFirestore
  */
 class AppUserManager {
     
+    public static let userLoggedInNotification: NSNotification.Name = NSNotification.Name("AppUserManagerUserLoggedIn")
+    public static let userLoggedOutNotification: NSNotification.Name = NSNotification.Name("AppUserManagerUserLoggedOut")
+    
+    
     private var currentLoggedUser: User?
     private var auth: Auth
     private var db: Firestore
@@ -42,8 +46,8 @@ class AppUserManager {
     public var loggedUser: User? {
         get {
             if let _user = self.auth.currentUser,
-               let _email = _user.email{
-                return User(name: _user.displayName ?? "No Name!", email: _email)
+               let _email = _user.email {
+                return User(name: _user.displayName ?? "No Name!", email: _email, uid: _user.uid)
             }
             return nil
         }
@@ -70,6 +74,7 @@ class AppUserManager {
         do {
             try self.auth.signOut()
             if let _completion = completion {
+                NotificationCenter.default.post(name: AppUserManager.userLoggedOutNotification, object: nil)
                 _completion()
             }
         } catch {
@@ -123,6 +128,7 @@ class AppUserManager {
             // Em caso de sucesso chama o closure de sucesso.
             if let _ = result,
                let _completion = completion{
+                NotificationCenter.default.post(name: AppUserManager.userLoggedInNotification, object: result?.user.uid)
                 _completion()
             }
         }
@@ -392,6 +398,8 @@ class AppUserManager {
                     reportError(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
                     return
                 }
+                
+                NotificationCenter.default.post(name: AppUserManager.userLoggedInNotification, object: result?.user.uid)
                 
                 // Tenta armazenar os dados do usuário
                 // Passa adiante os handlers de completion e failure.

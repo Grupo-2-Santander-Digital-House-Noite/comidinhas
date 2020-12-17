@@ -62,4 +62,24 @@ class AppFavoritos {
             _completion()
         }
     }
+    
+    func getRecipesIdsFromUser(withUid uid: String, completion: @escaping ([Int]) -> Void, failure: @escaping (Error) -> Void) {
+        
+        self.db.collection("users").document(uid).getDocument { (document, error) in
+            
+            if let error = error {
+                failure(error)
+                return
+            }
+            
+            if let document = document,
+               let ids: [Int] = document.get("RecipesIds") as? [Int] {
+                completion(ids)
+                return
+            }
+            
+            failure(GenericError.GenericErrorWithMessage(message: "Não desempacotou o documento!"))
+        }
+        
+    }
 }

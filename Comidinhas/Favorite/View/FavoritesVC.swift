@@ -36,7 +36,7 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
 
         self.configTableView()
         self.controller.delegate = self
-        self.controller.load()
+        self.controller.didUpdateFavorites()
         // Do any additional setup after loading the view.
     }
     
@@ -65,11 +65,32 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
-        cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
-        return cell ?? UITableViewCell()
+        
+        switch self.controller.state {
+        case .loaded:
+            let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
+            cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
+            return cell ?? UITableViewCell()
+        case .loading:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.textLabel?.text = "Loading"
+            cell.largeContentTitle = "Loading"
+            cell.layer.backgroundColor = UIColor.systemBlue.cgColor
+            return cell
+        case .error:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.textLabel?.text = "Error Loading!"
+            cell.largeContentTitle = "Error Loading!"
+            cell.layer.backgroundColor = UIColor.systemRed.cgColor
+            return cell
+        case .empty:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.textLabel?.text = "No recipes added yet!"
+            cell.largeContentTitle = "No recipes added yet!"
+            cell.layer.backgroundColor = UIColor.systemTeal.cgColor
+            return cell
+        }
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -86,9 +107,3 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-//extension FavoritesVC: SearchVCDelegate {
-//    func returnTabBar() {
-//        self.tabBarController?.selectedIndex = 0
-//    }
-//}
