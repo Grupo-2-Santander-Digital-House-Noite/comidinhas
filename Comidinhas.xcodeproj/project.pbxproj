@@ -98,6 +98,10 @@
 		E53E92BB2540AC170007C559 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92BA2540AC170007C559 /* Recipe.swift */; };
 		E53E92CD2540ACE70007C559 /* RecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92CB2540ACE70007C559 /* RecipesCell.swift */; };
 		E53E92CE2540ACE70007C559 /* RecipesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53E92CC2540ACE70007C559 /* RecipesCell.xib */; };
+		E54CE671258CE40B00B4FFAF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CE670258CE40A00B4FFAF /* LoadingView.swift */; };
+		E54CE676258CE41800B4FFAF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CE675258CE41800B4FFAF /* LoadingView.xib */; };
+		E54CE67B258CE4FA00B4FFAF /* loadingCooker.json in Resources */ = {isa = PBXBuildFile; fileRef = E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */; };
+		E54CE680258CE66000B4FFAF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CE67F258CE66000B4FFAF /* BaseViewController.swift */; };
 		E54DB5F4258150270007E5B2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */; };
 		E55141F52576BB6900CD09EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55141F42576BB6900CD09EA /* GoogleService-Info.plist */; };
 		E55141FB2576C1AA00CD09EA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55141FA2576C1AA00CD09EA /* SignUpVC.swift */; };
@@ -263,6 +267,10 @@
 		E53E92BA2540AC170007C559 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E53E92CB2540ACE70007C559 /* RecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCell.swift; sourceTree = "<group>"; };
 		E53E92CC2540ACE70007C559 /* RecipesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCell.xib; sourceTree = "<group>"; };
+		E54CE670258CE40A00B4FFAF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E54CE675258CE41800B4FFAF /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingCooker.json; sourceTree = "<group>"; };
+		E54CE67F258CE66000B4FFAF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E55141F42576BB6900CD09EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E55141FA2576C1AA00CD09EA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -400,6 +408,8 @@
 				BC09E0C72564C81800796104 /* RecipeMetadataView.xib */,
 				BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */,
 				BC0C00D825819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift */,
+				E54CE670258CE40A00B4FFAF /* LoadingView.swift */,
+				E54CE675258CE41800B4FFAF /* LoadingView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -417,6 +427,7 @@
 			children = (
 				BC0C00D02581984E001CDFBF /* UIViewControllerAlertsExtension.swift */,
 				BC357289258ADB120070D1F8 /* GenericError.swift */,
+				E54CE67F258CE66000B4FFAF /* BaseViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,6 +442,7 @@
 		BC579452255055AD000612F0 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
+				E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */,
 				E5954331258C117600903A77 /* loading.json */,
 				BC579453255055D0000612F0 /* recipes.json */,
 				BC57945B25505632000612F0 /* RecipesWebService.swift */,
@@ -940,6 +952,8 @@
 				E5954332258C117600903A77 /* loading.json in Resources */,
 				E5599934258BE52600352CC4 /* ErrorAndEmptyCell.xib in Resources */,
 				BC4F01BC255CF18E00BABCFA /* RecipeDetailVC.storyboard in Resources */,
+				E54CE676258CE41800B4FFAF /* LoadingView.xib in Resources */,
+				E54CE67B258CE4FA00B4FFAF /* loadingCooker.json in Resources */,
 				BC579454255055D0000612F0 /* recipes.json in Resources */,
 				1D8B2074255B74F90068854F /* Search.storyboard in Resources */,
 				E53E927E2540A1E40007C559 /* Recipes.storyboard in Resources */,
@@ -1094,6 +1108,7 @@
 				BC35728A258ADB120070D1F8 /* GenericError.swift in Sources */,
 				E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */,
 				1D53E4E82582CF7A00D49313 /* MealTypeFilter.swift in Sources */,
+				E54CE671258CE40B00B4FFAF /* LoadingView.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
 				E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
@@ -1105,6 +1120,7 @@
 				E53E92952540A3780007C559 /* RecipesVC.swift in Sources */,
 				BCA5A9EC25830D820093A8A7 /* LoginVC.swift in Sources */,
 				BC4F01D5255CFFC100BABCFA /* FavoritesUpdateDelegate.swift in Sources */,
+				E54CE680258CE66000B4FFAF /* BaseViewController.swift in Sources */,
 				1D8B2079255B76B00068854F /* SearchVC.swift in Sources */,
 				1D8B2063255B74B90068854F /* IQUIScrollView+Additions.swift in Sources */,
 				E56149E025476656007F9C42 /* IngredientesCell.swift in Sources */,
