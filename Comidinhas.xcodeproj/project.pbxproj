@@ -114,6 +114,10 @@
 		E554EDC8254B75170050D1CD /* StepToStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554EDC6254B75170050D1CD /* StepToStepCell.swift */; };
 		E554EDC9254B75170050D1CD /* StepToStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E554EDC7254B75170050D1CD /* StepToStepCell.xib */; };
 		E554EDD4254B76E10050D1CD /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554EDD3254B76E10050D1CD /* Steps.swift */; };
+		E5599933258BE52600352CC4 /* ErrorAndEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5599931258BE52600352CC4 /* ErrorAndEmptyCell.swift */; };
+		E5599934258BE52600352CC4 /* ErrorAndEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5599932258BE52600352CC4 /* ErrorAndEmptyCell.xib */; };
+		E559993A258BE54300352CC4 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5599938258BE54300352CC4 /* LoadingCell.swift */; };
+		E559993B258BE54300352CC4 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5599939258BE54300352CC4 /* LoadingCell.xib */; };
 		E56149E025476656007F9C42 /* IngredientesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56149DE25476656007F9C42 /* IngredientesCell.swift */; };
 		E56149E125476656007F9C42 /* IngredientesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56149DF25476656007F9C42 /* IngredientesCell.xib */; };
 		E56149EE2547668D007F9C42 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56149EC2547668D007F9C42 /* ReviewCell.swift */; };
@@ -123,6 +127,7 @@
 		E563472A25420A14002B77FF /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563472925420A14002B77FF /* Favorites.swift */; };
 		E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563473225420BB4002B77FF /* FavoritesCell.swift */; };
 		E563473525420BB4002B77FF /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E563473325420BB4002B77FF /* FavoritesCell.xib */; };
+		E5954332258C117600903A77 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E5954331258C117600903A77 /* loading.json */; };
 		E59858952548D82700DC64D7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59858932548D82700DC64D7 /* ImageCell.swift */; };
 		E59858962548D82700DC64D7 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59858942548D82700DC64D7 /* ImageCell.xib */; };
 		E59A81D2254CA953001CA268 /* AllReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A81D1254CA953001CA268 /* AllReviewsVC.swift */; };
@@ -274,6 +279,10 @@
 		E554EDC6254B75170050D1CD /* StepToStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepToStepCell.swift; sourceTree = "<group>"; };
 		E554EDC7254B75170050D1CD /* StepToStepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepToStepCell.xib; sourceTree = "<group>"; };
 		E554EDD3254B76E10050D1CD /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		E5599931258BE52600352CC4 /* ErrorAndEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAndEmptyCell.swift; sourceTree = "<group>"; };
+		E5599932258BE52600352CC4 /* ErrorAndEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorAndEmptyCell.xib; sourceTree = "<group>"; };
+		E5599938258BE54300352CC4 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		E5599939258BE54300352CC4 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		E56149DE25476656007F9C42 /* IngredientesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientesCell.swift; sourceTree = "<group>"; };
 		E56149DF25476656007F9C42 /* IngredientesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientesCell.xib; sourceTree = "<group>"; };
 		E56149EC2547668D007F9C42 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
@@ -283,6 +292,7 @@
 		E563472925420A14002B77FF /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		E563473225420BB4002B77FF /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		E563473325420BB4002B77FF /* FavoritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCell.xib; sourceTree = "<group>"; };
+		E5954331258C117600903A77 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		E59858932548D82700DC64D7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		E59858942548D82700DC64D7 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		E59A81D1254CA953001CA268 /* AllReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsVC.swift; sourceTree = "<group>"; };
@@ -421,6 +431,7 @@
 		BC579452255055AD000612F0 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
+				E5954331258C117600903A77 /* loading.json */,
 				BC579453255055D0000612F0 /* recipes.json */,
 				BC57945B25505632000612F0 /* RecipesWebService.swift */,
 				BC4F01C6255CF4F100BABCFA /* FavoritosWebService.swift */,
@@ -609,6 +620,17 @@
 			path = DetalheDaReceita;
 			sourceTree = "<group>";
 		};
+		E55998ED258BDC3A00352CC4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E5599931258BE52600352CC4 /* ErrorAndEmptyCell.swift */,
+				E5599932258BE52600352CC4 /* ErrorAndEmptyCell.xib */,
+				E5599938258BE54300352CC4 /* LoadingCell.swift */,
+				E5599939258BE54300352CC4 /* LoadingCell.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		E55A10FB255EE78B00E9FAD7 /* RecipesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +723,7 @@
 		E55A110A255EE98500E9FAD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E55998ED258BDC3A00352CC4 /* CustomViews */,
 				E53E92992540A3880007C559 /* FavoritesVC.swift */,
 				E563473225420BB4002B77FF /* FavoritesCell.swift */,
 				E563473325420BB4002B77FF /* FavoritesCell.xib */,
@@ -914,6 +937,8 @@
 				E55141F52576BB6900CD09EA /* GoogleService-Info.plist in Resources */,
 				E56149E125476656007F9C42 /* IngredientesCell.xib in Resources */,
 				BC09E0C82564C81800796104 /* RecipeMetadataView.xib in Resources */,
+				E5954332258C117600903A77 /* loading.json in Resources */,
+				E5599934258BE52600352CC4 /* ErrorAndEmptyCell.xib in Resources */,
 				BC4F01BC255CF18E00BABCFA /* RecipeDetailVC.storyboard in Resources */,
 				BC579454255055D0000612F0 /* recipes.json in Resources */,
 				1D8B2074255B74F90068854F /* Search.storyboard in Resources */,
@@ -921,6 +946,7 @@
 				BC5E888D253FA64D005345EE /* LaunchScreen.storyboard in Resources */,
 				E56149EF2547668D007F9C42 /* ReviewCell.xib in Resources */,
 				E554ED6A254AFAAB0050D1CD /* StepsHeaderCell.xib in Resources */,
+				E559993B258BE54300352CC4 /* LoadingCell.xib in Resources */,
 				E554ED52254AF8500050D1CD /* IngredientesHeaderCell.xib in Resources */,
 				1D8B206E255B74D70068854F /* SearchTableViewCell.xib in Resources */,
 				E53E92882540A1FA0007C559 /* ShoppingList.storyboard in Resources */,
@@ -1094,6 +1120,7 @@
 				BC210DF22554ED6800B64FA7 /* MainTabBarController.swift in Sources */,
 				1D8B2067255B74B90068854F /* IQNSArray+Sort.swift in Sources */,
 				1D8B2065255B74B90068854F /* IQUITextFieldView+Additions.swift in Sources */,
+				E5599933258BE52600352CC4 /* ErrorAndEmptyCell.swift in Sources */,
 				BC6AE92E2577361700788855 /* SignInViewController.swift in Sources */,
 				1D8B205C255B74B90068854F /* IQKeyboardManagerConstants.swift in Sources */,
 				1D8B2057255B74B90068854F /* IQToolbar.swift in Sources */,
@@ -1102,6 +1129,7 @@
 				1D8B2053255B74B90068854F /* IQKeyboardManager+Internal.swift in Sources */,
 				BC95396F255A40AB00B6E795 /* ShoppingListVC.swift in Sources */,
 				1D8B2066255B74B90068854F /* IQUIView+Hierarchy.swift in Sources */,
+				E559993A258BE54300352CC4 /* LoadingCell.swift in Sources */,
 				BC6AE9382577363900788855 /* ProfileViewController.swift in Sources */,
 				BC46507A2543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift in Sources */,
 				E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */,

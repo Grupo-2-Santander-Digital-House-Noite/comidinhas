@@ -27,6 +27,9 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         self.favoritesTableView.tableFooterView = UIView(frame: .zero)
         
         self.favoritesTableView.register(UINib(nibName: "FavoritesCell", bundle: nil), forCellReuseIdentifier: "FavoritesCell")
+        self.favoritesTableView.register(UINib(nibName: "ErrorAndEmptyCell", bundle: nil), forCellReuseIdentifier: "ErrorAndEmptyCell")
+        self.favoritesTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
+        
     }
     
     
@@ -72,23 +75,17 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
             cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
             return cell ?? UITableViewCell()
         case .loading:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = "Loading"
-            cell.largeContentTitle = "Loading"
-            cell.layer.backgroundColor = UIColor.systemBlue.cgColor
-            return cell
+            let cell:LoadingCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? LoadingCell
+            cell?.setupLoading()
+            return cell ?? UITableViewCell()
         case .error:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = "Error Loading!"
-            cell.largeContentTitle = "Error Loading!"
-            cell.layer.backgroundColor = UIColor.systemRed.cgColor
-            return cell
+            let cell:ErrorAndEmptyCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "ErrorAndEmptyCell", for: indexPath) as? ErrorAndEmptyCell
+            cell?.setupError()
+            return cell ?? UITableViewCell()
         case .empty:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = "No recipes added yet!"
-            cell.largeContentTitle = "No recipes added yet!"
-            cell.layer.backgroundColor = UIColor.systemTeal.cgColor
-            return cell
+            let cell:ErrorAndEmptyCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "ErrorAndEmptyCell", for: indexPath) as? ErrorAndEmptyCell
+            cell?.setupEmpty()
+            return cell ?? UITableViewCell()
         }
     }
     
