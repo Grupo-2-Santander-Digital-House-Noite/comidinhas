@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class SettingsVC: UIViewController {
+class SettingsVC: BaseViewController {
 
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -97,11 +97,14 @@ class SettingsVC: UIViewController {
     
     
     @IBAction func btnLogout(_ sender: Any) {
+        self.showLoadingCooker()
         AppUserManager.shared.logout {
             self.displayErrorAlertWith(title: "Sad to see you go!", message: "Hope to hear back soon", completion: nil)
             self.viewlogin.isHidden = false
             self.viewYourData.isHidden = true
+            self.hideLoadingCooker()
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
         }
     }
@@ -160,21 +163,26 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func btnOkDataChange(_ sender: Any) {
+        self.view.endEditing(true)
+        self.showLoadingCooker()
         AppUserManager.shared.updateLoggedUserFullname(name: self.dataChangeTextField.text ?? "") { () -> Void in
             self.displaySuccessAlert(title: "Success", message: "Your name was changed") { (success) in
                 self.fullNameLabel.text = self.dataChangeTextField.text
                 self.dataChangeTextField.text = ""
                 self.resetError()
                 self.hideTextFields()
-                self.view.endEditing(true)
+                self.hideLoadingCooker()
             }
 
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.showError(message: "Ops! There was someting wrong! Please, try again latter")
         }
     }
     
     @IBAction func btnOkEmailChange(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.showLoadingCooker()
         AppUserManager.shared.updateUserLoggedEmailByKaren(email: self.dataChangeTextField.text ?? "", password: self.passwordTextField.text ?? "") {
             self.displaySuccessAlert(title: "Success", message: "Your email was changed") { (success) in
                 self.emailLabel.text = self.dataChangeTextField.text
@@ -182,9 +190,10 @@ class SettingsVC: UIViewController {
                 self.passwordTextField.text = ""
                 self.resetError()
                 self.hideTextFields()
-                self.view.endEditing(true)
+                self.hideLoadingCooker()
             }
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.showError(message: "Ops! There was something wrong! Please, check your password")
         }
     }
@@ -194,6 +203,8 @@ class SettingsVC: UIViewController {
             self.showError(message: "Ops! Diffents passwords")
             return
         }
+        self.view.endEditing(true)
+        self.showLoadingCooker()
         AppUserManager.shared.updateUserLoggedPassword(currentPassword: self.dataChangeTextField.text ?? "", newPassword: self.passwordTextField.text ?? "") {
             self.displaySuccessAlert(title: "Success", message: "Your password was changed") { (success) in
                 self.dataChangeTextField.text = ""
@@ -201,11 +212,12 @@ class SettingsVC: UIViewController {
                 self.repeatPasswordTextField.text = ""
                 self.resetError()
                 self.hideTextFields()
-                self.view.endEditing(true)
+                self.hideLoadingCooker()
             }
             
         } failure: { (error) in
-            self.showError(message: "Ops! There was something wrong! Please, your current password")
+            self.hideLoadingCooker()
+            self.showError(message: "Ops! There was something wrong! Please, check your current password")
         }
     }
     

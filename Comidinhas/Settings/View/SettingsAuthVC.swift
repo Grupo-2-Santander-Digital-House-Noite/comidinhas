@@ -16,7 +16,7 @@ protocol DidLoginDelegate: AnyObject {
     func handleDidLogin()
 }
 
-class SettingsAuthVC: UIViewController {
+class SettingsAuthVC: BaseViewController {
 
     @IBOutlet weak var textFieldEmail: UITextField! {
         didSet{
@@ -142,11 +142,16 @@ class SettingsAuthVC: UIViewController {
             return
         }
         
+        self.view.endEditing(true)
+        self.showLoadingCooker()
+        
         AppUserManager.shared.attemptLoginWith(email: email, usingPassword: password) {
             self.didLoginDelegate?.handleDidLogin()
             self.navigationController?.popToRootViewController(animated: true)
             self.delegate?.hideViewFromLoginVC()
+            self.hideLoadingCooker()
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
         }
 
