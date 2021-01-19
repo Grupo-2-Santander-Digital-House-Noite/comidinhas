@@ -103,6 +103,7 @@
 		E54CE67B258CE4FA00B4FFAF /* loadingCooker.json in Resources */ = {isa = PBXBuildFile; fileRef = E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */; };
 		E54CE680258CE66000B4FFAF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CE67F258CE66000B4FFAF /* BaseViewController.swift */; };
 		E54DB5F4258150270007E5B2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */; };
+		E54F778225AF810F00368381 /* AppReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54F778125AF810F00368381 /* AppReviews.swift */; };
 		E55141F52576BB6900CD09EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55141F42576BB6900CD09EA /* GoogleService-Info.plist */; };
 		E55141FB2576C1AA00CD09EA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55141FA2576C1AA00CD09EA /* SignUpVC.swift */; };
 		E55142002576C1C000CD09EA /* EntrarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55141FF2576C1C000CD09EA /* EntrarVC.swift */; };
@@ -272,6 +273,7 @@
 		E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingCooker.json; sourceTree = "<group>"; };
 		E54CE67F258CE66000B4FFAF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		E54F778125AF810F00368381 /* AppReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviews.swift; sourceTree = "<group>"; };
 		E55141F42576BB6900CD09EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E55141FA2576C1AA00CD09EA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		E55141FF2576C1C000CD09EA /* EntrarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrarVC.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				BC09E144256DEB9900796104 /* AppUserManager.swift */,
 				BC6AE91925770ED500788855 /* AuthError.swift */,
 				E5A0444525893E2C00438B42 /* AppFavoritos.swift */,
+				E54F778125AF810F00368381 /* AppReviews.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -1139,6 +1142,7 @@
 				E5599933258BE52600352CC4 /* ErrorAndEmptyCell.swift in Sources */,
 				BC6AE92E2577361700788855 /* SignInViewController.swift in Sources */,
 				1D8B205C255B74B90068854F /* IQKeyboardManagerConstants.swift in Sources */,
+				E54F778225AF810F00368381 /* AppReviews.swift in Sources */,
 				1D8B2057255B74B90068854F /* IQToolbar.swift in Sources */,
 				BC4650702543DA2400047FAE /* ShoppingListItemTableViewCell.swift in Sources */,
 				BC0C00D925819D49001CDFBF /* ViewNeedsLoggedUserDelegate.swift in Sources */,

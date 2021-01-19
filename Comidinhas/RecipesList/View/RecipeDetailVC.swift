@@ -52,13 +52,15 @@ class RecipeDetailVC: UIViewController {
         self.recipeMetaView.loggedUserNeedDelegate = self
     }
 
-
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configDetalhes(self.receita)
         self.configTableView()
+        AppReviews.shared.loadTableViewWithFirestoreData(recipeID: String(receita?.id ?? 0) ?? "") {
+            self.recipeDetailTableView.reloadData()
+        }
     }
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
@@ -179,7 +181,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == avaliacoesSection {
             let header: ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
             var average: String = ""
-            var media = starAverage()
+            var media = starAverage(arrayStarFirestore: arrayStar)
 
             switch media {
             case 1:
@@ -265,11 +267,12 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         } else if section == avaliacoesSection {
             if arrayReviews.count == 0 {
                 return 1
-            } else {
+            } else if arrayReviews.count < 3 {
                 return arrayReviews.count
+            } else {
+                return 3
             }
         }
-
         return 0
     }
 

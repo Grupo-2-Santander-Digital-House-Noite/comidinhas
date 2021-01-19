@@ -77,16 +77,23 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func tappedPostReviewButton(_ sender: UIButton) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        self.review = Reviews(usuario: AppUserManager.shared.loggedUser?.name ?? "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
-        print(review ?? "")
-        arrayReviews.insert(review!, at: 0)
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         
+        
+        AppReviews.shared.AddReviewToFirestore(recipeID: String(recipe?.id ?? 0) ?? "", review: self.reviewTextField.text ?? "", date: dateFormatter.string(from: Date()), rating: self.starsLabel.text ?? "", user: AppUserManager.shared.loggedUser?.name ?? "") {
+            
+            self.review = Reviews(usuario: AppUserManager.shared.loggedUser?.name ?? "No name", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: self.reviewTextField.text ?? "")
+            
+            arrayReviews.insert(self.review!, at: 0)
+            arrayStar.append(self.starsLabel.text ?? "")
+
+        } failure: { (error) in
+            print(error.localizedDescription)
+        }
         // Invoca comportamento do nosso delegate!
         if let _review = self.review {
             self.delegate?.savedReview(_review)
         }
-        
         dismiss(animated: true, completion: nil)
     }
     

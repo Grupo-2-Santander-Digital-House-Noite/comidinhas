@@ -61,7 +61,7 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
         var average: String = ""
-        var media = starAverage()
+        var media = starAverage(arrayStarFirestore: arrayStar)
         switch media {
         case 1:
             average = "★☆☆☆☆"
