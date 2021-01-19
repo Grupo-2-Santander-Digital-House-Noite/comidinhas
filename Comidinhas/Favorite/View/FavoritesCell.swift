@@ -30,8 +30,21 @@ class FavoritesCell: UITableViewCell {
     }
     
     func setup(recipe: Recipe?) {
-        self.recipeImage.image = UIImage(named: recipe?.image ?? "")
+        //self.recipeImage.image = UIImage(named: recipe?.image ?? "")
+        if let url = URL(string: recipe?.image ?? ""){
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard
+                    let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                    let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                    let data = data,
+                    error == nil,
+                    let image = UIImage(data: data)
+                    else { return }
+                DispatchQueue.main.async() { [weak self] in
+                    self!.recipeImage.image = image
+                }
+            }.resume()
+        }
         self.nameLabel.text = recipe?.name ?? "N/A"
     }
-    
 }
