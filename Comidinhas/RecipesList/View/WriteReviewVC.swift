@@ -8,14 +8,14 @@
 import UIKit
 
 protocol WriteReviewVCDelegate: AnyObject {
-    func savedReview(_ review: Reviews) -> Void
+    func savedReview(_ review: Review) -> Void
 }
 
 
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     var delegate: WriteReviewVCDelegate?
-    var review: Reviews?
+    var review: Review?
     private var recipe: Recipe?
     
     
@@ -79,22 +79,23 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
+        let userId = AppUserManager.shared.loggedUser?.uid ?? "0"
+        let userFullName = AppUserManager.shared.loggedUser?.name ?? "Nobody"
+        let recipeId = self.recipe?.id ?? 0
+        let review = Review(recipeId: recipeId,
+                            userId: userId,
+                            date: Date(),
+                            rating: Review.ratingFrom(stars: self.starsLabel.text ?? ""),
+                            comment: self.reviewTextField.text ?? "",
+                            userFullName: userFullName)
         
-        AppReviews.shared.AddReviewToFirestore(recipeID: String(recipe?.id ?? 0) ?? "", review: self.reviewTextField.text ?? "", date: dateFormatter.string(from: Date()), rating: self.starsLabel.text ?? "", user: AppUserManager.shared.loggedUser?.name ?? "") {
-            
-            self.review = Reviews(usuario: AppUserManager.shared.loggedUser?.name ?? "No name", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: self.reviewTextField.text ?? "")
-            
-            arrayReviews.insert(self.review!, at: 0)
-            arrayStar.append(self.starsLabel.text ?? "")
-
+        AppReviews.shared.saveReview(review: review) {
+            self.delegate?.savedReview(review)
+            self.dismiss(animated: true, completion: nil)
         } failure: { (error) in
+            self.dismiss(animated: true, completion: nil)
             print(error.localizedDescription)
         }
-        // Invoca comportamento do nosso delegate!
-        if let _review = self.review {
-            self.delegate?.savedReview(_review)
-        }
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Setup Method

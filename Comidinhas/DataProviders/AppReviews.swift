@@ -29,38 +29,90 @@ class AppReviews {
     }
     
     
-    func AddReviewToFirestore(recipeID: String, review:String, date:String, rating:String, user:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+    func saveReview(review: Review,
+                    completion: @escaping (() -> Void),
+                    failure: @escaping ((Error) -> Void)) {
+        
         if AppUserManager.shared.hasLoggedUser() {
-            self.db.collection("review").document(recipeID).collection("review").document(AppUserManager.shared.loggedUser?.uid ?? "").setData(["user":user, "star": rating, "date": date, "review":review])
             
-            self.db.collection("star").document(recipeID).setData([user : rating], merge: true)
-        }
-        if let _completion = completion {
-            _completion()
-        }
-    }
-    
-    
-    func loadTableViewWithFirestoreData(recipeID:String, completion:(() -> Void)?) {
-        Firestore.firestore().collection("review").document(recipeID).collection("review").getDocuments { (snapshot, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                guard let snap = snapshot else {return}
-                for document in snap.documents {
-                    let data = document.data()
-                    let user = data["user"] as? String ?? "No name"
-                    let star = data["star"] as? String ?? "No star"
-                    let date = data["date"] as? String ?? "No date"
-                    let review = data["review"] as? String ?? "No review"
-                    
-                    var newReview = Reviews(usuario: user, estrelas: star, data: date, comentario: review)
-                    arrayReviews.append(newReview)
-                    arrayStar.append(star)
+            self.db.runTransaction { (transaction, errorPointer) -> Any? in
+                
+                let documentMetaRef: DocumentReference = self.db.collection("recipesReviewsMetadata").document("\(review.recipeId)")
+                documentMetaRef.getDocument { (documentSnapshot, error) in
+                    if let documentSnapshot = documentSnapshot {
+                        let data: [String: Any] = documentSnapshot.data() ?? [:]
+                        let recipeReviewMeta = RecipeReviewMetadata(firestoreData: data)
+                        recipeReviewMeta.addReview(review)
+                        documentMetaRef.setData(recipeReviewMeta.asFirestoreData())
+                    }
                 }
+                
+                let documentReviewRef: DocumentReference = self.db.collection("reviews").document(review.reviewId)
+                documentReviewRef.setData(review.asFirestoreData())
+                
+                return nil
+                
+            } completion: { (object, error) in
+                
+                if let error = error {
+                    failure(error)
+                    return
+                }
+                
+                completion();
+                return
             }
+
+        } else {
+            failure(GenericError.GenericErrorWithMessage(message: "Could not save! User isn't logged in."))
+        }
+        
+    }
+    
+    func loadReviewsForRecipeWith(id: Int, reviewsToLoad: Int?, completion: @escaping ((Reviews) -> Void), failure: @escaping ((Error) -> Void)) {
+        var query: Query = self.db.collection("reviews").whereField("recipeId", in: [id]).order(by: "date", descending: true)
+            
+        if let reviewsToLoad = reviewsToLoad {
+            query = query.limit(to: reviewsToLoad)
+        }
+        
+        query.getDocuments { (snapshot, error) in
+            
+                if let error = error {
+                    failure(error)
+                    return
+                }
+                
+                if let snapshot = snapshot {
+                    var reviews: Reviews = []
+                    for document in snapshot.documents {
+                        reviews.append(Review(firestoreData: document.data()))
+                    }
+                    completion(reviews)
+                }
         }
     }
+    
+    func loadRecipeReviewMetaDataWithRecipe(id: Int, completion: @escaping ((RecipeReviewMetadata) -> Void), failure: @escaping ((Error) -> Void)) {
+        
+        self.db.collection("recipesReviewsMetadata")
+            .document("\(id)").getDocument { (documentSnapshot, error) in
+                if let error = error {
+                    failure(error)
+                    return
+                }
+                
+                if let data = documentSnapshot?.data() {
+                    let metadata = RecipeReviewMetadata(firestoreData: data)
+                    completion(metadata)
+                    return
+                }
+                
+                failure(GenericError.GenericErrorWithMessage(message: "Could not load the recipes metadata!"))
+            }
+        
+    }
+    
 }
 
 

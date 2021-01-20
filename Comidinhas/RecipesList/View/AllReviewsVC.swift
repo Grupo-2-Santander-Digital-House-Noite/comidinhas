@@ -12,6 +12,11 @@ class AllReviewsVC: UIViewController {
     // Propriedades internas.
     private var recipe: Recipe?
     
+    var reviews: Reviews = []
+    var reviewsLoadingState: ReviewsLoadingState = .Loading
+    var recipeReviewMeta: RecipeReviewMetadata? = nil
+    var recipeReviewMetaState: RecipeReviewMetadataLoadingState = .Loading
+    
     // IBOutlet da View de Detalhes
     @IBOutlet private weak var recipeMeta: RecipeMetadataView!
     // IBOutlet da TableView
@@ -33,8 +38,33 @@ class AllReviewsVC: UIViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setup()
+        
+        AppReviews.shared.loadReviewsForRecipeWith(id: recipe?.id ?? 0, reviewsToLoad: nil, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
+        AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: recipe?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
+    }
+    
+    func loadedReviews(reviews: Reviews) {
+        self.reviews = reviews
+        self.reviewsLoadingState = reviews.count > 0 ? ReviewsLoadingState.Loaded : ReviewsLoadingState.EmptyLoaded
+        self.reviewsTableView.reloadData()
+    }
+    
+    func reviewLoaderErrorHandler(error: Error) {
+        self.reviews = []
+        self.reviewsLoadingState = ReviewsLoadingState.Error
+        self.reviewsTableView.reloadData()
+    }
+    
+    func loadedReviewMeta(reviewMeta: RecipeReviewMetadata) {
+        self.recipeReviewMeta = reviewMeta
+        self.recipeReviewMetaState = .Loaded
+        self.reviewsTableView.reloadData()
+    }
+    
+    func reviewMetaLoadErrorHandler(error: Error) {
+        self.recipeReviewMetaState = .Error
+        self.reviewsTableView.reloadData()
     }
   
     // Método de configuração do view controller.
@@ -61,25 +91,19 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ReviewHeaderCell? = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ReviewHeaderCell") as? ReviewHeaderCell
         var average: String = ""
-        var media = starAverage(arrayStarFirestore: arrayStar)
-        switch media {
-        case 1:
-            average = "★☆☆☆☆"
-        case 2:
-            average = "★★☆☆☆"
-        case 3:
-            average = "★★★☆☆"
-        case 4:
-            average = "★★★★☆"
-        case 5:
-            average = "★★★★★"
-        default:
-            average = "☆☆☆☆☆"
+        switch self.recipeReviewMetaState {
+        case .Loading :
+            average = "Loading average ratings"
+            header?.totalReviewsLabel.text = "* reviews"
+        case .Loaded :
+            average = self.recipeReviewMeta?.ratingStars ?? "Error converting"
+            header?.totalReviewsLabel.text = "\(self.recipeReviewMeta?.reviewCount ?? 0) reviews"
+        case .Error :
+            average = "Could not load average"
+            header?.totalReviewsLabel.text = "0 reviews"
         }
+        
         header?.starLabel.text = average
-//        header?.starLabel.text = "★★★★☆"
-//        header?.starLabel.text = starAverage()
-        header?.totalReviewsLabel.text = String(arrayReviews.count) + " reviews"
         return header ?? nil
     }
     
@@ -90,12 +114,23 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayReviews.count
+        return self.reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ReviewCell? = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewCell
-        cell?.setupReview(review: arrayReviews[indexPath.row])
+        
+        switch self.reviewsLoadingState {
+        case .Loading:
+            cell?.setupLoading()
+        case .EmptyLoaded:
+            cell?.setupNoReview()
+        case .Loaded:
+            cell?.setupReview(review: self.reviews[indexPath.row])
+        case .Error:
+            cell?.setupError(error: GenericError.GenericErrorWithMessage(message: "Could not load the reviews"))
+        }
+        
         return cell ?? UITableViewCell()
     }
 }
