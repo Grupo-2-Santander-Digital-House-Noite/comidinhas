@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: BaseViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var enviarButton: UIButton!
@@ -22,7 +22,9 @@ class ResetPasswordViewController: UIViewController {
     
     
     @IBAction func enviarButtonTapped(_ sender: UIButton) {
+        self.showLoadingCooker()
         AppUserManager.shared.resetPassword(email: self.emailTextField.text ?? "") {
+            self.hideLoadingCooker()
             let alert = UIAlertController(title: "Success", message: "Please, check your email to reset your password", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
                 self.dismiss(animated: true) {
@@ -32,6 +34,7 @@ class ResetPasswordViewController: UIViewController {
             alert.addAction(buttonOK)
             self.present(alert, animated: true, completion: nil)
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "OPS!", message: "There is something wrong. Please enter a valid email", completion: nil)
             print(error.localizedDescription)
         }

@@ -33,5 +33,4 @@ class FavoritesCell: UITableViewCell {
         self.recipeImage.image = UIImage(named: recipe?.image ?? "")
         self.nameLabel.text = recipe?.name ?? "N/A"
     }
-    
 }

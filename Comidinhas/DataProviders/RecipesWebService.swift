@@ -29,6 +29,18 @@ class RecipesWebService {
         }
     }
     
+    func with(ids: [Int], completion: @escaping ([Recipe]) -> Void,  failure: @escaping (Error) -> Void) {
+        
+        let worker = RecipesWorker()
+        worker.getRecipesWith(ids: ids) { (recipes) in
+            completion(recipes)
+        } failure: { (error) in
+            failure(error)
+        }
+
+        
+    }
+    
     func loadRecipes() -> Void {
         
         do {

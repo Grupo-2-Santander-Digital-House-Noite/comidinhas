@@ -31,11 +31,11 @@ class RecipesWorker: GenericWorker {
         
         if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
         {
-            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=20&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         else
         {
-            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=20&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         let url: URL? = URL(string: teste)
         
@@ -55,5 +55,50 @@ class RecipesWorker: GenericWorker {
             }
             task.resume()
         }
+    }
+    
+    func getRecipesWith(ids: [Int], completion: @escaping ([Recipe]) -> Void, failure: @escaping (Error) -> Void) {
+        
+        if ids.count == 0 {
+            completion([])
+            return
+        }
+        
+        let idsComVirgulas: String = ids.map { (id) -> String in
+            return String(id)
+        }.joined(separator: ",")
+        let urlString = "https://api.spoonacular.com/recipes/informationBulk?\(apiKey)&ids=\(idsComVirgulas)"
+        
+        guard let url = URL(string: urlString) else {
+            failure(GenericError.GenericErrorWithMessage(message: "Erro ao montar url"))
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                DispatchQueue.main.async { failure(error) }
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let results = try JSONDecoder().decode(BulkRecipeResults.self, from: data)
+                    DispatchQueue.main.async { completion(results) }
+                    return
+                } catch {
+                    DispatchQueue.main.async { failure(error) }
+                    return
+                }
+            }
+            
+            
+            DispatchQueue.main.async { failure(GenericError.GenericErrorWithMessage(message: "Não desempacotou o data!")) }
+            return
+        }
+        
+        dataTask.resume()
+        
+        
     }
 }

@@ -12,7 +12,7 @@ protocol SettingsCadVCDelegate: class {
 }
 
 
-class SettingsCadVC: UIViewController {
+class SettingsCadVC: BaseViewController {
     
     @IBOutlet weak var lbErroMsg: UILabel!
     
@@ -150,14 +150,18 @@ class SettingsCadVC: UIViewController {
         }
         
         let userToBeCreated: User = User(name: name, email: email)
+        self.view.endEditing(true)
+        self.showLoadingCooker()
         
         AppUserManager.shared.create(user: userToBeCreated, withPassword: password) {
-            self.displayErrorAlertWith(title: "Well done", message: "your account was created, now you can mark recipes as favorites and write reviews.", dismissTitle: "Let's go",completion: nil, dismissAction: { _ in 
+            self.displayErrorAlertWith(title: "Well done", message: "your account was created, now you can mark recipes as favorites and write reviews.", dismissTitle: "Let's go",completion: nil, dismissAction: { _ in
+                self.hideLoadingCooker()
                 self.didLoginDelegate?.handleDidLogin()
                 self.navigationController?.popToRootViewController(animated: true)
                 self.delegate?.hideViewFromSignUp()
             })
         } failure: { (error) in
+            self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)
         }
 

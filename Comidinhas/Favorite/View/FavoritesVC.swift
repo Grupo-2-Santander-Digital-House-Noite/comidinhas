@@ -27,6 +27,9 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         self.favoritesTableView.tableFooterView = UIView(frame: .zero)
         
         self.favoritesTableView.register(UINib(nibName: "FavoritesCell", bundle: nil), forCellReuseIdentifier: "FavoritesCell")
+        self.favoritesTableView.register(UINib(nibName: "ErrorAndEmptyCell", bundle: nil), forCellReuseIdentifier: "ErrorAndEmptyCell")
+        self.favoritesTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
+        
     }
     
     
@@ -36,18 +39,10 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
 
         self.configTableView()
         self.controller.delegate = self
-        self.controller.load()
+        self.controller.didUpdateFavorites()
         // Do any additional setup after loading the view.
     }
     
-    
-//    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
-//        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-//        newViewController.modalPresentationStyle = .overFullScreen
-//        newViewController.delegate = self
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
     
     // MARK: PrepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,11 +68,26 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
-        cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
-        return cell ?? UITableViewCell()
+        
+        switch self.controller.state {
+        case .loaded:
+            let cell:FavoritesCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell
+            cell?.setup(recipe: self.controller.favoriteRecipeAt(index: indexPath.row))
+            return cell ?? UITableViewCell()
+        case .loading:
+            let cell:LoadingCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? LoadingCell
+            cell?.setupLoading()
+            return cell ?? UITableViewCell()
+        case .error:
+            let cell:ErrorAndEmptyCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "ErrorAndEmptyCell", for: indexPath) as? ErrorAndEmptyCell
+            cell?.setupError()
+            return cell ?? UITableViewCell()
+        case .empty:
+            let cell:ErrorAndEmptyCell? = self.favoritesTableView.dequeueReusableCell(withIdentifier: "ErrorAndEmptyCell", for: indexPath) as? ErrorAndEmptyCell
+            cell?.setupEmpty()
+            return cell ?? UITableViewCell()
+        }
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -94,9 +104,3 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-//extension FavoritesVC: SearchVCDelegate {
-//    func returnTabBar() {
-//        self.tabBarController?.selectedIndex = 0
-//    }
-//}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingView" customModule="Comidinhas" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-Ru-ZR7" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="414" id="51D-OR-UGT"/>
+                        <constraint firstAttribute="height" constant="896" id="ztu-pg-TVC"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loadingCooker"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="pmv-Ru-ZR7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="2iN-gH-PqY"/>
+                <constraint firstItem="pmv-Ru-ZR7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ToM-aZ-Iu2"/>
+                <constraint firstAttribute="bottom" secondItem="pmv-Ru-ZR7" secondAttribute="bottom" id="cbq-W0-tQs"/>
+                <constraint firstItem="pmv-Ru-ZR7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p66-mN-MrK"/>
+            </constraints>
+            <connections>
+                <outlet property="loadingCookerAnimation" destination="pmv-Ru-ZR7" id="6vr-jQ-GFz"/>
+            </connections>
+            <point key="canvasLocation" x="-171.01449275362319" y="-92.410714285714278"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="pmv-Ru-ZR7"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
