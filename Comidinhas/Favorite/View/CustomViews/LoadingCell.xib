@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="276" id="KGk-i7-Jjw" customClass="LoadingCell" customModule="Comidinhas" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DR8-3F-lBo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="B74-8d-FzG" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.81960784313725488" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="B74-8d-FzG" secondAttribute="bottom" id="0FL-Nd-An2"/>
+                            <constraint firstItem="B74-8d-FzG" firstAttribute="top" secondItem="DR8-3F-lBo" secondAttribute="top" id="7Py-63-3uM"/>
+                            <constraint firstItem="B74-8d-FzG" firstAttribute="leading" secondItem="DR8-3F-lBo" secondAttribute="leading" id="Ion-f5-nn3"/>
+                            <constraint firstItem="B74-8d-FzG" firstAttribute="centerY" secondItem="DR8-3F-lBo" secondAttribute="centerY" id="JNy-bu-kAl"/>
+                            <constraint firstAttribute="width" constant="320" id="Qfu-m0-w9A"/>
+                            <constraint firstItem="B74-8d-FzG" firstAttribute="centerX" secondItem="DR8-3F-lBo" secondAttribute="centerX" id="VlL-xW-TtU"/>
+                            <constraint firstAttribute="height" constant="600" id="lFr-Nb-oBQ"/>
+                            <constraint firstAttribute="trailing" secondItem="B74-8d-FzG" secondAttribute="trailing" id="tGY-Ll-nba"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DR8-3F-lBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SHz-0M-LDd"/>
+                    <constraint firstAttribute="trailing" secondItem="DR8-3F-lBo" secondAttribute="trailing" id="VpG-gw-qqP"/>
+                    <constraint firstAttribute="bottom" secondItem="DR8-3F-lBo" secondAttribute="bottom" id="XCv-ma-FEe"/>
+                    <constraint firstItem="DR8-3F-lBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mvX-ym-b6Q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="loadingAnimationView" destination="B74-8d-FzG" id="CxW-we-lLh"/>
+            </connections>
+            <point key="canvasLocation" x="260.86956521739131" y="84.375"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="B74-8d-FzG"/>
+    </designables>
+</document>

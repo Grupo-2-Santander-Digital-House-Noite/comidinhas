@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WQ7-ta-oJO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recipe DetailVC-->
+        <scene sceneID="UxG-7Y-Mck">
+            <objects>
+                <viewController id="WQ7-ta-oJO" customClass="RecipeDetailVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="onr-Km-26a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8s-y8-9Z2">
+                                <rect key="frame" x="0.0" y="164" width="414" height="698"/>
+                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKC-9l-5hL" customClass="RecipeMetadataView" customModule="Comidinhas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="eTe-fj-j3f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="Nome"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="categoryText" value="algo"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minutesToPrepare">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="servesXPeople">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cVq-VQ-xkb"/>
+                        <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x8s-y8-9Z2" firstAttribute="bottom" secondItem="cVq-VQ-xkb" secondAttribute="bottom" id="OA9-HP-7yj"/>
+                            <constraint firstItem="VKC-9l-5hL" firstAttribute="trailing" secondItem="cVq-VQ-xkb" secondAttribute="trailing" id="aau-Au-ZdM"/>
+                            <constraint firstItem="VKC-9l-5hL" firstAttribute="top" secondItem="cVq-VQ-xkb" secondAttribute="top" id="k49-Fj-f7g"/>
+                            <constraint firstItem="x8s-y8-9Z2" firstAttribute="trailing" secondItem="cVq-VQ-xkb" secondAttribute="trailing" id="lhM-Kt-pvc"/>
+                            <constraint firstItem="VKC-9l-5hL" firstAttribute="leading" secondItem="cVq-VQ-xkb" secondAttribute="leading" id="pWL-Nq-40a"/>
+                            <constraint firstItem="x8s-y8-9Z2" firstAttribute="leading" secondItem="cVq-VQ-xkb" secondAttribute="leading" id="pmA-90-EN2"/>
+                            <constraint firstItem="x8s-y8-9Z2" firstAttribute="top" secondItem="VKC-9l-5hL" secondAttribute="bottom" id="reT-Oc-PJl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g56-fB-VsH"/>
+                    <connections>
+                        <outlet property="recipeDetailTableView" destination="x8s-y8-9Z2" id="6V3-Yn-Uzr"/>
+                        <outlet property="recipeMetaView" destination="VKC-9l-5hL" id="UnD-gr-fnJ"/>
+                        <segue destination="BaZ-nn-CGk" kind="show" identifier="AllReviewsVC" id="Rtw-ia-CHA"/>
+                        <segue destination="lCF-IE-CjH" kind="presentation" identifier="WriteReviewVC" id="BcB-pt-qgl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbr-dH-tuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705.7971014492755" y="-464.0625"/>
+        </scene>
+        <!--Write ReviewVC-->
+        <scene sceneID="0lF-F9-mtC">
+            <objects>
+                <viewController id="lCF-IE-CjH" customClass="WriteReviewVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h7Y-PW-vb5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many stars do you give for this recipe?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkD-bs-edh">
+                                <rect key="frame" x="37" y="170" width="340" height="24.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="aMu-c0-5qG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☆☆☆☆☆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uC7-IK-9OO">
+                                <rect key="frame" x="132" y="200.5" width="150" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="wwo-Rf-P2l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write your review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVV-rs-t8g">
+                                <rect key="frame" x="137" y="265.5" width="140" height="24.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="xQm-cb-Ai1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySA-LV-kg0">
+                                <rect key="frame" x="115" y="721" width="184" height="37"/>
+                                <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="1ia-I2-5It"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Post review">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedPostReviewButton:" destination="lCF-IE-CjH" eventType="touchUpInside" id="3zS-LY-Vve"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-IH-CGV">
+                                <rect key="frame" x="15" y="296" width="384" height="34"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3s-k0-S02" customClass="RecipeMetadataView" customModule="Comidinhas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="i3N-iZ-Uyf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="Nome"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="categoryText" value="algo"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minutesToPrepare">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="servesXPeople">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Ud-OM-RnO"/>
+                        <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uC7-IK-9OO" firstAttribute="centerX" secondItem="1Ud-OM-RnO" secondAttribute="centerX" id="0vc-VH-EzE"/>
+                            <constraint firstItem="1Ud-OM-RnO" firstAttribute="trailing" secondItem="Ts7-IH-CGV" secondAttribute="trailing" constant="15" id="1ip-t7-BDG"/>
+                            <constraint firstItem="1Ud-OM-RnO" firstAttribute="bottom" secondItem="ySA-LV-kg0" secondAttribute="bottom" constant="50" id="HsP-FI-fYt"/>
+                            <constraint firstItem="Ts7-IH-CGV" firstAttribute="leading" secondItem="1Ud-OM-RnO" secondAttribute="leading" constant="15" id="OMf-pr-U8l"/>
+                            <constraint firstItem="tkD-bs-edh" firstAttribute="centerX" secondItem="1Ud-OM-RnO" secondAttribute="centerX" id="Rk8-1v-3hU"/>
+                            <constraint firstItem="tkD-bs-edh" firstAttribute="top" secondItem="D3s-k0-S02" secondAttribute="bottom" constant="50" id="UvV-HG-ZMZ"/>
+                            <constraint firstItem="D3s-k0-S02" firstAttribute="trailing" secondItem="1Ud-OM-RnO" secondAttribute="trailing" id="cFA-Oi-oUU"/>
+                            <constraint firstItem="ySA-LV-kg0" firstAttribute="centerX" secondItem="1Ud-OM-RnO" secondAttribute="centerX" id="cqI-V8-PHy"/>
+                            <constraint firstItem="uC7-IK-9OO" firstAttribute="top" secondItem="tkD-bs-edh" secondAttribute="bottom" constant="6" id="fad-rT-6s4"/>
+                            <constraint firstItem="D3s-k0-S02" firstAttribute="top" secondItem="1Ud-OM-RnO" secondAttribute="top" id="kVn-JW-EX9"/>
+                            <constraint firstItem="ZVV-rs-t8g" firstAttribute="centerX" secondItem="1Ud-OM-RnO" secondAttribute="centerX" id="pw0-se-RM7"/>
+                            <constraint firstItem="D3s-k0-S02" firstAttribute="leading" secondItem="1Ud-OM-RnO" secondAttribute="leading" id="sGE-5V-wYp"/>
+                            <constraint firstItem="Ts7-IH-CGV" firstAttribute="top" secondItem="ZVV-rs-t8g" secondAttribute="bottom" constant="6" id="uhl-ag-aIX"/>
+                            <constraint firstItem="ZVV-rs-t8g" firstAttribute="top" secondItem="uC7-IK-9OO" secondAttribute="bottom" constant="30" id="zUq-lo-fuO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oo7-GJ-zc1"/>
+                    <connections>
+                        <outlet property="postReviewButton" destination="ySA-LV-kg0" id="f17-vX-w0w"/>
+                        <outlet property="recipeMeta" destination="D3s-k0-S02" id="BoK-1S-4Kq"/>
+                        <outlet property="reviewTextField" destination="Ts7-IH-CGV" id="D2E-1a-GrK"/>
+                        <outlet property="starsLabel" destination="uC7-IK-9OO" id="Cni-qe-Rlj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2d-mu-g3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602.898550724638" y="-122.54464285714285"/>
+        </scene>
+        <!--All ReviewsVC-->
+        <scene sceneID="Q0M-rR-tnF">
+            <objects>
+                <viewController id="BaZ-nn-CGk" customClass="AllReviewsVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ywL-xf-6lY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2Z-Cq-sk2">
+                                <rect key="frame" x="0.0" y="120" width="414" height="688"/>
+                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkA-Zy-YEL" customClass="RecipeMetadataView" customModule="Comidinhas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="dY8-s0-Y99"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="Nome"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="categoryText" value="algo"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minutesToPrepare">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="servesXPeople">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AG8-Sf-46V"/>
+                        <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="P2Z-Cq-sk2" firstAttribute="leading" secondItem="AG8-Sf-46V" secondAttribute="leading" id="8xA-H3-Vjl"/>
+                            <constraint firstItem="zkA-Zy-YEL" firstAttribute="leading" secondItem="AG8-Sf-46V" secondAttribute="leading" id="HaH-Lu-22B"/>
+                            <constraint firstItem="zkA-Zy-YEL" firstAttribute="trailing" secondItem="AG8-Sf-46V" secondAttribute="trailing" id="MPV-y7-xAJ"/>
+                            <constraint firstItem="P2Z-Cq-sk2" firstAttribute="bottom" secondItem="AG8-Sf-46V" secondAttribute="bottom" id="jUa-Fa-0Cb"/>
+                            <constraint firstItem="P2Z-Cq-sk2" firstAttribute="trailing" secondItem="AG8-Sf-46V" secondAttribute="trailing" id="ram-vl-Poe"/>
+                            <constraint firstItem="P2Z-Cq-sk2" firstAttribute="top" secondItem="zkA-Zy-YEL" secondAttribute="bottom" id="rn7-4D-oKU"/>
+                            <constraint firstItem="zkA-Zy-YEL" firstAttribute="top" secondItem="AG8-Sf-46V" secondAttribute="top" id="zFz-Nw-eM9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yKT-1u-gIB"/>
+                    <connections>
+                        <outlet property="recipeMeta" destination="zkA-Zy-YEL" id="2mz-Js-Eth"/>
+                        <outlet property="reviewsTableView" destination="P2Z-Cq-sk2" id="rTz-jE-NNl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCl-5y-WTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602.898550724638" y="-882.58928571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
