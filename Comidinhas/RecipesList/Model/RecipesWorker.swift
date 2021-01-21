@@ -71,6 +71,7 @@ class RecipesWorker: GenericWorker {
         {
             teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true&offset=\(offset)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
+        print("XY \(teste)")
         let url: URL? = URL(string: teste)
         
             if let _url = url {

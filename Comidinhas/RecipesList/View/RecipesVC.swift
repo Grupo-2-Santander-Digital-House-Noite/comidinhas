@@ -162,6 +162,7 @@ extension RecipesVC: SearchVCDelegate {
         if filter.count == 0 {
             url = "Utilize a tela de filtro para montar uma url"
         } else {
+            RecipesWebService.shared.lastFilter = filter
             url = "https://api.spoonacular.com/recipes/complexSearch"
             var components: [String] = []
             for _filter in filter {
