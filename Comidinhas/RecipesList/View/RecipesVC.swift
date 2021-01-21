@@ -113,12 +113,59 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+extension RecipesVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard controller.finishedRequest else { return }
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            var url: String = ""
+            if RecipesWebService.shared.lastFilter.count == 0 {
+                url = "https://api.spoonacular.com/recipes/complexSearch?"
+            } else {
+                url = "https://api.spoonacular.com/recipes/complexSearch"
+                var components: [String] = []
+                for _filter in RecipesWebService.shared.lastFilter {
+                    components.append("\(_filter.name)=\(_filter.value)")
+                }
+                url = "\(url)?\(components.joined(separator: "&"))"
+            }
+
+            //if let _nomeDaReceita = nomeDaReceita {
+                //self.controller.loadRecipesList(name: url, completionHandler: { (result, error) in
+                self.controller.loadRecipesListWithUrlNewResults(url: url, offset: RecipesWebService.shared.recipes.count, completionHandler: { (result, error) in
+
+                    if result {
+
+                        DispatchQueue.main.async {
+
+    //                        self.recipesListTableView.delegate = self
+    //                        self.recipesListTableView.dataSource = self
+                            self.recipesListTableView.reloadData()
+                            //self.hiddenLoading()
+                        }
+
+                    }else{
+
+                        DispatchQueue.main.async {
+                            print("deu error: \(error)")
+                            //self.hiddenLoading()
+                        }
+
+                    }
+                })
+        }
+    }
+}
+
 extension RecipesVC: SearchVCDelegate {
     func returnTabBar(filter: [RecipeFilter]) {
         var url: String = ""
         if filter.count == 0 {
             url = "Utilize a tela de filtro para montar uma url"
         } else {
+            RecipesWebService.shared.lastFilter = filter
             url = "https://api.spoonacular.com/recipes/complexSearch"
             var components: [String] = []
             for _filter in filter {
