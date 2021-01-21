@@ -27,11 +27,15 @@ class ReviewCell: UITableViewCell {
     }
     
     
-    func setupReview(review:Reviews) {
-        self.usuarioLabel.text = review.usuario
-        self.usuarioEstrelasLabel.text = review.estrelas
-        self.usuarioDataLabel.text = review.data
-        self.usuarioComentarioLabel.text = review.comentario
+    func setupReview(review:Review) {
+        
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        self.usuarioLabel.text = review.userFullName
+        self.usuarioEstrelasLabel.text = review.ratingStars
+        self.usuarioDataLabel.text = formatter.string(from: review.date)
+        self.usuarioComentarioLabel.text = review.comment
     }
     
     func setupNoReview() {
@@ -39,6 +43,20 @@ class ReviewCell: UITableViewCell {
         self.usuarioEstrelasLabel.text = ""
         self.usuarioDataLabel.text = ""
         self.usuarioComentarioLabel.text = "No review"
+    }
+    
+    func setupLoading() {
+        self.usuarioLabel.text = ""
+        self.usuarioEstrelasLabel.text = ""
+        self.usuarioDataLabel.text = ""
+        self.usuarioComentarioLabel.text = "Loading"
+    }
+    
+    func setupError(error: Error) {
+        self.usuarioLabel.text = ""
+        self.usuarioEstrelasLabel.text = ""
+        self.usuarioDataLabel.text = ""
+        self.usuarioComentarioLabel.text = error.localizedDescription
     }
     
 }

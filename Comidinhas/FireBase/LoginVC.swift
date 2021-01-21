@@ -75,7 +75,7 @@ class LoginVC: UIViewController {
                     // Houve alguma erro ao tentar logar
                     self.showError("Couldn't sign in. Try againd latter")
                 } else {
-                    userLoggedIn = true
+//                    userLoggedIn = true
                     self.delegate?.hideViewLogin()
                     self.navigationController?.popToRootViewController(animated: true)
                     self.tabBarController?.selectedIndex = 0

@@ -11,6 +11,7 @@ target 'Comidinhas' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	pod 'lottie-ios', '~> 3.1'
 
   target 'ComidinhasTests' do
     inherit! :search_paths

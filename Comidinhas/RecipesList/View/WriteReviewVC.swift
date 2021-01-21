@@ -8,14 +8,14 @@
 import UIKit
 
 protocol WriteReviewVCDelegate: AnyObject {
-    func savedReview(_ review: Reviews) -> Void
+    func savedReview(_ review: Review) -> Void
 }
 
 
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     var delegate: WriteReviewVCDelegate?
-    var review: Reviews?
+    var review: Review?
     private var recipe: Recipe?
     
     
@@ -77,17 +77,25 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func tappedPostReviewButton(_ sender: UIButton) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        self.review = Reviews(usuario: AppUserManager.shared.loggedUser?.name ?? "Karen Makihara", estrelas: self.starsLabel.text ?? "", data: dateFormatter.string(from: Date()), comentario: reviewTextField.text ?? "")
-        print(review ?? "")
-        arrayReviews.insert(review!, at: 0)
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        // Invoca comportamento do nosso delegate!
-        if let _review = self.review {
-            self.delegate?.savedReview(_review)
+        let userId = AppUserManager.shared.loggedUser?.uid ?? "0"
+        let userFullName = AppUserManager.shared.loggedUser?.name ?? "Nobody"
+        let recipeId = self.recipe?.id ?? 0
+        let review = Review(recipeId: recipeId,
+                            userId: userId,
+                            date: Date(),
+                            rating: Review.ratingFrom(stars: self.starsLabel.text ?? ""),
+                            comment: self.reviewTextField.text ?? "",
+                            userFullName: userFullName)
+        
+        AppReviews.shared.saveReview(review: review) {
+            self.delegate?.savedReview(review)
+            self.dismiss(animated: true, completion: nil)
+        } failure: { (error) in
+            self.dismiss(animated: true, completion: nil)
+            print(error.localizedDescription)
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Setup Method

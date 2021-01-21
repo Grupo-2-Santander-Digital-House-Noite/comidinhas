@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipesVC: UIViewController {
+class RecipesVC: BaseViewController {
 
     @IBOutlet weak var recipesListTableView: UITableView!
     @IBOutlet weak var serachBarButton: UIBarButtonItem!
@@ -33,6 +33,8 @@ class RecipesVC: UIViewController {
         super.viewDidLoad()
         self.configTableView()
         // Do any additional setup after loading the view.
+        self.showLoadingCooker()
+        
         var url: String = ""
         url = "https://api.spoonacular.com/recipes/complexSearch?"
         self.controller.loadRecipesListWithUrl(url: url, completionHandler: { (result, error) in
@@ -40,7 +42,7 @@ class RecipesVC: UIViewController {
             if result {
                 
                 DispatchQueue.main.async {
-                    
+                    self.hideLoadingCooker()
 //                        self.recipesListTableView.delegate = self
 //                        self.recipesListTableView.dataSource = self
                     self.recipesListTableView.reloadData()
@@ -50,6 +52,7 @@ class RecipesVC: UIViewController {
             }else{
                 
                 DispatchQueue.main.async {
+                    self.hideLoadingCooker()
                     print("deu error: \(error)")
                     //self.hiddenLoading()
                 }

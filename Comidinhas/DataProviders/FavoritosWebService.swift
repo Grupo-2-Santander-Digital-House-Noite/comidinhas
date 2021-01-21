@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class FavoritosWebService {
     
+    private var db = Firestore.firestore()
+    private var user = Auth.auth()
+    
     static let UPDATE_NOTIFICATION_NAME: NSNotification.Name = NSNotification.Name(rawValue: "FavoritosWebService.Updated")
     
-    private var idsFavoritos: [Int] = [644733, 1096055, 782601, 715392, 716437, 715447]
+    private var idsFavoritos: [Int] = []
     
     var favoriteIds: [Int] {
         return self.idsFavoritos
@@ -23,7 +29,44 @@ class FavoritosWebService {
     }()
     
     private init() {
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadFavorites(notification:)), name: AppUserManager.userLoggedInNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.unloadFavorites), name: AppUserManager.userLoggedOutNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func reloadFavoritesIdsFromLoggedUser() {
+        if let user = AppUserManager.shared.loggedUser {
+            AppFavoritos.shared.getRecipesIdsFromUser(withUid: user.uid ?? "") { (ids) in
+                self.idsFavoritos = ids
+            } failure: { (error) in
+                print("Não conseguiu atualizar")
+            }
+
+        }
+    }
+    
+    @objc func loadFavorites(notification: Notification) {
+        // Carrega os favoritos.
+        if let uid: String = notification.object as? String {
+            print("Usuário \(uid) logado!")
+            AppFavoritos.shared.getRecipesIdsFromUser(withUid: uid) { (ids) in
+                self.idsFavoritos = ids
+                self.notifyObservers()
+            } failure: { (error) in
+                print(error.localizedDescription)
+            }
+
+        }
+    }
+    
+    @objc func unloadFavorites() {
+        // Limpa os favoritos.
+        print("Usuário deslogou!")
+        self.idsFavoritos.removeAll()
+        self.notifyObservers()
     }
     
     func isFavorite(id: Int) -> Bool {
@@ -35,18 +78,28 @@ class FavoritosWebService {
     }
     
     func addFavorite(id: Int) {
-        if !self.idsFavoritos.contains(id) {
-            self.idsFavoritos.append(id)
+        AppFavoritos.shared.AddFavoriteRecipeToFirestore(RecipeID: id) {
+            if !self.idsFavoritos.contains(id) {
+                self.idsFavoritos.append(id)
+            }
+            self.notifyObservers()
+        } failure: { (error) in
+            print(error.localizedDescription)
         }
-        notifyObservers()
     }
     
     func removeFavorite(id: Int) {
         if self.idsFavoritos.contains(id) {
-            self.idsFavoritos = self.idsFavoritos.filter({ (_id) -> Bool in
-                return _id != id
-            })
-            notifyObservers()
+            
+            AppFavoritos.shared.RemoveFavoriteRecipeFromFirestore(RecipeID: id) {
+                if let index = self.idsFavoritos.firstIndex(of: id) {
+                    self.idsFavoritos.remove(at: index)
+                }
+                self.notifyObservers()
+            } failure: { (error) in
+                print(error.localizedDescription)
+            }
+
         }
     }
     

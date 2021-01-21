@@ -12,6 +12,8 @@ struct RecipeResults: Codable {
     var results: [Recipe]
 }
 
+typealias BulkRecipeResults = [Recipe]
+
 struct Recipe: Codable {
     var id: Int?
     var name: String?

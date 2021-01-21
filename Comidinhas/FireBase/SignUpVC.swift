@@ -104,7 +104,7 @@ class SignUpVC: UIViewController {
                             if error != nil {
                                 self.showError("Couldn't sign in. Try again latter")
                             } else {
-                                userLoggedIn = true
+//                                userLoggedIn = true
                                 self.delegate?.hideViewSignUp()
                             }
                         }

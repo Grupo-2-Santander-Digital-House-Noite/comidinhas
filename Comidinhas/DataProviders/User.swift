@@ -18,10 +18,12 @@ class User: Codable {
     
     let name: String? // Uma vez definidos não podem ser mudados!
     let email: String? // Uma vez definidos não podem ser mudados!
+    let uid: String?
     
-    init (name: String, email: String) {
+    init (name: String, email: String, uid: String? = nil) {
         self.name = name
         self.email = email
+        self.uid = uid
     }
     
 }
