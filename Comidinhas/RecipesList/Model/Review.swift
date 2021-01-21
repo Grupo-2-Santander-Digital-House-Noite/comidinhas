@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import FirebaseFirestore
 
 class Review {
     
@@ -55,7 +55,11 @@ class Review {
     init(firestoreData: [String: Any]) {
         self.recipeId = firestoreData["recipeId"] as? Int ?? 0
         self.userId = firestoreData["userId"] as? String ?? "0"
-        self.date = firestoreData["date"] as? Date ?? Date()
+        if let date = firestoreData["date"] as? Timestamp {
+            self.date = date.dateValue()
+        } else {
+            self.date = Date()
+        }
         self.rating = firestoreData["rating"] as? Int ?? 0
         self.comment = firestoreData["comment"] as? String ?? ""
         self.userFullName = firestoreData["userFullName"] as? String ?? ""
