@@ -120,7 +120,11 @@ extension RecipesVC: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         if offsetY > contentHeight - scrollView.frame.size.height {
+            
+            if RecipesWebService.shared.recipes.count != 0 {
+            
             var url: String = ""
+            
             if RecipesWebService.shared.lastFilter.count == 0 {
                 url = "https://api.spoonacular.com/recipes/complexSearch?"
             } else {
@@ -155,6 +159,9 @@ extension RecipesVC: UIScrollViewDelegate {
 
                     }
                 })
+            
+        }
+            
         }
     }
 }
