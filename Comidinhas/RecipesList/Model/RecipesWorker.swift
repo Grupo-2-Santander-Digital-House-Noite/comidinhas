@@ -11,6 +11,7 @@ class RecipesWorker: GenericWorker {
     
     let recipeURL = "https://api.spoonacular.com/recipes/"
     let apiKey = "apiKey=0faf1734746a4e2691700a7a49dc1cef"
+    //let apiKey = "apiKey=502b1cdef5214e57b5d699e67328eeea"
     
     let searchByName = "complexSearch?titleMatch="
     let searchByIngredients = "findByIngredients?"
