@@ -93,10 +93,9 @@ class SettingsCadVC: BaseViewController {
                 self.editPassword.layer.borderColor = UIColor.red.cgColor
                 self.editPassword.layer.borderWidth = 1.0
                 self.editPassword.isHidden = false
-//                self.editPassword.isSecureTextEntry = false
-              self.editPassword.placeholder = "Password - Required"
+                self.editPassword.placeholder = "Password - Required"
                 self.lbErroMsg.isHidden = false
-        }
+            }
         
         if self.editEmail.text?.isEmpty == true {
             self.editEmail.layer.borderColor = UIColor.red.cgColor
