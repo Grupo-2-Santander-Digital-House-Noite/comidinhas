@@ -42,7 +42,7 @@ class SettingsCadVC: BaseViewController {
     
     
     fileprivate func configButton() {
-        self.bntCreateAcc.layer.cornerRadius = 5
+        self.bntCreateAcc.layer.cornerRadius = 20
        
     }
     
@@ -89,7 +89,6 @@ class SettingsCadVC: BaseViewController {
             self.editPassword.layer.borderWidth = 0
             self.editPassword.isHidden = false
             } else {
-                controller.isPasswordValid(cleanedPassword) == false
                 self.editPassword.layer.borderColor = UIColor.red.cgColor
                 self.editPassword.layer.borderWidth = 1.0
                 self.editPassword.isHidden = false
@@ -178,8 +177,6 @@ class SettingsCadVC: BaseViewController {
     
     
 }
-
-
 
 
 extension SettingsCadVC: UITextFieldDelegate {
