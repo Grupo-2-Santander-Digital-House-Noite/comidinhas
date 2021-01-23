@@ -383,7 +383,7 @@
                                 <color key="highlightedColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWz-fw-sc1">
-                                <rect key="frame" x="20" y="128" width="374" height="24"/>
+                                <rect key="frame" x="20" y="121" width="374" height="35"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -393,9 +393,9 @@
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Rc6-7S-EvK" firstAttribute="top" secondItem="7Kd-fy-qT4" secondAttribute="bottom" constant="20" id="BPN-VV-a6s"/>
-                            <constraint firstItem="qWz-fw-sc1" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="40" id="F0u-gg-MP2"/>
+                            <constraint firstItem="qWz-fw-sc1" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="33" id="F0u-gg-MP2"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="7Kd-fy-qT4" secondAttribute="trailing" constant="20" id="PIj-ZK-7P3"/>
-                            <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="qWz-fw-sc1" secondAttribute="bottom" constant="55" id="V22-4i-isA"/>
+                            <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="qWz-fw-sc1" secondAttribute="bottom" constant="51" id="V22-4i-isA"/>
                             <constraint firstItem="qWz-fw-sc1" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="WXV-IZ-F5B"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="Rc6-7S-EvK" secondAttribute="trailing" constant="20" id="dLK-Kv-Dtq"/>
                             <constraint firstItem="7Kd-fy-qT4" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="ePe-4u-v0O"/>
