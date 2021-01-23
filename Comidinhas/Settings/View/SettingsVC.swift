@@ -46,10 +46,10 @@ class SettingsVC: BaseViewController {
 
     // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configView() {
-        self.bntLogin.layer.cornerRadius = 5
-        self.bntCancel.layer.cornerRadius = 5
-        self.bntSignup.layer.cornerRadius = 5
-        self.btnLogout.layer.cornerRadius = 5
+        self.bntLogin.layer.cornerRadius = 18
+        self.bntCancel.layer.cornerRadius = 18
+        self.bntSignup.layer.cornerRadius = 18
+        self.btnLogout.layer.cornerRadius = 18
         
         self.errorMessageLabel.alpha = 0
         if !AppUserManager.shared.hasLoggedUser() {
@@ -119,7 +119,9 @@ class SettingsVC: BaseViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func buttonFullname(_ sender: UIButton) {
+    
+    
+    @IBAction func buttonFullname(_ sender: Any) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.btnFullnameChange.isHidden = false
@@ -130,7 +132,7 @@ class SettingsVC: BaseViewController {
         self.dataChangeTextField.becomeFirstResponder()
     }
     
-   
+    
     @IBAction func buttonEmail(_ sender: Any) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
@@ -145,7 +147,10 @@ class SettingsVC: BaseViewController {
         self.dataChangeTextField.becomeFirstResponder()
     }
     
+   
+    
     @IBAction func buttonPassword(_ sender: Any) {
+       
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
@@ -160,7 +165,8 @@ class SettingsVC: BaseViewController {
         self.repeatPasswordTextField.placeholder = "Repeat new password"
         self.repeatPasswordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
-    }
+        }
+    
     
     @IBAction func btnOkDataChange(_ sender: Any) {
         self.view.endEditing(true)

@@ -43,7 +43,7 @@ class SettingsAuthVC: BaseViewController {
     
     
     fileprivate func configBntLogin() {
-        self.bntLogin.layer.cornerRadius = 5
+        self.bntLogin.layer.cornerRadius = 18
     }
     
     fileprivate func configTextField() {

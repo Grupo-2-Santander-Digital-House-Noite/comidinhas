@@ -16,7 +16,8 @@ class ResetPasswordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.enviarButton.layer.cornerRadius = 5
+        self.enviarButton.layer.cornerRadius = 18
+        
         // Do any additional setup after loading the view.
     }
     
