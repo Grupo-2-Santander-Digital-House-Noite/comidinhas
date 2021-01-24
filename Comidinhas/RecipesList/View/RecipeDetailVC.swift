@@ -60,7 +60,7 @@ class RecipeDetailVC: UIViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.recipeDetailTableView.allowsSelection = false 
         self.configDetalhes(self.receita)
         self.configTableView()
         
