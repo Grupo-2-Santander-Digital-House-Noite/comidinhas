@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsVC: BaseViewController {
 
+    let controler = Settings()
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -30,6 +31,7 @@ class SettingsVC: BaseViewController {
     @IBOutlet weak var viewYourData: UIView!
     @IBOutlet weak var viewlogin: UIView!
     
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +48,11 @@ class SettingsVC: BaseViewController {
 
     // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configView() {
-        self.bntLogin.layer.cornerRadius = 18
-        self.bntCancel.layer.cornerRadius = 18
-        self.bntSignup.layer.cornerRadius = 18
-        self.btnLogout.layer.cornerRadius = 18
-        
+        controler.confButton(button: bntLogin)
+        controler.confButton(button: bntCancel)
+        controler.confButton(button: btnLogout)
+        controler.confButton(button: bntSignup)
+
         self.errorMessageLabel.alpha = 0
         if !AppUserManager.shared.hasLoggedUser() {
             self.viewYourData.isHidden = true
@@ -276,9 +278,6 @@ class SettingsVC: BaseViewController {
         } else if self.repeatPasswordTextField.text?.isEmpty == false {
             self.repeatPasswordTextField.layer.borderWidth = 0
         }
-//        if self.editEmailLogin.text?.isEmpty == false && self.editPasswordLogin.text?.isEmpty == false {
-//            self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
-//        }
     }
 }
 

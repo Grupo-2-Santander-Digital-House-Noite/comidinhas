@@ -34,5 +34,8 @@ class Settings{
         
         return passwordTest.evaluate(with: password)
     }
+    func confButton(button: UIButton){
+        button.layer.cornerRadius = 18
+    }
 
 }

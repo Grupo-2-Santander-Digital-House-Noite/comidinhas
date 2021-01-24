@@ -11,14 +11,12 @@ class ResetPasswordViewController: BaseViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var enviarButton: UIButton!
-    
+    let controller = Settings()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.enviarButton.layer.cornerRadius = 18
+        controller.confButton(button: self.enviarButton)
         
-        // Do any additional setup after loading the view.
     }
     
     

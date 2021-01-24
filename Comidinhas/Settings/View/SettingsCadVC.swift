@@ -42,8 +42,8 @@ class SettingsCadVC: BaseViewController {
     
     
     fileprivate func configButton() {
-        self.bntCreateAcc.layer.cornerRadius = 15
-       
+        controller.confButton(button: self.bntCreateAcc)
+     
     }
     
     fileprivate func configTextField() {
