@@ -37,5 +37,6 @@ class Settings{
     func confButton(button: UIButton){
         button.layer.cornerRadius = 18
     }
-
+    
 }
+
