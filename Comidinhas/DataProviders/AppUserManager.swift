@@ -159,7 +159,7 @@ class AppUserManager {
                 }
             }
         }
-        db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""])
+        db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""], merge: true)
         if let _completion = completion {
             _completion()
         }
