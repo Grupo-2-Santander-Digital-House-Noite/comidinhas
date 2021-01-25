@@ -31,8 +31,6 @@ class SettingsAuthVC: BaseViewController {
            }
     }
     
-    @IBOutlet weak var lbErroMsg: UILabel!
-    
     @IBOutlet weak var bntLogin: UIButton!
     @IBOutlet weak var bntForgotPass: UIButton!
     
@@ -59,9 +57,6 @@ class SettingsAuthVC: BaseViewController {
 
         self.configBntLogin()
         self.configTextField()
-        
-        self.lbErroMsg.isHidden = true
-        
         
         textFieldSenha.rightViewMode = .unlessEditing
         
@@ -91,7 +86,6 @@ class SettingsAuthVC: BaseViewController {
                 self.textFieldSenha.isHidden = false
 //                self.editPassword.isSecureTextEntry = false
               self.textFieldSenha.placeholder = "Password - Required"
-                self.lbErroMsg.isHidden = false
         }
         
         if self.textFieldEmail.text?.isEmpty == true {
@@ -99,7 +93,6 @@ class SettingsAuthVC: BaseViewController {
             self.textFieldEmail.layer.borderWidth = 1.0
             self.textFieldEmail.isHidden = false
             self.textFieldEmail.placeholder = "E-mail - Required"
-            self.lbErroMsg.isHidden = false
             return
         } else if self.textFieldEmail.text?.isEmpty == false {
             self.textFieldEmail.layer.borderWidth = 0

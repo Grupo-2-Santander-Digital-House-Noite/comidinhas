@@ -241,14 +241,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LtC-ak-df5">
                                                         <rect key="frame" x="113" y="47" width="188" height="34"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I`m not registered." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-On-mBq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="129" height="34"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm not registered." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-On-mBq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="127" height="34"/>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMb-3c-jJb">
-                                                                <rect key="frame" x="137" y="0.0" width="51" height="34"/>
+                                                                <rect key="frame" x="135" y="0.0" width="53" height="34"/>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                                                 <state key="normal" title="Sign up">
                                                                     <color key="titleColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -363,7 +363,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSB-1R-aqd">
-                                <rect key="frame" x="82" y="420.5" width="250" height="37"/>
+                                <rect key="frame" x="82" y="419" width="250" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="lEn-79-Ayf"/>
@@ -375,15 +375,8 @@
                                     <action selector="bntCreateAcc:" destination="gM2-oZ-aKR" eventType="touchUpInside" id="2hZ-gQ-42T"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erro message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-7S-EvK">
-                                <rect key="frame" x="20" y="379" width="374" height="21.5"/>
-                                <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
-                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWz-fw-sc1">
-                                <rect key="frame" x="20" y="128" width="374" height="24"/>
+                                <rect key="frame" x="20" y="128" width="374" height="33"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                 <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -392,16 +385,12 @@
                         <viewLayoutGuide key="safeArea" id="yXU-fc-VdX"/>
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Rc6-7S-EvK" firstAttribute="top" secondItem="7Kd-fy-qT4" secondAttribute="bottom" constant="20" id="BPN-VV-a6s"/>
                             <constraint firstItem="qWz-fw-sc1" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="40" id="F0u-gg-MP2"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="7Kd-fy-qT4" secondAttribute="trailing" constant="20" id="PIj-ZK-7P3"/>
-                            <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="qWz-fw-sc1" secondAttribute="bottom" constant="55" id="V22-4i-isA"/>
+                            <constraint firstItem="CSB-1R-aqd" firstAttribute="top" secondItem="7Kd-fy-qT4" secondAttribute="bottom" constant="60" id="V6t-PL-j51"/>
                             <constraint firstItem="qWz-fw-sc1" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="WXV-IZ-F5B"/>
-                            <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="Rc6-7S-EvK" secondAttribute="trailing" constant="20" id="dLK-Kv-Dtq"/>
                             <constraint firstItem="7Kd-fy-qT4" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="ePe-4u-v0O"/>
                             <constraint firstItem="7Kd-fy-qT4" firstAttribute="top" secondItem="yXU-fc-VdX" secondAttribute="top" constant="119" id="jBJ-gK-nvR"/>
-                            <constraint firstItem="CSB-1R-aqd" firstAttribute="top" secondItem="Rc6-7S-EvK" secondAttribute="bottom" constant="20" id="jpL-N2-6vS"/>
-                            <constraint firstItem="Rc6-7S-EvK" firstAttribute="leading" secondItem="yXU-fc-VdX" secondAttribute="leading" constant="20" id="qcR-cD-5JA"/>
                             <constraint firstItem="yXU-fc-VdX" firstAttribute="trailing" secondItem="qWz-fw-sc1" secondAttribute="trailing" constant="20" id="vFl-84-xhb"/>
                             <constraint firstItem="CSB-1R-aqd" firstAttribute="centerX" secondItem="hMd-aV-rKO" secondAttribute="centerX" id="zky-wK-cFY"/>
                         </constraints>
@@ -412,7 +401,6 @@
                         <outlet property="editEmail" destination="4BW-AO-rST" id="2gO-B7-xZj"/>
                         <outlet property="editFullName" destination="GCC-XJ-dlS" id="eUw-LI-mqr"/>
                         <outlet property="editPassword" destination="gxa-yk-P1x" id="wHo-CW-rmj"/>
-                        <outlet property="lbErroMsg" destination="Rc6-7S-EvK" id="rej-ws-Zvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMe-wU-Bbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -441,13 +429,13 @@
                                     <action selector="enviarButtonTapped:" destination="l5O-qm-unJ" eventType="touchUpInside" id="jnc-5M-GDm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset you password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-eT-xlB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset your password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-eT-xlB">
                                 <rect key="frame" x="20" y="30" width="374" height="33"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="23"/>
                                 <color key="textColor" red="0.80392156862745101" green="0.15294117647058825" blue="0.16862745098039217" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-yn-CKd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-yn-CKd">
                                 <rect key="frame" x="20" y="241.5" width="374" height="34"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -532,14 +520,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erro message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kee-b0-G1j">
-                                <rect key="frame" x="20" y="316" width="374" height="21.5"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
-                                <color key="textColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-qj-hPa">
-                                <rect key="frame" x="101.5" y="409.5" width="211" height="34"/>
+                                <rect key="frame" x="101.5" y="408" width="211" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="211" id="SoF-ir-1Gy"/>
                                 </constraints>
@@ -575,7 +557,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-bE-Hse">
-                                <rect key="frame" x="82" y="357.5" width="250" height="37"/>
+                                <rect key="frame" x="82" y="356" width="250" height="37"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="XfE-s3-PbJ"/>
@@ -592,18 +574,15 @@
                         <viewLayoutGuide key="safeArea" id="zUh-UH-f5k"/>
                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="kee-b0-G1j" firstAttribute="leading" secondItem="zUh-UH-f5k" secondAttribute="leading" constant="20" id="5FP-iO-Edl"/>
-                            <constraint firstItem="zUh-UH-f5k" firstAttribute="trailing" secondItem="kee-b0-G1j" secondAttribute="trailing" constant="20" id="5yM-T4-68X"/>
                             <constraint firstItem="hGr-Rc-fMC" firstAttribute="leading" secondItem="zUh-UH-f5k" secondAttribute="leading" constant="20" id="Evb-Is-4Yg"/>
                             <constraint firstItem="gL2-bE-Hse" firstAttribute="centerX" secondItem="v0l-el-aIj" secondAttribute="centerX" id="Glp-st-rwj"/>
                             <constraint firstItem="zUh-UH-f5k" firstAttribute="trailing" secondItem="hGr-Rc-fMC" secondAttribute="trailing" constant="20" id="Mnk-RK-hyb"/>
-                            <constraint firstItem="kee-b0-G1j" firstAttribute="top" secondItem="fZ8-cD-HcR" secondAttribute="bottom" constant="20" id="QDh-9A-F6P"/>
                             <constraint firstItem="zUh-UH-f5k" firstAttribute="trailing" secondItem="fZ8-cD-HcR" secondAttribute="trailing" constant="20" id="QKY-hB-rqH"/>
                             <constraint firstItem="fZ8-cD-HcR" firstAttribute="leading" secondItem="zUh-UH-f5k" secondAttribute="leading" constant="20" id="QWy-CF-O9O"/>
+                            <constraint firstItem="gL2-bE-Hse" firstAttribute="top" secondItem="fZ8-cD-HcR" secondAttribute="bottom" constant="60" id="RwV-Di-y6W"/>
                             <constraint firstItem="hGr-Rc-fMC" firstAttribute="top" secondItem="zUh-UH-f5k" secondAttribute="top" constant="40" id="csi-rN-AvV"/>
                             <constraint firstItem="fZ8-cD-HcR" firstAttribute="top" secondItem="hGr-Rc-fMC" secondAttribute="bottom" constant="55" id="fv4-Jb-8cn"/>
                             <constraint firstItem="fZ8-cD-HcR" firstAttribute="top" secondItem="zUh-UH-f5k" secondAttribute="top" constant="115" id="ioa-Rv-JAv"/>
-                            <constraint firstItem="gL2-bE-Hse" firstAttribute="top" secondItem="kee-b0-G1j" secondAttribute="bottom" constant="20" id="jjk-Z2-Z5a"/>
                             <constraint firstItem="jaz-qj-hPa" firstAttribute="centerX" secondItem="v0l-el-aIj" secondAttribute="centerX" id="tqs-dv-CCH"/>
                             <constraint firstItem="jaz-qj-hPa" firstAttribute="top" secondItem="gL2-bE-Hse" secondAttribute="bottom" constant="15" id="zKq-3a-yC6"/>
                         </constraints>
@@ -612,7 +591,6 @@
                     <connections>
                         <outlet property="bntForgotPass" destination="jaz-qj-hPa" id="wlB-YD-JKF"/>
                         <outlet property="bntLogin" destination="gL2-bE-Hse" id="61t-7v-GJu"/>
-                        <outlet property="lbErroMsg" destination="kee-b0-G1j" id="HnV-h6-S8n"/>
                         <outlet property="textFieldEmail" destination="ewk-fl-Eja" id="HEX-JM-a4I"/>
                         <outlet property="textFieldSenha" destination="5lY-VZ-UBE" id="fge-iX-WdX"/>
                         <segue destination="l5O-qm-unJ" kind="presentation" identifier="ResetPasswordViewController" id="xZe-dJ-waL"/>
