@@ -7,15 +7,10 @@
 
 import UIKit
 
-class ResetPasswordVC: UIViewController
-{
-
-
-    
+class ResetPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
 
 }
