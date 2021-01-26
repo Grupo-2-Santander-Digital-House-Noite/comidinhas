@@ -24,7 +24,6 @@ class AllReviewsVC: UIViewController {
     
 
     // MARK: configTableView
-    
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
@@ -34,6 +33,7 @@ class AllReviewsVC: UIViewController {
         self.reviewsTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.reviewsTableView.register(UINib(nibName: "ReviewHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "ReviewHeaderCell")
     }
+
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -44,6 +44,8 @@ class AllReviewsVC: UIViewController {
         AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: recipe?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
     }
     
+    
+    // MARK: métodos de load
     func loadedReviews(reviews: Reviews) {
         self.reviews = reviews
         self.reviewsLoadingState = reviews.count > 0 ? ReviewsLoadingState.Loaded : ReviewsLoadingState.EmptyLoaded
@@ -66,13 +68,14 @@ class AllReviewsVC: UIViewController {
         self.recipeReviewMetaState = .Error
         self.reviewsTableView.reloadData()
     }
+    
   
-    // Método de configuração do view controller.
+    //MARK:  Método de configuração do view controller.
     func configureWith(recipe: Recipe?) {
         self.recipe = recipe
     }
     
-    // Método de configuração das views, interno.
+    // MARK: Método de configuração das views, interno.
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
         self.recipeMeta.loggedUserNeedDelegate = self
@@ -82,7 +85,6 @@ class AllReviewsVC: UIViewController {
 
 
 // MARK: extension TableView
-
 extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -135,6 +137,8 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// MARK: extension ViewNeedsLoggedUserDelegate
 extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
@@ -145,7 +149,6 @@ extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
             } else {
                 self.displayErrorAlertWith(title: "Error", message: "Can't login right now, please try again by tapping the settings icon.", completion: nil)
             }
-            
         };
     }
 }

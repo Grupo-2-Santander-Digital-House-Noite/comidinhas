@@ -9,11 +9,10 @@ import UIKit
 
 
 protocol SearchVCDelegate: AnyObject {
-    
-    //func returnTabBar()
     func returnTabBar(filter: [RecipeFilter])
     
 }
+
 
 class SearchVC: UIViewController {
 
@@ -26,17 +25,20 @@ class SearchVC: UIViewController {
         
         searchTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
         searchTableView.reloadData()
-        
         // Do any additional setup after loading the view.
     }
 }
 
+
+// MARK: extension TableViewDelegate
 extension SearchVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 600
     }
 }
 
+
+// MARK: extension TableViewDataSource
 extension SearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -50,22 +52,12 @@ extension SearchVC: UITableViewDataSource {
         }
         cell.delegate = self
         return cell
-        //    return tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath)
-        //default:
-        //    return tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath)
-        //}
-
     }
 }
 
+
+// MARK: extension SearchTableViewDelegate
 extension SearchVC:  SearchTableViewCellDelegate {
-//    func findClick() {
-//       self.dismiss(animated: true)
-//       //{
-////            self.tabBarController?.selectedIndex = 1
-////        }
-//        delegate?.returnTabBar()
-//    }
     func findClick(filter: [RecipeFilter]) {
         self.dismiss(animated: true)
         delegate?.returnTabBar(filter: filter)

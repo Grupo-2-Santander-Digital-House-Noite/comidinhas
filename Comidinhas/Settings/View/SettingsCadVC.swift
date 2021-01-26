@@ -14,25 +14,27 @@ protocol SettingsCadVCDelegate: class {
 
 class SettingsCadVC: BaseViewController {
     
-    
     @IBOutlet weak var editFullName: UITextField!{
         didSet{
             editFullName.tintColor = UIColor.lightGray
             editFullName.setIcon(#imageLiteral(resourceName: "user"))
         }
     }
+    
     @IBOutlet weak var editEmail: UITextField!{
         didSet{
             editEmail.tintColor = UIColor.lightGray
             editEmail.setIcon(#imageLiteral(resourceName: "email"))
         }
     }
+    
     @IBOutlet weak var editPassword: UITextField!{
         didSet {
               editPassword.tintColor = UIColor.lightGray
               editPassword.setIcon(#imageLiteral(resourceName: "password"))
            }
     }
+    
     @IBOutlet weak var bntCreateAcc: UIButton!
 
     let controller = Settings()
@@ -40,9 +42,9 @@ class SettingsCadVC: BaseViewController {
     weak var delegate:SettingsCadVCDelegate?
     
     
+    // MARK: config Button e TextField
     fileprivate func configButton() {
         self.bntCreateAcc.layer.cornerRadius = 5
-       
     }
     
     fileprivate func configTextField() {
@@ -53,6 +55,8 @@ class SettingsCadVC: BaseViewController {
 
     let bnt = UIButton(type: .custom)
     
+    
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTextField()
@@ -68,6 +72,7 @@ class SettingsCadVC: BaseViewController {
         
     }
 
+    // MARK: vialidField
     func validField(){
         let emailConf = controller.isValidEmail(email: self.editEmail.text!)
         
@@ -84,13 +89,12 @@ class SettingsCadVC: BaseViewController {
         if self.editPassword.text?.isEmpty == false {
             self.editPassword.layer.borderWidth = 0
             self.editPassword.isHidden = false
-            } else {
+        } else {
                 
-                self.editPassword.layer.borderColor = UIColor.red.cgColor
-                self.editPassword.layer.borderWidth = 1.0
-                self.editPassword.isHidden = false
-//                self.editPassword.isSecureTextEntry = false
-              self.editPassword.placeholder = "Password - Required"
+            self.editPassword.layer.borderColor = UIColor.red.cgColor
+            self.editPassword.layer.borderWidth = 1.0
+            self.editPassword.isHidden = false
+            self.editPassword.placeholder = "Password - Required"
         }
         
         if self.editEmail.text?.isEmpty == true {
@@ -110,9 +114,6 @@ class SettingsCadVC: BaseViewController {
             self.editEmail.layer.borderWidth = 1.0
             self.editEmail.placeholder = "E-mail - Syntax Incorrect"
         }
-        
-        
-        
 
         if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
             let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
@@ -124,6 +125,7 @@ class SettingsCadVC: BaseViewController {
         }
     }
 
+    // MARK: IBAction
     @IBAction func bntCreateAcc(_ sender: UIButton) {
         self.validField()
         
@@ -157,9 +159,8 @@ class SettingsCadVC: BaseViewController {
             self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)
         }
-
-        
     }
+    
     
     @IBAction func bntPasswordShow(_ sender: Any) {
         (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
@@ -171,13 +172,10 @@ class SettingsCadVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
-    
-    
 }
 
 
-
-
+// MARK: extension TextField
 extension SettingsCadVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
@@ -191,6 +189,7 @@ extension SettingsCadVC: UITextFieldDelegate {
         return true
     }
 }
+
 
 extension UITextField {
     func setIcon(_ image: UIImage) {

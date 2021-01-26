@@ -18,10 +18,10 @@ class AppUserManager {
     public static let userLoggedInNotification: NSNotification.Name = NSNotification.Name("AppUserManagerUserLoggedIn")
     public static let userLoggedOutNotification: NSNotification.Name = NSNotification.Name("AppUserManagerUserLoggedOut")
     
-    
     private var currentLoggedUser: User?
     private var auth: Auth
     private var db: Firestore
+    
     
     // MARK: Singleton Methods
     static var shared: AppUserManager {
@@ -34,6 +34,7 @@ class AppUserManager {
         self.auth = Auth.auth()
         self.db = Firestore.firestore()
     }
+    
     
     // MARK: UserManagement Methods and Properties
     
@@ -117,14 +118,12 @@ class AppUserManager {
         
         // Tenta autenticar o usuário usando um e-mail e senha
         self.auth.signIn(withEmail: email, password: password) { (result, error) in
-            
             // Em caso de erro chama o closure de erro.
             if let _error = error,
                let _failure = failure {
                 _failure(AuthError.userAuthenticationError(localizedMessage: _error.localizedDescription))
                 return
             }
-            
             // Em caso de sucesso chama o closure de sucesso.
             if let _ = result,
                let _completion = completion{
@@ -146,10 +145,8 @@ class AppUserManager {
                 _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
             }
         }
-        
         // Verifica se há um usuário logado para atualizar e-mail.
         guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-   
         // Tenta atualizar o nome do usuário
         if let _user = self.auth.currentUser?.createProfileChangeRequest() {
             _user.displayName = name
@@ -239,7 +236,6 @@ class AppUserManager {
                     _completion()
                 }
             })
-            
         })
     }
 
@@ -275,6 +271,7 @@ class AppUserManager {
     
     
     // MARK: updateLoggedUserEmailAndPassword
+    // Método não está sendo usado
     /**
      Atualiza o email e senha do usuário logado.
      */
@@ -289,7 +286,6 @@ class AppUserManager {
         
         // Verifica se há um usuário logado para atualizar e-mail.
         guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-        
         
         currentUser.updatePassword(to: password) { (error) in
             if let _error = error {
@@ -306,7 +302,6 @@ class AppUserManager {
                 _completion()
             }
         }
-        
     }
     
     
@@ -340,7 +335,6 @@ class AppUserManager {
                 _completion()
             }
         }
-        
     }
     
     
@@ -421,17 +415,17 @@ class AppUserManager {
             .document(user.uid).setData([
                 "fullname" : user.displayName ?? "No Name!",
                 "uid" : user.uid
-            ]) { (error) in
-                if let _error = error {
-                    if let _failure = failure {
-                        _failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
-                    }
-                    return
+        ]) { (error) in
+            if let _error = error {
+                if let _failure = failure {
+                    _failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
                 }
-                
-                if let _completion = completion {
-                    _completion()
-                }
+                return
             }
+                
+            if let _completion = completion {
+                _completion()
+            }
+        }
     }
 }

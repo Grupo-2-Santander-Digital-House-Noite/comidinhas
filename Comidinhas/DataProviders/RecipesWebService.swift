@@ -16,7 +16,6 @@ class RecipesWebService {
     
     static var shared: RecipesWebService = { () -> RecipesWebService in
         let instance = RecipesWebService()
-        //instance.loadRecipes()
         
         return instance
     }()
@@ -25,23 +24,23 @@ class RecipesWebService {
         worker = RecipesWorker()
     }
     
+    
     func with(ids: [Int]) -> [Recipe] {
         return self.recipes.filter { (recipe) -> Bool in
             return ids.contains(recipe.id ?? 0)
         }
     }
     
+    
     func with(ids: [Int], completion: @escaping ([Recipe]) -> Void,  failure: @escaping (Error) -> Void) {
-        
         let worker = RecipesWorker()
         worker.getRecipesWith(ids: ids) { (recipes) in
             completion(recipes)
         } failure: { (error) in
             failure(error)
         }
-
-        
     }
+    
     
     func loadRecipes() -> Void {
         
@@ -66,8 +65,8 @@ class RecipesWebService {
         } catch {
             print(error)
         }
-        
     }
+    
     
     func loadRecipesListWithUrl(url: String, completionHandler: @escaping (_ result: Bool, _ error: String?) -> Void) {
     
@@ -84,6 +83,7 @@ class RecipesWebService {
         }
     }
     
+    
     func loadRecipesListWithUrlNewResults(url: String, offset: Int, completionHandler: @escaping (_ result: Bool, _ error: String?) -> Void) {
     
         finishedRequest = false
@@ -95,7 +95,7 @@ class RecipesWebService {
                 self.recipes.append(contentsOf: _recipes.results)
                 completionHandler(true, nil)
                 self.finishedRequest = true
-            }else{
+            } else {
                 
                 completionHandler(false, error)
                 self.finishedRequest = true

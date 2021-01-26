@@ -12,7 +12,6 @@ class ResetPasswordViewController: BaseViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var enviarButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

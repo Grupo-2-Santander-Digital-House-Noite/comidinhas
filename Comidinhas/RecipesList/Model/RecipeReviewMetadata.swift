@@ -21,6 +21,7 @@ class RecipeReviewMetadata {
             return _count
         }
     }
+    
     var reviewRatingSum: Int {
         get {
             return _sum
@@ -86,5 +87,4 @@ class RecipeReviewMetadata {
         self._count = self.reviewCount + 1
         self._sum = self.reviewRatingSum + review.rating
     }
-    
 }

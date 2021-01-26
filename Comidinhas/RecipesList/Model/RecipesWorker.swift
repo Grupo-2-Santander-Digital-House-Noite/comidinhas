@@ -17,12 +17,11 @@ class RecipesWorker: GenericWorker {
     let searchByIngredients = "findByIngredients?"
     let ingredients = "includeIngredients="
     
-    //var delegate: RecipeManagerDelegate?
-    
     func fetchRecipeByName(name: String) -> String {
         let urlString = "\(recipeURL)\(searchByName)\(name)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true"
         return urlString
     }
+    
     
     func getRecipesWithUrl(urlTeste: String, completion: @escaping completion<RecipeResults?>) {
         
@@ -30,26 +29,24 @@ class RecipesWorker: GenericWorker {
         
         var teste = ""
         
-        if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
-        {
+        if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?" {
             teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        }
-        else
-        {
+        } else {
             teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
+        
         let url: URL? = URL(string: teste)
         
-            if let _url = url {
+        if let _url = url {
             
             let task: URLSessionTask = session.dataTask(with: _url) { (data, response, error) in
         
                 do {
                     let cardList = try JSONDecoder().decode(RecipeResults.self, from: data ?? Data())
-                    
+            
                     completion(cardList, nil)
                     
-                }catch {
+                } catch {
                     completion(nil,"deu ruim no catch")
                     print(error)
                 }
@@ -58,24 +55,22 @@ class RecipesWorker: GenericWorker {
         }
     }
     
+    
     func getRecipesWithUrlNewResults(urlTeste: String, offset: Int, completion: @escaping completion<RecipeResults?>) {
         
         let session: URLSession = URLSession.shared
         
         var teste = ""
         
-        if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
-        {
+        if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"{
             teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true&offset=\(offset)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        }
-        else
-        {
+        } else {
             teste = "\(urlTeste)&addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true&offset=\(offset)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
         print("XY \(teste)")
         let url: URL? = URL(string: teste)
         
-            if let _url = url {
+        if let _url = url {
             
             let task: URLSessionTask = session.dataTask(with: _url) { (data, response, error) in
         
@@ -84,7 +79,7 @@ class RecipesWorker: GenericWorker {
                     
                     completion(cardList, nil)
                     
-                }catch {
+                } catch {
                     completion(nil,"deu ruim no catch")
                     print(error)
                 }
@@ -135,7 +130,5 @@ class RecipesWorker: GenericWorker {
         }
 
         dataTask.resume()
-
-
     }
 }

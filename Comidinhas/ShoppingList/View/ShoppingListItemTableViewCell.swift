@@ -13,6 +13,7 @@ class ShoppingListItemTableViewCell: UITableViewCell {
         .MARCADO: "checkmark.square.fill",
         .DESMARCADO : "square"
     ]
+    
     var ingredientEntry: IngredientEntry?
     
     @IBOutlet weak var indicatorImage: UIImageView!
@@ -28,6 +29,7 @@ class ShoppingListItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func setupWith(ingredient: IngredientEntry) {
         ingredient.subscribe(toggleDelegate: self)
         self.ingredientEntry = ingredient
@@ -35,9 +37,11 @@ class ShoppingListItemTableViewCell: UITableViewCell {
         updateCell()
     }
     
+    
     func toggle() -> Void {
         self.ingredientEntry?.toggle()
     }
+    
     
     func updateCell() -> Void {
         
@@ -53,6 +57,8 @@ class ShoppingListItemTableViewCell: UITableViewCell {
     }
 }
 
+
+// MARK: extension ToogleIngredientMArkedDelegate
 extension ShoppingListItemTableViewCell : ToggleIngredientMarkedDelegate {
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {
         self.ingredientEntry = ingredientEntry

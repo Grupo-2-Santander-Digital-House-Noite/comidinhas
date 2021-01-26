@@ -37,6 +37,7 @@ class FavoritosWebService {
         NotificationCenter.default.removeObserver(self)
     }
     
+    
     func reloadFavoritesIdsFromLoggedUser() {
         if let user = AppUserManager.shared.loggedUser {
             AppFavoritos.shared.getRecipesIdsFromUser(withUid: user.uid ?? "") { (ids) in
@@ -44,9 +45,9 @@ class FavoritosWebService {
             } failure: { (error) in
                 print("Não conseguiu atualizar")
             }
-
         }
     }
+    
     
     @objc func loadFavorites(notification: Notification) {
         // Carrega os favoritos.
@@ -58,9 +59,9 @@ class FavoritosWebService {
             } failure: { (error) in
                 print(error.localizedDescription)
             }
-
         }
     }
+    
     
     @objc func unloadFavorites() {
         // Limpa os favoritos.
@@ -69,13 +70,16 @@ class FavoritosWebService {
         self.notifyObservers()
     }
     
+    
     func isFavorite(id: Int) -> Bool {
         return self.idsFavoritos.contains(id)
     }
     
+    
     func isFavorite(recipe: Recipe) -> Bool {
         return self.favoriteIds.contains(recipe.id ?? 0)
     }
+    
     
     func addFavorite(id: Int) {
         AppFavoritos.shared.AddFavoriteRecipeToFirestore(RecipeID: id) {
@@ -88,6 +92,7 @@ class FavoritosWebService {
         }
     }
     
+    
     func removeFavorite(id: Int) {
         if self.idsFavoritos.contains(id) {
             
@@ -99,9 +104,9 @@ class FavoritosWebService {
             } failure: { (error) in
                 print(error.localizedDescription)
             }
-
         }
     }
+    
     
     func addFavorite(recipe: Recipe?) {
         self.addFavorite(id: recipe?.id ?? 0)

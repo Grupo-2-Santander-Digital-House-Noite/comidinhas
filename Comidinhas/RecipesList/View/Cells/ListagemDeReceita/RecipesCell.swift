@@ -45,19 +45,15 @@ class RecipesCell: UITableViewCell {
         timeLabel.text = nil
         categoryLabel.text = nil
         servingsLabel.text = nil
-        //self.recipeImage.startLoadingAnimation()
     }
-    
-    
-    
-    
-
 }
+
 
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode
         self.startLoadingAnimation()
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -71,10 +67,13 @@ extension UIImageView {
             }
         }.resume()
     }
+    
+    
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
     
     func startLoadingAnimation() {
         self.image = nil
@@ -87,6 +86,7 @@ extension UIImageView {
         self.animationDuration = 0.4
         self.startAnimating()
     }
+    
     
     func stopLoadingAnimation() {
         self.stopAnimating()

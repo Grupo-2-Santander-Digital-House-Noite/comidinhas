@@ -11,7 +11,6 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
     @IBOutlet weak var shoppingListTableView: UITableView!
     @IBOutlet weak var shoppingListClearButton: UIBarButtonItem!
-//    @IBOutlet weak var searchBarButtonClick: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +24,8 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         
     }
     
+    
+    // MARK: setupTableView
     private func setupTableView() {
         self.shoppingListTableView.delegate = self
         self.shoppingListTableView.dataSource = self
@@ -37,14 +38,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.shoppingListTableView.backgroundView = .none
         self.shoppingListTableView.separatorStyle = .none
     }
-//
-//    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
-//        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-//        newViewController.modalPresentationStyle = .overFullScreen
-//        newViewController.delegate = self
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
+
     
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
@@ -52,11 +46,11 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     }
     
     
-    
     private func updateView() {
         self.updateClearButton()
         self.shoppingListTableView.reloadData()
     }
+    
     
     private func updateClearButton() {
         if ShoppingList.shared.getAll().count == 0 {
@@ -68,6 +62,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         }
     }
     
+    
     // MARK: REACT WHEN SHOPPING LIST IS UPDATED
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
         self.updateView()
@@ -78,26 +73,24 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     }
     
     
-    /*
-     ========TESTE LOGIN========
-     */
-    
     @IBAction func tappedSettingsTestButton(_ sender: UIButton) {
         performSegue(withIdentifier: "EntrarVC", sender: nil)
     }
-    
-    
 }
 
+
+// MARK: extension TableView
 extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -108,17 +101,19 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return ShoppingList.shared.getAll().count > 0 ? 2 : 1
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ShoppingList.shared.getAll().count == 0 {
             return 1
         }
-        
         return section == 0 ? ShoppingList.shared.getDesmarcados().count : ShoppingList.shared.getMarcados().count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if ShoppingList.shared.getAll().count == 0 {
@@ -132,6 +127,7 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         return shoppingItemCell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell: ShoppingListItemTableViewCell = tableView.cellForRow(at: indexPath) as? ShoppingListItemTableViewCell {
             cell.toggle()
@@ -140,9 +136,3 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-//extension ShoppingListVC: SearchVCDelegate {
-//    func returnTabBar() {
-//        self.tabBarController?.selectedIndex = 0
-//    }
-//}

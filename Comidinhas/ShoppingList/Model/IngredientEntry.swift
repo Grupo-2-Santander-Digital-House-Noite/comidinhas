@@ -11,6 +11,7 @@ protocol ToggleIngredientMarkedDelegate: AnyObject {
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum)
 }
 
+
 class IngredientEntry {
     
     /** Nome do Ingrediente **/
@@ -38,6 +39,7 @@ class IngredientEntry {
         self.marked = .DESMARCADO
     }
     
+    
     func toggle() {
         self.marked = self.marked.toggle()
         self.delegates.forEach({ (delegate) in
@@ -45,9 +47,11 @@ class IngredientEntry {
         })
     }
     
+    
     func subscribe(toggleDelegate: ToggleIngredientMarkedDelegate) {
         self.delegates.append(toggleDelegate)
     }
+    
     
     func unsubscribe(toggleDelegate: ToggleIngredientMarkedDelegate) {
         self.delegates.removeAll { (delegate) -> Bool in

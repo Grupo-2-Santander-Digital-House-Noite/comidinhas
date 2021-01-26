@@ -15,7 +15,4 @@ class Settings{
         
         return emailTest.evaluate(with: email)
     }
-   
-
-
 }

@@ -12,11 +12,11 @@ class MealTypeFilter: RecipeFilter {
     private let _name: String
     private let _type: MealType
     
-    var name: String{
+    var name: String {
         return _name
     }
     
-    var value: String{
+    var value: String {
         return _type.rawValue
     }
     

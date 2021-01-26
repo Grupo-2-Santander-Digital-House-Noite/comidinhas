@@ -25,5 +25,4 @@ class User: Codable {
         self.email = email
         self.uid = uid
     }
-    
 }

@@ -13,6 +13,7 @@ enum AuthError: Error {
     case userUpdateError(localizedMessage: String)
 }
 
+
 extension AuthError: LocalizedError {
     public var errorDescription: String? {
         switch self {

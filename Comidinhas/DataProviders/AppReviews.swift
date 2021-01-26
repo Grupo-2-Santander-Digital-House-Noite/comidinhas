@@ -29,6 +29,7 @@ class AppReviews {
     }
     
     
+    // Salva avaliação do Firestore
     func saveReview(review: Review,
                     completion: @escaping (() -> Void),
                     failure: @escaping ((Error) -> Void)) {
@@ -66,9 +67,10 @@ class AppReviews {
         } else {
             failure(GenericError.GenericErrorWithMessage(message: "Could not save! User isn't logged in."))
         }
-        
     }
     
+    
+    // Carrega avaliações
     func loadReviewsForRecipeWith(id: Int, reviewsToLoad: Int?, completion: @escaping ((Reviews) -> Void), failure: @escaping ((Error) -> Void)) {
         var query: Query = self.db.collection("reviews").whereField("recipeId", in: [id]).order(by: "date", descending: true)
             
@@ -78,41 +80,39 @@ class AppReviews {
         
         query.getDocuments { (snapshot, error) in
             
-                if let error = error {
-                    failure(error)
-                    return
-                }
+            if let error = error {
+                failure(error)
+                return
+            }
                 
-                if let snapshot = snapshot {
-                    var reviews: Reviews = []
-                    for document in snapshot.documents {
-                        reviews.append(Review(firestoreData: document.data()))
-                    }
-                    completion(reviews)
+            if let snapshot = snapshot {
+                var reviews: Reviews = []
+                for document in snapshot.documents {
+                    reviews.append(Review(firestoreData: document.data()))
                 }
+                completion(reviews)
+            }
         }
     }
     
+    
+    // Carrega os metadados da receita (dados sobre a média)
     func loadRecipeReviewMetaDataWithRecipe(id: Int, completion: @escaping ((RecipeReviewMetadata) -> Void), failure: @escaping ((Error) -> Void)) {
         
-        self.db.collection("recipesReviewsMetadata")
-            .document("\(id)").getDocument { (documentSnapshot, error) in
-                if let error = error {
-                    failure(error)
-                    return
-                }
-                
-                if let data = documentSnapshot?.data() {
-                    let metadata = RecipeReviewMetadata(firestoreData: data)
-                    completion(metadata)
-                    return
-                }
-                
-                failure(GenericError.GenericErrorWithMessage(message: "Could not load the recipes metadata!"))
+        self.db.collection("recipesReviewsMetadata").document("\(id)").getDocument { (documentSnapshot, error) in
+            if let error = error {
+                failure(error)
+                return
             }
-        
+                
+            if let data = documentSnapshot?.data() {
+                let metadata = RecipeReviewMetadata(firestoreData: data)
+                completion(metadata)
+                return
+            }
+            failure(GenericError.GenericErrorWithMessage(message: "Could not load the recipes metadata!"))
+        }
     }
-    
 }
 
 

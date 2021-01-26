@@ -19,10 +19,12 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         case Settings = 3
     }
     
+    
     func transitionTo(destinationTab: TabsIndex) {
         self.loginReferrerIndex = self.selectedIndex
         self.selectedIndex = destinationTab.rawValue
     }
+    
     
     func transitionBackToReferrer() {
         if let index = self.loginReferrerIndex {
@@ -30,6 +32,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         }
         self.loginReferrerIndex = nil
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         
     }
     
+    
     private func getShoppingListTabBarItem() -> UITabBarItem? {
         if let items = self.tabBar.items {
             for item in items {
@@ -47,9 +51,9 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
                 }
             }
         }
-        
         return nil
     }
+    
     
     // MARK: ShoppingListDelegate - Methods
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
@@ -68,6 +72,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         updateShoppingListBadge()
     }
     
+    
     private func updateShoppingListBadge() {
         guard let item: UITabBarItem = self.getShoppingListTabBarItem() else {
             return
@@ -84,5 +89,4 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         item.badgeColor = .systemRed
         item.badgeValue = "\(quantidadeItens < 10 ? "\(quantidadeItens)" : "9+")"
     }
-
 }

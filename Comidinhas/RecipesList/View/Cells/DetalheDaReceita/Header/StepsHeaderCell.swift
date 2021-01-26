@@ -10,6 +10,5 @@ import UIKit
 class StepsHeaderCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var partOfTheRecipeLabel: UILabel!
-    
 
 }

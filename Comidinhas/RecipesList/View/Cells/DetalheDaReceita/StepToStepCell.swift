@@ -28,5 +28,4 @@ class StepToStepCell: UITableViewCell {
         self.numLabel.text = "\(step.num)."
         self.stepLabel.text = step.step
     }
-    
 }

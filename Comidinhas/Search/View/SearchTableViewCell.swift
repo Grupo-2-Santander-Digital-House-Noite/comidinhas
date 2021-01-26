@@ -12,12 +12,12 @@ protocol SearchTableViewCellDelegate: AnyObject {
     func findClick(filter: [RecipeFilter])
 }
 
+
 class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var recipeNameTextField: UITextField!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var timeToBeReadyTextField: UITextField!
-//    @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var findButton: UIButton!
     
     @IBOutlet weak var categoryTextField: UITextField!
@@ -35,16 +35,12 @@ class SearchTableViewCell: UITableViewCell {
         self.catPickerView.delegate = self
         self.catPickerView.dataSource = self
         
-//        self.categoryPickerView.delegate = self
-//        self.categoryPickerView.dataSource = self
-        
         mealTypes = ["All", "Main Course", "Side Dish", "Dessert", "Apptizer", "Salad", "Bread", "Breakfast", "Soup", "Beverage", "Sauce", "Marinade", "Fingerfood", "Snack", "Drink"]
 
         ingredientsTextView.delegate = self
         ingredientsTextView.text = "Enter the ingredients separated by comma"
         ingredientsTextView.textColor = UIColor.lightGray
         ingredientsTextView.layer.cornerRadius = 5
-//        categoryPickerView.layer.cornerRadius = 4
         findButton.layer.cornerRadius = 5
         // Initialization code
     }
@@ -67,6 +63,7 @@ class SearchTableViewCell: UITableViewCell {
         toolbar.isUserInteractionEnabled = true
         self.categoryTextField.inputAccessoryView = toolbar
     }
+    
 
     @objc private func cancelClick() {
         self.categoryTextField.text = ""
@@ -74,7 +71,6 @@ class SearchTableViewCell: UITableViewCell {
     }
 
     @objc private func okClick() {
-//        self.categoryTextField.text = catPickerView[row]
         self.categoryTextField.resignFirstResponder()
     }
 
@@ -84,10 +80,7 @@ class SearchTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-//    @IBAction func finButtonClick(_ sender: UIButton) {
-//        delegate?.findClick()
-//    }
+
     
     @IBAction func finButtonClick(_ sender: UIButton) {
         var filters: [RecipeFilter] = []
@@ -109,6 +102,8 @@ class SearchTableViewCell: UITableViewCell {
         delegate?.findClick(filter : filters)
     }
     
+    
+    // MARK: método do filtro
     func getTimeFilter() -> RecipeFilter? {
         if self.timeToBeReadyTextField.hasText,
            let time = self.timeToBeReadyTextField.text {
@@ -116,6 +111,7 @@ class SearchTableViewCell: UITableViewCell {
         }
         return nil;
     }
+    
     
     func getIngredientsFilter() -> RecipeFilter? {
         
@@ -133,6 +129,7 @@ class SearchTableViewCell: UITableViewCell {
         return nil
     }
     
+    
     func getTermFilter() -> RecipeFilter? {
         if self.recipeNameTextField.hasText{
             if let _text = self.recipeNameTextField.text {
@@ -141,6 +138,7 @@ class SearchTableViewCell: UITableViewCell {
         }
         return nil
     }
+    
     
     func getTypeFilter() -> RecipeFilter? {
         let pickerOption:Int = self.catPickerView.selectedRow(inComponent: 0)
@@ -156,6 +154,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
 }
+
 
 // MARK: extension TextView
 extension SearchTableViewCell: UITextViewDelegate {
@@ -174,6 +173,7 @@ extension SearchTableViewCell: UITextViewDelegate {
         }
     }
 }
+
 
 // MARK: extension PickerView
 extension SearchTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {

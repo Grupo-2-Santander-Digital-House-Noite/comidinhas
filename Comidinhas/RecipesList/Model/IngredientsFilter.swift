@@ -24,5 +24,4 @@ class IngredientsFilter: RecipeFilter {
         self._name = "includeIngredients"
         self._values = ingredients.joined(separator: ",")
     }
-    
 }

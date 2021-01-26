@@ -15,11 +15,9 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
     
     // MARK: IBoutlet
     @IBOutlet weak var favoritesTableView: UITableView!
-//
-//    @IBOutlet weak var searchBarButton: UIBarButtonItem!
+
     
     // MARK: configuação TableView
-    
     private func configTableView() {
         self.favoritesTableView.delegate = self
         self.favoritesTableView.dataSource = self
@@ -52,20 +50,20 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         }
     }
     
+    
     // MARK: Delegate Methods
     func didUpdate() {
         self.favoritesTableView.reloadData()
     }
-
 }
 
 
-// MARK: extension
-
+// MARK: extension TableView
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.controller.numberOfRows
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -89,18 +87,20 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         self.controller.removeFavoriteAt(index: indexPath.row)
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let _recipe: Recipe = self.controller.favoriteRecipeAt(index: indexPath.row) {
             self.performSegue(withIdentifier: "RecipeDetailVC", sender: _recipe)
         }
     }
-    
 }

@@ -28,7 +28,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
 
     // MARK: viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +45,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
 
     
     // MARK: func panInStarsLabel
-    
     @objc func panInStarsLabel(sender: UIGestureRecognizer) {
         let locationView = sender.location(in: self.view)  // my finger position
         let newStarLabelFrame = self.view.convert(self.starsLabel.frame, from: self.starsLabel.superview)
@@ -74,7 +72,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
     
     // MARK: tappedPostReviewButton
-    
     @IBAction func tappedPostReviewButton(_ sender: UIButton) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -98,6 +95,7 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     // MARK: Setup Method
     func configureWith(recipe: Recipe?) {
         self.recipe = recipe
@@ -111,7 +109,6 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
 
 
 // MARK: extension UITextField
-
 extension WriteReviewVC: UITextViewDelegate {
     // faz baixar o teclado depois que clica em retornar
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -120,6 +117,8 @@ extension WriteReviewVC: UITextViewDelegate {
     }
 }
 
+
+// MARK: extension ViewNeedsLoggedUserDelegate
 extension WriteReviewVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {

@@ -29,6 +29,7 @@ class AppFavoritos {
     }
     
     
+    // MARK: Adiciona favorito ao Firestore
     func AddFavoriteRecipeToFirestore(RecipeID: Int?, completion:(() -> Void)?, failure:((Error) -> Void)?) {
         // Faz um alias para o failure
         let reportError = {(error:Error) -> Void in
@@ -46,7 +47,7 @@ class AppFavoritos {
     }
     
     
-    
+    // Remove favorito do Firestore
     func RemoveFavoriteRecipeFromFirestore(RecipeID:Int?, completion:(() -> Void)?, failure:((Error) -> Void)?) {
         // Faz um alias para o failure
         let reportError = {(error:Error) -> Void in
@@ -63,6 +64,8 @@ class AppFavoritos {
         }
     }
     
+    
+    // Pega as receitas guardadas no Firestore
     func getRecipesIdsFromUser(withUid uid: String, completion: @escaping ([Int]) -> Void, failure: @escaping (Error) -> Void) {
         
         self.db.collection("users").document(uid).getDocument { (document, error) in
@@ -71,15 +74,12 @@ class AppFavoritos {
                 failure(error)
                 return
             }
-            
             if let document = document,
                let ids: [Int] = document.get("RecipesIds") as? [Int] {
                 completion(ids)
                 return
             }
-            
             failure(GenericError.GenericErrorWithMessage(message: "Não desempacotou o documento!"))
         }
-        
     }
 }

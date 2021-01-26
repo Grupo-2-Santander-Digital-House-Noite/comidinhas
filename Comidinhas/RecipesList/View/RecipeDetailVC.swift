@@ -6,9 +6,6 @@
 //
 
 
-//"♡"♥︎
-// ☆ ★
-
 import UIKit
 
 class RecipeDetailVC: UIViewController {
@@ -21,6 +18,7 @@ class RecipeDetailVC: UIViewController {
     var recipeReviewMeta: RecipeReviewMetadata? = nil
     var recipeReviewMetaState: RecipeReviewMetadataLoadingState = .Loading
     
+    
     // MARK: IBOutlet
     @IBOutlet weak var detalheReceitaView: UIView!
 
@@ -31,7 +29,6 @@ class RecipeDetailVC: UIViewController {
 
 
     // MARK: configTableView e configDetalhes
-
     private func configTableView() {
         self.recipeDetailTableView.delegate = self
         self.recipeDetailTableView.dataSource = self
@@ -56,6 +53,7 @@ class RecipeDetailVC: UIViewController {
         self.recipeMetaView.configureViewWith(recipe: receita)
         self.recipeMetaView.loggedUserNeedDelegate = self
     }
+    
 
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -68,6 +66,8 @@ class RecipeDetailVC: UIViewController {
         AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: self.receita?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
     }
     
+    
+    // MARK: Métodos de load
     func loadedReviews(reviews: Reviews) {
         self.reviews = reviews
         self.reviewsLoadingState = reviews.count > 0 ? ReviewsLoadingState.Loaded : ReviewsLoadingState.EmptyLoaded
@@ -92,6 +92,7 @@ class RecipeDetailVC: UIViewController {
     }
     
     
+    // MARK: removeObserver
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         NotificationCenter.default.removeObserver(self)
     }
@@ -120,9 +121,7 @@ class RecipeDetailVC: UIViewController {
 }
 
 
-
 // MARK: extension Delegate, DataSouce
-
 extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
     var numSectionCabecalho: Int {
@@ -297,7 +296,6 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             default:
                 return self.reviews.count
             }
-            
         }
         return 0
     }
@@ -324,7 +322,6 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         if section == cabecalhoSection {
 
             let cell: ImageCell? = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as? ImageCell
-            //cell?.recipeImageView.image = UIImage(named: self.receita?.image ?? "ChocolateCake")
             if let url = URL(string: self.receita?.image ?? ""){
                 URLSession.shared.dataTask(with: url) { data, response, error in
                     guard
@@ -395,7 +392,6 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
         let modoPreparoSectionMax = (self.receita?.stepsSection.count ?? 0) + 1
         return section - 2
     }
-
 }
 
 
@@ -421,6 +417,8 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     }
 }
 
+
+// MARK: extension ViewNeedsLoggedUserDelegate
 extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
@@ -431,8 +429,6 @@ extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
             } else {
                 self.displayErrorAlertWith(title: "Error", message: "Can't login right now, please try again by tapping the settings icon.", completion: nil)
             }
-            
         };
     }
-    
 }

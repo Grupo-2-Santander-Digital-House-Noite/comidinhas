@@ -7,9 +7,8 @@
 
 import Foundation
 
-protocol RecipeFilter{
+protocol RecipeFilter {
     
     var name : String { get }
     var value : String { get }
-    
 }

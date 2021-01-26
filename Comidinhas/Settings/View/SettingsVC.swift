@@ -64,7 +64,7 @@ class SettingsVC: BaseViewController {
         }
     }
 
-    // MARK: private func
+    
     private func showError(message:String) {
         self.errorMessageLabel.text = message
         self.errorMessageLabel.alpha = 1
@@ -85,6 +85,7 @@ class SettingsVC: BaseViewController {
         self.bntCancel.isHidden = true
     }
     
+    
     // MARK: IBAction
     @IBAction func btnSignUp(_ sender: Any) {
         performSegue(withIdentifier: "SettingsCadVC", sender: nil)
@@ -97,6 +98,7 @@ class SettingsVC: BaseViewController {
     
     
     @IBAction func btnLogout(_ sender: Any) {
+        self.view.endEditing(true)
         self.showLoadingCooker()
         AppUserManager.shared.logout {
             self.displayErrorAlertWith(title: "Sad to see you go!", message: "Hope to hear back soon", completion: nil)
@@ -118,6 +120,7 @@ class SettingsVC: BaseViewController {
         self.repeatPasswordTextField.text = ""
         self.view.endEditing(true)
     }
+    
     
     @IBAction func buttonFullname(_ sender: UIButton) {
         self.hideTextFields()
@@ -145,6 +148,7 @@ class SettingsVC: BaseViewController {
         self.dataChangeTextField.becomeFirstResponder()
     }
     
+    
     @IBAction func buttonPassword(_ sender: Any) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
@@ -153,7 +157,7 @@ class SettingsVC: BaseViewController {
         self.btnPasswordChange.isHidden = false
         self.bntCancel.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = true
-        self.dataChangeTextField.placeholder = "Currente password"
+        self.dataChangeTextField.placeholder = "Current password"
         self.dataChangeTextField.text = ""
         self.passwordTextField.placeholder = "New password"
         self.passwordTextField.text = ""
@@ -161,6 +165,7 @@ class SettingsVC: BaseViewController {
         self.repeatPasswordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
     }
+    
     
     @IBAction func btnOkDataChange(_ sender: Any) {
         self.view.endEditing(true)
@@ -180,6 +185,7 @@ class SettingsVC: BaseViewController {
         }
     }
     
+    
     @IBAction func btnOkEmailChange(_ sender: UIButton) {
         self.view.endEditing(true)
         self.showLoadingCooker()
@@ -197,6 +203,7 @@ class SettingsVC: BaseViewController {
             self.showError(message: "Ops! There was something wrong! Please, check your password")
         }
     }
+    
     
     @IBAction func btnOkPasswordChange(_ sender: UIButton) {
         if self.passwordTextField.text != self.repeatPasswordTextField.text {
@@ -242,6 +249,7 @@ class SettingsVC: BaseViewController {
         
     }
 
+    
 // MARK: VALIDACAO DO CAMPO EMAIL
     func validateTF(){
         if self.dataChangeTextField.text?.isEmpty == true {
@@ -270,13 +278,11 @@ class SettingsVC: BaseViewController {
         } else if self.repeatPasswordTextField.text?.isEmpty == false {
             self.repeatPasswordTextField.layer.borderWidth = 0
         }
-//        if self.editEmailLogin.text?.isEmpty == false && self.editPasswordLogin.text?.isEmpty == false {
-//            self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
-//        }
     }
 }
 
-// MARK: extension
+
+// MARK: extension TextField
 extension SettingsVC: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -293,6 +299,8 @@ extension SettingsVC: UITextFieldDelegate {
 
 }
 
+
+// MARK: extension DidLoginDelegate
 extension SettingsVC: DidLoginDelegate {
     
     func handleDidLogin() {
@@ -303,6 +311,7 @@ extension SettingsVC: DidLoginDelegate {
 }
 
 
+// MARK: extension: SettingsCardVCDelegate, SEttingAuthVCDelegate
 extension SettingsVC: SettingsCadVCDelegate, SettingAuthVCDelegate {
     func hideViewFromLoginVC() {
         let user = AppUserManager.shared.loggedUser

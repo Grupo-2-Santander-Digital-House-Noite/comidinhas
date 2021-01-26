@@ -58,5 +58,4 @@ class ReviewCell: UITableViewCell {
         self.usuarioDataLabel.text = ""
         self.usuarioComentarioLabel.text = error.localizedDescription
     }
-    
 }

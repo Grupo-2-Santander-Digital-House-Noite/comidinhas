@@ -16,6 +16,7 @@ protocol DidLoginDelegate: AnyObject {
     func handleDidLogin()
 }
 
+
 class SettingsAuthVC: BaseViewController {
 
     @IBOutlet weak var textFieldEmail: UITextField! {
@@ -24,6 +25,7 @@ class SettingsAuthVC: BaseViewController {
             textFieldEmail.setIcon(#imageLiteral(resourceName: "email"))
         }
     }
+    
     @IBOutlet weak var textFieldSenha: UITextField! {
         didSet {
             textFieldSenha.tintColor = UIColor.lightGray
@@ -39,7 +41,7 @@ class SettingsAuthVC: BaseViewController {
     weak var delegate:SettingAuthVCDelegate?
     
     
-    
+    // MARK: config Button e TextField
     fileprivate func configBntLogin() {
         self.bntLogin.layer.cornerRadius = 5
     }
@@ -52,6 +54,7 @@ class SettingsAuthVC: BaseViewController {
     let bnt = UIButton(type: .custom)
     
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +75,8 @@ class SettingsAuthVC: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    // MARK: validField
     func validField(){
         let emailConf = controller.isValidEmail(email: self.textFieldEmail.text!)
         
@@ -84,7 +89,6 @@ class SettingsAuthVC: BaseViewController {
                 self.textFieldSenha.layer.borderColor = UIColor.red.cgColor
                 self.textFieldSenha.layer.borderWidth = 1.0
                 self.textFieldSenha.isHidden = false
-//                self.editPassword.isSecureTextEntry = false
               self.textFieldSenha.placeholder = "Password - Required"
         }
         
@@ -109,6 +113,7 @@ class SettingsAuthVC: BaseViewController {
     }
     
     
+    // MARK: IBAction
     @IBAction func bntPasswordShow(_ sender: Any) {
         (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
         if ( sender as! UIButton).isSelected {
@@ -119,7 +124,6 @@ class SettingsAuthVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
-    
     
     
     @IBAction func bntLoginAC(_ sender: UIButton) {
@@ -147,8 +151,6 @@ class SettingsAuthVC: BaseViewController {
             self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
         }
-
-        
     }
     
     
@@ -157,13 +159,13 @@ class SettingsAuthVC: BaseViewController {
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
     }
 }
 
 
+// MARK: extension TextFieldDelegate
 extension SettingsAuthVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

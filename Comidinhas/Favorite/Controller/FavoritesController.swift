@@ -11,6 +11,7 @@ protocol FavoriteControllerUpdate: AnyObject {
     func didUpdate()
 }
 
+
 enum FavoriteState {
     case empty
     case loading
@@ -18,11 +19,13 @@ enum FavoriteState {
     case loaded
 }
 
+
 class FavoritesController: FavoritesUpdateDelegate {
     
     // MARK: State
     private var favoritos: [Recipe] = []
     private var _state: FavoriteState = .empty
+    
     
     // MARK: Public properties
     var numberOfRows: Int {
@@ -38,11 +41,14 @@ class FavoritesController: FavoritesUpdateDelegate {
         }
     }
     
+    
     var state: FavoriteState {
         return _state
     }
     
+    
     weak var delegate: FavoriteControllerUpdate?
+    
     
     // MARK: Initializer/Deinitializer
     init() {
@@ -55,6 +61,8 @@ class FavoritesController: FavoritesUpdateDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
+    
+    // MARK: Carrega receitas dos usuário
     func loadRecipesIfLoggedUser() {
         if !AppUserManager.shared.hasLoggedUser() {
             print("Usuário não logado!")
@@ -66,10 +74,9 @@ class FavoritesController: FavoritesUpdateDelegate {
 
     }
     
-    // MARK: Public Methods
     
+    // MARK: Public Methods
     func load() {
-        
         self._state = .loading
         RecipesWebService.shared.with(ids: FavoritosWebService.shared.favoriteIds, completion: { (recipes) in
             self.favoritos = recipes
@@ -81,6 +88,7 @@ class FavoritesController: FavoritesUpdateDelegate {
         })
     }
     
+    
     func favoriteRecipeAt(index: Int) -> Recipe? {
         if index > -1 && index < self.favoritos.count {
             return self.favoritos[index]
@@ -88,16 +96,16 @@ class FavoritesController: FavoritesUpdateDelegate {
         return nil
     }
     
+    
     func removeFavoriteAt(index: Int) {
         FavoritosWebService.shared.removeFavorite(recipe: self.favoritos[index])
         self.load()
     }
+    
     
     @objc func didUpdateFavorites() {
         self.load()
         self.delegate?.didUpdate()
     }
     // MARK: Internal Behavior
-    
-    
 }
