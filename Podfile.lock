@@ -330,7 +330,9 @@ PODS:
     - nanopb/encode (= 2.30907.0)
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
+  - Nimble (9.0.0)
   - PromisesObjC (1.2.12)
+  - Quick (3.0.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -338,6 +340,8 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - lottie-ios (~> 3.1)
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   trunk:
@@ -359,7 +363,9 @@ SPEC REPOS:
     - leveldb-library
     - lottie-ios
     - nanopb
+    - Nimble
     - PromisesObjC
+    - Quick
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -380,8 +386,10 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
 
-PODFILE CHECKSUM: f7b233998ecf87e7656da78fe357d7aebf3f990c
+PODFILE CHECKSUM: dc26537c5a8ac53443d367d61b0c84707bc3c9ec
 
 COCOAPODS: 1.10.0

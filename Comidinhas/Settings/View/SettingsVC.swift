@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsVC: BaseViewController {
 
+    
     let controler = Settings()
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -80,7 +81,7 @@ class SettingsVC: BaseViewController {
     private func hideTextFields() {
         self.dataChangeTextField.isHidden = true
         self.passwordTextField.isHidden = true
-        self.repeatPasswordTextField.isHidden = true
+       self.repeatPasswordTextField.isHidden = true
         self.btnFullnameChange.isHidden = true
         self.btnEmailChange.isHidden = true
         self.btnPasswordChange.isHidden = true
@@ -125,19 +126,19 @@ class SettingsVC: BaseViewController {
     
     @IBAction func buttonFullname(_ sender: Any) {
         self.hideTextFields()
-        self.dataChangeTextField.isHidden = false
+       self.dataChangeTextField.isHidden = false
         self.btnFullnameChange.isHidden = false
         self.bntCancel.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = false
         self.dataChangeTextField.placeholder = "Change fullname"
         self.dataChangeTextField.text = ""
-        self.dataChangeTextField.becomeFirstResponder()
+       self.dataChangeTextField.becomeFirstResponder()
     }
     
     
     @IBAction func buttonEmail(_ sender: Any) {
         self.hideTextFields()
-        self.dataChangeTextField.isHidden = false
+       self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
         self.btnEmailChange.isHidden = false
         self.bntCancel.isHidden = false
@@ -148,15 +149,14 @@ class SettingsVC: BaseViewController {
         self.passwordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
     }
-    
    
-    
     @IBAction func buttonPassword(_ sender: Any) {
        
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
-        self.repeatPasswordTextField.isHidden = false
+        self.passwordTextField.isHidden = false
+//        self.repeatPasswordTextField.isHidden = false
         self.btnPasswordChange.isHidden = false
         self.bntCancel.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = true
@@ -207,7 +207,7 @@ class SettingsVC: BaseViewController {
     }
     
     @IBAction func btnOkPasswordChange(_ sender: UIButton) {
-        if self.passwordTextField.text != self.repeatPasswordTextField.text {
+       if self.passwordTextField.text != self.repeatPasswordTextField.text {
             self.showError(message: "Ops! Diffents passwords")
             return
         }

@@ -880,6 +880,7 @@
 				BC5E888F253FA64D005345EE /* Sources */,
 				BC5E8890253FA64D005345EE /* Frameworks */,
 				BC5E8891253FA64D005345EE /* Resources */,
+				56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1046,6 +1047,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		669AC70FBF905F03DEA8E754 /* [CP] Check Pods Manifest.lock */ = {
