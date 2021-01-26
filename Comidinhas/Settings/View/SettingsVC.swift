@@ -37,6 +37,9 @@ class SettingsVC: BaseViewController {
         super.viewDidLoad()
         self.configTextField()
         self.configView()
+        self.btnEmailChange.isEnabled = true
+        dataChangeTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.btnEmailChange.isEnabled = true 
     }
     
     // MARK: CONFIGURACAO GERAL DOS TEXTFIELDS
@@ -90,6 +93,7 @@ class SettingsVC: BaseViewController {
     // MARK: IBAction
     @IBAction func btnSignUp(_ sender: Any) {
         performSegue(withIdentifier: "SettingsCadVC", sender: nil)
+       
     }
     
     
@@ -128,25 +132,36 @@ class SettingsVC: BaseViewController {
         self.dataChangeTextField.isHidden = false
         self.btnFullnameChange.isHidden = false
         self.bntCancel.isHidden = false
+        self.btnFullnameChange.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = false
         self.dataChangeTextField.placeholder = "Change fullname"
         self.dataChangeTextField.text = ""
+        
+        
+        
+        
         self.dataChangeTextField.becomeFirstResponder()
+        
     }
     
     
     @IBAction func buttonEmail(_ sender: Any) {
+        
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
-        self.btnEmailChange.isHidden = false
+        
         self.bntCancel.isHidden = false
+        self.btnEmailChange.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = false
+        
         self.dataChangeTextField.placeholder = "Change email"
         self.dataChangeTextField.text = ""
         self.passwordTextField.placeholder = "Confirm with your password"
+        
         self.passwordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
+        
     }
     
    
@@ -156,17 +171,22 @@ class SettingsVC: BaseViewController {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
+        
         self.repeatPasswordTextField.isHidden = false
         self.btnPasswordChange.isHidden = false
         self.bntCancel.isHidden = false
+        
         self.dataChangeTextField.isSecureTextEntry = true
         self.dataChangeTextField.placeholder = "Currente password"
         self.dataChangeTextField.text = ""
+        
         self.passwordTextField.placeholder = "New password"
         self.passwordTextField.text = ""
         self.repeatPasswordTextField.placeholder = "Repeat new password"
+        
         self.repeatPasswordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
+        
         }
     
     

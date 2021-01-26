@@ -205,6 +205,18 @@
                                                         </subviews>
                                                         <color key="tintColor" red="0.8414894342" green="0.3549271524" blue="0.21909442539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="lKt-WV-0GU" secondAttribute="trailing" id="0iD-A8-hM6"/>
+                                                            <constraint firstItem="3TG-t3-Xd9" firstAttribute="top" secondItem="doZ-w8-pWO" secondAttribute="top" id="1lJ-Ec-IMo"/>
+                                                            <constraint firstItem="YBg-cO-AIg" firstAttribute="leading" secondItem="doZ-w8-pWO" secondAttribute="leading" id="2ob-X6-FAb"/>
+                                                            <constraint firstItem="lKt-WV-0GU" firstAttribute="top" secondItem="3TG-t3-Xd9" secondAttribute="bottom" constant="16" id="BZa-uY-7YU"/>
+                                                            <constraint firstItem="3TG-t3-Xd9" firstAttribute="leading" secondItem="doZ-w8-pWO" secondAttribute="leading" id="Khv-O8-aAk"/>
+                                                            <constraint firstItem="lKt-WV-0GU" firstAttribute="leading" secondItem="doZ-w8-pWO" secondAttribute="leading" id="LAN-Me-KC2"/>
+                                                            <constraint firstItem="YBg-cO-AIg" firstAttribute="top" secondItem="lKt-WV-0GU" secondAttribute="bottom" constant="16" id="acE-MV-AAB"/>
+                                                            <constraint firstItem="lKt-WV-0GU" firstAttribute="top" secondItem="3TG-t3-Xd9" secondAttribute="bottom" constant="16" id="b04-HH-mHg"/>
+                                                            <constraint firstItem="YBg-cO-AIg" firstAttribute="top" secondItem="lKt-WV-0GU" secondAttribute="bottom" constant="16" id="gor-6y-Mv6"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YBg-cO-AIg" secondAttribute="trailing" id="lh8-mj-f7j"/>
+                                                            <constraint firstAttribute="bottom" secondItem="YBg-cO-AIg" secondAttribute="bottom" id="mLs-1a-djB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="3TG-t3-Xd9" secondAttribute="trailing" id="rJp-ot-CnU"/>
                                                             <constraint firstAttribute="width" constant="60" id="xC8-ii-hsP"/>
                                                         </constraints>
                                                     </stackView>
