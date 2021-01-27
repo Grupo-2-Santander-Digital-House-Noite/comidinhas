@@ -83,6 +83,7 @@ class SettingsVC: BaseViewController {
         self.btnEmailChange.isHidden = true
         self.btnPasswordChange.isHidden = true
         self.bntCancel.isHidden = true
+        self.resetError()
     }
     
     
