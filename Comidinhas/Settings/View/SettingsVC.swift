@@ -88,17 +88,17 @@ class SettingsVC: BaseViewController {
     
     
     // MARK: IBAction
-    @IBAction func btnSignUp(_ sender: Any) {
+    @IBAction func btnSignUp(_ sender: UIButton) {
         performSegue(withIdentifier: "SettingsCadVC", sender: nil)
     }
     
     
-    @IBAction func btnLogin(_ sender: Any) {
+    @IBAction func btnLogin(_ sender: UIButton) {
         performSegue(withIdentifier: "SettingsAuthVC", sender: nil)
     }
     
     
-    @IBAction func btnLogout(_ sender: Any) {
+    @IBAction func btnLogout(_ sender: UIButton) {
         self.view.endEditing(true)
         self.showLoadingCooker()
         AppUserManager.shared.logout {
@@ -113,7 +113,7 @@ class SettingsVC: BaseViewController {
     }
     
     
-    @IBAction func btnCancel(_ sender: Any) {
+    @IBAction func btnCancel(_ sender: UIButton) {
         self.hideTextFields()
         self.resetError()
         self.dataChangeTextField.text = ""
@@ -135,7 +135,7 @@ class SettingsVC: BaseViewController {
     }
     
    
-    @IBAction func buttonEmail(_ sender: Any) {
+    @IBAction func buttonEmail(_ sender: UIButton) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
@@ -150,7 +150,7 @@ class SettingsVC: BaseViewController {
     }
     
     
-    @IBAction func buttonPassword(_ sender: Any) {
+    @IBAction func buttonPassword(_ sender: UIButton) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
@@ -168,7 +168,7 @@ class SettingsVC: BaseViewController {
     }
     
     
-    @IBAction func btnOkDataChange(_ sender: Any) {
+    @IBAction func btnOkDataChange(_ sender: UIButton) {
         self.view.endEditing(true)
         self.showLoadingCooker()
         AppUserManager.shared.updateLoggedUserFullname(name: self.dataChangeTextField.text ?? "") { () -> Void in
