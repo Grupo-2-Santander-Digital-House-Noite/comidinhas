@@ -13,7 +13,6 @@ class Settings{
     func sytleTextField( _ textField: UITextField) {
         
         textField.layer.borderColor = UIColor.red.cgColor
-
         textField.layer.borderWidth = 1.0
         textField.isHidden = false
         textField.placeholder = "Full Name - Required"
@@ -39,6 +38,12 @@ class Settings{
     func confButton(button: UIButton){
         button.layer.cornerRadius = 18
     }
-    
+    func setupTF(textField: UITextField){
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.isHidden = false
+        textField.isHidden = false
+    }
 }
+
 
