@@ -70,49 +70,49 @@ class SettingsCadVC: BaseViewController {
     }
 
     func validField(){
-        let emailConf = controller.isValidEmail(email: self.editEmail.text!)
-        let cleanedPassword = editPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if self.editFullName.text?.isEmpty == true {
-            self.editFullName.placeholder = "Full Name - Required"
-            controller.setupTF(textField: editFullName)
-
-        } else if self.editFullName.text?.isEmpty == false {
-            self.editFullName.layer.borderWidth = 0
-        }
-        
-        if self.editPassword.text?.isEmpty == false {
-            self.editPassword.layer.borderWidth = 0
-            self.editPassword.isHidden = false
-            } else {
-
-                self.editPassword.placeholder = "Password - Required"
-                controller.setupTF(textField: editPassword)
-            
-            }
-        if self.editEmail.text?.isEmpty == true {
-            self.editEmail.placeholder = "E-mail - Required"
-            controller.setupTF(textField: editEmail)
-            return
-        } else if self.editEmail.text?.isEmpty == false {
-            self.editEmail.layer.borderWidth = 0
-        }
-        //VALIDACAO DO CAMPO EMAIL
-        if emailConf == true && self.editEmail.text?.isEmpty == false {
-            self.editEmail.isHidden = false
-        } else {
-          self.editEmail.placeholder = "E-mail - Syntax Incorrect"
-            controller.setupTF(textField: editEmail)
-        }
-      
-        if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
-            let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
-            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
-
-            }
-            alert.addAction(buttonOK)
-            self.present(alert, animated: true, completion: nil)
-        }
+//        let emailConf = controller.isValidEmail(email: self.editEmail.text!)
+//        let cleanedPassword = editPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//        
+//        if self.editFullName.text?.isEmpty == true {
+//            self.editFullName.placeholder = "Full Name - Required"
+//            controller.setupTF(textField: editFullName)
+//
+//        } else if self.editFullName.text?.isEmpty == false {
+//            self.editFullName.layer.borderWidth = 0
+//        }
+//        
+//        if self.editPassword.text?.isEmpty == false {
+//            self.editPassword.layer.borderWidth = 0
+//            self.editPassword.isHidden = false
+//            } else {
+//
+//                self.editPassword.placeholder = "Password - Required"
+//                controller.setupTF(textField: editPassword)
+//            
+//            }
+//        if self.editEmail.text?.isEmpty == true {
+//            self.editEmail.placeholder = "E-mail - Required"
+//            controller.setupTF(textField: editEmail)
+//            return
+//        } else if self.editEmail.text?.isEmpty == false {
+//            self.editEmail.layer.borderWidth = 0
+//        }
+//        //VALIDACAO DO CAMPO EMAIL
+//        if emailConf == true && self.editEmail.text?.isEmpty == false {
+//            self.editEmail.isHidden = false
+//        } else {
+//          self.editEmail.placeholder = "E-mail - Syntax Incorrect"
+//            controller.setupTF(textField: editEmail)
+//        }
+//      
+//        if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
+//            let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
+//            let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
+//
+//            }
+//            alert.addAction(buttonOK)
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
 
     @IBAction func bntCreateAcc(_ sender: Any) {
@@ -148,8 +148,6 @@ class SettingsCadVC: BaseViewController {
             self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)
         }
-
-        
     }
     
     @IBAction func bntPasswordShow(_ sender: Any) {

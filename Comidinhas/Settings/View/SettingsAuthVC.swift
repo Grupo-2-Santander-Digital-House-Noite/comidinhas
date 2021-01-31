@@ -11,7 +11,6 @@ protocol SettingAuthVCDelegate: class {
     func hideViewFromLoginVC()
 }
 
-
 protocol DidLoginDelegate: AnyObject {
     func handleDidLogin()
 }
@@ -39,8 +38,6 @@ class SettingsAuthVC: BaseViewController {
     let controller = Settings()
     weak var didLoginDelegate: DidLoginDelegate?
     weak var delegate:SettingAuthVCDelegate?
-    
-    
     
     fileprivate func configBntLogin() {
         controller.confButton(button: self.bntLogin)
@@ -85,19 +82,14 @@ class SettingsAuthVC: BaseViewController {
             self.textFieldSenha.layer.borderWidth = 0
             self.textFieldSenha.isHidden = false
             } else {
-                
-                self.textFieldSenha.layer.borderColor = UIColor.red.cgColor
-                self.textFieldSenha.layer.borderWidth = 1.0
-                self.textFieldSenha.isHidden = false
+                controller.setupTF(textField: textFieldSenha)
+                self.textFieldSenha.placeholder = "Password - Required"
 //                self.editPassword.isSecureTextEntry = false
-              self.textFieldSenha.placeholder = "Password - Required"
                 self.lbErroMsg.isHidden = false
         }
         
         if self.textFieldEmail.text?.isEmpty == true {
-            self.textFieldEmail.layer.borderColor = UIColor.red.cgColor
-            self.textFieldEmail.layer.borderWidth = 1.0
-            self.textFieldEmail.isHidden = false
+            controller.setupTF(textField: textFieldEmail)
             self.textFieldEmail.placeholder = "E-mail - Required"
             self.lbErroMsg.isHidden = false
             return
@@ -109,8 +101,7 @@ class SettingsAuthVC: BaseViewController {
             self.textFieldEmail.isHidden = false
         } else {
             
-            self.textFieldEmail.layer.borderColor = UIColor.red.cgColor
-            self.textFieldEmail.layer.borderWidth = 1.0
+            controller.setupTF(textField: self.textFieldEmail)
             self.textFieldEmail.placeholder = "E-mail - Syntax Incorrect"
         }
     }
@@ -126,9 +117,7 @@ class SettingsAuthVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
-    
-    
-    
+   
     @IBAction func bntLoginAC(_ sender: UIButton) {
         self.validField()
         
@@ -154,7 +143,6 @@ class SettingsAuthVC: BaseViewController {
             self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "Error", message: error.localizedDescription, completion: nil)
         }
-
         
     }
     
@@ -162,9 +150,7 @@ class SettingsAuthVC: BaseViewController {
     @IBAction func bntForgotPass(_ sender: UIButton) {
         performSegue(withIdentifier: "ResetPasswordViewController", sender: nil)
     }
-    
-    
-    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
     }
