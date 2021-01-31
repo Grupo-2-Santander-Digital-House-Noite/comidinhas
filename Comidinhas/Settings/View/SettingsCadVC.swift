@@ -162,10 +162,8 @@ class SettingsCadVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
-    
-    
+ 
 }
-
 
 extension SettingsCadVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
