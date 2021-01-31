@@ -127,7 +127,7 @@ class SettingsCadVC: BaseViewController {
         }
     }
 
-    @IBAction func bntCreateAcc(_ sender: UIButton) {
+    @IBAction func bntCreateAcc(_ sender: Any) {
         self.validField()
         
         guard let name = self.editFullName.text else {

@@ -156,7 +156,7 @@ class SettingsVC: BaseViewController {
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
         self.passwordTextField.isHidden = false
-//        self.repeatPasswordTextField.isHidden = false
+        self.repeatPasswordTextField.isHidden = false
         self.btnPasswordChange.isHidden = false
         self.bntCancel.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = true
