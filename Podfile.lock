@@ -323,6 +323,11 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
   - leveldb-library (1.22)
   - lottie-ios (3.1.9)
   - nanopb (2.30907.0):
@@ -331,8 +336,14 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - Nimble (9.0.0)
+  - Nimble-Snapshots (9.1.0):
+    - Nimble-Snapshots/Core (= 9.1.0)
+  - Nimble-Snapshots/Core (9.1.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble
   - PromisesObjC (1.2.12)
   - Quick (3.0.0)
+  - SnapshotTesting (1.8.2)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -341,7 +352,9 @@ DEPENDENCIES:
   - Firebase/Firestore
   - lottie-ios (~> 3.1)
   - Nimble
+  - Nimble-Snapshots (~> 9.1)
   - Quick
+  - SnapshotTesting (~> 1.8)
 
 SPEC REPOS:
   trunk:
@@ -360,12 +373,15 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - iOSSnapshotTestCase
     - leveldb-library
     - lottie-ios
     - nanopb
     - Nimble
+    - Nimble-Snapshots
     - PromisesObjC
     - Quick
+    - SnapshotTesting
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -383,13 +399,16 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
+  SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
 
-PODFILE CHECKSUM: dc26537c5a8ac53443d367d61b0c84707bc3c9ec
+PODFILE CHECKSUM: ca39dc66b90dddb5af88132c3811df1cd759922e
 
 COCOAPODS: 1.10.0

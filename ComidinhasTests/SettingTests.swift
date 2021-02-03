@@ -7,18 +7,23 @@
 
 import Quick
 import Nimble
+import Nimble_Snapshots
+import UIKit
+
 @testable import Comidinhas
 
 class SettingTest: QuickSpec {
     let isValidEmails = Settings()
-    let sut = SettingsVC()
+    
     
     override func spec(){
+        
         describe("Settings"){
             context("Is Valid Email"){
                 it("Valid Email"){
                     let validEmail = self.isValidEmails.isValidEmail(email: "comidinhas@gmail.com")
                     expect(validEmail).to(be(true))
+                    
                 }
                 it("Invalid Email"){
                     let validEmail = self.isValidEmails.isValidEmail(email: "comidinha.br")
@@ -39,5 +44,6 @@ class SettingTest: QuickSpec {
                 }
             }
         }
-    }
+
+   }
 }

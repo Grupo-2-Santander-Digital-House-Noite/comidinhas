@@ -46,6 +46,8 @@
 		1D8B2074255B74F90068854F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8B2073255B74F90068854F /* Search.storyboard */; };
 		1D8B2079255B76B00068854F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2078255B76B00068854F /* SearchVC.swift */; };
 		282FB9889C80FC3D03A87E93 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */; };
+		542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */; };
+		542AC63525C7631600CDA8C6 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC63425C7631600CDA8C6 /* UITests.swift */; };
 		5490B467257DC363009AE84C /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490B466257DC363009AE84C /* ResetPasswordVC.swift */; };
 		54E106C5256C8C780084A1E9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E106C4256C8C780084A1E9 /* Settings.swift */; };
 		54F36DBD25C0CA2E00CCE239 /* SettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433AD5225C0C5A900CCB50D /* SettingTests.swift */; };
@@ -208,6 +210,8 @@
 		1D8B2073255B74F90068854F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		1D8B2078255B76B00068854F /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.release.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.release.xcconfig"; sourceTree = "<group>"; };
+		542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVCTest.swift; sourceTree = "<group>"; };
+		542AC63425C7631600CDA8C6 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		5433AD5225C0C5A900CCB50D /* SettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTests.swift; sourceTree = "<group>"; };
 		5490B466257DC363009AE84C /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		54E106C4256C8C780084A1E9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Comidinhas/Assets.xcassets/user.imageset/Settings.swift; sourceTree = SOURCE_ROOT; };
@@ -522,7 +526,9 @@
 			children = (
 				BC5E8897253FA64D005345EE /* ComidinhasTests.swift */,
 				5433AD5225C0C5A900CCB50D /* SettingTests.swift */,
+				542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */,
 				BC5E8899253FA64D005345EE /* Info.plist */,
+				542AC63425C7631600CDA8C6 /* UITests.swift */,
 			);
 			path = ComidinhasTests;
 			sourceTree = "<group>";
@@ -1247,6 +1253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */,
+				542AC63525C7631600CDA8C6 /* UITests.swift in Sources */,
 				54F36DBD25C0CA2E00CCE239 /* SettingTests.swift in Sources */,
 				BC5E8898253FA64D005345EE /* ComidinhasTests.swift in Sources */,
 			);
@@ -1424,10 +1432,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.grupo2.Comidinhas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Comidinhas;
+				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
@@ -1444,10 +1455,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.grupo2.Comidinhas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Comidinhas;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
