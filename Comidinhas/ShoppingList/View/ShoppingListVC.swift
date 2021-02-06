@@ -103,7 +103,8 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             let cell: ShoppingListItemTableViewCell? = tableView.cellForRow(at: indexPath) as? ShoppingListItemTableViewCell
             if let ingredient = cell?.ingredientEntry {
-                ShoppingList.shared.remove(ingredient: ingredient)
+//                ShoppingList.shared.remove(ingredient: ingredient)
+                ShoppingList.shared.remove(ingredient: ingredient, indexPathRow: indexPath.row)
             }
         }
     }
