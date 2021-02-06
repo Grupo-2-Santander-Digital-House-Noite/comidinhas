@@ -36,7 +36,64 @@ class SettingsViewControler: BaseViewController {
     @IBOutlet weak var viewYourData: UIView!
     @IBOutlet weak var viewlogin: UIView!
     
-    
+    var email = ""{
+        didSet{
+            //dois DispatchQueue.main.async?? incognita
+            DispatchQueue.main.async {
+                self.hideTextFields()
+                DispatchQueue.main.async {
+                    self.dataChangeTextField.isHidden = false
+                    self.passwordTextField.isHidden = false
+                    self.btnEmailChange.isHidden = false
+                    self.bntCancel.isHidden = false
+                    self.dataChangeTextField.isSecureTextEntry = false
+                    self.dataChangeTextField.placeholder = "Change email"
+                    self.dataChangeTextField.text = ""
+                    self.passwordTextField.placeholder = "Confirm with your password"
+                    self.passwordTextField.text = ""
+                    self.dataChangeTextField.becomeFirstResponder()
+                }
+                
+            }
+            
+        }
+        
+      
+    }
+    var name = ""{
+        didSet {
+            self.hideTextFields()
+            DispatchQueue.main.async {
+                self.dataChangeTextField.isHidden = false
+                self.btnFullnameChange.isHidden = false
+                self.bntCancel.isHidden = false
+                self.dataChangeTextField.isSecureTextEntry = false
+                self.dataChangeTextField.placeholder = "Change fullname"
+                self.dataChangeTextField.text = ""
+                self.dataChangeTextField.becomeFirstResponder()
+            }
+        }
+    }
+    var password = "" {
+        didSet {
+            self.hideTextFields()
+            DispatchQueue.main.async {
+                self.dataChangeTextField.isHidden = false
+                self.passwordTextField.isHidden = false
+                self.repeatPasswordTextField.isHidden = false
+                self.btnPasswordChange.isHidden = false
+                self.bntCancel.isHidden = false
+                self.dataChangeTextField.isSecureTextEntry = true
+                self.dataChangeTextField.placeholder = "Currente password"
+                self.dataChangeTextField.text = ""
+                self.passwordTextField.placeholder = "New password"
+                self.passwordTextField.text = ""
+                self.repeatPasswordTextField.placeholder = "Repeat new password"
+                self.repeatPasswordTextField.text = ""
+                self.dataChangeTextField.becomeFirstResponder()
+            }
+        }
+    }
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,55 +192,17 @@ class SettingsViewControler: BaseViewController {
     
     
     @IBAction func buttonFullname(_ sender: Any) {
-        self.hideTextFields()
-        DispatchQueue.main.async {
-            self.dataChangeTextField.isHidden = false
-            self.btnFullnameChange.isHidden = false
-            self.bntCancel.isHidden = false
-            self.dataChangeTextField.isSecureTextEntry = false
-            self.dataChangeTextField.placeholder = "Change fullname"
-            self.dataChangeTextField.text = ""
-            self.dataChangeTextField.becomeFirstResponder()
-        }
-       
+        self.name.append(name)
     }
     
     
     @IBAction func buttonEmail(_ sender: Any) {
-        self.hideTextFields()
-        DispatchQueue.main.async {
-            self.dataChangeTextField.isHidden = false
-            self.passwordTextField.isHidden = false
-            self.btnEmailChange.isHidden = false
-            self.bntCancel.isHidden = false
-            self.dataChangeTextField.isSecureTextEntry = false
-            self.dataChangeTextField.placeholder = "Change email"
-            self.dataChangeTextField.text = ""
-            self.passwordTextField.placeholder = "Confirm with your password"
-            self.passwordTextField.text = ""
-            self.dataChangeTextField.becomeFirstResponder()
-        }
-       
+        self.email.append(email)
+
     }
    
     @IBAction func buttonPassword(_ sender: Any) {
-       
-        self.hideTextFields()
-        DispatchQueue.main.async {
-            self.dataChangeTextField.isHidden = false
-            self.passwordTextField.isHidden = false
-            self.repeatPasswordTextField.isHidden = false
-            self.btnPasswordChange.isHidden = false
-            self.bntCancel.isHidden = false
-            self.dataChangeTextField.isSecureTextEntry = true
-            self.dataChangeTextField.placeholder = "Currente password"
-            self.dataChangeTextField.text = ""
-            self.passwordTextField.placeholder = "New password"
-            self.passwordTextField.text = ""
-            self.repeatPasswordTextField.placeholder = "Repeat new password"
-            self.repeatPasswordTextField.text = ""
-            self.dataChangeTextField.becomeFirstResponder()
-        }
+        self.password.append(password)
         
         }
     
