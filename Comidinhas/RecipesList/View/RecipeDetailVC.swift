@@ -78,7 +78,6 @@ class RecipeDetailVC: UIViewController {
     }
     
     @objc private func reloadData() {
-        print("------ RELOADED CALLED ------")
         self.recipeDetailTableView.reloadData()
     }
     
