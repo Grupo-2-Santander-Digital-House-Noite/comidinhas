@@ -56,17 +56,33 @@ class RecipeDetailVC: UIViewController {
         self.recipeMetaView.loggedUserNeedDelegate = self
     }
 
-    // MARK: viewDidLoad
+    // MARK: - Ciclo de vida e registro de notificações
     override func viewDidLoad() {
         super.viewDidLoad()
         self.recipeDetailTableView.allowsSelection = false 
         self.configDetalhes(self.receita)
         self.configTableView()
+        self.configureNotifications();
         
         AppReviews.shared.loadReviewsForRecipeWith(id: self.receita?.id ?? 0, reviewsToLoad: 5, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
         AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: self.receita?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func configureNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: AppUserManager.userLoggedInNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: AppUserManager.userLoggedOutNotification, object: nil)
+    }
+    
+    @objc private func reloadData() {
+        print("------ RELOADED CALLED ------")
+        self.recipeDetailTableView.reloadData()
+    }
+    
+    // MARK: - Handlers das reviews (Mover para um controller)
     func loadedReviews(reviews: Reviews) {
         self.reviews = reviews
         self.reviewsLoadingState = reviews.count > 0 ? ReviewsLoadingState.Loaded : ReviewsLoadingState.EmptyLoaded
@@ -123,10 +139,11 @@ class RecipeDetailVC: UIViewController {
 
 
 
-// MARK: extension Delegate, DataSouce
+// MARK: - Extension: TableView Delegate e DataSouce
 
 extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: Helpers for sections
     var numSectionCabecalho: Int {
         get { return 1 }
     }
@@ -407,7 +424,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-// MARK: extension Delegate for Review Related Stuff
+// MARK: - Extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
     func savedReview(_ review: Review) {
         // Nesse momento só atualizamos a tabela de reviews.
@@ -433,6 +450,7 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     }
 }
 
+// MARK: - Extension for reason for login
 extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {

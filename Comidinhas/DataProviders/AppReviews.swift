@@ -142,7 +142,6 @@ class AppReviews {
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
                     let review = Review.init(firestoreData: document.data())
-                    review.comment = "Do usuário:" + review.comment
                     reviewsAtualizadas.append(review)
                 }
             }
