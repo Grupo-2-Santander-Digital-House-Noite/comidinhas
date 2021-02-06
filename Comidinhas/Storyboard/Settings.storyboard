@@ -11,7 +11,7 @@
         <!--Settings-->
         <scene sceneID="idP-Rb-eJS">
             <objects>
-                <viewController title="Settings" id="bSQ-uD-WUB" customClass="SettingsVC" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="bSQ-uD-WUB" customClass="SettingsViewControler" customModule="Comidinhas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZIV-QT-IoI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,7 +322,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="P3J-cN-9jc"/>
                     <connections>
-                        <outlet property="bntCancel" destination="Bks-o7-77O" id="CSB-qi-DpJ"/>
+                        <outlet property="bntCancel" destination="Bks-o7-77O" id="8Hw-Up-LmS"/>
                         <outlet property="bntLogin" destination="vsB-IT-dAY" id="5Sn-bu-Kx6"/>
                         <outlet property="bntSignup" destination="TMb-3c-jJb" id="0BI-My-kow"/>
                         <outlet property="btnEmailChange" destination="pEp-Kf-zki" id="v4l-34-dbM"/>

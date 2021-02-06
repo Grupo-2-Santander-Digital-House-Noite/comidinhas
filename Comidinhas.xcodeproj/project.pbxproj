@@ -46,6 +46,7 @@
 		1D8B2074255B74F90068854F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8B2073255B74F90068854F /* Search.storyboard */; };
 		1D8B2079255B76B00068854F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2078255B76B00068854F /* SearchVC.swift */; };
 		282FB9889C80FC3D03A87E93 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */; };
+		541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C469B25CF275E00887982 /* SettingsViewControler.swift */; };
 		542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */; };
 		542AC63525C7631600CDA8C6 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC63425C7631600CDA8C6 /* UITests.swift */; };
 		5490B467257DC363009AE84C /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490B466257DC363009AE84C /* ResetPasswordVC.swift */; };
@@ -210,6 +211,7 @@
 		1D8B2073255B74F90068854F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		1D8B2078255B76B00068854F /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.release.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.release.xcconfig"; sourceTree = "<group>"; };
+		541C469B25CF275E00887982 /* SettingsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControler.swift; sourceTree = "<group>"; };
 		542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVCTest.swift; sourceTree = "<group>"; };
 		542AC63425C7631600CDA8C6 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		5433AD5225C0C5A900CCB50D /* SettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTests.swift; sourceTree = "<group>"; };
@@ -845,6 +847,7 @@
 			children = (
 				54E106C4256C8C780084A1E9 /* Settings.swift */,
 				E53E92A32540A3A50007C559 /* SettingsVC.swift */,
+				541C469B25CF275E00887982 /* SettingsViewControler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1153,6 +1156,7 @@
 				E54CE671258CE40B00B4FFAF /* LoadingView.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
 				E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */,
+				541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
 				BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */,
 				1D8B2064255B74B90068854F /* IQUIViewController+Additions.swift in Sources */,
