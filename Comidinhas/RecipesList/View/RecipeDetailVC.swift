@@ -16,18 +16,17 @@ class RecipeDetailVC: UIViewController {
     let SEGUE_ID_ALL_REVIEWS_VC = "AllReviewsVC"
     let SEGUE_ID_WRITE_REVIEW_VC = "WriteReviewVC"
     
+    // MARK: - Internal State
     var reviews: Reviews = []
     var reviewsLoadingState: ReviewsLoadingState = .Loading
     var recipeReviewMeta: RecipeReviewMetadata? = nil
     var recipeReviewMetaState: RecipeReviewMetadataLoadingState = .Loading
+    var receita: Recipe?
     
-    // MARK: IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var detalheReceitaView: UIView!
-
     @IBOutlet weak var recipeMetaView: RecipeMetadataView!
     @IBOutlet weak var recipeDetailTableView: UITableView!
-
-    var receita: Recipe?
 
 
     // MARK: configTableView e configDetalhes
@@ -110,7 +109,10 @@ class RecipeDetailVC: UIViewController {
             // passa dados ao Destination do WRITE REVIEWS
             let vc: WriteReviewVC? = segue.destination as? WriteReviewVC
             vc?.delegate = self
-            vc?.configureWith(recipe: self.receita)
+            
+            var userReview: Review? = sender as? Review
+            
+            vc?.configureWith(recipe: self.receita, review: userReview)
             break
         default:
             // Faz nada
@@ -383,6 +385,12 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
             cell?.delegate = self
             cell?.viewNeedLoggedUserDelegate = self
+            if let userId = AppUserManager.shared.loggedUser?.uid,
+                let userReview = self.reviews.filter({ (review) -> Bool in
+                    return review.userId == userId
+                }).first {
+                cell?.setupWithReview(review: userReview)
+            }
             return cell ?? UITableViewCell()
         }
 
@@ -418,6 +426,10 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
+    }
+    
+    func tappedUpdateReview(review: Review) {
+        self.performSegue(withIdentifier: "WriteReviewVC", sender: review)
     }
 }
 

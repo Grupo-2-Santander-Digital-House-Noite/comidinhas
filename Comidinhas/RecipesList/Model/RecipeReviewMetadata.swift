@@ -82,8 +82,12 @@ class RecipeReviewMetadata {
         return data
     }
     
-    func addReview(_ review: Review) -> Void {
-        self._count = self.reviewCount + 1
+    func addReview(_ review: Review, oldRating: Int? = nil) -> Void {
+        if let oldRating = oldRating {
+            self._sum = self._sum - oldRating
+        } else {
+            self._count = self.reviewCount + 1
+        }
         self._sum = self.reviewRatingSum + review.rating
     }
     

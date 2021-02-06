@@ -14,14 +14,13 @@ protocol WriteReviewVCDelegate: AnyObject {
 
 class WriteReviewVC: UIViewController, UITextFieldDelegate {
     
+    // MARK: - Internal State
     var delegate: WriteReviewVCDelegate?
     var review: Review?
     private var recipe: Recipe?
     
-    
-    // IBOutlet View de Detalhes
+    // MARK: - IBOutlets
     @IBOutlet private weak var recipeMeta: RecipeMetadataView!
-    // IBOutlet View de Avaliação
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var postReviewButton: UIButton!
@@ -99,13 +98,21 @@ class WriteReviewVC: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Setup Method
-    func configureWith(recipe: Recipe?) {
+    func configureWith(recipe: Recipe?, review: Review?) {
         self.recipe = recipe
+        self.review = review
     }
     
     private func setup() {
         self.recipeMeta.configureViewWith(recipe: self.recipe)
         self.recipeMeta.loggedUserNeedDelegate = self
+        
+        if let review = self.review {
+            self.postReviewButton.setTitle("Update", for: .normal)
+            self.reviewTextField.text = review.comment
+            self.starsLabel.text = review.ratingStars
+        }
+        
     }
 }
 
