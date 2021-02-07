@@ -26,7 +26,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bks-o7-77O">
-                                                        <rect key="frame" x="82" y="402" width="250" height="40"/>
+                                                        <rect key="frame" x="82" y="409" width="250" height="40"/>
                                                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="IdB-D6-hos"/>
@@ -41,13 +41,13 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-cp-1dS">
-                                                        <rect key="frame" x="20" y="208.5" width="374" height="21.5"/>
+                                                        <rect key="frame" x="20" y="219.5" width="374" height="21.5"/>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                                                         <color key="textColor" red="0.8603240848" green="0.34735438229999999" blue="0.24825018639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdM-mD-F6c">
-                                                        <rect key="frame" x="82" y="148.5" width="250" height="40"/>
+                                                        <rect key="frame" x="82" y="161.5" width="250" height="40"/>
                                                         <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="3Go-Ln-es3"/>
@@ -61,8 +61,8 @@
                                                             <action selector="btnLogout:" destination="bSQ-uD-WUB" eventType="touchUpInside" id="yiA-l0-vpu"/>
                                                         </connections>
                                                     </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Fgn-N9-0zO">
-                                                        <rect key="frame" x="20" y="256" width="329" height="126"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fgn-N9-0zO">
+                                                        <rect key="frame" x="20" y="267" width="329" height="122"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data Change" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fga-Qd-dzN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="34"/>
@@ -71,13 +71,13 @@
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKs-HL-9pu">
-                                                                <rect key="frame" x="0.0" y="46" width="329" height="34"/>
+                                                                <rect key="frame" x="0.0" y="44" width="329" height="34"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repet Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m56-pX-rki">
-                                                                <rect key="frame" x="0.0" y="92" width="329" height="34"/>
+                                                                <rect key="frame" x="0.0" y="88" width="329" height="34"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -85,7 +85,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="dZT-wG-5F8">
-                                                        <rect key="frame" x="364" y="256" width="30" height="128"/>
+                                                        <rect key="frame" x="364" y="267" width="30" height="128"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJu-7P-nAv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -134,17 +134,17 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0NM-AD-xJw">
-                                                        <rect key="frame" x="20" y="25" width="20" height="98"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="0NM-AD-xJw">
+                                                        <rect key="frame" x="20" y="25" width="20" height="102"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="h80-Ay-VrZ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="IvX-3l-iKo">
-                                                                <rect key="frame" x="0.0" y="38" width="20" height="22"/>
+                                                                <rect key="frame" x="0.0" y="40" width="20" height="22"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="6TQ-zj-WVr">
-                                                                <rect key="frame" x="0.0" y="76" width="20" height="22"/>
+                                                                <rect key="frame" x="0.0" y="80" width="20" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="2PV-F5-muK"/>
                                                                     <constraint firstAttribute="width" constant="20" id="uUd-YR-xTz"/>
@@ -153,8 +153,8 @@
                                                         </subviews>
                                                         <color key="tintColor" red="0.80392156859999997" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-4H-hbG">
-                                                        <rect key="frame" x="50" y="22" width="299" height="101.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-4H-hbG">
+                                                        <rect key="frame" x="50" y="22" width="299" height="111.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fullname" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdI-Ya-fxJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="24.5"/>
@@ -163,13 +163,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htw-eZ-OEE">
-                                                                <rect key="frame" x="0.0" y="38.5" width="299" height="24.5"/>
+                                                                <rect key="frame" x="0.0" y="43.5" width="299" height="24.5"/>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBA-D2-dar">
-                                                                <rect key="frame" x="0.0" y="77" width="299" height="24.5"/>
+                                                                <rect key="frame" x="0.0" y="87" width="299" height="24.5"/>
                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -177,11 +177,11 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="doZ-w8-pWO">
-                                                        <rect key="frame" x="354" y="20" width="60" height="108.5"/>
+                                                        <rect key="frame" x="354" y="20" width="60" height="121.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TG-t3-Xd9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="25.5"/>
-                                                                <state key="normal" image="pencil.circle" catalog="system">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <state key="normal" image="pencil" catalog="system">
                                                                     <color key="titleColor" red="0.68353027109999998" green="0.27541744709999999" blue="0.19856652620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
@@ -189,15 +189,15 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKt-WV-0GU">
-                                                                <rect key="frame" x="0.0" y="41.5" width="60" height="25.5"/>
-                                                                <state key="normal" image="pencil.circle" catalog="system"/>
+                                                                <rect key="frame" x="0.0" y="46" width="60" height="29.5"/>
+                                                                <state key="normal" image="pencil" catalog="system"/>
                                                                 <connections>
                                                                     <action selector="buttonEmail:" destination="bSQ-uD-WUB" eventType="touchUpInside" id="8Av-MH-jGG"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBg-cO-AIg">
-                                                                <rect key="frame" x="0.0" y="83" width="60" height="25.5"/>
-                                                                <state key="normal" image="pencil.circle" catalog="system"/>
+                                                                <rect key="frame" x="0.0" y="91.5" width="60" height="30"/>
+                                                                <state key="normal" image="pencil" catalog="system"/>
                                                                 <connections>
                                                                     <action selector="buttonPassword:" destination="bSQ-uD-WUB" eventType="touchUpInside" id="TPL-l9-DNw"/>
                                                                 </connections>
@@ -218,9 +218,9 @@
                                                     <constraint firstItem="dHu-4H-hbG" firstAttribute="top" secondItem="Rfz-qR-KMH" secondAttribute="top" constant="22" id="E3V-E3-ScA"/>
                                                     <constraint firstItem="dHu-4H-hbG" firstAttribute="leading" secondItem="0NM-AD-xJw" secondAttribute="trailing" constant="10" id="Jld-B2-5Oj"/>
                                                     <constraint firstItem="dZT-wG-5F8" firstAttribute="leading" secondItem="Fgn-N9-0zO" secondAttribute="trailing" constant="15" id="LSb-QD-p33"/>
-                                                    <constraint firstItem="2y0-cp-1dS" firstAttribute="top" secondItem="vdM-mD-F6c" secondAttribute="bottom" constant="20" id="Tc6-PM-eXN"/>
+                                                    <constraint firstItem="2y0-cp-1dS" firstAttribute="top" secondItem="vdM-mD-F6c" secondAttribute="bottom" constant="18" id="Tc6-PM-eXN"/>
                                                     <constraint firstItem="dHu-4H-hbG" firstAttribute="top" secondItem="Rfz-qR-KMH" secondAttribute="top" constant="22" id="WAS-mI-xaI"/>
-                                                    <constraint firstItem="vdM-mD-F6c" firstAttribute="top" secondItem="dHu-4H-hbG" secondAttribute="bottom" constant="25" id="WHX-Ah-7dB"/>
+                                                    <constraint firstItem="vdM-mD-F6c" firstAttribute="top" secondItem="dHu-4H-hbG" secondAttribute="bottom" constant="28" id="WHX-Ah-7dB"/>
                                                     <constraint firstItem="Fgn-N9-0zO" firstAttribute="top" secondItem="2y0-cp-1dS" secondAttribute="bottom" constant="26" id="X6B-l7-V2B"/>
                                                     <constraint firstAttribute="trailing" secondItem="doZ-w8-pWO" secondAttribute="trailing" id="XRn-K3-4hZ"/>
                                                     <constraint firstItem="vdM-mD-F6c" firstAttribute="centerX" secondItem="Rfz-qR-KMH" secondAttribute="centerX" id="b64-ms-9Cg"/>
@@ -800,7 +800,7 @@
         <image name="email" width="50" height="50"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="password" width="50" height="50"/>
-        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="user" width="50" height="50"/>
     </resources>
 </document>
