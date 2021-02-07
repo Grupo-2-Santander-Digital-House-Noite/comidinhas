@@ -38,60 +38,17 @@ class SettingsViewControler: BaseViewController {
     
     var email = ""{
         didSet{
-            //dois DispatchQueue.main.async?? incognita
-            DispatchQueue.main.async {
-                self.hideTextFields()
-                DispatchQueue.main.async {
-                    self.dataChangeTextField.isHidden = false
-                    self.passwordTextField.isHidden = false
-                    self.btnEmailChange.isHidden = false
-                    self.bntCancel.isHidden = false
-                    self.dataChangeTextField.isSecureTextEntry = false
-                    self.dataChangeTextField.placeholder = "Change email"
-                    self.dataChangeTextField.text = ""
-                    self.passwordTextField.placeholder = "Confirm with your password"
-                    self.passwordTextField.text = ""
-                    self.dataChangeTextField.becomeFirstResponder()
-                }
-                
-            }
-            
+            self.setupEmail()
         }
-        
-      
     }
     var name = ""{
         didSet {
-            self.hideTextFields()
-            DispatchQueue.main.async {
-                self.dataChangeTextField.isHidden = false
-                self.btnFullnameChange.isHidden = false
-                self.bntCancel.isHidden = false
-                self.dataChangeTextField.isSecureTextEntry = false
-                self.dataChangeTextField.placeholder = "Change fullname"
-                self.dataChangeTextField.text = ""
-                self.dataChangeTextField.becomeFirstResponder()
-            }
+            self.setupName()
         }
     }
     var password = "" {
         didSet {
-            self.hideTextFields()
-            DispatchQueue.main.async {
-                self.dataChangeTextField.isHidden = false
-                self.passwordTextField.isHidden = false
-                self.repeatPasswordTextField.isHidden = false
-                self.btnPasswordChange.isHidden = false
-                self.bntCancel.isHidden = false
-                self.dataChangeTextField.isSecureTextEntry = true
-                self.dataChangeTextField.placeholder = "Currente password"
-                self.dataChangeTextField.text = ""
-                self.passwordTextField.placeholder = "New password"
-                self.passwordTextField.text = ""
-                self.repeatPasswordTextField.placeholder = "Repeat new password"
-                self.repeatPasswordTextField.text = ""
-                self.dataChangeTextField.becomeFirstResponder()
-            }
+            self.setupPassword()
         }
     }
     // MARK: viewDidLoad
@@ -106,9 +63,55 @@ class SettingsViewControler: BaseViewController {
         self.dataChangeTextField.delegate = self
         self.passwordTextField.delegate = self
         self.repeatPasswordTextField.delegate = self
-       
     }
-
+    func setupEmail() {
+        //dois DispatchQueue.main.async?? incognita
+        DispatchQueue.main.async {
+            self.hideTextFields()
+            DispatchQueue.main.async {
+                self.dataChangeTextField.isHidden = false
+                self.passwordTextField.isHidden = false
+                self.btnEmailChange.isHidden = false
+                self.bntCancel.isHidden = false
+                self.dataChangeTextField.isSecureTextEntry = false
+                self.dataChangeTextField.placeholder = "Change email"
+                self.dataChangeTextField.text = ""
+                self.passwordTextField.placeholder = "Confirm with your password"
+                self.passwordTextField.text = ""
+                self.dataChangeTextField.becomeFirstResponder()
+            }
+        }
+   }
+    func setupName() {
+        DispatchQueue.main.async {
+            self.hideTextFields()
+            self.dataChangeTextField.isHidden = false
+            self.btnFullnameChange.isHidden = false
+            self.bntCancel.isHidden = false
+            self.dataChangeTextField.isSecureTextEntry = false
+            self.dataChangeTextField.placeholder = "Change fullname"
+            self.dataChangeTextField.text = ""
+            self.dataChangeTextField.becomeFirstResponder()
+        }
+    }
+    func setupPassword(){
+        self.hideTextFields()
+        DispatchQueue.main.async {
+            self.dataChangeTextField.isHidden = false
+            self.passwordTextField.isHidden = false
+            self.repeatPasswordTextField.isHidden = false
+            self.btnPasswordChange.isHidden = false
+            self.bntCancel.isHidden = false
+            self.dataChangeTextField.isSecureTextEntry = true
+            self.dataChangeTextField.placeholder = "Currente password"
+            self.dataChangeTextField.text = ""
+            self.passwordTextField.placeholder = "New password"
+            self.passwordTextField.text = ""
+            self.repeatPasswordTextField.placeholder = "Repeat new password"
+            self.repeatPasswordTextField.text = ""
+            self.dataChangeTextField.becomeFirstResponder()
+        }
+    }
     // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configView() {
         controler.confButton(button: bntLogin)
@@ -141,17 +144,13 @@ class SettingsViewControler: BaseViewController {
     }
     
     private func hideTextFields() {
-       
             self.dataChangeTextField.isHidden = true
-           
             self.passwordTextField.isHidden = true
             self.repeatPasswordTextField.isHidden = true
             self.btnFullnameChange.isHidden = true
             self.btnEmailChange.isHidden = true
             self.btnPasswordChange.isHidden = true
             self.bntCancel.isHidden = true
-        
-       
     }
     
     // MARK: IBAction
@@ -188,14 +187,11 @@ class SettingsViewControler: BaseViewController {
         
         self.view.endEditing(true)
     }
-    
-    
-    
+ 
     @IBAction func buttonFullname(_ sender: Any) {
         self.name.append(name)
     }
-    
-    
+  
     @IBAction func buttonEmail(_ sender: Any) {
         self.email.append(email)
 

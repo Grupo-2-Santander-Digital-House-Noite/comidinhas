@@ -59,7 +59,6 @@ class SettingsAuthVC: BaseViewController {
         
         self.lbErroMsg.isHidden = true
         
-        
         textFieldSenha.rightViewMode = .unlessEditing
         
         bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
@@ -77,14 +76,12 @@ class SettingsAuthVC: BaseViewController {
     func validField(){
         let emailConf = controller.isValidEmail(email: self.textFieldEmail.text!)
         
-        
         if self.textFieldSenha.text?.isEmpty == false {
             self.textFieldSenha.layer.borderWidth = 0
             self.textFieldSenha.isHidden = false
             } else {
                 controller.setupTF(textField: textFieldSenha)
                 self.textFieldSenha.placeholder = "Password - Required"
-//                self.editPassword.isSecureTextEntry = false
                 self.lbErroMsg.isHidden = false
         }
         
