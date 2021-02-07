@@ -16,18 +16,17 @@ class RecipeDetailVC: UIViewController {
     let SEGUE_ID_ALL_REVIEWS_VC = "AllReviewsVC"
     let SEGUE_ID_WRITE_REVIEW_VC = "WriteReviewVC"
     
+    // MARK: - Internal State
     var reviews: Reviews = []
     var reviewsLoadingState: ReviewsLoadingState = .Loading
     var recipeReviewMeta: RecipeReviewMetadata? = nil
     var recipeReviewMetaState: RecipeReviewMetadataLoadingState = .Loading
+    var receita: Recipe?
     
-    // MARK: IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var detalheReceitaView: UIView!
-
     @IBOutlet weak var recipeMetaView: RecipeMetadataView!
     @IBOutlet weak var recipeDetailTableView: UITableView!
-
-    var receita: Recipe?
 
 
     // MARK: configTableView e configDetalhes
@@ -57,17 +56,32 @@ class RecipeDetailVC: UIViewController {
         self.recipeMetaView.loggedUserNeedDelegate = self
     }
 
-    // MARK: viewDidLoad
+    // MARK: - Ciclo de vida e registro de notificações
     override func viewDidLoad() {
         super.viewDidLoad()
         self.recipeDetailTableView.allowsSelection = false 
         self.configDetalhes(self.receita)
         self.configTableView()
+        self.configureNotifications();
         
         AppReviews.shared.loadReviewsForRecipeWith(id: self.receita?.id ?? 0, reviewsToLoad: 5, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
         AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: self.receita?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func configureNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: AppUserManager.userLoggedInNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: AppUserManager.userLoggedOutNotification, object: nil)
+    }
+    
+    @objc private func reloadData() {
+        self.recipeDetailTableView.reloadData()
+    }
+    
+    // MARK: - Handlers das reviews (Mover para um controller)
     func loadedReviews(reviews: Reviews) {
         self.reviews = reviews
         self.reviewsLoadingState = reviews.count > 0 ? ReviewsLoadingState.Loaded : ReviewsLoadingState.EmptyLoaded
@@ -110,7 +124,10 @@ class RecipeDetailVC: UIViewController {
             // passa dados ao Destination do WRITE REVIEWS
             let vc: WriteReviewVC? = segue.destination as? WriteReviewVC
             vc?.delegate = self
-            vc?.configureWith(recipe: self.receita)
+            
+            var userReview: Review? = sender as? Review
+            
+            vc?.configureWith(recipe: self.receita, review: userReview)
             break
         default:
             // Faz nada
@@ -121,10 +138,11 @@ class RecipeDetailVC: UIViewController {
 
 
 
-// MARK: extension Delegate, DataSouce
+// MARK: - Extension: TableView Delegate e DataSouce
 
 extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: Helpers for sections
     var numSectionCabecalho: Int {
         get { return 1 }
     }
@@ -383,6 +401,12 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
             let cell: SeeMoreAndAvaliationCell? = tableView.dequeueReusableCell(withIdentifier: "SeeMoreAndAvaliationCell", for: indexPath) as? SeeMoreAndAvaliationCell
             cell?.delegate = self
             cell?.viewNeedLoggedUserDelegate = self
+            if let userId = AppUserManager.shared.loggedUser?.uid,
+                let userReview = self.reviews.filter({ (review) -> Bool in
+                    return review.userId == userId
+                }).first {
+                cell?.setupWithReview(review: userReview)
+            }
             return cell ?? UITableViewCell()
         }
 
@@ -399,7 +423,7 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-// MARK: extension Delegate for Review Related Stuff
+// MARK: - Extension Delegate for Review Related Stuff
 extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegate {
     func savedReview(_ review: Review) {
         // Nesse momento só atualizamos a tabela de reviews.
@@ -419,8 +443,13 @@ extension RecipeDetailVC: SeeMoreAndAvaliationCellDelegate, WriteReviewVCDelegat
     func tappedWriteReview() {
         self.performSegue(withIdentifier: "WriteReviewVC", sender: "")
     }
+    
+    func tappedUpdateReview(review: Review) {
+        self.performSegue(withIdentifier: "WriteReviewVC", sender: review)
+    }
 }
 
+// MARK: - Extension for reason for login
 extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
