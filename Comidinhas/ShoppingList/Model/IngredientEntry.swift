@@ -29,6 +29,7 @@ class IngredientEntry {
         self.quantity = quantity
         self.measureUnity = measureUnity
         self.marked = marked
+        self.addShoppingListDelegate()
     }
     
     init(with ingredient: Ingredients?) {
@@ -36,6 +37,15 @@ class IngredientEntry {
         self.quantity = ingredient?.quantidade ?? 1
         self.measureUnity = ingredient?.unidade ?? "Unit"
         self.marked = .DESMARCADO
+        self.addShoppingListDelegate()
+    }
+    
+    func addShoppingListDelegate() {
+        self.delegates.append(ShoppingList.shared)
+    }
+    
+    deinit {
+        self.delegates = []
     }
     
     func toggle() {
