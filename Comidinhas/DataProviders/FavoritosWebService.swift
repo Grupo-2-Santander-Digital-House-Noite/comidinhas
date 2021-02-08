@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class FavoritosWebService {
+public class FavoritosWebService {
     
     private var db = Firestore.firestore()
     private var user = Auth.auth()

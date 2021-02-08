@@ -16,6 +16,10 @@ target 'Comidinhas' do
   target 'ComidinhasTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'SnapshotTesting', '~> 1.8'
+    pod  'Nimble-Snapshots', '~> 9.1'
   end
 
   target 'ComidinhasUITests' do

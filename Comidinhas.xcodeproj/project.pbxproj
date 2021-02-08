@@ -46,8 +46,12 @@
 		1D8B2074255B74F90068854F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8B2073255B74F90068854F /* Search.storyboard */; };
 		1D8B2079255B76B00068854F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2078255B76B00068854F /* SearchVC.swift */; };
 		282FB9889C80FC3D03A87E93 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */; };
+		541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C469B25CF275E00887982 /* SettingsViewControler.swift */; };
+		542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */; };
+		542AC63525C7631600CDA8C6 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC63425C7631600CDA8C6 /* UITests.swift */; };
 		5490B467257DC363009AE84C /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490B466257DC363009AE84C /* ResetPasswordVC.swift */; };
 		54E106C5256C8C780084A1E9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E106C4256C8C780084A1E9 /* Settings.swift */; };
+		54F36DBD25C0CA2E00CCE239 /* SettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433AD5225C0C5A900CCB50D /* SettingTests.swift */; };
 		BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */; };
 		BC09E0C82564C81800796104 /* RecipeMetadataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC09E0C72564C81800796104 /* RecipeMetadataView.xib */; };
 		BC09E0CD2564C8E200796104 /* CustomViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */; };
@@ -99,7 +103,6 @@
 		E53E928D2540A2030007C559 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53E928C2540A2030007C559 /* Settings.storyboard */; };
 		E53E92952540A3780007C559 /* RecipesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92942540A3780007C559 /* RecipesVC.swift */; };
 		E53E929A2540A3880007C559 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92992540A3880007C559 /* FavoritesVC.swift */; };
-		E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92A32540A3A50007C559 /* SettingsVC.swift */; };
 		E53E92B22540AAD60007C559 /* RecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */; };
 		E53E92BB2540AC170007C559 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92BA2540AC170007C559 /* Recipe.swift */; };
 		E53E92CD2540ACE70007C559 /* RecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53E92CB2540ACE70007C559 /* RecipesCell.swift */; };
@@ -208,6 +211,10 @@
 		1D8B2073255B74F90068854F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		1D8B2078255B76B00068854F /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.release.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.release.xcconfig"; sourceTree = "<group>"; };
+		541C469B25CF275E00887982 /* SettingsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControler.swift; sourceTree = "<group>"; };
+		542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVCTest.swift; sourceTree = "<group>"; };
+		542AC63425C7631600CDA8C6 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		5433AD5225C0C5A900CCB50D /* SettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTests.swift; sourceTree = "<group>"; };
 		5490B466257DC363009AE84C /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		54E106C4256C8C780084A1E9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Comidinhas/Assets.xcassets/user.imageset/Settings.swift; sourceTree = SOURCE_ROOT; };
 		5C0F1D6D1CD43168604516AA /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; path = "Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,7 +278,6 @@
 		E53E928C2540A2030007C559 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		E53E92942540A3780007C559 /* RecipesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesVC.swift; sourceTree = "<group>"; };
 		E53E92992540A3880007C559 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
-		E53E92A32540A3A50007C559 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVC.swift; sourceTree = "<group>"; };
 		E53E92BA2540AC170007C559 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E53E92CB2540ACE70007C559 /* RecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCell.swift; sourceTree = "<group>"; };
@@ -521,7 +527,10 @@
 			isa = PBXGroup;
 			children = (
 				BC5E8897253FA64D005345EE /* ComidinhasTests.swift */,
+				5433AD5225C0C5A900CCB50D /* SettingTests.swift */,
+				542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */,
 				BC5E8899253FA64D005345EE /* Info.plist */,
+				542AC63425C7631600CDA8C6 /* UITests.swift */,
 			);
 			path = ComidinhasTests;
 			sourceTree = "<group>";
@@ -825,7 +834,6 @@
 		E55A1113255EEB0E00E9FAD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E53E92A32540A3A50007C559 /* SettingsVC.swift */,
 				0178F71F2559806B00D59D18 /* SettingsCadVC.swift */,
 				0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */,
 				0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */,
@@ -839,6 +847,7 @@
 			isa = PBXGroup;
 			children = (
 				54E106C4256C8C780084A1E9 /* Settings.swift */,
+				541C469B25CF275E00887982 /* SettingsViewControler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -883,6 +892,7 @@
 				BC5E888F253FA64D005345EE /* Sources */,
 				BC5E8890253FA64D005345EE /* Frameworks */,
 				BC5E8891253FA64D005345EE /* Resources */,
+				56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1051,6 +1061,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		669AC70FBF905F03DEA8E754 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1129,6 +1156,7 @@
 				E54CE671258CE40B00B4FFAF /* LoadingView.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
 				E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */,
+				541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
 				BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */,
 				1D8B2064255B74B90068854F /* IQUIViewController+Additions.swift in Sources */,
@@ -1179,7 +1207,6 @@
 				E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */,
 				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
 				1D8B2052255B74B90068854F /* IQTextView.swift in Sources */,
-				E53E92A42540A3A50007C559 /* SettingsVC.swift in Sources */,
 				E54DB5F4258150270007E5B2 /* ResetPasswordViewController.swift in Sources */,
 				E563472A25420A14002B77FF /* Favorites.swift in Sources */,
 				1D53E4E32582CF6200D49313 /* IngredientsFilter.swift in Sources */,
@@ -1230,6 +1257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */,
+				542AC63525C7631600CDA8C6 /* UITests.swift in Sources */,
+				54F36DBD25C0CA2E00CCE239 /* SettingTests.swift in Sources */,
 				BC5E8898253FA64D005345EE /* ComidinhasTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1406,10 +1436,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.grupo2.Comidinhas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Comidinhas;
+				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
@@ -1426,10 +1459,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.grupo2.Comidinhas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Comidinhas;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};

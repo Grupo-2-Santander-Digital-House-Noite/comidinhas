@@ -25,11 +25,8 @@ class RecipesWorker: GenericWorker {
     }
     
     func getRecipesWithUrl(urlTeste: String, completion: @escaping completion<RecipeResults?>) {
-        
         let session: URLSession = URLSession.shared
-        
         var teste = ""
-        
         if urlTeste == "https://api.spoonacular.com/recipes/complexSearch?"
         {
             teste = "\(urlTeste)addRecipeInformation=true&instructionsRequired=true&number=5&\(apiKey)&fillIngredients=true".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
