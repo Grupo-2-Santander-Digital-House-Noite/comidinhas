@@ -11,7 +11,6 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
 
     @IBOutlet weak var shoppingListTableView: UITableView!
     @IBOutlet weak var shoppingListClearButton: UIBarButtonItem!
-//    @IBOutlet weak var searchBarButtonClick: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +36,6 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.shoppingListTableView.backgroundView = .none
         self.shoppingListTableView.separatorStyle = .none
     }
-//
-//    @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
-//        let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
-//        newViewController.modalPresentationStyle = .overFullScreen
-//        newViewController.delegate = self
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
     
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         ShoppingList.shared.clear()
@@ -77,11 +68,6 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.updateView()
     }
     
-    
-    /*
-     ========TESTE LOGIN========
-     */
-    
     @IBAction func tappedSettingsTestButton(_ sender: UIButton) {
         performSegue(withIdentifier: "EntrarVC", sender: nil)
     }
@@ -109,7 +95,7 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ShoppingList.shared.getAll().count > 0 ? 2 : 1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,7 +103,7 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         
-        return section == 0 ? ShoppingList.shared.getDesmarcados().count : ShoppingList.shared.getMarcados().count
+        return ShoppingList.shared.getAll().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,7 +113,7 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         let shoppingItemCell: ShoppingListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListItemTableViewCell", for: indexPath) as? ShoppingListItemTableViewCell ?? ShoppingListItemTableViewCell()
-        let collection: [IngredientEntry] = indexPath.section == 0 ? ShoppingList.shared.getDesmarcados() : ShoppingList.shared.getMarcados()
+        let collection: [IngredientEntry] = ShoppingList.shared.getAll()
         shoppingItemCell.setupWith(ingredient: collection[indexPath.row])
         return shoppingItemCell
     }
@@ -140,9 +126,3 @@ extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-//extension ShoppingListVC: SearchVCDelegate {
-//    func returnTabBar() {
-//        self.tabBarController?.selectedIndex = 0
-//    }
-//}
