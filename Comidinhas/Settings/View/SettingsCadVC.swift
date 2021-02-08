@@ -42,8 +42,8 @@ class SettingsCadVC: BaseViewController {
     
     
     fileprivate func configButton() {
-        self.bntCreateAcc.layer.cornerRadius = 5
-       
+        controller.confButton(button: self.bntCreateAcc)
+     
     }
     
     fileprivate func configTextField() {
@@ -63,7 +63,6 @@ class SettingsCadVC: BaseViewController {
         
         bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         bnt.imageEdgeInsets = UIEdgeInsets(top: 5, left: -24, bottom: 5, right: 15)
-        //bnt.frame = CGRect(x: CGFloat(textFieldPassword.frame.size.width - 25), y: CGFloat(20), width: CGFloat(20), height: CGFloat(25))
         bnt.addTarget(self, action: #selector(self.bntPasswordShow), for: .touchUpInside)
         editPassword.rightView = bnt
         editPassword.rightViewMode = .always
@@ -73,6 +72,7 @@ class SettingsCadVC: BaseViewController {
 
     func validField(){
         let emailConf = controller.isValidEmail(email: self.editEmail.text!)
+        let cleanedPassword = editPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if self.editFullName.text?.isEmpty == true {
             self.editFullName.layer.borderColor = UIColor.red.cgColor
@@ -89,15 +89,13 @@ class SettingsCadVC: BaseViewController {
             self.editPassword.layer.borderWidth = 0
             self.editPassword.isHidden = false
             } else {
-                
                 self.editPassword.layer.borderColor = UIColor.red.cgColor
                 self.editPassword.layer.borderWidth = 1.0
                 self.editPassword.isHidden = false
-//                self.editPassword.isSecureTextEntry = false
-              self.editPassword.placeholder = "Password - Required"
+                self.editPassword.placeholder = "Password - Required"
                 self.lbErroMsg.isHidden = false
-        }
-        
+            
+            }
         if self.editEmail.text?.isEmpty == true {
             self.editEmail.layer.borderColor = UIColor.red.cgColor
             self.editEmail.layer.borderWidth = 1.0
@@ -117,9 +115,7 @@ class SettingsCadVC: BaseViewController {
             self.editEmail.placeholder = "E-mail - Syntax Incorrect"
             self.lbErroMsg.isHidden = false
         }
-        
-        
-        
+      
 
         if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
             let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
@@ -183,8 +179,6 @@ class SettingsCadVC: BaseViewController {
 }
 
 
-
-
 extension SettingsCadVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
@@ -214,46 +208,3 @@ extension UITextField {
 
 
 
-/*
- func validField(){
-     let emailConf = controller.isValidEmail(email: self.textFieldEmail.text!)
-     
-     
-     if self.textFieldPassword.text?.isEmpty == false {
-         self.textFieldPassword.layer.borderWidth = 0
-         self.lbValidacaoPassword.isHidden = true
-         } else {
-             
-             self.textFieldPassword.layer.borderColor = UIColor.red.cgColor
-             self.textFieldPassword.layer.borderWidth = 1.0
-             self.lbValidacaoPassword.isHidden = false
-             self.lbValidacaoPassword.text = "Password - Required"
-     }
-     
-     
-     if self.textFieldEmail.text?.isEmpty == true {
-         self.textFieldEmail.layer.borderColor = UIColor.red.cgColor
-         self.textFieldEmail.layer.borderWidth = 1.0
-         self.lbValidacaoEmail.isHidden = false
-         self.lbValidacaoEmail.text = "E-mail - Required"
-         return
-     } else if self.textFieldEmail.text?.isEmpty == false {
-         self.textFieldEmail.layer.borderWidth = 0
-     }
-     
-     //VALIDACAO DO CAMPO EMAIL
-     
-     if emailConf == true && self.textFieldEmail.text?.isEmpty == false {
-         
-         self.lbValidacaoEmail.isHidden = true
-         delegate?.logarClick()
-     } else {
-         
-         self.lbValidacaoEmail.isHidden = false
-         self.lbValidacaoEmail.text = "E-mail - Syntax Incorrect"
-         self.textFieldEmail.layer.borderColor = UIColor.red.cgColor
-         self.textFieldEmail.layer.borderWidth = 1.0
-     }
- }
-
- */

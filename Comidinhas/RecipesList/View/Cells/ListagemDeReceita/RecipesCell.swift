@@ -40,7 +40,12 @@ class RecipesCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        self.recipeImage.startLoadingAnimation()
+        recipeImage.image = nil
+        nameLabel.text = nil
+        timeLabel.text = nil
+        categoryLabel.text = nil
+        servingsLabel.text = nil
+        //self.recipeImage.startLoadingAnimation()
     }
     
     

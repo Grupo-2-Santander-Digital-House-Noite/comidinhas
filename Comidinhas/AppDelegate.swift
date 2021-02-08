@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = UIColor(red: 1.00, green: 0.73, blue: 0.36, alpha: 1.00)
         UITabBar.appearance().tintColor = UIColor(red: 0.80, green: 0.15, blue: 0.17, alpha: 1.00)
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         // Override point for customization after application launch.
         return true

@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsVC: BaseViewController {
 
+    let controler = Settings()
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -30,11 +31,15 @@ class SettingsVC: BaseViewController {
     @IBOutlet weak var viewYourData: UIView!
     @IBOutlet weak var viewlogin: UIView!
     
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTextField()
         self.configView()
+        self.btnEmailChange.isEnabled = true
+        dataChangeTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.btnEmailChange.isEnabled = true 
     }
     
     // MARK: CONFIGURACAO GERAL DOS TEXTFIELDS
@@ -46,11 +51,11 @@ class SettingsVC: BaseViewController {
 
     // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configView() {
-        self.bntLogin.layer.cornerRadius = 5
-        self.bntCancel.layer.cornerRadius = 5
-        self.bntSignup.layer.cornerRadius = 5
-        self.btnLogout.layer.cornerRadius = 5
-        
+        controler.confButton(button: bntLogin)
+        controler.confButton(button: bntCancel)
+        controler.confButton(button: btnLogout)
+        controler.confButton(button: bntSignup)
+
         self.errorMessageLabel.alpha = 0
         if !AppUserManager.shared.hasLoggedUser() {
             self.viewYourData.isHidden = true
@@ -88,6 +93,7 @@ class SettingsVC: BaseViewController {
     // MARK: IBAction
     @IBAction func btnSignUp(_ sender: Any) {
         performSegue(withIdentifier: "SettingsCadVC", sender: nil)
+       
     }
     
     
@@ -119,48 +125,70 @@ class SettingsVC: BaseViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func buttonFullname(_ sender: UIButton) {
+    
+    
+    @IBAction func buttonFullname(_ sender: Any) {
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.btnFullnameChange.isHidden = false
         self.bntCancel.isHidden = false
+        self.btnFullnameChange.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = false
         self.dataChangeTextField.placeholder = "Change fullname"
         self.dataChangeTextField.text = ""
+        
+        
+        
+        
         self.dataChangeTextField.becomeFirstResponder()
+        
     }
     
-   
+    
     @IBAction func buttonEmail(_ sender: Any) {
+        
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
-        self.btnEmailChange.isHidden = false
+        
         self.bntCancel.isHidden = false
+        self.btnEmailChange.isHidden = false
         self.dataChangeTextField.isSecureTextEntry = false
+        
         self.dataChangeTextField.placeholder = "Change email"
         self.dataChangeTextField.text = ""
         self.passwordTextField.placeholder = "Confirm with your password"
+        
         self.passwordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
+        
     }
     
+   
+    
     @IBAction func buttonPassword(_ sender: Any) {
+       
         self.hideTextFields()
         self.dataChangeTextField.isHidden = false
         self.passwordTextField.isHidden = false
+        
         self.repeatPasswordTextField.isHidden = false
         self.btnPasswordChange.isHidden = false
         self.bntCancel.isHidden = false
+        
         self.dataChangeTextField.isSecureTextEntry = true
         self.dataChangeTextField.placeholder = "Currente password"
         self.dataChangeTextField.text = ""
+        
         self.passwordTextField.placeholder = "New password"
         self.passwordTextField.text = ""
         self.repeatPasswordTextField.placeholder = "Repeat new password"
+        
         self.repeatPasswordTextField.text = ""
         self.dataChangeTextField.becomeFirstResponder()
-    }
+        
+        }
+    
     
     @IBAction func btnOkDataChange(_ sender: Any) {
         self.view.endEditing(true)
@@ -270,9 +298,6 @@ class SettingsVC: BaseViewController {
         } else if self.repeatPasswordTextField.text?.isEmpty == false {
             self.repeatPasswordTextField.layer.borderWidth = 0
         }
-//        if self.editEmailLogin.text?.isEmpty == false && self.editPasswordLogin.text?.isEmpty == false {
-//            self.performSegue(withIdentifier: "SettingsUpdVC", sender: nil)
-//        }
     }
 }
 
