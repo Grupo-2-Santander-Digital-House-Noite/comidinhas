@@ -11,7 +11,6 @@ protocol SettingsCadVCDelegate: class {
     func hideViewFromSignUp()
 }
 
-
 class SettingsCadVC: BaseViewController {
     
     @IBOutlet weak var lbErroMsg: UILabel!
@@ -75,48 +74,39 @@ class SettingsCadVC: BaseViewController {
         let cleanedPassword = editPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if self.editFullName.text?.isEmpty == true {
-            self.editFullName.layer.borderColor = UIColor.red.cgColor
-            self.editFullName.layer.borderWidth = 1.0
-            self.editFullName.isHidden = false
             self.editFullName.placeholder = "Full Name - Required"
-            self.lbErroMsg.isHidden = false
+            controller.setupTF(textField: editFullName)
 
         } else if self.editFullName.text?.isEmpty == false {
             self.editFullName.layer.borderWidth = 0
+            self.lbErroMsg.isHidden = false
         }
         
         if self.editPassword.text?.isEmpty == false {
             self.editPassword.layer.borderWidth = 0
             self.editPassword.isHidden = false
+            self.lbErroMsg.isHidden = false
             } else {
-                self.editPassword.layer.borderColor = UIColor.red.cgColor
-                self.editPassword.layer.borderWidth = 1.0
-                self.editPassword.isHidden = false
                 self.editPassword.placeholder = "Password - Required"
-                self.lbErroMsg.isHidden = false
+                controller.setupTF(textField: editPassword)
             
             }
         if self.editEmail.text?.isEmpty == true {
-            self.editEmail.layer.borderColor = UIColor.red.cgColor
-            self.editEmail.layer.borderWidth = 1.0
-            self.editEmail.isHidden = false
             self.editEmail.placeholder = "E-mail - Required"
-            self.lbErroMsg.isHidden = false
+            controller.setupTF(textField: editEmail)
             return
         } else if self.editEmail.text?.isEmpty == false {
             self.editEmail.layer.borderWidth = 0
+            self.lbErroMsg.isHidden = false
         }
         //VALIDACAO DO CAMPO EMAIL
         if emailConf == true && self.editEmail.text?.isEmpty == false {
             self.editEmail.isHidden = false
         } else {
-            self.editEmail.layer.borderColor = UIColor.red.cgColor
-            self.editEmail.layer.borderWidth = 1.0
-            self.editEmail.placeholder = "E-mail - Syntax Incorrect"
-            self.lbErroMsg.isHidden = false
+          self.editEmail.placeholder = "E-mail - Syntax Incorrect"
+            controller.setupTF(textField: editEmail)
         }
       
-
         if emailConf == false || self.editFullName.text?.isEmpty == true || self.editEmail.text?.isEmpty == true || self.editPassword.text?.isEmpty == true {
             let alert = UIAlertController(title: "Please", message: "Check the fiels entered", preferredStyle: .alert)
             let buttonOK = UIAlertAction(title: "OK", style: .default) {(success) in
@@ -127,7 +117,7 @@ class SettingsCadVC: BaseViewController {
         }
     }
 
-    @IBAction func bntCreateAcc(_ sender: UIButton) {
+    @IBAction func bntCreateAcc(_ sender: Any) {
         self.validField()
         
         guard let name = self.editFullName.text else {
@@ -160,8 +150,6 @@ class SettingsCadVC: BaseViewController {
             self.hideLoadingCooker()
             self.displayErrorAlertWith(title: "error", message: error.localizedDescription, completion: nil)
         }
-
-        
     }
     
     @IBAction func bntPasswordShow(_ sender: Any) {
@@ -174,10 +162,8 @@ class SettingsCadVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
-    
-    
+ 
 }
-
 
 extension SettingsCadVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
