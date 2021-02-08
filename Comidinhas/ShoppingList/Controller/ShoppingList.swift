@@ -6,12 +6,20 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
+
 
 class ShoppingList: ToggleIngredientMarkedDelegate {
     
-    private var shoppingList: [String: IngredientEntry]
+    public static let ListItemEntityName = "ListItem"
+    
     private var delegates: [ShoppingListDelegate]
     private static var instance: ShoppingList?
+    
+    // CoreData
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var list:[ListItem]?
     
     static var shared: ShoppingList {
         guard let _instance = self.instance else {
@@ -23,8 +31,22 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
     }
     
     private init() {
-        shoppingList = [:];
         delegates = []
+    }
+    
+    
+    /**
+        Transforma o atributo marked (Bool) recebido do CoreData no enum MARCADO ou DESMARCADO
+     */
+    func dataToState(rawValue:Bool) -> ShoppingListItemStateEnum {
+        return rawValue ? .MARCADO : .DESMARCADO
+    }
+    
+    /**
+     Transforma o enum MARCADO ou DESMARCADO em atributo marked (Bool) do CoreData
+     */
+    func stateToData(state: ShoppingListItemStateEnum) -> Bool {
+        return state == .MARCADO
     }
     
     /**
@@ -33,11 +55,26 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         - Parameter ingredient: Ingrediente sendo adicionado.
      */
     func add(ingredient: IngredientEntry) -> Void {
-        if(self.shoppingList.keys.contains(ingredient.name)) {
-            self.shoppingList[ingredient.name]?.quantity = (self.shoppingList[ingredient.name]?.quantity ?? 0) + ingredient.quantity
+        
+        // Verifica se existe.
+        if let item = self.getIngredientByName(name: ingredient.name) {
+        // Se existe aumenta a quantidade e passa para a comprar
+            item.quantity = item.quantity + ingredient.quantity
+            item.marked = false
         } else {
-            ingredient.subscribe(toggleDelegate: self)
-            self.shoppingList[ingredient.name] = ingredient
+        // Se não existe cria um novo.
+            let newingredient = ListItem(context: self.context)
+            newingredient.name = ingredient.name
+            newingredient.measureUnity = ingredient.measureUnity
+            newingredient.quantity = ingredient.quantity
+            newingredient.marked = false
+        }
+        
+        // Salva CoreData
+        do {
+            try self.context.save()
+        } catch {
+            print("Error saving item -> \(error)")
         }
         
         // Notifica os delegates da adição.
@@ -53,11 +90,18 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         - Parameter ingredient: Ingrediente a ser removido, usa o nome para determinar equidade.
      */
     func remove(ingredient: IngredientEntry) -> Void {
-        if(!self.shoppingList.keys.contains(ingredient.name)) {
-            return
+        
+        // Verifica se o ingrediente existe.
+        if let item = self.getIngredientByName(name: ingredient.name) {
+            // Se existir apaga o ingrediente.
+            self.context.delete(item)
         }
         
-        self.shoppingList.removeValue(forKey: ingredient.name)
+        do {
+            try self.context.save()
+        } catch {
+            print("Error: \(error)")
+        }
         
         self.delegates.forEach { (delegate) in
             delegate.didRemove(self, ingredient: ingredient)
@@ -68,7 +112,21 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         Remove todos os ingredientes.
      */
     func clear() {
-        self.shoppingList = [:]
+        // Limpando armazenamento da instancia.
+        self.list = []
+        // Limpando armazenamento do CoreData.
+        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: ShoppingList.ListItemEntityName)
+        let deleteRequest: NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("--- Erro ao tentar limpar o coredata ---")
+            print(error.localizedDescription)
+            print(error)
+        }
+        
         for delegate in self.delegates {
             delegate.didRemove(self, ingredient: IngredientEntry(named: "All", withAmount: 0, andMeasureUnity: "All"))
         }
@@ -79,34 +137,37 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         - Returns: Array de ingredientes cadastrados na lista.
      */
     func getAll() -> [IngredientEntry] {
-        return self.shoppingList.values.map { (ingredientEntry) -> IngredientEntry in
-            return ingredientEntry
-        }.sorted { (ingredientA, ingredientB) -> Bool in
-            ingredientA.name < ingredientB.name
+        // CoreData
+        do {
+            // Pego os ingredientes que estão na CoreData
+            let request = ListItem.fetchRequest() as NSFetchRequest<ListItem>
+            let sortName = NSSortDescriptor(key: "name", ascending: true)
+            let sortMarked = NSSortDescriptor(key: "marked", ascending: true)
+            request.sortDescriptors = [sortMarked, sortName]
+            self.list = try self.context.fetch(request)
+            
+            guard let listItems = self.list else { return [] }
+            
+            var ingredientEntries: [IngredientEntry] = []
+            for item in listItems {
+                let ingredientEntry: IngredientEntry = IngredientEntry(with: nil)
+                ingredientEntry.name = item.name ?? "No name"
+                ingredientEntry.quantity = item.quantity
+                ingredientEntry.measureUnity = item.measureUnity ?? "Unit"
+                ingredientEntry.marked = self.dataToState(rawValue: item.marked)
+                ingredientEntries.append(ingredientEntry)
+            }
+            return ingredientEntries
+            
+        } catch {
+            print("Error fetching the whole list from CoreData -> \(error)")
         }
+        return []
     }
     
-    /**
-        Obtem todos os ingredientes ainda marcados como comprados.
-        - Returns: Array de ingredientes marcados
-     */
-    func getMarcados() -> [IngredientEntry] {
-        return self.shoppingList.values.filter { (ingredient) -> Bool in
-            return ingredient.marked == ShoppingListItemStateEnum.MARCADO
-        }.sorted { (ingredientA, ingredientB) -> Bool in
-            ingredientA.name < ingredientB.name
-        }
-    }
-    
-    /**
-        Obtem todos os ingredientes ainda não marcados como comprados.
-        - Returns: Array de ingredientes desmarcados.
-     */
     func getDesmarcados() -> [IngredientEntry] {
-        return self.shoppingList.values.filter { (ingredient) -> Bool in
-            return ingredient.marked == ShoppingListItemStateEnum.DESMARCADO
-        }.sorted { (ingredientA, ingredientB) -> Bool in
-            ingredientA.name < ingredientB.name
+        return self.getAll().filter { (entry) -> Bool in
+            return entry.marked == .DESMARCADO
         }
     }
     
@@ -116,12 +177,20 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         - Parameter name: Nome do ingrediente sendo pesquisado.
         - Returns: Ingrediente se encontrado.
      */
-    func getIngredientByName(name: String) -> IngredientEntry? {
-        if(!self.shoppingList.keys.contains(name)) {
+    func getIngredientByName(name: String) -> ListItem? {
+        
+        let filter: NSPredicate = NSPredicate(format: "name == %@", name)
+        let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ShoppingList.ListItemEntityName)
+        request.predicate = filter
+        
+        do {
+            let items = try context.fetch(request) as? [ListItem]
+            let item = items?.first
+            return item
+        } catch {
             return nil
         }
         
-        return self.shoppingList[name]
     }
     
     func subscribe(delegate: ShoppingListDelegate) -> Void {
@@ -136,6 +205,16 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
     
     // MARK: ToggleIngredientMarkedDelegate Methods
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {
+        
+        if let ingredient = self.getIngredientByName(name: ingredientEntry.name) {
+            ingredient.marked = marked == ShoppingListItemStateEnum.MARCADO
+            do {
+                try self.context.save()
+            } catch {
+                print("Erro ao salvar")
+            }
+        }
+        
         if marked == .DESMARCADO {
             for delegate in self.delegates {
                 delegate.didUncheck(self, ingredient: ingredientEntry)

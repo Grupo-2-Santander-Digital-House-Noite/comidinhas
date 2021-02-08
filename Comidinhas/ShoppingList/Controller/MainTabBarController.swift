@@ -39,6 +39,10 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.updateShoppingListBadge()
+    }
+    
     private func getShoppingListTabBarItem() -> UITabBarItem? {
         if let items = self.tabBar.items {
             for item in items {
