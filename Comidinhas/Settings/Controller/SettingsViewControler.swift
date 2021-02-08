@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class SettingsViewControler: BaseViewController {
-
     
     let controler = Settings()
     
@@ -23,10 +22,9 @@ class SettingsViewControler: BaseViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     
-    
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var bntLogin: UIButton!
-   
+    
     @IBOutlet weak var bntSignup: UIButton!
     
     @IBOutlet weak var btnFullnameChange: UIButton!
@@ -51,6 +49,7 @@ class SettingsViewControler: BaseViewController {
             self.setupPassword()
         }
     }
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +63,7 @@ class SettingsViewControler: BaseViewController {
         self.passwordTextField.delegate = self
         self.repeatPasswordTextField.delegate = self
     }
+    
     func setupEmail() {
         //dois DispatchQueue.main.async?? incognita
         DispatchQueue.main.async {
@@ -81,19 +81,23 @@ class SettingsViewControler: BaseViewController {
                 self.dataChangeTextField.becomeFirstResponder()
             }
         }
-   }
+    }
+    
     func setupName() {
         DispatchQueue.main.async {
             self.hideTextFields()
-            self.dataChangeTextField.isHidden = false
-            self.btnFullnameChange.isHidden = false
-            self.bntCancel.isHidden = false
-            self.dataChangeTextField.isSecureTextEntry = false
-            self.dataChangeTextField.placeholder = "Change fullname"
-            self.dataChangeTextField.text = ""
-            self.dataChangeTextField.becomeFirstResponder()
+            DispatchQueue.main.async {
+                self.dataChangeTextField.isHidden = false
+                self.btnFullnameChange.isHidden = false
+                self.bntCancel.isHidden = false
+                self.dataChangeTextField.isSecureTextEntry = false
+                self.dataChangeTextField.placeholder = "Change fullname"
+                self.dataChangeTextField.text = ""
+                self.dataChangeTextField.becomeFirstResponder()
+            }
         }
     }
+    
     func setupPassword(){
         self.hideTextFields()
         DispatchQueue.main.async {
@@ -112,13 +116,14 @@ class SettingsViewControler: BaseViewController {
             self.dataChangeTextField.becomeFirstResponder()
         }
     }
+    
     // MARK: CONFIGURACAO GERAL DOS BOTOES
     fileprivate func configView() {
         controler.confButton(button: bntLogin)
         controler.confButton(button: bntCancel)
         controler.confButton(button: btnLogout)
         controler.confButton(button: bntSignup)
-
+        
         self.errorMessageLabel.alpha = 0
         if !AppUserManager.shared.hasLoggedUser() {
             self.viewYourData.isHidden = true
@@ -131,7 +136,7 @@ class SettingsViewControler: BaseViewController {
             self.emailLabel.text = AppUserManager.shared.loggedUser?.email
         }
     }
-
+    
     // MARK: private func
     private func showError(message:String) {
         self.errorMessageLabel.text = message
@@ -144,13 +149,13 @@ class SettingsViewControler: BaseViewController {
     }
     
     private func hideTextFields() {
-            self.dataChangeTextField.isHidden = true
-            self.passwordTextField.isHidden = true
-            self.repeatPasswordTextField.isHidden = true
-            self.btnFullnameChange.isHidden = true
-            self.btnEmailChange.isHidden = true
-            self.btnPasswordChange.isHidden = true
-            self.bntCancel.isHidden = true
+        self.dataChangeTextField.isHidden = true
+        self.passwordTextField.isHidden = true
+        self.repeatPasswordTextField.isHidden = true
+        self.btnFullnameChange.isHidden = true
+        self.btnEmailChange.isHidden = true
+        self.btnPasswordChange.isHidden = true
+        self.bntCancel.isHidden = true
     }
     
     // MARK: IBAction
@@ -187,20 +192,18 @@ class SettingsViewControler: BaseViewController {
         
         self.view.endEditing(true)
     }
- 
+    
     @IBAction func buttonFullname(_ sender: Any) {
         self.name.append(name)
     }
-  
+    
     @IBAction func buttonEmail(_ sender: Any) {
         self.email.append(email)
-
     }
-   
+    
     @IBAction func buttonPassword(_ sender: Any) {
         self.password.append(password)
-        
-        }
+    }
     
     
     @IBAction func btnOkDataChange(_ sender: Any) {
@@ -214,12 +217,13 @@ class SettingsViewControler: BaseViewController {
                 self.hideTextFields()
                 self.hideLoadingCooker()
             }
-
+            
         } failure: { (error) in
             self.hideLoadingCooker()
             self.showError(message: "Ops! There was someting wrong! Please, try again latter")
         }
     }
+    
     
     @IBAction func btnOkEmailChange(_ sender: UIButton) {
         self.view.endEditing(true)
@@ -239,8 +243,9 @@ class SettingsViewControler: BaseViewController {
         }
     }
     
+    
     @IBAction func btnOkPasswordChange(_ sender: UIButton) {
-       if self.passwordTextField.text != self.repeatPasswordTextField.text {
+        if self.passwordTextField.text != self.repeatPasswordTextField.text {
             self.showError(message: "Ops! Diffents passwords")
             return
         }
@@ -255,14 +260,13 @@ class SettingsViewControler: BaseViewController {
                 self.hideTextFields()
                 self.hideLoadingCooker()
             }
-            
         } failure: { (error) in
             self.hideLoadingCooker()
             self.showError(message: "Ops! There was something wrong! Please, check your current password")
         }
     }
     
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SettingsAuthVC",
@@ -280,10 +284,9 @@ class SettingsViewControler: BaseViewController {
             let vc:SettingsCadVC? = segue.destination as? SettingsCadVC
             vc?.delegate = self
         }
-        
     }
-
-// MARK: VALIDACAO DO CAMPO EMAIL
+    
+    // MARK: VALIDACAO DO CAMPO EMAIL
     func validateTF(){
         if self.dataChangeTextField.text?.isEmpty == true {
             self.dataChangeTextField.layer.borderColor = UIColor.red.cgColor
@@ -292,7 +295,7 @@ class SettingsViewControler: BaseViewController {
         } else if self.dataChangeTextField.text?.isEmpty == false {
             self.dataChangeTextField.layer.borderWidth = 0
         }
-
+        
         // MARK: VALIDACAO DO CAMPO SENHA
         if self.passwordTextField.text?.isEmpty == true {
             self.passwordTextField.layer.borderColor = UIColor.red.cgColor
@@ -303,7 +306,6 @@ class SettingsViewControler: BaseViewController {
         }
         
         // MARK: VALIDACAO DO CAMPO REPET SENHA
-        
         if self.repeatPasswordTextField.text?.isEmpty == true {
             self.repeatPasswordTextField.layer.borderColor = UIColor.red.cgColor
             self.repeatPasswordTextField.layer.borderWidth = 1.0
@@ -314,9 +316,10 @@ class SettingsViewControler: BaseViewController {
     }
 }
 
-// MARK: extension
-extension SettingsViewControler: UITextFieldDelegate {
 
+// MARK: extension TextField Delegate
+extension SettingsViewControler: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.dataChangeTextField:
@@ -328,9 +331,9 @@ extension SettingsViewControler: UITextFieldDelegate {
         }
         return true
     }
-
 }
 
+// MARK: - extension DidLogindDelegate
 extension SettingsViewControler: DidLoginDelegate {
     
     func handleDidLogin() {
@@ -341,6 +344,7 @@ extension SettingsViewControler: DidLoginDelegate {
 }
 
 
+// MARK: - extension SettingsCadVCDelegate, SettingAuthVCDelegate
 extension SettingsViewControler: SettingsCadVCDelegate, SettingAuthVCDelegate {
     func hideViewFromLoginVC() {
         let user = AppUserManager.shared.loggedUser
