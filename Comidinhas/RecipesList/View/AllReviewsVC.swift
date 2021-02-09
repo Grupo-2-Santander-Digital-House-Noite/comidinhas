@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllReviewsVC: UIViewController {
+class AllReviewsVC: BaseViewController {
 
     // Propriedades internas.
     private var recipe: Recipe?
@@ -33,15 +33,23 @@ class AllReviewsVC: UIViewController {
         
         self.reviewsTableView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
         self.reviewsTableView.register(UINib(nibName: "ReviewHeaderCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "ReviewHeaderCell")
+        
+        self.showLoadingCooker()
+        AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: recipe?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
+        AppReviews.shared.loadReviewsForRecipeWith(id: recipe?.id ?? 0, reviewsToLoad: nil) { (review) in
+            self.hideLoadingCooker()
+            self.loadedReviews(reviews: review)
+        } failure: { (error) in
+            self.hideLoadingCooker()
+            self.reviewLoaderErrorHandler(error: error)
+        }
     }
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-        
-        AppReviews.shared.loadReviewsForRecipeWith(id: recipe?.id ?? 0, reviewsToLoad: nil, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
-        AppReviews.shared.loadRecipeReviewMetaDataWithRecipe(id: recipe?.id ?? 0, completion: loadedReviewMeta(reviewMeta:), failure: reviewMetaLoadErrorHandler(error:))
+//        AppReviews.shared.loadReviewsForRecipeWith(id: recipe?.id ?? 0, reviewsToLoad: nil, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
     }
     
     func loadedReviews(reviews: Reviews) {
