@@ -7,10 +7,16 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController, ShoppingListDelegate {
+protocol MainTabBarControllerProtocol {
+    func callRecipeList()
+}
 
+
+class MainTabBarController: UITabBarController, ShoppingListDelegate {
     
     var loginReferrerIndex: Int?
+    
+    var tabBarProtocol:MainTabBarControllerProtocol?
     
     enum TabsIndex: Int {
         case Recipes = 0
@@ -33,10 +39,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         ShoppingList.shared.subscribe(delegate: self)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,9 +54,9 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
                 }
             }
         }
-        
         return nil
     }
+    
     
     // MARK: ShoppingListDelegate - Methods
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
@@ -88,5 +91,15 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         item.badgeColor = .systemRed
         item.badgeValue = "\(quantidadeItens < 10 ? "\(quantidadeItens)" : "9+")"
     }
+}
 
+
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if selectedIndex == 0 && item.tag == 250 {
+            print("+++++++++++++++++++++++ \(item.title ?? "")")
+            self.tabBarProtocol?.callRecipeList()
+        }
+    }
 }

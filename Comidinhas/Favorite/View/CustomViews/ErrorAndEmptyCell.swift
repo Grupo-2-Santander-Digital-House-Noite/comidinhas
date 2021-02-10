@@ -16,13 +16,10 @@ class ErrorAndEmptyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setupEmpty() {
@@ -39,5 +36,4 @@ class ErrorAndEmptyCell: UITableViewCell {
         self.instructionOneLabel.text = "Please, try again latter"
         self.instructionTwoLabel.text = ""
     }
-    
 }

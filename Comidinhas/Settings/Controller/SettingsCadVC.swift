@@ -13,8 +13,6 @@ protocol SettingsCadVCDelegate: class {
 
 class SettingsCadVC: BaseViewController {
     
-    @IBOutlet weak var lbErroMsg: UILabel!
-    
     @IBOutlet weak var editFullName: UITextField!{
         didSet{
             editFullName.tintColor = UIColor.lightGray
@@ -39,10 +37,9 @@ class SettingsCadVC: BaseViewController {
     weak var didLoginDelegate: DidLoginDelegate?
     weak var delegate:SettingsCadVCDelegate?
     
-    
+
     fileprivate func configButton() {
         controller.confButton(button: self.bntCreateAcc)
-     
     }
     
     fileprivate func configTextField() {
@@ -53,12 +50,12 @@ class SettingsCadVC: BaseViewController {
 
     let bnt = UIButton(type: .custom)
     
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTextField()
         self.configButton()
-        
-        self.lbErroMsg.isHidden = true
         
         bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         bnt.imageEdgeInsets = UIEdgeInsets(top: 5, left: -24, bottom: 5, right: 15)
@@ -66,9 +63,10 @@ class SettingsCadVC: BaseViewController {
         editPassword.rightView = bnt
         editPassword.rightViewMode = .always
         editPassword.isSecureTextEntry = true
-        
     }
 
+    
+    // MARK: - validField()
     func validField(){
         let emailConf = controller.isValidEmail(email: self.editEmail.text!)
         let cleanedPassword = editPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -79,13 +77,11 @@ class SettingsCadVC: BaseViewController {
 
         } else if self.editFullName.text?.isEmpty == false {
             self.editFullName.layer.borderWidth = 0
-            self.lbErroMsg.isHidden = false
         }
         
         if self.editPassword.text?.isEmpty == false {
             self.editPassword.layer.borderWidth = 0
             self.editPassword.isHidden = false
-            self.lbErroMsg.isHidden = false
             } else {
                 self.editPassword.placeholder = "Password - Required"
                 controller.setupTF(textField: editPassword)
@@ -97,7 +93,6 @@ class SettingsCadVC: BaseViewController {
             return
         } else if self.editEmail.text?.isEmpty == false {
             self.editEmail.layer.borderWidth = 0
-            self.lbErroMsg.isHidden = false
         }
         //VALIDACAO DO CAMPO EMAIL
         if emailConf == true && self.editEmail.text?.isEmpty == false {
@@ -117,6 +112,8 @@ class SettingsCadVC: BaseViewController {
         }
     }
 
+    
+    // MARK: - IBAction
     @IBAction func bntCreateAcc(_ sender: Any) {
         self.validField()
         
@@ -162,9 +159,10 @@ class SettingsCadVC: BaseViewController {
             bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         }
     }
- 
 }
 
+
+// MARK: - extension TextFieldDelegate
 extension SettingsCadVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
@@ -179,6 +177,8 @@ extension SettingsCadVC: UITextFieldDelegate {
     }
 }
 
+
+// MARK: - extension UITextField
 extension UITextField {
     func setIcon(_ image: UIImage) {
        let iconView = UIImageView(frame:

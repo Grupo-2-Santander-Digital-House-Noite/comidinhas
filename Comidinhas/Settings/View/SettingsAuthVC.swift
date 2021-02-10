@@ -30,8 +30,6 @@ class SettingsAuthVC: BaseViewController {
            }
     }
     
-    @IBOutlet weak var lbErroMsg: UILabel!
-    
     @IBOutlet weak var bntLogin: UIButton!
     @IBOutlet weak var bntForgotPass: UIButton!
     
@@ -51,28 +49,24 @@ class SettingsAuthVC: BaseViewController {
     let bnt = UIButton(type: .custom)
     
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configBntLogin()
         self.configTextField()
         
-        self.lbErroMsg.isHidden = true
-        
         textFieldSenha.rightViewMode = .unlessEditing
         
         bnt.setImage(UIImage(named: "eyeclosed30"), for: .normal)
         bnt.imageEdgeInsets = UIEdgeInsets(top: 5, left: -24, bottom: 5, right: 15)
-        //bnt.frame = CGRect(x: CGFloat(textFieldPassword.frame.size.width - 25), y: CGFloat(20), width: CGFloat(20), height: CGFloat(25))
         bnt.addTarget(self, action: #selector(self.bntPasswordShow), for: .touchUpInside)
         textFieldSenha.rightView = bnt
         textFieldSenha.rightViewMode = .always
         textFieldSenha.isSecureTextEntry = true
-        
-        
-        // Do any additional setup after loading the view.
     }
     
+    // MARK: - validField()
     func validField(){
         let emailConf = controller.isValidEmail(email: self.textFieldEmail.text!)
         
@@ -82,13 +76,11 @@ class SettingsAuthVC: BaseViewController {
             } else {
                 controller.setupTF(textField: textFieldSenha)
                 self.textFieldSenha.placeholder = "Password - Required"
-                self.lbErroMsg.isHidden = false
         }
         
         if self.textFieldEmail.text?.isEmpty == true {
             controller.setupTF(textField: textFieldEmail)
             self.textFieldEmail.placeholder = "E-mail - Required"
-            self.lbErroMsg.isHidden = false
             return
         } else if self.textFieldEmail.text?.isEmpty == false {
             self.textFieldEmail.layer.borderWidth = 0
@@ -104,6 +96,7 @@ class SettingsAuthVC: BaseViewController {
     }
     
     
+    // MARK: - IBAction
     @IBAction func bntPasswordShow(_ sender: Any) {
         (sender as! UIButton).isSelected = !(sender as! UIButton).isSelected
         if ( sender as! UIButton).isSelected {
@@ -147,13 +140,10 @@ class SettingsAuthVC: BaseViewController {
     @IBAction func bntForgotPass(_ sender: UIButton) {
         performSegue(withIdentifier: "ResetPasswordViewController", sender: nil)
     }
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let supd: SettingsUpdVC? = segue.destination as? SettingsUpdVC
-    }
 }
 
 
+// MARK: - extension TextField
 extension SettingsAuthVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

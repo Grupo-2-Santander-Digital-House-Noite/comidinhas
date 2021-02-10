@@ -15,13 +15,11 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.setupTableView()
         self.view.backgroundColor = ColorConstants.BACKGROUND_COLOR
         
         ShoppingList.shared.subscribe(delegate: self)
         updateView()
-        
     }
     
     private func setupTableView() {
@@ -37,13 +35,14 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         self.shoppingListTableView.separatorStyle = .none
     }
     
+    
+    // MARK: - IBAction limpaLista
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
         self.displayConfirmationAlert(title: "Are you sure?", message: "Are you sure that you want to delete your shopping list? There is no coming back!", confirmTitle: "Ok", cancelTitle: "Cancel") { (action) in
             ShoppingList.shared.clear()
             self.updateView()
         }
     }
-    
     
     
     private func updateView() {
@@ -61,6 +60,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
         }
     }
     
+    
     // MARK: REACT WHEN SHOPPING LIST IS UPDATED
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
         self.updateView()
@@ -73,10 +73,10 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     @IBAction func tappedSettingsTestButton(_ sender: UIButton) {
         performSegue(withIdentifier: "EntrarVC", sender: nil)
     }
-    
-    
 }
 
+
+// MARK: - extension TableView
 extension ShoppingListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -25,10 +25,7 @@ enum MealType: String, CaseIterable {
     case snack = "snack"
     case drink = "drink"
     
-    
-    
     static func with(text: String) -> MealType? {
-        
         for mealType in MealType.allCases {
             if text == mealType.rawValue{
                 return mealType

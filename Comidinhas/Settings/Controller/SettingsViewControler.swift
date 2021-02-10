@@ -159,21 +159,22 @@ class SettingsViewControler: BaseViewController {
         self.btnEmailChange.isHidden = true
         self.btnPasswordChange.isHidden = true
         self.bntCancel.isHidden = true
+        self.resetError()
     }
     
     // MARK: IBAction
-    @IBAction func btnSignUp(_ sender: Any) {
+    @IBAction func btnSignUp(_ sender: UIButton) {
         performSegue(withIdentifier: "SettingsCadVC", sender: nil)
        
     }
     
     
-    @IBAction func btnLogin(_ sender: Any) {
+    @IBAction func btnLogin(_ sender: UIButton) {
         performSegue(withIdentifier: "SettingsAuthVC", sender: nil)
     }
     
     
-    @IBAction func btnLogout(_ sender: Any) {
+    @IBAction func btnLogout(_ sender: UIButton) {
         self.showLoadingCooker()
         AppUserManager.shared.logout {
             self.displayErrorAlertWith(title: "Sad to see you go!", message: "Hope to hear back soon", completion: nil)
@@ -187,7 +188,7 @@ class SettingsViewControler: BaseViewController {
     }
     
     
-    @IBAction func btnCancel(_ sender: Any) {
+    @IBAction func btnCancel(_ sender: UIButton) {
         self.hideTextFields()
         self.resetError()
         self.dataChangeTextField.text = ""
@@ -197,20 +198,20 @@ class SettingsViewControler: BaseViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func buttonFullname(_ sender: Any) {
+    @IBAction func buttonFullname(_ sender: UIButton) {
         self.name.append(name)
     }
     
-    @IBAction func buttonEmail(_ sender: Any) {
+    @IBAction func buttonEmail(_ sender: UIButton) {
         self.email.append(email)
     }
     
-    @IBAction func buttonPassword(_ sender: Any) {
+    @IBAction func buttonPassword(_ sender: UIButton) {
         self.password.append(password)
     }
     
     
-    @IBAction func btnOkDataChange(_ sender: Any) {
+    @IBAction func btnOkDataChange(_ sender: UIButton) {
         self.view.endEditing(true)
         self.showLoadingCooker()
         AppUserManager.shared.updateLoggedUserFullname(name: self.dataChangeTextField.text ?? "") { () -> Void in
@@ -232,7 +233,7 @@ class SettingsViewControler: BaseViewController {
     @IBAction func btnOkEmailChange(_ sender: UIButton) {
         self.view.endEditing(true)
         self.showLoadingCooker()
-        AppUserManager.shared.updateUserLoggedEmailByKaren(email: self.dataChangeTextField.text ?? "", password: self.passwordTextField.text ?? "") {
+        AppUserManager.shared.updateUserLoggedEmail(email: self.dataChangeTextField.text ?? "", password: self.passwordTextField.text ?? "") {
             self.displaySuccessAlert(title: "Success", message: "Your email was changed") { (success) in
                 self.emailLabel.text = self.dataChangeTextField.text
                 self.dataChangeTextField.text = ""

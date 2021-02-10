@@ -24,5 +24,4 @@ class SimpleTermFilter: RecipeFilter {
         self._name = "titleMatch"
         self._value = values
     }
-    
 }

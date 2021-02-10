@@ -16,13 +16,10 @@ class IngredientesCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
@@ -30,6 +27,5 @@ class IngredientesCell: UITableViewCell {
         self.qtdLabel.text = String(ingredientes.quantidade ?? 0)
         self.unidadeLabel.text = ingredientes.unidade
         self.ingredienteLabel.text = ingredientes.ingrediente
-        
     }
 }

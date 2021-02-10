@@ -13,12 +13,4 @@ enum ShoppingListItemStateEnum {
     func toggle() -> ShoppingListItemStateEnum {
         return self == .DESMARCADO ? .MARCADO : .DESMARCADO
     }
-    
-//    func dataToState(rawValue:Bool) -> ShoppingListItemStateEnum {
-//        return rawValue ? .MARCADO : .DESMARCADO
-//    }
-//    
-//    func stateToData() -> Bool {
-//        return self == .MARCADO
-//    }
 }

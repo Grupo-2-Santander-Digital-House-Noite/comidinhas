@@ -16,6 +16,8 @@ class RecipesVC: BaseViewController {
     weak var delegate: SearchVCDelegate?
     private var controller = RecipesWebService.shared
     
+    var tabBar:MainTabBarController?
+    
     var recipeModel = RecipeModel()
     
     private func configTableView() {
@@ -30,47 +32,36 @@ class RecipesVC: BaseViewController {
     
     
     // MARK: viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTableView()
-        // Do any additional setup after loading the view.
         self.showLoadingCooker()
+        if let mainTabbar = self.tabBarController as? MainTabBarController {
+            mainTabbar.tabBarProtocol = self
+        }
         
-//        var url: String = ""
-//        url = "https://api.spoonacular.com/recipes/complexSearch?"
         recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
         self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
-
             if result {
-                
                 DispatchQueue.main.async {
                     self.hideLoadingCooker()
-//                        self.recipesListTableView.delegate = self
-//                        self.recipesListTableView.dataSource = self
                     self.recipesListTableView.reloadData()
-                    //self.hiddenLoading()
                 }
-                
-            }else{
-                
+            } else {
                 DispatchQueue.main.async {
                     self.hideLoadingCooker()
                     print("deu error: \(error)")
-                    //self.hiddenLoading()
                 }
-               
             }
         })
     }
     
     
-    // MARK: IBAction serachBarButtonClick
+// MARK: IBAction serachBarButtonClick
     @IBAction func searchBarButtonClick(_ sender: UIBarButtonItem) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
         let newViewController: SearchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         newViewController.modalPresentationStyle = .automatic
-//        newViewController.modalPresentationStyle = .overFullScreen
         newViewController.delegate = self
         self.present(newViewController, animated: true, completion: nil)
     }
@@ -78,7 +69,6 @@ class RecipesVC: BaseViewController {
 
 
 // MARK: extension TableView
-
 extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if RecipesWebService.shared.recipes.count != 0 {
@@ -87,7 +77,6 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
             return 1
         }
     }
-    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +96,6 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let receita:Recipe? = sender as? Recipe
         let vc = segue.destination as? RecipeDetailVC
@@ -117,98 +105,66 @@ extension RecipesVC:UITableViewDataSource, UITableViewDelegate {
 }
 
 
+// MARK: - extension UIScrollViewDelegate
 extension RecipesVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard controller.finishedRequest else { return }
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         if offsetY > contentHeight - scrollView.frame.size.height {
-            
             if RecipesWebService.shared.recipes.count != 0 {
-            
-//            var url: String = ""
-//
-//            if RecipesWebService.shared.lastFilter.count == 0 {
-//                url = "https://api.spoonacular.com/recipes/complexSearch?"
-//            } else {
-//                url = "https://api.spoonacular.com/recipes/complexSearch"
-//                var components: [String] = []
-//                for _filter in RecipesWebService.shared.lastFilter {
-//                    components.append("\(_filter.name)=\(_filter.value)")
-//                }
-//                url = "\(url)?\(components.joined(separator: "&"))"
-//            }
                 recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
-            //if let _nomeDaReceita = nomeDaReceita {
-                //self.controller.loadRecipesList(name: url, completionHandler: { (result, error) in
                 self.controller.loadRecipesListWithUrlNewResults(url: recipeModel.url, offset: RecipesWebService.shared.recipes.count, completionHandler: { (result, error) in
-
                     if result {
-
                         DispatchQueue.main.async {
-
-    //                        self.recipesListTableView.delegate = self
-    //                        self.recipesListTableView.dataSource = self
                             self.recipesListTableView.reloadData()
-                            //self.hiddenLoading()
                         }
-
-                    }else{
-
+                    } else {
                         DispatchQueue.main.async {
                             print("deu error: \(error)")
-                            //self.hiddenLoading()
                         }
-
                     }
                 })
-            
-        }
-            
+            }
         }
     }
 }
 
+
+// MARK: - extension SearchVCDelegate
 extension RecipesVC: SearchVCDelegate {
     func returnTabBar(filter: [RecipeFilter]) {
-//        var url: String = ""
-//        if filter.count == 0 {
-//            url = "Utilize a tela de filtro para montar uma url"
-//        } else {
-//            RecipesWebService.shared.lastFilter = filter
-//            url = "https://api.spoonacular.com/recipes/complexSearch"
-//            var components: [String] = []
-//            for _filter in filter {
-//                components.append("\(_filter.name)=\(_filter.value)")
-//            }
-//            url = "\(url)?\(components.joined(separator: "&"))"
-//        }
-        
         var url = recipeModel.createUrlString(filter: filter, notFirstCall: false)
-        
-        //if let _nomeDaReceita = nomeDaReceita {
-            //self.controller.loadRecipesList(name: url, completionHandler: { (result, error) in
         self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
-
-                if result {
-                    
-                    DispatchQueue.main.async {
-                        
-//                        self.recipesListTableView.delegate = self
-//                        self.recipesListTableView.dataSource = self
-                        self.recipesListTableView.reloadData()
-                        //self.hiddenLoading()
-                    }
-                    
-                }else{
-                    
-                    DispatchQueue.main.async {
-                        print("deu error: \(error)")
-                        //self.hiddenLoading()
-                    }
-                   
+            if result {
+                DispatchQueue.main.async {
+                    self.recipesListTableView.reloadData()
                 }
-            })
-        //}
+            } else {
+                DispatchQueue.main.async {
+                    print("deu error: \(error)")
+                }
+            }
+        })
+    }
+}
+
+
+extension RecipesVC: MainTabBarControllerProtocol {
+    func callRecipeList() {
+        recipeModel.createUrlString(filter: [], notFirstCall: true)
+        self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
+            if result {
+                DispatchQueue.main.async {
+                    self.hideLoadingCooker()
+                    self.recipesListTableView.reloadData()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.hideLoadingCooker()
+                    print("deu error: \(error)")
+                }
+            }
+        })
     }
 }

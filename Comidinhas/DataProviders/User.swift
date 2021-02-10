@@ -15,7 +15,6 @@ import Foundation
  uma boa ideia armazenar a senha do usuário dentro do aplicativo.
  */
 class User: Codable {
-    
     let name: String? // Uma vez definidos não podem ser mudados!
     let email: String? // Uma vez definidos não podem ser mudados!
     let uid: String?
@@ -24,6 +23,5 @@ class User: Codable {
         self.name = name
         self.email = email
         self.uid = uid
-    }
-    
+    }  
 }

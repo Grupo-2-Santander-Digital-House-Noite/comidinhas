@@ -15,11 +15,9 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
     
     // MARK: IBoutlet
     @IBOutlet weak var favoritesTableView: UITableView!
-//
-//    @IBOutlet weak var searchBarButton: UIBarButtonItem!
+    
     
     // MARK: configuação TableView
-    
     private func configTableView() {
         self.favoritesTableView.delegate = self
         self.favoritesTableView.dataSource = self
@@ -29,7 +27,6 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         self.favoritesTableView.register(UINib(nibName: "FavoritesCell", bundle: nil), forCellReuseIdentifier: "FavoritesCell")
         self.favoritesTableView.register(UINib(nibName: "ErrorAndEmptyCell", bundle: nil), forCellReuseIdentifier: "ErrorAndEmptyCell")
         self.favoritesTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
-        
     }
     
     
@@ -40,7 +37,6 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         self.configTableView()
         self.controller.delegate = self
         self.controller.didUpdateFavorites()
-        // Do any additional setup after loading the view.
     }
     
     
@@ -52,16 +48,15 @@ class FavoritesVC: UIViewController, FavoriteControllerUpdate {
         }
     }
     
+    
     // MARK: Delegate Methods
     func didUpdate() {
         self.favoritesTableView.reloadData()
     }
-
 }
 
 
-// MARK: extension
-
+// MARK: extension TableView
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.controller.numberOfRows
@@ -102,5 +97,4 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "RecipeDetailVC", sender: _recipe)
         }
     }
-    
 }
