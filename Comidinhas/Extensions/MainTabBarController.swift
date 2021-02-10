@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol MainTabBarControllerProtocol {
+    func callRecipeList()
+}
+
+
 class MainTabBarController: UITabBarController, ShoppingListDelegate {
     
     var loginReferrerIndex: Int?
+    
+    var tabBarProtocol:MainTabBarControllerProtocol?
     
     enum TabsIndex: Int {
         case Recipes = 0
@@ -83,5 +90,16 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         
         item.badgeColor = .systemRed
         item.badgeValue = "\(quantidadeItens < 10 ? "\(quantidadeItens)" : "9+")"
+    }
+}
+
+
+extension MainTabBarController: UITabBarControllerDelegate {
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if selectedIndex == 0 {
+            print("+++++++++++++++++++++++ \(item.title ?? "")")
+            self.tabBarProtocol?.callRecipeList()
+        }
     }
 }

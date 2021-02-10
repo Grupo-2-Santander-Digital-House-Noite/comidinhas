@@ -16,6 +16,8 @@ class RecipesVC: BaseViewController {
     weak var delegate: SearchVCDelegate?
     private var controller = RecipesWebService.shared
     
+    var tabBar:MainTabBarController?
+    
     var recipeModel = RecipeModel()
     
     private func configTableView() {
@@ -34,6 +36,7 @@ class RecipesVC: BaseViewController {
         super.viewDidLoad()
         self.configTableView()
         self.showLoadingCooker()
+        self.tabBar?.tabBarProtocol = self
         
         recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
         self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
@@ -137,6 +140,26 @@ extension RecipesVC: SearchVCDelegate {
                 }
             } else {
                 DispatchQueue.main.async {
+                    print("deu error: \(error)")
+                }
+            }
+        })
+    }
+}
+
+
+extension RecipesVC: MainTabBarControllerProtocol {
+    func callRecipeList() {
+        recipeModel.createUrlString(filter: [], notFirstCall: true)
+        self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
+            if result {
+                DispatchQueue.main.async {
+                    self.hideLoadingCooker()
+                    self.recipesListTableView.reloadData()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.hideLoadingCooker()
                     print("deu error: \(error)")
                 }
             }
