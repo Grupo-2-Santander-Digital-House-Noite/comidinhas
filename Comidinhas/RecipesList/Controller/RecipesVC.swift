@@ -16,6 +16,8 @@ class RecipesVC: BaseViewController {
     weak var delegate: SearchVCDelegate?
     private var controller = RecipesWebService.shared
     
+    var recipeModel = RecipeModel()
+    
     private func configTableView() {
         recipesListTableView.dataSource = self
         recipesListTableView.delegate = self
@@ -35,9 +37,10 @@ class RecipesVC: BaseViewController {
         // Do any additional setup after loading the view.
         self.showLoadingCooker()
         
-        var url: String = ""
-        url = "https://api.spoonacular.com/recipes/complexSearch?"
-        self.controller.loadRecipesListWithUrl(url: url, completionHandler: { (result, error) in
+//        var url: String = ""
+//        url = "https://api.spoonacular.com/recipes/complexSearch?"
+        recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
+        self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
 
             if result {
                 
@@ -123,22 +126,22 @@ extension RecipesVC: UIScrollViewDelegate {
             
             if RecipesWebService.shared.recipes.count != 0 {
             
-            var url: String = ""
-            
-            if RecipesWebService.shared.lastFilter.count == 0 {
-                url = "https://api.spoonacular.com/recipes/complexSearch?"
-            } else {
-                url = "https://api.spoonacular.com/recipes/complexSearch"
-                var components: [String] = []
-                for _filter in RecipesWebService.shared.lastFilter {
-                    components.append("\(_filter.name)=\(_filter.value)")
-                }
-                url = "\(url)?\(components.joined(separator: "&"))"
-            }
-
+//            var url: String = ""
+//
+//            if RecipesWebService.shared.lastFilter.count == 0 {
+//                url = "https://api.spoonacular.com/recipes/complexSearch?"
+//            } else {
+//                url = "https://api.spoonacular.com/recipes/complexSearch"
+//                var components: [String] = []
+//                for _filter in RecipesWebService.shared.lastFilter {
+//                    components.append("\(_filter.name)=\(_filter.value)")
+//                }
+//                url = "\(url)?\(components.joined(separator: "&"))"
+//            }
+                recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
             //if let _nomeDaReceita = nomeDaReceita {
                 //self.controller.loadRecipesList(name: url, completionHandler: { (result, error) in
-                self.controller.loadRecipesListWithUrlNewResults(url: url, offset: RecipesWebService.shared.recipes.count, completionHandler: { (result, error) in
+                self.controller.loadRecipesListWithUrlNewResults(url: recipeModel.url, offset: RecipesWebService.shared.recipes.count, completionHandler: { (result, error) in
 
                     if result {
 
@@ -168,22 +171,24 @@ extension RecipesVC: UIScrollViewDelegate {
 
 extension RecipesVC: SearchVCDelegate {
     func returnTabBar(filter: [RecipeFilter]) {
-        var url: String = ""
-        if filter.count == 0 {
-            url = "Utilize a tela de filtro para montar uma url"
-        } else {
-            RecipesWebService.shared.lastFilter = filter
-            url = "https://api.spoonacular.com/recipes/complexSearch"
-            var components: [String] = []
-            for _filter in filter {
-                components.append("\(_filter.name)=\(_filter.value)")
-            }
-            url = "\(url)?\(components.joined(separator: "&"))"
-        }
+//        var url: String = ""
+//        if filter.count == 0 {
+//            url = "Utilize a tela de filtro para montar uma url"
+//        } else {
+//            RecipesWebService.shared.lastFilter = filter
+//            url = "https://api.spoonacular.com/recipes/complexSearch"
+//            var components: [String] = []
+//            for _filter in filter {
+//                components.append("\(_filter.name)=\(_filter.value)")
+//            }
+//            url = "\(url)?\(components.joined(separator: "&"))"
+//        }
+        
+        var url = recipeModel.createUrlString(filter: filter, notFirstCall: false)
         
         //if let _nomeDaReceita = nomeDaReceita {
             //self.controller.loadRecipesList(name: url, completionHandler: { (result, error) in
-            self.controller.loadRecipesListWithUrl(url: url, completionHandler: { (result, error) in
+        self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in
 
                 if result {
                     
