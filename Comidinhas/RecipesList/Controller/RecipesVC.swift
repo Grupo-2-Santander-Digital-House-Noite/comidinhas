@@ -36,7 +36,9 @@ class RecipesVC: BaseViewController {
         super.viewDidLoad()
         self.configTableView()
         self.showLoadingCooker()
-        self.tabBar?.tabBarProtocol = self
+        if let mainTabbar = self.tabBarController as? MainTabBarController {
+            mainTabbar.tabBarProtocol = self
+        }
         
         recipeModel.createUrlString(filter: RecipesWebService.shared.lastFilter, notFirstCall: true)
         self.controller.loadRecipesListWithUrl(url: recipeModel.url, completionHandler: { (result, error) in

@@ -97,7 +97,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
 extension MainTabBarController: UITabBarControllerDelegate {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if selectedIndex == 0 {
+        if selectedIndex == 0 && item.tag == 250 {
             print("+++++++++++++++++++++++ \(item.title ?? "")")
             self.tabBarProtocol?.callRecipeList()
         }
