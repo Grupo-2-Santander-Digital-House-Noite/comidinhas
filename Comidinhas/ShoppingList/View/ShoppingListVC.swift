@@ -38,7 +38,7 @@ class ShoppingListVC: UIViewController, ShoppingListDelegate {
     }
     
     @IBAction func limpaLista(_ sender: UIBarButtonItem) {
-        self.displayConfirmationAlert(title: "Are you sure?", message: "Are you sure that you want to delete your shopping list? There is no comming back", confirmTitle: "Ok", cancelTitle: "Cancel") { (action) in
+        self.displayConfirmationAlert(title: "Are you sure?", message: "Are you sure that you want to delete your shopping list? There is no coming back!", confirmTitle: "Ok", cancelTitle: "Cancel") { (action) in
             ShoppingList.shared.clear()
             self.updateView()
         }
