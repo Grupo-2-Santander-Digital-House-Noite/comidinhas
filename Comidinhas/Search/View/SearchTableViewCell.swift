@@ -169,7 +169,7 @@ extension SearchTableViewCell: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Placeholder"
+            textView.text = "Enter the ingredients separated by comma"
             textView.textColor = UIColor.lightGray
         }
     }
