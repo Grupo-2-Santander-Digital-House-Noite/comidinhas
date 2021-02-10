@@ -17,7 +17,6 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
     private var delegates: [ShoppingListDelegate]
     private static var instance: ShoppingList?
     
-    // CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var list:[ListItem]?
     
@@ -81,7 +80,6 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         self.delegates.forEach { (delegate) in
             delegate.didAdd(self, ingredient: ingredient)
         }
-        
     }
     
     /**
@@ -190,7 +188,6 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
         } catch {
             return nil
         }
-        
     }
     
     func subscribe(delegate: ShoppingListDelegate) -> Void {
@@ -202,6 +199,7 @@ class ShoppingList: ToggleIngredientMarkedDelegate {
             self.delegates.remove(at: index)
         }
     }
+    
     
     // MARK: ToggleIngredientMarkedDelegate Methods
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {

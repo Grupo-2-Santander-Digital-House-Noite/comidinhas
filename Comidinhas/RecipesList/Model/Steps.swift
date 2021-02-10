@@ -17,7 +17,6 @@ struct StepsSection: Codable {
         case name =  "name"
         case steps = "steps"
     }
-    
 }
 
 struct Steps: Codable {

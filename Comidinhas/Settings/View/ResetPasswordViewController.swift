@@ -16,7 +16,6 @@ class ResetPasswordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         controller.confButton(button: self.enviarButton)
-        
     }
     
     

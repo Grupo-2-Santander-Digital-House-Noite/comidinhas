@@ -44,7 +44,6 @@ public class FavoritosWebService {
             } failure: { (error) in
                 print("Não conseguiu atualizar")
             }
-
         }
     }
     
@@ -58,7 +57,6 @@ public class FavoritosWebService {
             } failure: { (error) in
                 print(error.localizedDescription)
             }
-
         }
     }
     
@@ -99,7 +97,6 @@ public class FavoritosWebService {
             } failure: { (error) in
                 print(error.localizedDescription)
             }
-
         }
     }
     

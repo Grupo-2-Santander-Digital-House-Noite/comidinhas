@@ -8,7 +8,6 @@
 import UIKit
 
 class MainTabBarController: UITabBarController, ShoppingListDelegate {
-
     
     var loginReferrerIndex: Int?
     
@@ -33,10 +32,7 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         ShoppingList.shared.subscribe(delegate: self)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,9 +47,9 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
                 }
             }
         }
-        
         return nil
     }
+    
     
     // MARK: ShoppingListDelegate - Methods
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) {
@@ -88,5 +84,4 @@ class MainTabBarController: UITabBarController, ShoppingListDelegate {
         item.badgeColor = .systemRed
         item.badgeValue = "\(quantidadeItens < 10 ? "\(quantidadeItens)" : "9+")"
     }
-
 }

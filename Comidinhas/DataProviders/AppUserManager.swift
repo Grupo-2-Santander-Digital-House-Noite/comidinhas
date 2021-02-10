@@ -146,10 +146,8 @@ class AppUserManager {
                 _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
             }
         }
-        
         // Verifica se há um usuário logado para atualizar e-mail.
         guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-   
         // Tenta atualizar o nome do usuário
         if let _user = self.auth.currentUser?.createProfileChangeRequest() {
             _user.displayName = name
@@ -159,7 +157,7 @@ class AppUserManager {
                 }
             }
         }
-        db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""])
+        db.collection("users").document(auth.currentUser?.uid ?? "").setData(["fullname":name, "uid":auth.currentUser?.uid ?? ""], merge: true)
         if let _completion = completion {
             _completion()
         }
@@ -170,7 +168,7 @@ class AppUserManager {
     /**
      Atualiza o email do usuário logado
      */
-    func updateUserLoggedEmailByKaren(email:String, password:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
+    func updateUserLoggedEmail(email:String, password:String, completion:(() -> Void)?, failure:((Error) -> Void)?) {
         // Faz um alias para o failure
         let reportError = { (error: Error) -> Void in
             if let _failure = failure {
@@ -239,7 +237,6 @@ class AppUserManager {
                     _completion()
                 }
             })
-            
         })
     }
 
@@ -272,77 +269,7 @@ class AppUserManager {
             }
         }
     }
-    
-    
-    // MARK: updateLoggedUserEmailAndPassword
-    /**
-     Atualiza o email e senha do usuário logado.
-     */
-    func updateLoggedUserEmailAndPassword(user: User, password: String, completion: (() -> Void)?, failure: ((Error) -> Void)? ) {
-        
-        // Faz um alias para o failure
-        let reportError = { (error: Error) -> Void in
-            if let _failure = failure {
-                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
-            }
-        }
-        
-        // Verifica se há um usuário logado para atualizar e-mail.
-        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-        
-        
-        currentUser.updatePassword(to: password) { (error) in
-            if let _error = error {
-                reportError(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
-                return
-            }
-            
-            if currentUser.email != user.email {
-                self.updateLoggedUserEmail(user: user, completion: completion, failure: failure)
-                return
-            }
-               
-            if let _completion = completion {
-                _completion()
-            }
-        }
-        
-    }
-    
-    
-    // MARK: updateLoggedUserEmail
-    /**
-     Atualiza o e-mail do usuário logado.
-     */
-    func updateLoggedUserEmail(user: User, completion: (() -> Void)?, failure: ((Error) -> Void)? ) {
-        
-        // Faz um alias para o failure
-        let reportError = { (error: Error) -> Void in
-            if let _failure = failure {
-                _failure(AuthError.userUpdateError(localizedMessage: error.localizedDescription))
-            }
-        }
-        
-        // Verifica se há um usuário logado para atualizar e-mail.
-        guard let currentUser = self.auth.currentUser else { reportError(AuthError.userUpdateError(localizedMessage: "Não há um usuário logado!")); return }
-        
-        // Verifica se o usuário passado tem um e-mail
-        guard let email = user.email else { reportError(AuthError.userUpdateError(localizedMessage: "Não foi informado um e-mail para atualizar!")); return }
-        
-        // tenta atualizar o e-mail
-        currentUser.updateEmail(to: email) { (error) in
-            if let _error = error {
-                reportError(AuthError.userUpdateError(localizedMessage: _error.localizedDescription))
-                return
-            }
-            
-            if let _completion = completion {
-                _completion()
-            }
-        }
-        
-    }
-    
+
     
     // MARK: create
     /**
@@ -388,8 +315,6 @@ class AppUserManager {
                 reportError(AuthError.userCreationError(localizedMessage: "Usuário não autenticado!"))
                 return
             }
-            
-            
             // Inicia a atualização do nome do usuário.
             let request = currentUser.createProfileChangeRequest()
             request.displayName = user.name
@@ -400,7 +325,6 @@ class AppUserManager {
                 }
                 
                 NotificationCenter.default.post(name: AppUserManager.userLoggedInNotification, object: result?.user.uid)
-                
                 // Tenta armazenar os dados do usuário
                 // Passa adiante os handlers de completion e failure.
                 self.storeUseInFireStore(user: currentUser, completion: completion, failure: failure)
@@ -422,16 +346,15 @@ class AppUserManager {
                 "fullname" : user.displayName ?? "No Name!",
                 "uid" : user.uid
             ]) { (error) in
-                if let _error = error {
-                    if let _failure = failure {
-                        _failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
-                    }
-                    return
+            if let _error = error {
+                if let _failure = failure {
+                    _failure(AuthError.userCreationError(localizedMessage: _error.localizedDescription))
                 }
-                
-                if let _completion = completion {
-                    _completion()
-                }
+                return
             }
+            if let _completion = completion {
+                _completion()
+            }
+        }
     }
 }

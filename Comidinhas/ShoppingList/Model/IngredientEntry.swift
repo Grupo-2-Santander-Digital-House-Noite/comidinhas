@@ -11,6 +11,7 @@ protocol ToggleIngredientMarkedDelegate: AnyObject {
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum)
 }
 
+
 class IngredientEntry {
     
     /** Nome do Ingrediente **/

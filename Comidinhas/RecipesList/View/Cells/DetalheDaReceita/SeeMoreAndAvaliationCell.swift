@@ -27,20 +27,20 @@ class SeeMoreAndAvaliationCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         self.updateButton()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
     
     func setupWithReview(review: Review?) {
         self.review = review
         self.updateButton()
     }
+    
     
     func updateButton() {
         var title: String = self.review != nil ? "Update review" : "Write a review"

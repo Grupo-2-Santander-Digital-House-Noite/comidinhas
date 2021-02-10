@@ -17,18 +17,14 @@ class ReviewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
     func setupReview(review:Review) {
-        
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         
@@ -38,12 +34,14 @@ class ReviewCell: UITableViewCell {
         self.usuarioComentarioLabel.text = review.comment
     }
     
+    
     func setupNoReview() {
         self.usuarioLabel.text = ""
         self.usuarioEstrelasLabel.text = ""
         self.usuarioDataLabel.text = ""
         self.usuarioComentarioLabel.text = "No review"
     }
+    
     
     func setupLoading() {
         self.usuarioLabel.text = ""
@@ -52,11 +50,11 @@ class ReviewCell: UITableViewCell {
         self.usuarioComentarioLabel.text = "Loading"
     }
     
+    
     func setupError(error: Error) {
         self.usuarioLabel.text = ""
         self.usuarioEstrelasLabel.text = ""
         self.usuarioDataLabel.text = ""
         self.usuarioComentarioLabel.text = error.localizedDescription
     }
-    
 }

@@ -10,6 +10,4 @@ import UIKit
 class IngredientesHeaderCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var partOfTheRecipeLabel: UILabel!
-    
-
 }

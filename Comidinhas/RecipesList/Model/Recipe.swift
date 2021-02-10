@@ -44,9 +44,7 @@ struct Recipe: Codable {
                 } else {
                     categoriasString = "\(categoriasString), \(categoria)"
                 }
-                
             }
-            
             return categoriasString
         }
     }

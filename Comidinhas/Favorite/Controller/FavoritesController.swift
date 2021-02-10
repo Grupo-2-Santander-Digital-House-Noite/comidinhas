@@ -67,7 +67,6 @@ class FavoritesController: FavoritesUpdateDelegate {
     }
     
     // MARK: Public Methods
-    
     func load() {
         
         self._state = .loading
@@ -97,7 +96,4 @@ class FavoritesController: FavoritesUpdateDelegate {
         self.load()
         self.delegate?.didUpdate()
     }
-    // MARK: Internal Behavior
-    
-    
 }
