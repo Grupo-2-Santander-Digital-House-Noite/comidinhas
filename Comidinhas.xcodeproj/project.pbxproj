@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F71F2559806B00D59D18 /* SettingsCadVC.swift */; };
-		0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */; };
-		0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */; };
-		0A19F4384CFBD1D1A978A52F /* Pods_ComidinhasTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C54862719139ECF458BFFF /* Pods_ComidinhasTests.framework */; };
 		1D53E4CF2582CE9400D49313 /* GenericWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4CE2582CE9400D49313 /* GenericWorker.swift */; };
 		1D53E4D42582CEEB00D49313 /* RecipesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4D32582CEEB00D49313 /* RecipesWorker.swift */; };
 		1D53E4D92582CF0900D49313 /* RecipeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53E4D82582CF0900D49313 /* RecipeFilter.swift */; };
@@ -45,13 +41,16 @@
 		1D8B206F255B74D70068854F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B206D255B74D70068854F /* SearchTableViewCell.swift */; };
 		1D8B2074255B74F90068854F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8B2073255B74F90068854F /* Search.storyboard */; };
 		1D8B2079255B76B00068854F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2078255B76B00068854F /* SearchVC.swift */; };
-		282FB9889C80FC3D03A87E93 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */; };
+		1DE0E8CC25D07283009707F9 /* SearchVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0E8CB25D07283009707F9 /* SearchVCModel.swift */; };
+		1DE0E8E525D079F7009707F9 /* RecipesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0E8E425D079F7009707F9 /* RecipesModel.swift */; };
 		541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C469B25CF275E00887982 /* SettingsViewControler.swift */; };
 		542AC60625C756DB00CDA8C6 /* SettingsAuthVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */; };
 		542AC63525C7631600CDA8C6 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542AC63425C7631600CDA8C6 /* UITests.swift */; };
-		5490B467257DC363009AE84C /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5490B466257DC363009AE84C /* ResetPasswordVC.swift */; };
 		54E106C5256C8C780084A1E9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E106C4256C8C780084A1E9 /* Settings.swift */; };
 		54F36DBD25C0CA2E00CCE239 /* SettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433AD5225C0C5A900CCB50D /* SettingTests.swift */; };
+		589FF1312DB2CD97FFFAEFF6 /* Pods_Comidinhas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1697811DCA083E6C9B804 /* Pods_Comidinhas.framework */; };
+		5FE25BE1615227473878FA8B /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A40C5ECA8D86BF34980A2E /* Pods_Comidinhas_ComidinhasUITests.framework */; };
+		6E836E795F89692639BC29DF /* Pods_ComidinhasTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB9625040891F745CFB58C6 /* Pods_ComidinhasTests.framework */; };
 		BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */; };
 		BC09E0C82564C81800796104 /* RecipeMetadataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC09E0C72564C81800796104 /* RecipeMetadataView.xib */; };
 		BC09E0CD2564C8E200796104 /* CustomViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */; };
@@ -91,12 +90,16 @@
 		BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC953973255A43C500B6E795 /* ColorConstants.swift */; };
 		BCA5A9EC25830D820093A8A7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5A9EB25830D820093A8A7 /* LoginVC.swift */; };
 		BCA5A9F425881E210093A8A7 /* PrepareTimeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5A9F325881E210093A8A7 /* PrepareTimeFilter.swift */; };
+		BCACA14B25D37E2900E810AA /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACA14625D37E2700E810AA /* ResetPasswordViewController.swift */; };
+		BCACA14C25D37E2900E810AA /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACA14725D37E2700E810AA /* ResetPasswordVC.swift */; };
+		BCACA14D25D37E2900E810AA /* SettingsAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACA14825D37E2800E810AA /* SettingsAuthVC.swift */; };
+		BCACA14E25D37E2900E810AA /* SettingsCadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACA14925D37E2800E810AA /* SettingsCadVC.swift */; };
+		BCACA14F25D37E2900E810AA /* SettingsUpdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACA14A25D37E2800E810AA /* SettingsUpdVC.swift */; };
 		BCE4C1DB254290C500FDBCF9 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */; };
 		BCE4C1E0254290E100FDBCF9 /* IngredientEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */; };
 		BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */; };
 		BCF5A08425B7F22A00309E1F /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5A08325B7F22A00309E1F /* Reviews.swift */; };
 		BCF5A08925B7F27000309E1F /* RecipeReviewMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5A08825B7F27000309E1F /* RecipeReviewMetadata.swift */; };
-		C355EA8E55760970428B156F /* Pods_Comidinhas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C086F65BDAD1745BB71531 /* Pods_Comidinhas.framework */; };
 		E53E927E2540A1E40007C559 /* Recipes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53E927D2540A1E40007C559 /* Recipes.storyboard */; };
 		E53E92832540A1F10007C559 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53E92822540A1F10007C559 /* Favorites.storyboard */; };
 		E53E92882540A1FA0007C559 /* ShoppingList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53E92872540A1FA0007C559 /* ShoppingList.storyboard */; };
@@ -112,7 +115,6 @@
 		E54CE676258CE41800B4FFAF /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CE675258CE41800B4FFAF /* LoadingView.xib */; };
 		E54CE67B258CE4FA00B4FFAF /* loadingCooker.json in Resources */ = {isa = PBXBuildFile; fileRef = E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */; };
 		E54CE680258CE66000B4FFAF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CE67F258CE66000B4FFAF /* BaseViewController.swift */; };
-		E54DB5F4258150270007E5B2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */; };
 		E54F778225AF810F00368381 /* AppReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54F778125AF810F00368381 /* AppReviews.swift */; };
 		E55141F52576BB6900CD09EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E55141F42576BB6900CD09EA /* GoogleService-Info.plist */; };
 		E55141FB2576C1AA00CD09EA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55141FA2576C1AA00CD09EA /* SignUpVC.swift */; };
@@ -170,11 +172,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0178F71F2559806B00D59D18 /* SettingsCadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCadVC.swift; sourceTree = "<group>"; };
-		0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVC.swift; sourceTree = "<group>"; };
-		0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUpdVC.swift; sourceTree = "<group>"; };
-		06950B6A2B37884420DEE925 /* Pods-Comidinhas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas.debug.xcconfig"; path = "Target Support Files/Pods-Comidinhas/Pods-Comidinhas.debug.xcconfig"; sourceTree = "<group>"; };
-		12C54862719139ECF458BFFF /* Pods_ComidinhasTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComidinhasTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		052725A1EF924D6A995EA8B6 /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; path = "Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		16E7088A0786A2943A9CA21D /* Pods-ComidinhasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.debug.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D53E4CE2582CE9400D49313 /* GenericWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericWorker.swift; sourceTree = "<group>"; };
 		1D53E4D32582CEEB00D49313 /* RecipesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWorker.swift; sourceTree = "<group>"; };
 		1D53E4D82582CF0900D49313 /* RecipeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilter.swift; sourceTree = "<group>"; };
@@ -210,17 +209,18 @@
 		1D8B206D255B74D70068854F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		1D8B2073255B74F90068854F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		1D8B2078255B76B00068854F /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.release.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.release.xcconfig"; sourceTree = "<group>"; };
+		1DE0E8CB25D07283009707F9 /* SearchVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCModel.swift; sourceTree = "<group>"; };
+		1DE0E8E425D079F7009707F9 /* RecipesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesModel.swift; sourceTree = "<group>"; };
+		2AB9625040891F745CFB58C6 /* Pods_ComidinhasTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComidinhasTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E1697811DCA083E6C9B804 /* Pods_Comidinhas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Comidinhas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C469B25CF275E00887982 /* SettingsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControler.swift; sourceTree = "<group>"; };
 		542AC60525C756DB00CDA8C6 /* SettingsAuthVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAuthVCTest.swift; sourceTree = "<group>"; };
 		542AC63425C7631600CDA8C6 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		5433AD5225C0C5A900CCB50D /* SettingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTests.swift; sourceTree = "<group>"; };
-		5490B466257DC363009AE84C /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
-		54E106C4256C8C780084A1E9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Comidinhas/Assets.xcassets/user.imageset/Settings.swift; sourceTree = SOURCE_ROOT; };
-		5C0F1D6D1CD43168604516AA /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; path = "Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7B4BAA494475C0C7FBD4D7FA /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas-ComidinhasUITests.release.xcconfig"; path = "Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A1E7EE308FB107A48F5C1689 /* Pods-Comidinhas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas.release.xcconfig"; path = "Target Support Files/Pods-Comidinhas/Pods-Comidinhas.release.xcconfig"; sourceTree = "<group>"; };
-		B3C086F65BDAD1745BB71531 /* Pods_Comidinhas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Comidinhas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54E106C4256C8C780084A1E9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = Comidinhas/Settings/Model/Settings.swift; sourceTree = SOURCE_ROOT; };
+		55A40C5ECA8D86BF34980A2E /* Pods_Comidinhas_ComidinhasUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Comidinhas_ComidinhasUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FC6595162496C262A9C9E7 /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas-ComidinhasUITests.release.xcconfig"; path = "Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF37427C6EA374E29B07DEC5 /* Pods-Comidinhas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas.release.xcconfig"; path = "Target Support Files/Pods-Comidinhas/Pods-Comidinhas.release.xcconfig"; sourceTree = "<group>"; };
 		BC09E0BF2564C80800796104 /* RecipeMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMetadataView.swift; sourceTree = "<group>"; };
 		BC09E0C72564C81800796104 /* RecipeMetadataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeMetadataView.xib; sourceTree = "<group>"; };
 		BC09E0CC2564C8E200796104 /* CustomViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewExtension.swift; sourceTree = "<group>"; };
@@ -262,16 +262,21 @@
 		BC6AE92D2577361700788855 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BC6AE9322577362400788855 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BC6AE9372577363900788855 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/ShoppingList/View/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
+		BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShoppingListVC.swift; path = Comidinhas/ShoppingList/Controller/ShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		BC953973255A43C500B6E795 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorConstants.swift; path = Comidinhas/ColorConstants.swift; sourceTree = SOURCE_ROOT; };
 		BCA5A9EB25830D820093A8A7 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		BCA5A9F325881E210093A8A7 /* PrepareTimeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareTimeFilter.swift; sourceTree = "<group>"; };
+		BCACA14625D37E2700E810AA /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		BCACA14725D37E2700E810AA /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		BCACA14825D37E2800E810AA /* SettingsAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAuthVC.swift; sourceTree = "<group>"; };
+		BCACA14925D37E2800E810AA /* SettingsCadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCadVC.swift; path = ../Controller/SettingsCadVC.swift; sourceTree = "<group>"; };
+		BCACA14A25D37E2800E810AA /* SettingsUpdVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsUpdVC.swift; sourceTree = "<group>"; };
 		BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		BCE4C1DF254290E100FDBCF9 /* IngredientEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientEntry.swift; sourceTree = "<group>"; };
 		BCE4C1E52542987A00FDBCF9 /* ShoppingListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDelegate.swift; sourceTree = "<group>"; };
 		BCF5A08325B7F22A00309E1F /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		BCF5A08825B7F27000309E1F /* RecipeReviewMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeReviewMetadata.swift; sourceTree = "<group>"; };
-		D3A71DA901B2F0E05CB802FC /* Pods-ComidinhasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.debug.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE62D4674DE91F8C47373E6E /* Pods-ComidinhasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComidinhasTests.release.xcconfig"; path = "Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests.release.xcconfig"; sourceTree = "<group>"; };
 		E53E927D2540A1E40007C559 /* Recipes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recipes.storyboard; sourceTree = "<group>"; };
 		E53E92822540A1F10007C559 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		E53E92872540A1FA0007C559 /* ShoppingList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingList.storyboard; sourceTree = "<group>"; };
@@ -287,7 +292,6 @@
 		E54CE675258CE41800B4FFAF /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E54CE67A258CE4FA00B4FFAF /* loadingCooker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingCooker.json; sourceTree = "<group>"; };
 		E54CE67F258CE66000B4FFAF /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		E54F778125AF810F00368381 /* AppReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviews.swift; sourceTree = "<group>"; };
 		E55141F42576BB6900CD09EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E55141FA2576C1AA00CD09EA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -325,7 +329,7 @@
 		E5A0444525893E2C00438B42 /* AppFavoritos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFavoritos.swift; sourceTree = "<group>"; };
 		E5CE162F25840B7400090104 /* NoRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecipeCell.swift; sourceTree = "<group>"; };
 		E5CE163025840B7400090104 /* NoRecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoRecipeCell.xib; sourceTree = "<group>"; };
-		EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Comidinhas_ComidinhasUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF03CEED4F28CCF61722465 /* Pods-Comidinhas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Comidinhas.debug.xcconfig"; path = "Target Support Files/Pods-Comidinhas/Pods-Comidinhas.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +337,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C355EA8E55760970428B156F /* Pods_Comidinhas.framework in Frameworks */,
+				589FF1312DB2CD97FFFAEFF6 /* Pods_Comidinhas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A19F4384CFBD1D1A978A52F /* Pods_ComidinhasTests.framework in Frameworks */,
+				6E836E795F89692639BC29DF /* Pods_ComidinhasTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +353,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282FB9889C80FC3D03A87E93 /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */,
+				5FE25BE1615227473878FA8B /* Pods_Comidinhas_ComidinhasUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +423,16 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		9224F519873C4A5B7481CDBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43E1697811DCA083E6C9B804 /* Pods_Comidinhas.framework */,
+				55A40C5ECA8D86BF34980A2E /* Pods_Comidinhas_ComidinhasUITests.framework */,
+				2AB9625040891F745CFB58C6 /* Pods_ComidinhasTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC09E0BE2564C7E100796104 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +467,7 @@
 		BC0C00DD2581A44A001CDFBF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E53E92942540A3780007C559 /* RecipesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -481,7 +496,7 @@
 				BC5E88A1253FA64D005345EE /* ComidinhasUITests */,
 				BC5E887E253FA649005345EE /* Products */,
 				D753942BE6023412D3A1E35D /* Pods */,
-				FFF8BBCF049D21F01C0D2337 /* Frameworks */,
+				9224F519873C4A5B7481CDBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -555,6 +570,18 @@
 			path = FirebaseVIewControllers;
 			sourceTree = "<group>";
 		};
+		BCACA15325D37E3B00E810AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCACA14725D37E2700E810AA /* ResetPasswordVC.swift */,
+				BCACA14625D37E2700E810AA /* ResetPasswordViewController.swift */,
+				BCACA14825D37E2800E810AA /* SettingsAuthVC.swift */,
+				BCACA14925D37E2800E810AA /* SettingsCadVC.swift */,
+				BCACA14A25D37E2800E810AA /* SettingsUpdVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BCE4C1E42542984E00FDBCF9 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,12 +594,12 @@
 		D753942BE6023412D3A1E35D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				06950B6A2B37884420DEE925 /* Pods-Comidinhas.debug.xcconfig */,
-				A1E7EE308FB107A48F5C1689 /* Pods-Comidinhas.release.xcconfig */,
-				5C0F1D6D1CD43168604516AA /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */,
-				7B4BAA494475C0C7FBD4D7FA /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */,
-				D3A71DA901B2F0E05CB802FC /* Pods-ComidinhasTests.debug.xcconfig */,
-				4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */,
+				FDF03CEED4F28CCF61722465 /* Pods-Comidinhas.debug.xcconfig */,
+				AF37427C6EA374E29B07DEC5 /* Pods-Comidinhas.release.xcconfig */,
+				052725A1EF924D6A995EA8B6 /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */,
+				84FC6595162496C262A9C9E7 /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */,
+				16E7088A0786A2943A9CA21D /* Pods-ComidinhasTests.debug.xcconfig */,
+				CE62D4674DE91F8C47373E6E /* Pods-ComidinhasTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -647,9 +674,7 @@
 		E55998ED258BDC3A00352CC4 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				E5599931258BE52600352CC4 /* ErrorAndEmptyCell.swift */,
 				E5599932258BE52600352CC4 /* ErrorAndEmptyCell.xib */,
-				E5599938258BE54300352CC4 /* LoadingCell.swift */,
 				E5599939258BE54300352CC4 /* LoadingCell.xib */,
 			);
 			path = CustomViews;
@@ -691,7 +716,7 @@
 			children = (
 				BC09E14C256DEC0C00796104 /* Model */,
 				E55A1114255EEB1300E9FAD7 /* Controller */,
-				E55A1113255EEB0E00E9FAD7 /* View */,
+				BCACA15325D37E3B00E810AA /* View */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -710,7 +735,6 @@
 			isa = PBXGroup;
 			children = (
 				E55A110C255EE9F000E9FAD7 /* Cells */,
-				E53E92942540A3780007C559 /* RecipesVC.swift */,
 				E53E92B12540AAD60007C559 /* RecipeDetailVC.swift */,
 				E59A81D1254CA953001CA268 /* AllReviewsVC.swift */,
 				E59A81D6254CA975001CA268 /* WriteReviewVC.swift */,
@@ -736,6 +760,7 @@
 				BC0D254425B7DB42005D4AD6 /* RecipeReviewMetadataLoadingState.swift */,
 				BCF5A08325B7F22A00309E1F /* Reviews.swift */,
 				BCF5A08825B7F27000309E1F /* RecipeReviewMetadata.swift */,
+				1DE0E8E425D079F7009707F9 /* RecipesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -752,7 +777,6 @@
 			isa = PBXGroup;
 			children = (
 				E55998ED258BDC3A00352CC4 /* CustomViews */,
-				E53E92992540A3880007C559 /* FavoritesVC.swift */,
 				E563473225420BB4002B77FF /* FavoritesCell.swift */,
 				E563473325420BB4002B77FF /* FavoritesCell.xib */,
 			);
@@ -763,6 +787,9 @@
 			isa = PBXGroup;
 			children = (
 				BC4F01CC255CF7E500BABCFA /* FavoritesController.swift */,
+				E53E92992540A3880007C559 /* FavoritesVC.swift */,
+				E5599931258BE52600352CC4 /* ErrorAndEmptyCell.swift */,
+				E5599938258BE54300352CC4 /* LoadingCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -779,10 +806,7 @@
 		E55A110D255EEA4D00E9FAD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */,
-				BC4650782543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift */,
 				BC4650792543DC1C00047FAE /* EmptyShoppingListTableViewCell.xib */,
-				BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */,
 				BC46506F2543DA2400047FAE /* ShoppingListItemTableViewCell.xib */,
 			);
 			path = View;
@@ -793,6 +817,9 @@
 			children = (
 				BC210DF12554ED6800B64FA7 /* MainTabBarController.swift */,
 				BCE4C1DA254290C500FDBCF9 /* ShoppingList.swift */,
+				BC95396E255A40AA00B6E795 /* ShoppingListVC.swift */,
+				BC4650782543DC1C00047FAE /* EmptyShoppingListTableViewCell.swift */,
+				BC46506E2543DA2400047FAE /* ShoppingListItemTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -810,8 +837,6 @@
 		E55A1110255EEAEB00E9FAD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1D8B2078255B76B00068854F /* SearchVC.swift */,
-				1D8B206D255B74D70068854F /* SearchTableViewCell.swift */,
 				1D8B206C255B74D70068854F /* SearchTableViewCell.xib */,
 			);
 			path = View;
@@ -820,6 +845,8 @@
 		E55A1111255EEAF600E9FAD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1D8B206D255B74D70068854F /* SearchTableViewCell.swift */,
+				1D8B2078255B76B00068854F /* SearchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -827,20 +854,9 @@
 		E55A1112255EEAFC00E9FAD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1DE0E8CB25D07283009707F9 /* SearchVCModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		E55A1113255EEB0E00E9FAD7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0178F71F2559806B00D59D18 /* SettingsCadVC.swift */,
-				0178F7242559BCA100D59D18 /* SettingsAuthVC.swift */,
-				0178F72A2559F60F00D59D18 /* SettingsUpdVC.swift */,
-				E54DB5F3258150270007E5B2 /* ResetPasswordViewController.swift */,
-				5490B466257DC363009AE84C /* ResetPasswordVC.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E55A1114255EEB1300E9FAD7 /* Controller */ = {
@@ -852,16 +868,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FFF8BBCF049D21F01C0D2337 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B3C086F65BDAD1745BB71531 /* Pods_Comidinhas.framework */,
-				EA3C3ECA6C81FD0210B0EA0A /* Pods_Comidinhas_ComidinhasUITests.framework */,
-				12C54862719139ECF458BFFF /* Pods_ComidinhasTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -869,11 +875,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC5E88A7253FA64D005345EE /* Build configuration list for PBXNativeTarget "Comidinhas" */;
 			buildPhases = (
-				669AC70FBF905F03DEA8E754 /* [CP] Check Pods Manifest.lock */,
+				44719FA6108E05C9201F24CA /* [CP] Check Pods Manifest.lock */,
 				BC5E8879253FA649005345EE /* Sources */,
 				BC5E887A253FA649005345EE /* Frameworks */,
 				BC5E887B253FA649005345EE /* Resources */,
-				1DF8C3F7402F272C4E7E22D5 /* [CP] Embed Pods Frameworks */,
+				6EDCBDA6F673C9BACB8E8DBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -888,7 +894,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC5E88AA253FA64D005345EE /* Build configuration list for PBXNativeTarget "ComidinhasTests" */;
 			buildPhases = (
-				0ACC5DAF15C371E0938E1880 /* [CP] Check Pods Manifest.lock */,
+				E23A6B9782664C713F1D6917 /* [CP] Check Pods Manifest.lock */,
 				BC5E888F253FA64D005345EE /* Sources */,
 				BC5E8890253FA64D005345EE /* Frameworks */,
 				BC5E8891253FA64D005345EE /* Resources */,
@@ -908,11 +914,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC5E88AD253FA64D005345EE /* Build configuration list for PBXNativeTarget "ComidinhasUITests" */;
 			buildPhases = (
-				94D753014D82D36F1A5A04F1 /* [CP] Check Pods Manifest.lock */,
+				1C0E9F6064C38937DEF1B369 /* [CP] Check Pods Manifest.lock */,
 				BC5E889A253FA64D005345EE /* Sources */,
 				BC5E889B253FA64D005345EE /* Frameworks */,
 				BC5E889C253FA64D005345EE /* Resources */,
-				7E1E3D5CDBDE2E1171EFF686 /* [CP] Embed Pods Frameworks */,
+				305483F0A38E9B35EA41DC29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1022,7 +1028,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0ACC5DAF15C371E0938E1880 /* [CP] Check Pods Manifest.lock */ = {
+		1C0E9F6064C38937DEF1B369 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1037,48 +1043,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ComidinhasTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Comidinhas-ComidinhasUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1DF8C3F7402F272C4E7E22D5 /* [CP] Embed Pods Frameworks */ = {
+		305483F0A38E9B35EA41DC29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		669AC70FBF905F03DEA8E754 /* [CP] Check Pods Manifest.lock */ = {
+		44719FA6108E05C9201F24CA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1100,24 +1089,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7E1E3D5CDBDE2E1171EFF686 /* [CP] Embed Pods Frameworks */ = {
+		56FB18E89E9E08230E24A04C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas-ComidinhasUITests/Pods-Comidinhas-ComidinhasUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComidinhasTests/Pods-ComidinhasTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94D753014D82D36F1A5A04F1 /* [CP] Check Pods Manifest.lock */ = {
+		6EDCBDA6F673C9BACB8E8DBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Comidinhas/Pods-Comidinhas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E23A6B9782664C713F1D6917 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1132,7 +1138,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Comidinhas-ComidinhasUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ComidinhasTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1155,6 +1161,7 @@
 				1D53E4E82582CF7A00D49313 /* MealTypeFilter.swift in Sources */,
 				E54CE671258CE40B00B4FFAF /* LoadingView.swift in Sources */,
 				BC5E8885253FA649005345EE /* ViewController.swift in Sources */,
+				BCACA14F25D37E2900E810AA /* SettingsUpdVC.swift in Sources */,
 				E5CE163125840B7400090104 /* NoRecipeCell.swift in Sources */,
 				541C469C25CF275E00887982 /* SettingsViewControler.swift in Sources */,
 				1D8B2062255B74B90068854F /* IQKeyboardManager+Toolbar.swift in Sources */,
@@ -1169,9 +1176,11 @@
 				E54CE680258CE66000B4FFAF /* BaseViewController.swift in Sources */,
 				1D8B2079255B76B00068854F /* SearchVC.swift in Sources */,
 				1D8B2063255B74B90068854F /* IQUIScrollView+Additions.swift in Sources */,
+				1DE0E8E525D079F7009707F9 /* RecipesModel.swift in Sources */,
+				BCACA14E25D37E2900E810AA /* SettingsCadVC.swift in Sources */,
 				BC0D254525B7DB42005D4AD6 /* RecipeReviewMetadataLoadingState.swift in Sources */,
 				E56149E025476656007F9C42 /* IngredientesCell.swift in Sources */,
-				0178F7202559806B00D59D18 /* SettingsCadVC.swift in Sources */,
+				BCACA14B25D37E2900E810AA /* ResetPasswordViewController.swift in Sources */,
 				E554ED77254AFBC70050D1CD /* ReviewHeaderCell.swift in Sources */,
 				BC4F01CD255CF7E500BABCFA /* FavoritesController.swift in Sources */,
 				BC09E0C02564C80800796104 /* RecipeMetadataView.swift in Sources */,
@@ -1202,13 +1211,13 @@
 				E563473425420BB4002B77FF /* FavoritesCell.swift in Sources */,
 				BC5E8881253FA649005345EE /* AppDelegate.swift in Sources */,
 				BC953974255A43C500B6E795 /* ColorConstants.swift in Sources */,
-				5490B467257DC363009AE84C /* ResetPasswordVC.swift in Sources */,
+				BCACA14C25D37E2900E810AA /* ResetPasswordVC.swift in Sources */,
 				E55142002576C1C000CD09EA /* EntrarVC.swift in Sources */,
 				E554ED57254AF8AB0050D1CD /* IngredientesHeaderCell.swift in Sources */,
 				E59858952548D82700DC64D7 /* ImageCell.swift in Sources */,
 				1D8B2052255B74B90068854F /* IQTextView.swift in Sources */,
-				E54DB5F4258150270007E5B2 /* ResetPasswordViewController.swift in Sources */,
 				E563472A25420A14002B77FF /* Favorites.swift in Sources */,
+				1DE0E8CC25D07283009707F9 /* SearchVCModel.swift in Sources */,
 				1D53E4E32582CF6200D49313 /* IngredientsFilter.swift in Sources */,
 				1D8B2056255B74B90068854F /* IQBarButtonItem.swift in Sources */,
 				BCE4C1E62542987A00FDBCF9 /* ShoppingListDelegate.swift in Sources */,
@@ -1238,7 +1247,6 @@
 				BC0C00D12581984E001CDFBF /* UIViewControllerAlertsExtension.swift in Sources */,
 				E5614A1E2547803C007F9C42 /* SeeMoreAndAvaliationCell.swift in Sources */,
 				1D53E4ED2582CF9B00D49313 /* MealType.swift in Sources */,
-				0178F72B2559F60F00D59D18 /* SettingsUpdVC.swift in Sources */,
 				E5A0444625893E2C00438B42 /* AppFavoritos.swift in Sources */,
 				BC6AE926257735FC00788855 /* FirebaseViewController.swift in Sources */,
 				1D53E4D42582CEEB00D49313 /* RecipesWorker.swift in Sources */,
@@ -1249,7 +1257,7 @@
 				1D8B2055255B74B90068854F /* IQTitleBarButtonItem.swift in Sources */,
 				1D8B2058255B74B90068854F /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				E53E92BB2540AC170007C559 /* Recipe.swift in Sources */,
-				0178F7252559BCA100D59D18 /* SettingsAuthVC.swift in Sources */,
+				BCACA14D25D37E2900E810AA /* SettingsAuthVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1425,7 +1433,7 @@
 		};
 		BC5E88A8253FA64D005345EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06950B6A2B37884420DEE925 /* Pods-Comidinhas.debug.xcconfig */;
+			baseConfigurationReference = FDF03CEED4F28CCF61722465 /* Pods-Comidinhas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1448,7 +1456,7 @@
 		};
 		BC5E88A9253FA64D005345EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1E7EE308FB107A48F5C1689 /* Pods-Comidinhas.release.xcconfig */;
+			baseConfigurationReference = AF37427C6EA374E29B07DEC5 /* Pods-Comidinhas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1471,7 +1479,7 @@
 		};
 		BC5E88AB253FA64D005345EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3A71DA901B2F0E05CB802FC /* Pods-ComidinhasTests.debug.xcconfig */;
+			baseConfigurationReference = 16E7088A0786A2943A9CA21D /* Pods-ComidinhasTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1493,7 +1501,7 @@
 		};
 		BC5E88AC253FA64D005345EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C53111F824731FB1E8F164A /* Pods-ComidinhasTests.release.xcconfig */;
+			baseConfigurationReference = CE62D4674DE91F8C47373E6E /* Pods-ComidinhasTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1515,7 +1523,7 @@
 		};
 		BC5E88AE253FA64D005345EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C0F1D6D1CD43168604516AA /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */;
+			baseConfigurationReference = 052725A1EF924D6A995EA8B6 /* Pods-Comidinhas-ComidinhasUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1535,7 +1543,7 @@
 		};
 		BC5E88AF253FA64D005345EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B4BAA494475C0C7FBD4D7FA /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */;
+			baseConfigurationReference = 84FC6595162496C262A9C9E7 /* Pods-Comidinhas-ComidinhasUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
