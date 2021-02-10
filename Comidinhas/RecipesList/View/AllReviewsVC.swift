@@ -49,7 +49,6 @@ class AllReviewsVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-//        AppReviews.shared.loadReviewsForRecipeWith(id: recipe?.id ?? 0, reviewsToLoad: nil, completion: loadedReviews(reviews:), failure: reviewLoaderErrorHandler(error:))
     }
     
     func loadedReviews(reviews: Reviews) {
