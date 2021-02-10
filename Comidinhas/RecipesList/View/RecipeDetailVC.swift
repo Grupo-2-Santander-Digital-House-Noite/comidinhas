@@ -6,9 +6,6 @@
 //
 
 
-//"♡"♥︎
-// ☆ ★
-
 import UIKit
 
 class RecipeDetailVC: UIViewController {
@@ -30,7 +27,6 @@ class RecipeDetailVC: UIViewController {
 
 
     // MARK: configTableView e configDetalhes
-
     private func configTableView() {
         self.recipeDetailTableView.delegate = self
         self.recipeDetailTableView.dataSource = self
@@ -77,9 +73,11 @@ class RecipeDetailVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: AppUserManager.userLoggedOutNotification, object: nil)
     }
     
+    
     @objc private func reloadData() {
         self.recipeDetailTableView.reloadData()
     }
+    
     
     // MARK: - Handlers das reviews (Mover para um controller)
     func loadedReviews(reviews: Reviews) {
@@ -130,7 +128,6 @@ class RecipeDetailVC: UIViewController {
             vc?.configureWith(recipe: self.receita, review: userReview)
             break
         default:
-            // Faz nada
             return
         }
     }
@@ -139,7 +136,6 @@ class RecipeDetailVC: UIViewController {
 
 
 // MARK: - Extension: TableView Delegate e DataSouce
-
 extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Helpers for sections
@@ -163,7 +159,6 @@ extension RecipeDetailVC: UITableViewDelegate, UITableViewDataSource {
     // MARK: leadingSwipeActionsConfigurationForRowAt indexPath
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        // Achar uma forma melhor de definir a seção de ingredientes.
         if indexPath.section != 1 {
             return nil
         }
@@ -460,8 +455,6 @@ extension RecipeDetailVC: ViewNeedsLoggedUserDelegate {
             } else {
                 self.displayErrorAlertWith(title: "Error", message: "Can't login right now, please try again by tapping the settings icon.", completion: nil)
             }
-            
         };
     }
-    
 }

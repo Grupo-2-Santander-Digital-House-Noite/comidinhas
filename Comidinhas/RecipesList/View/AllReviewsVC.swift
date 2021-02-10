@@ -24,7 +24,6 @@ class AllReviewsVC: BaseViewController {
     
 
     // MARK: configTableView
-    
     private func configTableView() {
         self.reviewsTableView.delegate = self
         self.reviewsTableView.dataSource = self
@@ -89,7 +88,6 @@ class AllReviewsVC: BaseViewController {
 
 
 // MARK: extension TableView
-
 extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -109,7 +107,6 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
             average = "Could not load average"
             header?.totalReviewsLabel.text = "0 reviews"
         }
-        
         header?.starLabel.text = average
         return header ?? nil
     }
@@ -142,6 +139,8 @@ extension AllReviewsVC:UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// MARK: - extension ViewNeedsLoggedUserDelegate
 extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
     
     func didNeedALoggedUserTo(reason: String) {
@@ -151,8 +150,7 @@ extension AllReviewsVC : ViewNeedsLoggedUserDelegate {
                 tabbarcontroller.transitionTo(destinationTab: .Settings)
             } else {
                 self.displayErrorAlertWith(title: "Error", message: "Can't login right now, please try again by tapping the settings icon.", completion: nil)
-            }
-            
+            } 
         };
     }
 }

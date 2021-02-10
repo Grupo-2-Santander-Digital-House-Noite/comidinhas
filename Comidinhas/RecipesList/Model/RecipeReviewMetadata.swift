@@ -71,7 +71,6 @@ class RecipeReviewMetadata {
             self._count = 0
             self._sum = 0
         }
-
     }
     
     func asFirestoreData() -> [String: Any] {
@@ -90,5 +89,4 @@ class RecipeReviewMetadata {
         }
         self._sum = self.reviewRatingSum + review.rating
     }
-    
 }

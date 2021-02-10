@@ -62,7 +62,7 @@
         <scene sceneID="WMk-Bl-FUs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qvk-pg-15L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" image="book" catalog="system" id="REC-jC-7pB"/>
+                    <tabBarItem key="tabBarItem" tag="250" title="Recipes" image="book" catalog="system" id="REC-jC-7pB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJD-6p-5cI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

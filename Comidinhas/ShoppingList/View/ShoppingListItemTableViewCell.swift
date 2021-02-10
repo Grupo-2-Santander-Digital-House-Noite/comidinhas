@@ -20,12 +20,10 @@ class ShoppingListItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     func setupWith(ingredient: IngredientEntry) {
@@ -53,6 +51,8 @@ class ShoppingListItemTableViewCell: UITableViewCell {
     }
 }
 
+
+// MARK: - extension ToggleIngredientesMarkedDelegate
 extension ShoppingListItemTableViewCell : ToggleIngredientMarkedDelegate {
     func toggled(ingredientEntry: IngredientEntry, marked: ShoppingListItemStateEnum) {
         self.ingredientEntry = ingredientEntry

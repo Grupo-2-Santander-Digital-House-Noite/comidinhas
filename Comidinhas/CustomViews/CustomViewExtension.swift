@@ -35,7 +35,6 @@ extension ComidinhasCustomView {
         let nib: UINib = UINib(nibName: nibName, bundle: bundle)
         // Tenta retornar uma instância
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
-    
     }
     
     /**
@@ -51,6 +50,5 @@ extension ComidinhasCustomView {
         view.frame = self.bounds
         // Adiciona a view como uma subView.
         self.addSubview(view)
-        
     }
 }

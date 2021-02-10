@@ -16,7 +16,6 @@ class RecipesWebService {
     
     static var shared: RecipesWebService = { () -> RecipesWebService in
         let instance = RecipesWebService()
-        //instance.loadRecipes()
         
         return instance
     }()
@@ -39,8 +38,6 @@ class RecipesWebService {
         } failure: { (error) in
             failure(error)
         }
-
-        
     }
     
     func loadRecipes() -> Void {
@@ -96,7 +93,7 @@ class RecipesWebService {
                 completionHandler(true, nil)
                 self.finishedRequest = true
             }else{
-                
+            
                 completionHandler(false, error)
                 self.finishedRequest = true
             }

@@ -15,17 +15,12 @@ class RecipesCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var servingsLabel: UILabel!
 
-
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 
@@ -45,15 +40,11 @@ class RecipesCell: UITableViewCell {
         timeLabel.text = nil
         categoryLabel.text = nil
         servingsLabel.text = nil
-        //self.recipeImage.startLoadingAnimation()
     }
-    
-    
-    
-    
-
 }
 
+
+// MARK: - extension UIImageView
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode
@@ -71,10 +62,13 @@ extension UIImageView {
             }
         }.resume()
     }
+    
+    
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
     
     func startLoadingAnimation() {
         self.image = nil
@@ -87,6 +81,7 @@ extension UIImageView {
         self.animationDuration = 0.4
         self.startAnimating()
     }
+    
     
     func stopLoadingAnimation() {
         self.stopAnimating()

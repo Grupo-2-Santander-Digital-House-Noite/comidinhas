@@ -122,13 +122,11 @@ class AppReviews {
             completion(reviews)
             return;
         }
-        
         var query = self.db.collection("reviews")
             .whereField("recipeId", isEqualTo: id)
             .whereField("userId", isEqualTo: currentUser.uid)
         
         query.getDocuments { (querySnapshot, error) in
-            // Se tiver um erro pula fora.
             if let error = error {
                 failure(error)
                 return;
@@ -137,7 +135,6 @@ class AppReviews {
             var reviewsAtualizadas: Reviews = reviews.filter { (review) -> Bool in
                 return review.userId != currentUser.uid
             }
-            
             // Se tiver uma review adiciona as que já existem.
             if let querySnapshot = querySnapshot {
                 for document in querySnapshot.documents {
@@ -145,32 +142,27 @@ class AppReviews {
                     reviewsAtualizadas.append(review)
                 }
             }
-            
             completion(reviewsAtualizadas)
-            
         }
-        
     }
+    
     
     func loadRecipeReviewMetaDataWithRecipe(id: Int, completion: @escaping ((RecipeReviewMetadata) -> Void), failure: @escaping ((Error) -> Void)) {
         
         self.db.collection("recipesReviewsMetadata")
             .document("\(id)").getDocument { (documentSnapshot, error) in
-                if let error = error {
-                    failure(error)
-                    return
-                }
-                
-                if let data = documentSnapshot?.data() {
-                    let metadata = RecipeReviewMetadata(firestoreData: data)
-                    completion(metadata)
-                    return
-                }
-                
-                failure(GenericError.GenericErrorWithMessage(message: "Could not load the recipes metadata!"))
+            if let error = error {
+                failure(error)
+                return
             }
+            if let data = documentSnapshot?.data() {
+                let metadata = RecipeReviewMetadata(firestoreData: data)
+                completion(metadata)
+                return
+            }
+            failure(GenericError.GenericErrorWithMessage(message: "Could not load the recipes metadata!"))
+        }
     }
-    
 }
 
 

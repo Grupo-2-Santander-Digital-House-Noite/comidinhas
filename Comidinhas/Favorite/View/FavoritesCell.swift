@@ -12,15 +12,12 @@ class FavoritesCell: UITableViewCell {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     
@@ -29,8 +26,8 @@ class FavoritesCell: UITableViewCell {
         self.nameLabel.text = favorites.nomeReceita
     }
     
+    
     func setup(recipe: Recipe?) {
-        //self.recipeImage.image = UIImage(named: recipe?.image ?? "")
         if let url = URL(string: recipe?.image ?? ""){
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard

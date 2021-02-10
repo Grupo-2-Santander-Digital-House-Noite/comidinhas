@@ -46,7 +46,6 @@ class AppFavoritos {
     }
     
     
-    
     func RemoveFavoriteRecipeFromFirestore(RecipeID:Int?, completion:(() -> Void)?, failure:((Error) -> Void)?) {
         // Faz um alias para o failure
         let reportError = {(error:Error) -> Void in
@@ -77,9 +76,7 @@ class AppFavoritos {
                 completion(ids)
                 return
             }
-            
             failure(GenericError.GenericErrorWithMessage(message: "Não desempacotou o documento!"))
         }
-        
     }
 }

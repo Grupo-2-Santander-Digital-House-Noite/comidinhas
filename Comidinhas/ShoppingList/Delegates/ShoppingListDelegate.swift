@@ -42,6 +42,8 @@ protocol ShoppingListDelegate: AnyObject {
     func didUncheck(_ shoppingList: ShoppingList, ingredient: IngredientEntry) -> Void
 }
 
+
+// MARK: - extension ShoppingListDelegate
 extension ShoppingListDelegate {
     func didAdd(_ shoppingList: ShoppingList, ingredient: IngredientEntry) -> Void {
         // Torna o método opicional
